@@ -7,18 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		021DA5B31B0FD53E0030815A /* BONearmeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021DA5B21B0FD53E0030815A /* BONearmeTableViewCell.swift */; };
+		021DA5B51B0FD5B00030815A /* BODealsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021DA5B41B0FD5B00030815A /* BODealsTableViewCell.swift */; };
+		021DA5B81B1164810030815A /* brands.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 021DA5B71B1164810030815A /* brands.xcassets */; };
 		0232F57C1B016EA4009274BA /* ResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0232F57B1B016EA4009274BA /* ResponseParser.swift */; };
 		02577EB11AFAC97400F3521B /* BOBrandTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02577EB01AFAC97400F3521B /* BOBrandTableViewCell.swift */; };
 		02577EB41AFAD06F00F3521B /* BOStoresTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02577EB31AFAD06F00F3521B /* BOStoresTableViewCell.swift */; };
 		02577EB61AFAF81700F3521B /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02577EB51AFAF81700F3521B /* StoreViewController.swift */; };
 		02662BF21B02FF1B00093D7D /* Stores.json in Resources */ = {isa = PBXBuildFile; fileRef = 02662BF11B02FF1B00093D7D /* Stores.json */; };
 		02662BF41B03004F00093D7D /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02662BF31B03004F00093D7D /* Store.swift */; };
+		02A3B2931B1A36E900B99AAA /* BOHttpfetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A3B2921B1A36E900B99AAA /* BOHttpfetcher.swift */; };
 		02AA9A091AFD67120090A88B /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AA9A081AFD67120090A88B /* Brand.swift */; };
 		02C9BD001B042AF6000C6FA6 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C9BCFF1B042AF6000C6FA6 /* DataManager.swift */; };
 		02C9BD011B042CF7000C6FA6 /* Brands.json in Resources */ = {isa = PBXBuildFile; fileRef = 02577EB91AFC5BB700F3521B /* Brands.json */; };
 		02C9BD0A1B054C09000C6FA6 /* NearMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C9BD091B054C09000C6FA6 /* NearMeViewController.swift */; };
 		02C9BD0C1B054C3D000C6FA6 /* DealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C9BD0B1B054C3D000C6FA6 /* DealsViewController.swift */; };
 		02C9BD0E1B054C56000C6FA6 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C9BD0D1B054C56000C6FA6 /* RegisterViewController.swift */; };
+		02D4ADF31B0D3717006ED90F /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02D4ADF21B0D3717006ED90F /* Icons.xcassets */; };
+		02E442021B0E9AD40097D2E6 /* Button Background.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02E442011B0E9AD40097D2E6 /* Button Background.xcassets */; };
+		02E442041B0F5FFA0097D2E6 /* Deals.json in Resources */ = {isa = PBXBuildFile; fileRef = 02E442031B0F5FFA0097D2E6 /* Deals.json */; };
+		02E442061B0F62150097D2E6 /* NearStores.json in Resources */ = {isa = PBXBuildFile; fileRef = 02E442051B0F62150097D2E6 /* NearStores.json */; };
 		02FB4DDA1AF7A47900884750 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FB4DD91AF7A47900884750 /* AppDelegate.swift */; };
 		02FB4DDD1AF7A47900884750 /* BuyOriginal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 02FB4DDB1AF7A47900884750 /* BuyOriginal.xcdatamodeld */; };
 		02FB4DDF1AF7A47900884750 /* BrandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FB4DDE1AF7A47900884750 /* BrandViewController.swift */; };
@@ -39,6 +47,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		021DA5B21B0FD53E0030815A /* BONearmeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BONearmeTableViewCell.swift; sourceTree = "<group>"; };
+		021DA5B41B0FD5B00030815A /* BODealsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BODealsTableViewCell.swift; sourceTree = "<group>"; };
+		021DA5B71B1164810030815A /* brands.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = brands.xcassets; sourceTree = "<group>"; };
 		0232F57B1B016EA4009274BA /* ResponseParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseParser.swift; sourceTree = "<group>"; };
 		02577EB01AFAC97400F3521B /* BOBrandTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BOBrandTableViewCell.swift; sourceTree = "<group>"; };
 		02577EB31AFAD06F00F3521B /* BOStoresTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BOStoresTableViewCell.swift; sourceTree = "<group>"; };
@@ -46,11 +57,16 @@
 		02577EB91AFC5BB700F3521B /* Brands.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Brands.json; sourceTree = "<group>"; };
 		02662BF11B02FF1B00093D7D /* Stores.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Stores.json; sourceTree = "<group>"; };
 		02662BF31B03004F00093D7D /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		02A3B2921B1A36E900B99AAA /* BOHttpfetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BOHttpfetcher.swift; path = Network/BOHttpfetcher.swift; sourceTree = "<group>"; };
 		02AA9A081AFD67120090A88B /* Brand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Brand.swift; path = DataModels/Brand.swift; sourceTree = "<group>"; };
 		02C9BCFF1B042AF6000C6FA6 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		02C9BD091B054C09000C6FA6 /* NearMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearMeViewController.swift; sourceTree = "<group>"; };
 		02C9BD0B1B054C3D000C6FA6 /* DealsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealsViewController.swift; sourceTree = "<group>"; };
 		02C9BD0D1B054C56000C6FA6 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		02D4ADF21B0D3717006ED90F /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
+		02E442011B0E9AD40097D2E6 /* Button Background.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Button Background.xcassets"; sourceTree = "<group>"; };
+		02E442031B0F5FFA0097D2E6 /* Deals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Deals.json; sourceTree = "<group>"; };
+		02E442051B0F62150097D2E6 /* NearStores.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NearStores.json; sourceTree = "<group>"; };
 		02FB4DD41AF7A47900884750 /* BuyOriginal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuyOriginal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02FB4DD81AF7A47900884750 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02FB4DD91AF7A47900884750 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +111,8 @@
 			children = (
 				02577EB31AFAD06F00F3521B /* BOStoresTableViewCell.swift */,
 				02577EB01AFAC97400F3521B /* BOBrandTableViewCell.swift */,
+				021DA5B21B0FD53E0030815A /* BONearmeTableViewCell.swift */,
+				021DA5B41B0FD5B00030815A /* BODealsTableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -116,8 +134,18 @@
 			children = (
 				02577EB91AFC5BB700F3521B /* Brands.json */,
 				02662BF11B02FF1B00093D7D /* Stores.json */,
+				02E442031B0F5FFA0097D2E6 /* Deals.json */,
+				02E442051B0F62150097D2E6 /* NearStores.json */,
 			);
 			name = SampleDataGenerator;
+			sourceTree = "<group>";
+		};
+		02A3B2911B1A35C300B99AAA /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				02A3B2921B1A36E900B99AAA /* BOHttpfetcher.swift */,
+			);
+			name = Network;
 			sourceTree = "<group>";
 		};
 		02AA9A071AFD669D0090A88B /* DataModel */ = {
@@ -150,6 +178,7 @@
 		02FB4DD61AF7A47900884750 /* BuyOriginal */ = {
 			isa = PBXGroup;
 			children = (
+				02A3B2911B1A35C300B99AAA /* Network */,
 				02C9BCFF1B042AF6000C6FA6 /* DataManager.swift */,
 				0232F57A1B016E7B009274BA /* Parser */,
 				02577EB81AFC5AD800F3521B /* SampleDataGenerator */,
@@ -170,6 +199,9 @@
 			isa = PBXGroup;
 			children = (
 				02FB4DD81AF7A47900884750 /* Info.plist */,
+				02D4ADF21B0D3717006ED90F /* Icons.xcassets */,
+				02E442011B0E9AD40097D2E6 /* Button Background.xcassets */,
+				021DA5B71B1164810030815A /* brands.xcassets */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -240,6 +272,7 @@
 				TargetAttributes = {
 					02FB4DD31AF7A47900884750 = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = Q79878SPU6;
 					};
 					02FB4DEB1AF7A47900884750 = {
 						CreatedOnToolsVersion = 6.2;
@@ -272,9 +305,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				02FB4DE21AF7A47900884750 /* Main.storyboard in Resources */,
+				021DA5B81B1164810030815A /* brands.xcassets in Resources */,
 				02C9BD011B042CF7000C6FA6 /* Brands.json in Resources */,
+				02E442021B0E9AD40097D2E6 /* Button Background.xcassets in Resources */,
+				02E442041B0F5FFA0097D2E6 /* Deals.json in Resources */,
+				02E442061B0F62150097D2E6 /* NearStores.json in Resources */,
 				02FB4DE71AF7A47900884750 /* LaunchScreen.xib in Resources */,
 				02FB4DE41AF7A47900884750 /* Images.xcassets in Resources */,
+				02D4ADF31B0D3717006ED90F /* Icons.xcassets in Resources */,
 				02662BF21B02FF1B00093D7D /* Stores.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,17 +331,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02A3B2931B1A36E900B99AAA /* BOHttpfetcher.swift in Sources */,
 				02577EB11AFAC97400F3521B /* BOBrandTableViewCell.swift in Sources */,
 				02C9BD001B042AF6000C6FA6 /* DataManager.swift in Sources */,
 				02FB4DDF1AF7A47900884750 /* BrandViewController.swift in Sources */,
 				02577EB61AFAF81700F3521B /* StoreViewController.swift in Sources */,
 				02C9BD0A1B054C09000C6FA6 /* NearMeViewController.swift in Sources */,
 				02662BF41B03004F00093D7D /* Store.swift in Sources */,
+				021DA5B31B0FD53E0030815A /* BONearmeTableViewCell.swift in Sources */,
 				0232F57C1B016EA4009274BA /* ResponseParser.swift in Sources */,
 				02577EB41AFAD06F00F3521B /* BOStoresTableViewCell.swift in Sources */,
 				02C9BD0C1B054C3D000C6FA6 /* DealsViewController.swift in Sources */,
 				02AA9A091AFD67120090A88B /* Brand.swift in Sources */,
 				02C9BD0E1B054C56000C6FA6 /* RegisterViewController.swift in Sources */,
+				021DA5B51B0FD5B00030815A /* BODealsTableViewCell.swift in Sources */,
 				02FB4DDA1AF7A47900884750 /* AppDelegate.swift in Sources */,
 				02FB4DDD1AF7A47900884750 /* BuyOriginal.xcdatamodeld in Sources */,
 			);
@@ -381,7 +422,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -418,7 +459,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -430,9 +471,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = BuyOriginal/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "ebd52df5-0bc9-489c-8d4c-6ed8bf03942a";
 			};
 			name = Debug;
 		};
@@ -440,9 +485,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = BuyOriginal/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2786b1b7-4b84-427b-a195-2d3bc2307558";
 			};
 			name = Release;
 		};

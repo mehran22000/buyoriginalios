@@ -18,44 +18,72 @@ class ResponseParser: NSObject, Printable {
         var array = [BrandModel]()
         
         for elem: AnyObject in JSONParseArray(json! as String) {
-            let id = elem["id"] as! String
-            let name = elem["name"] as! String
-            let category = elem["category"] as! String
-            let storesNo = elem["storesNo"] as! String
-            let nearestLocation = elem["nearestLocation"] as! String
-            let logo = elem["logo"] as! String
-            println("Id: \(id)", "Name: \(name), Category: \(category)", "StoresNo: \(storesNo)", "nearestLocation: \(nearestLocation)")
-            let b = BrandModel(brandId: id, name: name, category: category, storesNo: storesNo, nearestLocation: nearestLocation, logo:logo);
+            let bId = elem["bId"] as? String
+            let bName = elem["bName"] as? String
+            let bCategory = elem["bCategory"] as? String
+            let sNumbers = elem["sNumbers"] as? String
+            let sNearestLocation = elem["sNearestLocation"] as? String
+            let bLogo = elem["bLogo"] as! String
+            println("bId: \(bId)", "bName: \(bName)", "bCategory: \(bCategory)", "sNumbers: \(sNumbers)", "sNearestLocation: \(sNearestLocation)")
+            let b = BrandModel(bId: bId, bName: bName, bCategory: bCategory, sNumbers: sNumbers, sNearestLocation: sNearestLocation, bLogo:bLogo);
             array+=[b]
             
         }
         
         return array;
     }
+    
+    
+    func parseBrandArray(array:NSArray) -> [BrandModel] {
+        
+        var brands = [BrandModel]()
+        
+        for elem: AnyObject in array {
+            let bId = elem["bId"] as? String
+            let bName = elem["bName"] as? String
+            let cName = elem["cName"] as? String
+            let bLogo = elem["bLogo"] as! String
+            println("bId: \(bId)", "bName: \(bName)", "cName: \(cName)", "bLogo: \(bLogo)")
+            let b = BrandModel(bId: bId, bName: bName, bCategory: cName, sNumbers: "", sNearestLocation: "", bLogo:bLogo);
+            brands+=[b]
+        }
+        return brands;
+    }
+    
 
     
-    func parseStoresJson(brandId: NSString?, json: NSString?) -> [StoreModel] {
+    func parseStoresJson(_bId: NSString?, json: NSString?) -> [StoreModel] {
         
         var array = [StoreModel]()
         
         for elem: AnyObject in JSONParseArray(json! as String) {
-            let id = elem["brandId"] as! String
-            let name = elem["name"] as! String
-            let address = elem["address"] as! String
-            let phoneNumber = elem["phoneNumber"] as! String
+            let sId = elem["sId"] as? String
+            let bId = elem["bId"] as? String
+            let sName = elem["sName"] as? String
+            let bName = elem["bName"] as? String
             
-            if id == brandId {
-                println("Id: \(id)", "Name: \(name), address: \(address)", "phoneNumber: \(phoneNumber)")
-                let b = StoreModel(brandId: id, name: name, storeLocation:address, phoneNumber:phoneNumber);
+            let sAddress = elem["sAddress"] as? String
+            let sTel = elem["sTel"] as? String
+            let sDiscount = elem["sDiscount"] as? String
+            let sDistance = elem["sDistance"] as? String
+            let bLogo = elem["bLogo"] as? String
+            let bCategory = elem["bCategory"] as? String
+            
+            println("sId: \(sId)", "sName: \(sName)","bId: \(bId)", "bName: \(bName)", "sAddress: \(sAddress)", "sTel: \(sTel)")
+            
+             let b = StoreModel(bId: bId, bName: bName, sId: sId, sName: sName, sAddress: sAddress, sTel: sTel, sDiscount: sDiscount, sDistance: sDistance, bCategory: bCategory, bLogo: bLogo)
+            
+            if _bId == bId {
+                array+=[b]
+            }
+            else if _bId=="" {
                 array+=[b]
             }
         }
         
         return array;
     }
-    
-    
-    
+
     
     func JSONParseArray(jsonString: String) -> [AnyObject] {
         if let data = jsonString.dataUsingEncoding(NSUTF8StringEncoding) {

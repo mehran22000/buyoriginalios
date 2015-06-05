@@ -8,13 +8,14 @@
 
 import UIKit
 
-class StoreViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
+class StoreViewController: UIViewController,UITableViewDelegate, UITableViewDataSource,UISearchBarDelegate {
 
     @IBOutlet var tableView: UITableView!
     var storesArray = NSArray()
+    var filteredStores = [StoreModel]()
     var brandId=0
     let kDemoStores:String="[{\"brandId\":\"1\",\"name\":\"آریاپخش نقش جهان\",\"phoneNumber\":\"۳۶۳۰۴۹۲۷\",\"address\":\"اصفهان خیابان چهارباغ بالا\"}]"
-    
+    var is_searching=false   // It's flag for searching
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,13 +41,24 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
     }
 
     
+    override func viewDidAppear(animated: Bool) {
+        self.tableView.reloadData()
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.storesArray.count;
+        
+        if is_searching==true {
+            return self.filteredStores.count
+        } else {
+            return self.storesArray.count
+        }
+        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -55,19 +67,27 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
         
         var store = self.storesArray[indexPath.row] as! StoreModel
         
-        cell.storeNameLabel.text = self.storesArray[indexPath.row].name;
-        
-        cell.storeLocationLabel.text = store.storeLocation
-        
-        
-        
-        cell.storePhoneNumberLabel.text = self.storesArray[indexPath.row].phoneNumber;
+        if is_searching==true {
+            store = self.filteredStores[indexPath.row] as StoreModel
+        } else {
+            store = self.storesArray[indexPath.row] as! StoreModel
+        }
+
+        cell.storeNameLabel.text = store.sName;
+        cell.storeLocationLabel.text = store.sAddress
+        cell.storePhoneNumberLabel.text = store.sTel;
         
         // cell.textLabel?.text = self.items[indexPath.row]
         
         return cell
         
     }
+    
+    
+    
+    
+    
+    
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         println("You selected cell #\(indexPath.row)!")
@@ -76,7 +96,27 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 100
     }
-
+// Search Bar Delegates
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String){
+        if searchBar.text.isEmpty{
+            is_searching = false
+            tableView.reloadData()
+        } else {
+            println(" search text %@ ",searchBar.text as NSString)
+            is_searching = true
+            self.filteredStores.removeAll(keepCapacity: false)
+            for var index = 0; index < self.storesArray.count; index++
+            {
+                var store: StoreModel = self.storesArray.objectAtIndex(index) as! StoreModel
+                
+                var currentString = store.sName as String
+                if currentString.lowercaseString.rangeOfString(searchText.lowercaseString)  != nil {
+                    self.filteredStores+=[store];
+                }
+            }
+            tableView.reloadData()
+        }
+    }
     
     
     /*

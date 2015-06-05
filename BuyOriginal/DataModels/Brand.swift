@@ -10,24 +10,23 @@ import Foundation
 
 
 class BrandModel: NSObject, Printable {
-    let brandId: String
-    let name: String
-    let category: String
-    let storesNo: String
-    let nearestLocation: String
-    let logo: String
+    let bId: String
+    let bName: String
+    let bCategory: String
+    let sNumbers: String
+    let sNearestLocation: String
+    let bLogo: String
     
     override var description: String {
-        return "brandId: \(brandId), name: \(name), category: \(category), storesNo: \(storesNo) nearestLocation: \(nearestLocation), logo: \(logo)\n"
+        return "bId: \(bId), bName: \(bName), bCategory: \(bCategory), sNumbers: \(sNumbers), sNearestLocation: \(sNearestLocation), bLogo: \(bLogo) \n"
     }
     
-    
-    init(brandId: String?, name: String?, category: String?, storesNo: String?, nearestLocation: String?, logo: String?) {
-        self.brandId = brandId ?? ""
-        self.name = name ?? ""
-        self.category = category ?? ""
-        self.storesNo = storesNo ?? ""
-        self.nearestLocation = nearestLocation ?? ""
-        self.logo = logo ?? ""
+    init(bId: String?, bName: String?, bCategory: String?, sNumbers: String?, sNearestLocation: String?, bLogo: String?) {
+        self.bId = bId ?? ""
+        self.bName = bName ?? ""
+        self.bCategory = bCategory ?? ""
+        self.sNumbers = sNumbers ?? ""
+        self.sNearestLocation = sNearestLocation ?? ""
+        self.bLogo = bLogo ?? ""
     }
 }
