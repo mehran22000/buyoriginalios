@@ -28,5 +28,8 @@ class BrandModel: NSObject, Printable {
         self.sNumbers = sNumbers ?? ""
         self.sNearestLocation = sNearestLocation ?? ""
         self.bLogo = bLogo ?? ""
+        
+        super.init();
+        
     }
 }

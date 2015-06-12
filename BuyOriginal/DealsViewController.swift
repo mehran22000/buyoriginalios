@@ -19,8 +19,9 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
         DataManager.getTopAppsDataFromFileWithSuccess ("Deals",success: {(data) -> Void in
             let resstr = NSString(data: data, encoding: NSUTF8StringEncoding)
             let parser = ResponseParser()
+            /*
             self.dealsStoresArray = parser.parseStoresJson("", json: resstr)
-            
+            */
             self.tableView.reloadData()
         })
         

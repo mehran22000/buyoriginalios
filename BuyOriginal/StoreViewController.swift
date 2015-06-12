@@ -13,9 +13,10 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
     @IBOutlet var tableView: UITableView!
     var storesArray = NSArray()
     var filteredStores = [StoreModel]()
-    var brandId=0
+    var brandId="0"
     let kDemoStores:String="[{\"brandId\":\"1\",\"name\":\"آریاپخش نقش جهان\",\"phoneNumber\":\"۳۶۳۰۴۹۲۷\",\"address\":\"اصفهان خیابان چهارباغ بالا\"}]"
     var is_searching=false   // It's flag for searching
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,17 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
         //self.navigationItem.leftBarButtonItem = backButton
         self.navigationController?.navigationItem.backBarButtonItem=backButton;
         
+        let fetcher = BOHttpfetcher()
+        
+        fetcher.fetchStores (self.brandId,completionHandler: {(result: NSArray) -> () in
+            self.storesArray = result
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.tableView.reloadData()
+            })
+        });
+        
+        /*
+        
         DataManager.getTopAppsDataFromFileWithSuccess ("Stores",success: {(data) -> Void in
             let resstr = NSString(data: data, encoding: NSUTF8StringEncoding)
             let parser = ResponseParser()
@@ -34,6 +46,7 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
             print(self.storesArray.count)
             self.tableView.reloadData()
         })
+        */
         
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
         
@@ -75,7 +88,18 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
 
         cell.storeNameLabel.text = store.sName;
         cell.storeLocationLabel.text = store.sAddress
-        cell.storePhoneNumberLabel.text = store.sTel;
+        cell.storePhoneNumberLabel.text = store.sTel1;
+        cell.storeHoursLabel.text = store.sHours;
+        
+        if ((store.sVerified=="Yes") && (store.sDiscount=="Yes")){
+            cell.storeImageView.image = UIImage(named: "discount+verified");
+        }
+        else if (store.sDiscount=="Yes"){
+            cell.storeImageView.image = UIImage(named: "discount+verified");
+        }
+        else if (store.sVerified=="Yes"){
+            cell.storeImageView.image = UIImage(named: "verified");
+        }
         
         // cell.textLabel?.text = self.items[indexPath.row]
         
@@ -83,18 +107,12 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
         
     }
     
-    
-    
-    
-    
-    
-    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         println("You selected cell #\(indexPath.row)!")
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 100
+        return 140
     }
 // Search Bar Delegates
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String){
@@ -116,6 +134,45 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
             }
             tableView.reloadData()
         }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "segueShowMap"
+        {
+            var selectedStore = getSelectedStore(sender);
+            if let destinationVC = segue.destinationViewController as? LocationViewController{
+                    destinationVC.lat = (selectedStore.sLat as NSString).doubleValue
+                    destinationVC.long = (selectedStore.sLong as NSString).doubleValue
+                    destinationVC.storeName = selectedStore.sName
+            }
+        }
+    }
+    
+    
+    func getSelectedStore (sender: AnyObject?) -> StoreModel! {
+        let pointInTable: CGPoint = sender!.convertPoint(sender!.bounds.origin, toView: self.tableView)
+        let cellIndexPath = self.tableView.indexPathForRowAtPoint(pointInTable)
+        
+        if (cellIndexPath != nil) {
+            var row = cellIndexPath?.row
+            return self.storesArray[row!] as! StoreModel;
+        }
+        return nil
+    }
+    
+    @IBAction func getDirectionPressed (sender:AnyObject?) {
+        self.performSegueWithIdentifier("segueShowMap", sender: sender)
+    }
+    
+    @IBAction func callPressed (sender:AnyObject?) {
+        
+        var selectedStore = getSelectedStore(sender);
+        
+        let phone = "tel://"+selectedStore.sTel1;
+        let url:NSURL = NSURL(string:phone)!;
+        UIApplication.sharedApplication().openURL(url);
+        
     }
     
     

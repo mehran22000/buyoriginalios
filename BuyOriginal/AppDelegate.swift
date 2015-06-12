@@ -8,15 +8,36 @@
 
 import UIKit
 import CoreData
+import CoreLocation
+
+// Google Analytics
+
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
 
     var window: UIWindow?
+    var manager:CLLocationManager!
+    var myLocations: [CLLocation] = []
+    var curLocationLat: Double!
+    var curLocationLong: Double!
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        manager = CLLocationManager()
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.requestWhenInUseAuthorization()
+        manager.startUpdatingLocation()
+        manager.delegate = self;
+        
+        // Google Analytics
+        GAI.sharedInstance().trackUncaughtExceptions = true
+        GAI.sharedInstance().dispatchInterval = 20
+        GAI.sharedInstance().logger.logLevel = GAILogLevel.Verbose
+        GAI.sharedInstance().trackerWithTrackingId("UA-64002918-1")
+                
         return true
     }
 
@@ -106,6 +127,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
+    
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        var locValue:CLLocationCoordinate2D = manager.location.coordinate
+        self.curLocationLat = locValue.latitude
+        self.curLocationLong = locValue.longitude
+        println("locations = \(locValue.latitude) \(locValue.longitude)")
+    }
 }
 

@@ -16,6 +16,7 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
         
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
         
+        /*
         DataManager.getTopAppsDataFromFileWithSuccess ("NearStores",success: {(data) -> Void in
             let resstr = NSString(data: data, encoding: NSUTF8StringEncoding)
             let parser = ResponseParser()
@@ -23,6 +24,7 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
             
             self.tableView.reloadData()
         })
+        */
         
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
         

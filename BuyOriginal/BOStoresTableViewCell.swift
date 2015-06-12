@@ -15,7 +15,7 @@ class BOStoresTableViewCell: UITableViewCell {
     @IBOutlet var storeLocationLabel: UILabel!
     @IBOutlet var storeDistanceLabel: UILabel!
     @IBOutlet var storePhoneNumberLabel: UILabel!
-    
+    @IBOutlet var storeHoursLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

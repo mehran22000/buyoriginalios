@@ -19,7 +19,7 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
     var brandsArray = NSArray()
     var filteredBrands = [BrandModel]()
     var brands = kDemoBrands
-    var brandId=0
+    var brandId="0"
     var is_searching=false   // It's flag for searching
     
     override func viewDidLoad() {
@@ -47,7 +47,13 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
         */
 
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
-
+        
+        // GA
+        var tracker:GAITracker = GAI.sharedInstance().defaultTracker as GAITracker
+        tracker.set(kGAIScreenName, value:"Home Screen")
+        var build = GAIDictionaryBuilder.createScreenView().build() as [NSObject : AnyObject]
+        tracker.send(build)
+        
     }
 
     
@@ -130,7 +136,10 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         println("You selected cell #\(indexPath.row)!")
-        self.brandId=indexPath.row + 1
+        
+        var selectedBrand = self.brandsArray[indexPath.row] as! BrandModel
+        
+        self.brandId=selectedBrand.bId;
         
         performSegueWithIdentifier("ShowStoresSegue", sender: nil)
     }
