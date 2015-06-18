@@ -28,14 +28,6 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
         
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
-        let fetcher = BOHttpfetcher()
-        fetcher.fetchBrands { (result: NSArray) -> () in
-            self.brandsArray = result
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                self.tableView.reloadData()
-            })
-        }
-        
         /*
         DataManager.getTopAppsDataFromFileWithSuccess ("Brands",success: {(data) -> Void in
             let resstr = NSString(data: data, encoding: NSUTF8StringEncoding)
@@ -48,6 +40,14 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
 
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
         
+        let fetcher = BOHttpfetcher()
+        fetcher.fetchBrands { (result: NSArray) -> () in
+            self.brandsArray = result
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.loadBrandsLogo()
+            })
+        }
+        
         // GA
         var tracker:GAITracker = GAI.sharedInstance().defaultTracker as GAITracker
         tracker.set(kGAIScreenName, value:"Home Screen")
@@ -56,6 +56,8 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
         
     }
 
+    override func viewWillAppear(animated: Bool) {
+    }
     
     override func viewDidAppear(animated: Bool) {
         self.tableView.reloadData()
@@ -94,6 +96,11 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
         cell.brandNameLabel.text = brand.bName;
         cell.brandCategoryLabel.text = brand.bCategory;
         
+        cell.brandImageView.image = brand.bLogoImage;
+        cell.brandImageView.layer.cornerRadius = 8.0
+        cell.brandImageView.clipsToBounds = true
+        
+        /*
         // Load Logo Image
         let fetcher = BOHttpfetcher()
         fetcher.fetchBrandLogo(brand.bLogo, completionHandler: { (imgData) -> Void in
@@ -104,7 +111,7 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
                 
                 })
             })
-        
+        */
         return cell
     }
     
@@ -131,6 +138,32 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
         }
     }
     
+    
+    func loadBrandsLogo() {
+        
+        // Load Logo Image
+        let fetcher = BOHttpfetcher()
+        var counter = 0;
+        for brand in self.brandsArray {
+            var b:BrandModel = brand as! BrandModel;
+            fetcher.fetchBrandLogo(b.bLogo, completionHandler: { (imgData) -> Void in
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    if ((imgData) != nil){
+                        b.bLogoImage = UIImage(data: imgData)!;
+                    }
+                    else{
+                        b.bLogoImage = UIImage(named:"brand.default")!;
+                    }
+                    counter=counter+1;
+                    if (counter == self.brandsArray.count){
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            self.tableView.reloadData()
+                        })
+                    }
+                })
+            })
+        }
+    }
     
     
     

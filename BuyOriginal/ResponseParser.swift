@@ -61,20 +61,19 @@ class ResponseParser: NSObject, Printable {
             let sId = elem["sId"] as? String
             let sName = elem["sName"] as? String
             let cName = elem["cName"] as? String
-            let bLogo = elem["bLogo"] as? String
+            let bLogo = bName?.stringByReplacingOccurrencesOfString(" ", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil).lowercaseString
             let sHours = elem["sHours"] as? String
             let sAddress = elem["sAddress"] as? String
             let sLat = elem["sLat"] as? String
             let sLong = elem["sLong"] as? String
             let sTel1 = elem["sTel1"] as? String
             let sTel2 = elem["sTel2"] as? String
-            let sDistance = elem["sDistance"] as? String
+            let sDistance = elem["distance"] as? String
             let sVerified = elem["sVerified"] as? String
             let bCategory = elem["bCategory"] as? String
             let sDiscount = elem["sDiscount"] as? String
             let sAreaCode = elem["sAreaCode"] as? String
             
-            println("bId: \(bId)", "bName: \(bName)", "cName: \(cName)", "bLogo: \(bLogo)")
             let s = StoreModel(bId: bId, bName: bName, sId:sId, sName:sName, sAddress: sAddress, sTel1:sTel1, sTel2:sTel2, sDiscount: sDiscount, sDistance: sDistance, bCategory:bCategory, bLogo:bLogo, sLat:sLat, sLong:sLong, sVerified:sVerified, sAreaCode:sAreaCode,sHours:sHours);
             
             stores+=[s]

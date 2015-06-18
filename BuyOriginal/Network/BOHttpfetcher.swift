@@ -35,8 +35,21 @@ class BOHttpfetcher: NSObject {
     }
     
     
-    func fetchStores (brandId:String, completionHandler:(result: NSArray)->Void) -> () {
-        var url : String = "https://buyoriginal.herokuapp.com/stores/storelist/"+brandId;
+    func fetchStores (brandId:String,
+                      distance:String!,
+                      lat: String!,
+                      lon: String!,
+                      completionHandler:(result: NSArray)->Void) -> () {
+        
+        var url : String;
+        if (distance != nil){
+            url = "https://buyoriginal.herokuapp.com/stores/storelist/"+brandId+"/"+lat+"/"+lon+"/"+distance;
+        }
+        else {
+                url = "https://buyoriginal.herokuapp.com/stores/storelist/"+brandId;
+        }
+        println("url: \(url)");
+                        
         var request : NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)
         request.HTTPMethod = "GET"
@@ -60,15 +73,18 @@ class BOHttpfetcher: NSObject {
     }
     
     
-    func fetchBrandLogo (logo:String, completionHandler:(imgData:NSData)->Void) -> () {
+    func fetchBrandLogo (logo:String, completionHandler:(imgData:NSData!)->Void) -> () {
         
         var logoUrl : String = "https://buyoriginal.herokuapp.com/images/logos/"+logo+".jpg";
         println("logoUrl: \(logoUrl)");
         
         if let url = NSURL(string: logoUrl) {
-            let imageDataFromURL = NSData(contentsOfURL: url)
+            var imageDataFromURL = NSData(contentsOfURL: url)
             if ((imageDataFromURL) != nil){
                 completionHandler(imgData: imageDataFromURL!);
+            }
+            else {
+                completionHandler(imgData: nil);
             }
         }
     }

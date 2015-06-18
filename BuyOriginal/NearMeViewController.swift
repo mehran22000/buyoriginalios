@@ -45,39 +45,44 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if is_searching==true {
-            return self.filteredStores.count
+            return self.filteredStores.count+1
         } else {
-            return self.nearStoresArray.count
+            return self.nearStoresArray.count+1
         }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell:BONearmeTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cellNearMeBrand") as! BONearmeTableViewCell
         
-        var store = self.nearStoresArray[indexPath.row] as! StoreModel
-        
-        if is_searching==true {
-            store = self.filteredStores[indexPath.row] as StoreModel
-        } else {
-            store = self.nearStoresArray[indexPath.row] as! StoreModel
+        if (indexPath.row == 0)
+        {
+            var cell:BODisatnceTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cellDistance") as! BODisatnceTableViewCell
+            return cell;
         }
-        
-        cell.storeNameLabel.text = store.sName;
-        cell.storeLocationLabel.text = store.sAddress
-        cell.storeDistanceLabel.text = store.sDistance
-        cell.brandCategoryLabel.text = store.bCategory
-        cell.brandNameLabel.text = store.bName
-        
-        var image : UIImage = UIImage(named:store.bLogo)!
-        cell.brandImageView.image=image;
-        
-        if (store.sDiscount==""){
-            cell.dealImageView.hidden = true;
+        else {
+            var cell:BONearmeTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cellStore") as! BONearmeTableViewCell
+            
+            var store = self.nearStoresArray[indexPath.row-1] as! StoreModel
+            
+            if is_searching==true {
+                store = self.filteredStores[indexPath.row-1] as StoreModel
+            } else {
+                store = self.nearStoresArray[indexPath.row-1] as! StoreModel
+            }
+            
+            cell.bCategoryLabel.text = store.bCategory;
+            cell.bNameLabel.text = store.bName;
+            cell.storeDistanceLabel.text = store.sDistance+" Km"
+            
+            cell.bLogoImageView.image=store.bLogoImage
+            
+            /*
+            if (store.sDiscount==""){
+                cell.bDiscountImageView.hidden = true;
+            }
+            */
+            return cell
         }
-        
-        return cell
-        
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -85,7 +90,13 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 130
+        
+        if (indexPath.row == 0){
+            return 50;
+        }
+        else {
+            return 80;
+        }
     }
     
     // Search Bar Delegates
@@ -110,6 +121,48 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
         }
     }
     
+    @IBAction func sliderValueChanged(sender: UISlider) {
+        var distValue = Int(sender.value)
+        let fetcher = BOHttpfetcher()
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        var curLat = String(format:"%f",appDelegate.curLocationLat)
+        var curLon = String(format:"%f",appDelegate.curLocationLong)
+        
+        fetcher.fetchStores ("all",distance:String(distValue),lat:curLat,lon:curLon,completionHandler: {(result: NSArray) -> () in
+            self.nearStoresArray = result
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.loadBrandsLogo()
+            })
+        });
+            
+    }
+    
+    
+    func loadBrandsLogo() {
+        
+        // Load Logo Image
+        let fetcher = BOHttpfetcher()
+        var counter = 0;
+        for store in self.nearStoresArray {
+            var s:StoreModel = store as! StoreModel;
+            fetcher.fetchBrandLogo(s.bLogo, completionHandler: { (imgData) -> Void in
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    if ((imgData) != nil){
+                        s.bLogoImage = UIImage(data: imgData)!;
+                    }
+                    else{
+                        s.bLogoImage = UIImage(named:"brand.default")!;
+                    }
+                    counter=counter+1;
+                    if (counter == self.nearStoresArray.count){
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            self.tableView.reloadData()
+                        })
+                    }
+                })
+            })
+        }
+    }
     
     /*
     // MARK: - Navigation

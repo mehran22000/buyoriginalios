@@ -14,6 +14,7 @@
 		02293BDC1B249B8700D77387 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02293BDB1B249B8700D77387 /* MapKit.framework */; };
 		02293BDE1B249B9A00D77387 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02293BDD1B249B9A00D77387 /* CoreLocation.framework */; };
 		0232F57C1B016EA4009274BA /* ResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0232F57B1B016EA4009274BA /* ResponseParser.swift */; };
+		023EBF6F1B321292003E2997 /* BODistanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023EBF6E1B321292003E2997 /* BODistanceTableViewCell.swift */; };
 		02577EB11AFAC97400F3521B /* BOBrandTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02577EB01AFAC97400F3521B /* BOBrandTableViewCell.swift */; };
 		02577EB41AFAD06F00F3521B /* BOStoresTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02577EB31AFAD06F00F3521B /* BOStoresTableViewCell.swift */; };
 		02577EB61AFAF81700F3521B /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02577EB51AFAF81700F3521B /* StoreViewController.swift */; };
@@ -21,8 +22,6 @@
 		02656B471B29E10000DFC51A /* Readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 02656A931B29E10000DFC51A /* Readme.txt */; };
 		02656B481B29E10000DFC51A /* Changelog.txt in Resources */ = {isa = PBXBuildFile; fileRef = 02656A951B29E10000DFC51A /* Changelog.txt */; };
 		02656B721B29E10000DFC51A /* Readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 02656AD41B29E10000DFC51A /* Readme.txt */; };
-		02656B731B29E10000DFC51A /* libAdIdAccess.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02656AD51B29E10000DFC51A /* libAdIdAccess.a */; };
-		02656B741B29E10000DFC51A /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02656AD61B29E10000DFC51A /* libGoogleAnalyticsServices.a */; };
 		02656B751B29E10000DFC51A /* Readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 02656AD71B29E10000DFC51A /* Readme.txt */; };
 		02656B831B29E12D00DFC51A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02656B821B29E12D00DFC51A /* CoreData.framework */; };
 		02656B851B29E14000DFC51A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02656B841B29E14000DFC51A /* SystemConfiguration.framework */; };
@@ -30,6 +29,8 @@
 		02656B891B29E15F00DFC51A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 02656B881B29E15F00DFC51A /* libsqlite3.dylib */; };
 		02656B8C1B29E1CB00DFC51A /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02656B8A1B29E1CB00DFC51A /* AdSupport.framework */; };
 		02656B8D1B29E1CB00DFC51A /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02656B8B1B29E1CB00DFC51A /* iAd.framework */; };
+		02656B901B2A945400DFC51A /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02656AD61B29E10000DFC51A /* libGoogleAnalyticsServices.a */; };
+		02656B931B2BDDC800DFC51A /* Backgrounds.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02656B921B2BDDC800DFC51A /* Backgrounds.xcassets */; };
 		02662BF21B02FF1B00093D7D /* Stores.json in Resources */ = {isa = PBXBuildFile; fileRef = 02662BF11B02FF1B00093D7D /* Stores.json */; };
 		02662BF41B03004F00093D7D /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02662BF31B03004F00093D7D /* Store.swift */; };
 		02A3B2931B1A36E900B99AAA /* BOHttpfetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A3B2921B1A36E900B99AAA /* BOHttpfetcher.swift */; };
@@ -70,6 +71,7 @@
 		02293BDB1B249B8700D77387 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		02293BDD1B249B9A00D77387 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		0232F57B1B016EA4009274BA /* ResponseParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseParser.swift; sourceTree = "<group>"; };
+		023EBF6E1B321292003E2997 /* BODistanceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BODistanceTableViewCell.swift; sourceTree = "<group>"; };
 		02577EB01AFAC97400F3521B /* BOBrandTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BOBrandTableViewCell.swift; sourceTree = "<group>"; };
 		02577EB31AFAD06F00F3521B /* BOStoresTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BOStoresTableViewCell.swift; sourceTree = "<group>"; };
 		02577EB51AFAF81700F3521B /* StoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 		02656B8A1B29E1CB00DFC51A /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		02656B8B1B29E1CB00DFC51A /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		02656B8F1B29E69800DFC51A /* Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		02656B921B2BDDC800DFC51A /* Backgrounds.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Backgrounds.xcassets; sourceTree = "<group>"; };
 		02662BF11B02FF1B00093D7D /* Stores.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Stores.json; sourceTree = "<group>"; };
 		02662BF31B03004F00093D7D /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		02A3B2921B1A36E900B99AAA /* BOHttpfetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BOHttpfetcher.swift; path = Network/BOHttpfetcher.swift; sourceTree = "<group>"; };
@@ -135,13 +138,12 @@
 			files = (
 				02656B8C1B29E1CB00DFC51A /* AdSupport.framework in Frameworks */,
 				02656B8D1B29E1CB00DFC51A /* iAd.framework in Frameworks */,
+				02656B901B2A945400DFC51A /* libGoogleAnalyticsServices.a in Frameworks */,
 				02656B891B29E15F00DFC51A /* libsqlite3.dylib in Frameworks */,
 				02656B871B29E15100DFC51A /* libz.dylib in Frameworks */,
 				02656B851B29E14000DFC51A /* SystemConfiguration.framework in Frameworks */,
 				02656B831B29E12D00DFC51A /* CoreData.framework in Frameworks */,
-				02656B731B29E10000DFC51A /* libAdIdAccess.a in Frameworks */,
 				02293BDE1B249B9A00D77387 /* CoreLocation.framework in Frameworks */,
-				02656B741B29E10000DFC51A /* libGoogleAnalyticsServices.a in Frameworks */,
 				02293BDC1B249B8700D77387 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -171,6 +173,7 @@
 				02577EB01AFAC97400F3521B /* BOBrandTableViewCell.swift */,
 				021DA5B21B0FD53E0030815A /* BONearmeTableViewCell.swift */,
 				021DA5B41B0FD5B00030815A /* BODealsTableViewCell.swift */,
+				023EBF6E1B321292003E2997 /* BODistanceTableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				02D4ADF21B0D3717006ED90F /* Icons.xcassets */,
 				02E442011B0E9AD40097D2E6 /* Button Background.xcassets */,
 				021DA5B71B1164810030815A /* brands.xcassets */,
+				02656B921B2BDDC800DFC51A /* Backgrounds.xcassets */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -454,6 +458,7 @@
 				02FB4DE21AF7A47900884750 /* Main.storyboard in Resources */,
 				02656B751B29E10000DFC51A /* Readme.txt in Resources */,
 				021DA5B81B1164810030815A /* brands.xcassets in Resources */,
+				02656B931B2BDDC800DFC51A /* Backgrounds.xcassets in Resources */,
 				02C9BD011B042CF7000C6FA6 /* Brands.json in Resources */,
 				02656B281B29E10000DFC51A /* Changelog.txt in Resources */,
 				02E442021B0E9AD40097D2E6 /* Button Background.xcassets in Resources */,
@@ -494,6 +499,7 @@
 				021DA5B31B0FD53E0030815A /* BONearmeTableViewCell.swift in Sources */,
 				0232F57C1B016EA4009274BA /* ResponseParser.swift in Sources */,
 				02577EB41AFAD06F00F3521B /* BOStoresTableViewCell.swift in Sources */,
+				023EBF6F1B321292003E2997 /* BODistanceTableViewCell.swift in Sources */,
 				02C9BD0C1B054C3D000C6FA6 /* DealsViewController.swift in Sources */,
 				02AA9A091AFD67120090A88B /* Brand.swift in Sources */,
 				02C9BD0E1B054C56000C6FA6 /* RegisterViewController.swift in Sources */,
@@ -629,17 +635,7 @@
 				INFOPLIST_FILE = BuyOriginal/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Google",
-					"Analytics/GoogleAdMobAdsSdkiOS-6.5.1/Add-ons/GoogleAnalyticsServicesiOS_3.0/GoogleAnalytics/Library",
-					"$(PROJECT_DIR)/Google",
-					"Analytics/GoogleAdMobAdsSdkiOS-6.5.1/Add-ons/GoogleAnalyticsServicesiOS_3.0",
-					"$(PROJECT_DIR)/Google",
-					"Analytics/GoogleAdMobAdsSdkiOS-6.5.1",
-					"$(PROJECT_DIR)/Google",
-					Analytics/GoogleAnalyticsServicesiOS_3.12,
-				);
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/**";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "ebd52df5-0bc9-489c-8d4c-6ed8bf03942a";
 				SWIFT_OBJC_BRIDGING_HEADER = Header.h;
@@ -655,17 +651,7 @@
 				INFOPLIST_FILE = BuyOriginal/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Google",
-					"Analytics/GoogleAdMobAdsSdkiOS-6.5.1/Add-ons/GoogleAnalyticsServicesiOS_3.0/GoogleAnalytics/Library",
-					"$(PROJECT_DIR)/Google",
-					"Analytics/GoogleAdMobAdsSdkiOS-6.5.1/Add-ons/GoogleAnalyticsServicesiOS_3.0",
-					"$(PROJECT_DIR)/Google",
-					"Analytics/GoogleAdMobAdsSdkiOS-6.5.1",
-					"$(PROJECT_DIR)/Google",
-					Analytics/GoogleAnalyticsServicesiOS_3.12,
-				);
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/**";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "2786b1b7-4b84-427b-a195-2d3bc2307558";
 				SWIFT_OBJC_BRIDGING_HEADER = Header.h;

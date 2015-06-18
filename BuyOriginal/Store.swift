@@ -25,6 +25,8 @@ class StoreModel: NSObject, Printable {
     let sVerified: String
     let sHours: String
     let sAreaCode: String
+    var bLogoImage: UIImage
+
     
     override var description: String {
         return "bId: \(bId), bName: \(bName),sId: \(sId), sName: \(sName), sAddress: \(sAddress), sTel1: \(sTel1), sTel2: \(sTel2), sDiscount: \(sDiscount), sDistance: \(sDistance), bCategory: \(bCategory), bLogo: \(bLogo), sLat: \(sLat), sLong: \(sLong),sVerified: \(sVerified), \n"
@@ -47,6 +49,7 @@ class StoreModel: NSObject, Printable {
         self.sVerified = sVerified ?? ""
         self.sHours = sHours ?? ""
         self.sAreaCode = sAreaCode ?? ""
+        self.bLogoImage = UIImage();
         
         super.init();
         

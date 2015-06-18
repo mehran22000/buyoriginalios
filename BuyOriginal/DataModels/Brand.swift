@@ -16,6 +16,7 @@ class BrandModel: NSObject, Printable {
     let sNumbers: String
     let sNearestLocation: String
     let bLogo: String
+    var bLogoImage: UIImage
     
     override var description: String {
         return "bId: \(bId), bName: \(bName), bCategory: \(bCategory), sNumbers: \(sNumbers), sNearestLocation: \(sNearestLocation), bLogo: \(bLogo) \n"
@@ -28,8 +29,7 @@ class BrandModel: NSObject, Printable {
         self.sNumbers = sNumbers ?? ""
         self.sNearestLocation = sNearestLocation ?? ""
         self.bLogo = bLogo ?? ""
-        
+        self.bLogoImage = UIImage();
         super.init();
-        
     }
 }

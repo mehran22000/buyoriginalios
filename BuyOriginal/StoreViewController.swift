@@ -30,7 +30,7 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
         
         let fetcher = BOHttpfetcher()
         
-        fetcher.fetchStores (self.brandId,completionHandler: {(result: NSArray) -> () in
+        fetcher.fetchStores (self.brandId,distance: nil,lat: nil,lon: nil,completionHandler: {(result: NSArray) -> () in
             self.storesArray = result
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.tableView.reloadData()
@@ -169,7 +169,7 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
         
         var selectedStore = getSelectedStore(sender);
         
-        let phone = "tel://"+selectedStore.sTel1;
+        let phone = "tel://"+selectedStore.sAreaCode+selectedStore.sTel1;
         let url:NSURL = NSURL(string:phone)!;
         UIApplication.sharedApplication().openURL(url);
         
