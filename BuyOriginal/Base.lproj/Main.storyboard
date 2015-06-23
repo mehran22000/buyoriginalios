@@ -10,30 +10,36 @@
             <objects>
                 <navigationController id="vTt-Wa-BVk" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="جستجو" image="search" id="8uQ-2d-ew2"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="o56-Nl-10I">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.98109312099464574" green="1" blue="0.86704043922859708" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.0" green="0.23529411759999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
-                        <segue destination="4xN-d6-qrz" kind="relationship" relationship="rootViewController" id="Be5-WC-IF2"/>
+                        <segue destination="KbL-uM-vsZ" kind="relationship" relationship="rootViewController" id="1iy-r4-nrm"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VEp-5e-Kqk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="285" y="-95"/>
+            <point key="canvasLocation" x="285" y="-119"/>
         </scene>
         <!--نزدیک من-->
         <scene sceneID="u7h-vP-Bdo">
             <objects>
                 <navigationController id="vx3-b6-VLH" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="نزدیک من" image="nearby" id="6Ur-eu-4a1"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hu0-BK-JXE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.23529411759999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="9w1-O0-iHO" kind="relationship" relationship="rootViewController" id="qLF-9Y-Z3W"/>
@@ -78,7 +84,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="1" maxValue="20" continuous="NO" id="1Sf-mE-dnf">
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="1" maxValue="5" continuous="NO" id="1Sf-mE-dnf">
                                                     <rect key="frame" x="16" y="14" width="291" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <connections>
@@ -89,14 +95,14 @@
                                                     <rect key="frame" x="18" y="3" width="42" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="۲۰ KM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Sao-Y3-PHS">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="۵ KM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Sao-Y3-PHS">
                                                     <rect key="frame" x="256" y="3" width="49" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -157,6 +163,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="برندهای اطراف من" id="9kY-by-qhC"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="AtT-KZ-TTq" id="Wy8-tI-60y"/>
                         <outlet property="tableView" destination="hpc-Ne-9zk" id="NNA-d2-hdC"/>
@@ -180,9 +187,14 @@
             <objects>
                 <navigationController id="t8d-ob-BxJ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="تخفیف ها" image="deals" id="S1v-nZ-A1j"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8WG-QN-aX7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.23529411759999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="CJy-IA-XKv" kind="relationship" relationship="rootViewController" id="ufh-nu-ug2"/>
@@ -214,7 +226,7 @@
                                 </searchBar>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellDeal" rowHeight="135" id="ETf-eE-Zp5" customClass="BODealsTableViewCell" customModule="BuyOriginal" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="66" width="320" height="135"/>
+                                        <rect key="frame" x="0.0" y="130" width="320" height="135"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ETf-eE-Zp5" id="iCR-Qi-dTS">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="134"/>
@@ -285,7 +297,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="تخفیف ها" id="qxQ-gE-ezD"/>
+                    <navigationItem key="navigationItem" title="تخفیف ها" id="K4S-hc-src"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="vtf-jm-9sa" id="wD9-5L-ZfX"/>
                         <outlet property="tableView" destination="Uyr-O3-8aN" id="Z3Q-gQ-Q18"/>
@@ -460,7 +472,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="مشخصات شما با موفقیت ارسال شد. درخواست شما ۱-۳ روز آینده بررسی می شود و درصورت نیاز با شما تماس حاصل می شود." textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dKE-dS-Cja">
-                                                    <rect key="frame" x="8.0000000521571124" y="3" width="304" height="65"/>
+                                                    <rect key="frame" x="8.0000000660428565" y="3" width="304" height="65"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -499,7 +511,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="در صورت تمایل مشخصات فروشگاه خود  و برند مربوطه را وارد نمایید تا برای کاربران نمایش داده شود. " textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UG5-KE-PC4">
-                                                    <rect key="frame" x="8.0000000521571124" y="3" width="304" height="65"/>
+                                                    <rect key="frame" x="8.0000000660428565" y="3" width="304" height="65"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -708,7 +720,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="881" y="-95"/>
+            <point key="canvasLocation" x="1430" y="-125"/>
         </scene>
         <!--نمایندگی ها-->
         <scene sceneID="iUb-EP-cD2">
@@ -733,7 +745,7 @@
                                 </searchBar>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellStore" rowHeight="140" id="Kvu-A7-MQB" customClass="BOStoresTableViewCell" customModule="BuyOriginal" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="130" width="320" height="140"/>
+                                        <rect key="frame" x="0.0" y="66" width="320" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kvu-A7-MQB" id="bNl-RQ-qaR">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="139"/>
@@ -814,7 +826,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ساعات کار" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="J2U-1g-Ziw">
-                                                    <rect key="frame" x="187" y="27" width="61" height="25"/>
+                                                    <rect key="frame" x="166" y="27" width="82" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -858,7 +870,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1437" y="-95"/>
+            <point key="canvasLocation" x="1856" y="-125"/>
         </scene>
         <!--آدرس-->
         <scene sceneID="tAW-DI-POK">
@@ -885,12 +897,74 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ufY-6H-sMw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2010" y="-95"/>
+            <point key="canvasLocation" x="2408" y="615"/>
+        </scene>
+        <!--welcome-->
+        <scene sceneID="xNa-Nw-jdy">
+            <objects>
+                <tableViewController title="welcome" id="KbL-uM-vsZ" customClass="CitiesTableViewController" customModule="BuyOriginal" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="111" sectionHeaderHeight="22" sectionFooterHeight="22" id="txG-Kd-dVd">
+                        <rect key="frame" x="0.0" y="64" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" id="7fg-bC-s8o">
+                            <rect key="frame" x="-8" y="8" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="KbL-uM-vsZ" id="PPR-B3-Mwr"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cityCell" rowHeight="111" id="Lsu-2R-Q0e" customClass="BOCityTableViewCell" customModule="BuyOriginal" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="130" width="320" height="111"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Lsu-2R-Q0e" id="qgA-0g-PvL">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tehran" id="vja-N6-2OO">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="cityImageView" destination="vja-N6-2OO" id="f5B-tU-LnU"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="KbL-uM-vsZ" id="H7s-tp-8Is"/>
+                            <outlet property="delegate" destination="KbL-uM-vsZ" id="DHr-B1-swR"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="انتخاب شهر" id="Mgf-Pu-JUV"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="tH9-YY-3FX" id="LPp-vb-45I"/>
+                        <segue destination="4xN-d6-qrz" kind="push" identifier="pushBrands" id="zpf-cT-QJW"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="reE-6A-mVU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="tH9-YY-3FX">
+                    <connections>
+                        <outlet property="delegate" destination="KbL-uM-vsZ" id="91P-qf-yeG"/>
+                        <outlet property="searchBar" destination="7fg-bC-s8o" id="DBQ-Kj-nKW"/>
+                        <outlet property="searchContentsController" destination="KbL-uM-vsZ" id="KlC-8F-vvd"/>
+                        <outlet property="searchResultsDataSource" destination="KbL-uM-vsZ" id="rxg-T0-Nvc"/>
+                        <outlet property="searchResultsDelegate" destination="KbL-uM-vsZ" id="tVt-ZD-DS5"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="890" y="-125"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Tjd-aY-14b">
             <objects>
-                <tabBarController id="f9V-ZF-9C6" sceneMemberID="viewController">
+                <tabBarController id="f9V-ZF-9C6" customClass="TabBarController" customModule="BuyOriginal" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="FCG-9z-Lcu"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="uSw-Zm-Z1P" userLabel="Search">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -906,7 +980,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EhA-SB-lN1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-441" y="875"/>
+            <point key="canvasLocation" x="-441" y="863"/>
         </scene>
     </scenes>
     <resources>
@@ -919,6 +993,7 @@
         <image name="phone" width="128" height="128"/>
         <image name="register" width="48" height="48"/>
         <image name="search" width="48" height="48"/>
+        <image name="tehran" width="826" height="358"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -926,7 +1001,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="uq0-eW-7SO"/>
+        <segue reference="Ew2-7t-ccn"/>
         <segue reference="WcB-tp-VTA"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
 </document>

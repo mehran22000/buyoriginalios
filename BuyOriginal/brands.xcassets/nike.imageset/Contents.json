@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "nike.png"
+      "filename" : "nike.jpg"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "nike-1.png"
+      "filename" : "nike-1.jpg"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "nike-2.png"
+      "filename" : "nike-2.jpg"
     }
   ],
   "info" : {

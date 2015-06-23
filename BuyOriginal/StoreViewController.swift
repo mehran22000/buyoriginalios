@@ -14,6 +14,7 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
     var storesArray = NSArray()
     var filteredStores = [StoreModel]()
     var brandId="0"
+    var areaCode = ""
     let kDemoStores:String="[{\"brandId\":\"1\",\"name\":\"آریاپخش نقش جهان\",\"phoneNumber\":\"۳۶۳۰۴۹۲۷\",\"address\":\"اصفهان خیابان چهارباغ بالا\"}]"
     var is_searching=false   // It's flag for searching
  
@@ -30,7 +31,7 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
         
         let fetcher = BOHttpfetcher()
         
-        fetcher.fetchStores (self.brandId,distance: nil,lat: nil,lon: nil,completionHandler: {(result: NSArray) -> () in
+        fetcher.fetchStores (self.brandId,distance: nil,lat: nil,lon: nil,areaCode:self.areaCode, completionHandler: {(result: NSArray) -> () in
             self.storesArray = result
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.tableView.reloadData()

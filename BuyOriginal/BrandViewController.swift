@@ -21,6 +21,7 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
     var brands = kDemoBrands
     var brandId="0"
     var is_searching=false   // It's flag for searching
+    var areaCode:String="";
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,12 +42,13 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
         
         let fetcher = BOHttpfetcher()
-        fetcher.fetchBrands { (result: NSArray) -> () in
+        
+        fetcher.fetchCityBrands (self.areaCode, completionHandler:{ (result: NSArray) -> () in
             self.brandsArray = result
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.loadBrandsLogo()
             })
-        }
+        })
         
         // GA
         var tracker:GAITracker = GAI.sharedInstance().defaultTracker as GAITracker
@@ -93,7 +95,7 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
         }
         
         
-        cell.brandNameLabel.text = brand.bName;
+        cell.brandNameLabel.text = brand.bName.capitalizedString;
         cell.brandCategoryLabel.text = brand.bCategory;
         
         cell.brandImageView.image = brand.bLogoImage;
@@ -141,27 +143,48 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
     
     func loadBrandsLogo() {
         
-        // Load Logo Image
-        let fetcher = BOHttpfetcher()
+        let path = NSBundle.mainBundle().pathForResource("logos", ofType:"plist")
+        let dict = NSDictionary(contentsOfFile:path!)
         var counter = 0;
+        let fetcher = BOHttpfetcher()
+
+        
         for brand in self.brandsArray {
             var b:BrandModel = brand as! BrandModel;
-            fetcher.fetchBrandLogo(b.bLogo, completionHandler: { (imgData) -> Void in
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    if ((imgData) != nil){
-                        b.bLogoImage = UIImage(data: imgData)!;
-                    }
-                    else{
-                        b.bLogoImage = UIImage(named:"brand.default")!;
-                    }
-                    counter=counter+1;
-                    if (counter == self.brandsArray.count){
-                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                            self.tableView.reloadData()
-                        })
-                    }
+            if ((dict?.valueForKey(b.bLogo)) != nil){
+                // Load available logos
+                println(" Logo Found: %@ ",b.bLogo);
+                var logo:UIImage! = UIImage(named: b.bLogo);
+                b.bLogoImage = logo!;
+                counter=counter+1;
+                if (counter == self.brandsArray.count){
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.tableView.reloadData()
+                    })
+                }
+                
+            }
+            else {
+                // Download missing logos
+                
+                fetcher.fetchBrandLogo(b.bLogo, completionHandler: { (imgData) -> Void in
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        if ((imgData) != nil){
+                            b.bLogoImage = UIImage(data: imgData)!;
+                            println(" Logo Downloaded: %@ ",b.bLogo);
+                        }
+                        else{
+                            b.bLogoImage = UIImage(named:"brand.default")!;
+                        }
+                        counter=counter+1;
+                        if (counter == self.brandsArray.count){
+                            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                self.tableView.reloadData()
+                            })
+                        }
+                    })
                 })
-            })
+            }
         }
     }
     
@@ -190,6 +213,7 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
         {
             if let destinationVC = segue.destinationViewController as? StoreViewController{
                 destinationVC.brandId = self.brandId
+                destinationVC.areaCode = self.areaCode
             }
         }
     }

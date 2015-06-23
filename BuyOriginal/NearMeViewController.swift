@@ -16,6 +16,9 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
         
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
         
+        fetchNearLocations(2);
+        
+        
         /*
         DataManager.getTopAppsDataFromFileWithSuccess ("NearStores",success: {(data) -> Void in
             let resstr = NSString(data: data, encoding: NSUTF8StringEncoding)
@@ -71,7 +74,7 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
             }
             
             cell.bCategoryLabel.text = store.bCategory;
-            cell.bNameLabel.text = store.bName;
+            cell.bNameLabel.text = store.bName.capitalizedString;
             cell.storeDistanceLabel.text = store.sDistance+" Km"
             
             cell.bLogoImageView.image=store.bLogoImage
@@ -123,46 +126,88 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
     
     @IBAction func sliderValueChanged(sender: UISlider) {
         var distValue = Int(sender.value)
+        fetchNearLocations(distValue);
+    }
+    
+    
+    func fetchNearLocations(distance:Int){
         let fetcher = BOHttpfetcher()
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         var curLat = String(format:"%f",appDelegate.curLocationLat)
         var curLon = String(format:"%f",appDelegate.curLocationLong)
         
-        fetcher.fetchStores ("all",distance:String(distValue),lat:curLat,lon:curLon,completionHandler: {(result: NSArray) -> () in
+        // Test Data
+        // ToDo: Remove
+        // curLat="35.790493";
+        // curLon="51.435261";
+        
+        fetcher.fetchStores ("all",distance:String(distance),lat:curLat,lon:curLon,areaCode:"",completionHandler: {(result: NSArray) -> () in
             self.nearStoresArray = result
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.loadBrandsLogo()
             })
         });
-            
     }
     
     
     func loadBrandsLogo() {
         
-        // Load Logo Image
-        let fetcher = BOHttpfetcher()
+        let path = NSBundle.mainBundle().pathForResource("logos", ofType:"plist")
+        let dict = NSDictionary(contentsOfFile:path!)
         var counter = 0;
+        let fetcher = BOHttpfetcher()
+        
+        
         for store in self.nearStoresArray {
             var s:StoreModel = store as! StoreModel;
-            fetcher.fetchBrandLogo(s.bLogo, completionHandler: { (imgData) -> Void in
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    if ((imgData) != nil){
-                        s.bLogoImage = UIImage(data: imgData)!;
-                    }
-                    else{
-                        s.bLogoImage = UIImage(named:"brand.default")!;
-                    }
-                    counter=counter+1;
-                    if (counter == self.nearStoresArray.count){
-                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                            self.tableView.reloadData()
-                        })
-                    }
+            if ((dict?.valueForKey(s.bLogo)) != nil){
+                // Load available logos
+                println(" Logo Found: %@ ",s.bLogo);
+                var logo:UIImage! = UIImage(named: s.bLogo);
+                s.bLogoImage = logo!;
+                counter=counter+1;
+                if (counter == self.nearStoresArray.count){
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.sortStores()
+                        self.tableView.reloadData()
+                    })
+                }
+            }
+            else {
+                // Download missing logos
+                
+                fetcher.fetchBrandLogo(s.bLogo, completionHandler: { (imgData) -> Void in
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        if ((imgData) != nil){
+                            s.bLogoImage = UIImage(data: imgData)!;
+                            println(" Logo Downloaded: %@ ",s.bLogo);
+                        }
+                        else{
+                            s.bLogoImage = UIImage(named:"brand.default")!;
+                        }
+                        counter=counter+1;
+                        if (counter == self.nearStoresArray.count){
+                            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                self.sortStores()
+                                self.tableView.reloadData()
+                            })
+                        }
+                    })
                 })
-            })
+            }
         }
     }
+
+    
+    func sortStores() {
+        var descriptor: NSSortDescriptor = NSSortDescriptor(key: "sDistance", ascending: true)
+        var sortedResults: NSArray = nearStoresArray.sortedArrayUsingDescriptors([descriptor])
+        self.nearStoresArray = sortedResults;
+    }
+    
+    
+    
+    
     
     /*
     // MARK: - Navigation

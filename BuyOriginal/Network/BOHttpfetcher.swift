@@ -39,6 +39,7 @@ class BOHttpfetcher: NSObject {
                       distance:String!,
                       lat: String!,
                       lon: String!,
+                      areaCode: String,
                       completionHandler:(result: NSArray)->Void) -> () {
         
         var url : String;
@@ -46,7 +47,7 @@ class BOHttpfetcher: NSObject {
             url = "https://buyoriginal.herokuapp.com/stores/storelist/"+brandId+"/"+lat+"/"+lon+"/"+distance;
         }
         else {
-                url = "https://buyoriginal.herokuapp.com/stores/storelist/"+brandId;
+                url = "https://buyoriginal.herokuapp.com/stores/storelist/city/"+areaCode+"/"+brandId;
         }
         println("url: \(url)");
                         
@@ -63,13 +64,45 @@ class BOHttpfetcher: NSObject {
             if (jsonResult != nil) {
                 
                 let parser = ResponseParser()
-                var parsedArray = parser.parseStoreArray(jsonResult)
-                completionHandler(result: parsedArray)
+                var dic:NSDictionary = parser.parseStoreArray(jsonResult);
+                var storesArray:NSArray = dic.objectForKey("stores") as! NSArray;
+                completionHandler(result: storesArray)
                 // process jsonResult
             } else {
                 // couldn't load JSON, look at error
             }
         })
+    }
+    
+    
+    func fetchCityBrands (areaCode:String,
+                          completionHandler:(result: NSArray)->Void) -> () {
+            
+            var url : String;
+            url = "https://buyoriginal.herokuapp.com/stores/storelist/city/"+areaCode;
+            println("url: \(url)");
+            
+            var request : NSMutableURLRequest = NSMutableURLRequest()
+            request.URL = NSURL(string: url)
+            request.HTTPMethod = "GET"
+            
+            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+                var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
+                var jsonResult: NSArray!
+                if (data != nil){
+                    jsonResult = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions.MutableContainers, error: error) as? NSArray
+                }
+                if (jsonResult != nil) {
+                    
+                    let parser = ResponseParser()
+                    var dic:NSDictionary = parser.parseStoreArray(jsonResult);
+                    var brandsArray:NSArray = dic.objectForKey("brands") as! NSArray;
+                    completionHandler(result: brandsArray)
+                    // process jsonResult
+                } else {
+                    // couldn't load JSON, look at error
+                }
+            })
     }
     
     

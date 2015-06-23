@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "puma.png"
+      "filename" : "puma.jpg"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "puma-1.png"
+      "filename" : "puma-1.jpg"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "puma-2.png"
+      "filename" : "puma-2.jpg"
     }
   ],
   "info" : {
