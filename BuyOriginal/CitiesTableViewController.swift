@@ -8,9 +8,14 @@
 
 import UIKit
 
-class CitiesTableViewController: UITableViewController {
+class CitiesTableViewController: UITableViewController,UISearchBarDelegate {
 
     var selectedAreaCode:String="";
+    var citiesEn = ["esfahan","tehran","shiraz","Kish","Urmia"];
+    var citiesFa = ["ارومیه" ,"کیش" ,"شیراز", "تهران","اصفهان"];
+    var filteredCities:NSMutableArray = []
+    var is_searching=false   // It's flag for searching
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,6 +96,31 @@ class CitiesTableViewController: UITableViewController {
         }
         performSegueWithIdentifier("pushBrands", sender: nil)
     }
+    
+    
+    // Search Bar Delegates
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String){
+        if searchBar.text.isEmpty{
+            is_searching = false
+            tableView.reloadData()
+        } else {
+            println(" search text %@ ",searchBar.text as NSString)
+            is_searching = true
+            self.filteredCities=[];
+            for var index = 0; index < self.filteredCities.count; index++
+            {
+                var currentString = citiesEn[index];
+                if currentString.lowercaseString.rangeOfString(searchText.lowercaseString)  != nil {
+                    self.filteredCities.addObject(currentString);
+                }
+                else if currentString.lowercaseString.rangeOfString(searchText.lowercaseString)  != nil {
+                    
+                }
+            }
+            tableView.reloadData()
+        }
+    }
+    
     
     /*
     // Override to support conditional editing of the table view.
