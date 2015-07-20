@@ -12,7 +12,6 @@ import UIKit
 let string = "[ {\"name\": \"John\", \"age\": 21}, {\"name\": \"Bob\", \"age\": 35}, {\"name\": \"Bob\", \"age\": 35} ]"
 let kDemoBrands:String="[{\"id\":\"1\",\"name\":\"L'Oreal\",\"category\":\"آرایش و زیبایی\",\"storesNo\":\"۱۰\",\"nearestLocation\":\"اصفهان خیابان چهارباغ بالا\",\"logo\":\"loreal\"}]"
 
-
 class BrandViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate{
     
     @IBOutlet var tableView: UITableView!
@@ -22,6 +21,12 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
     var brandId="0"
     var is_searching=false   // It's flag for searching
     var areaCode:String="";
+    var screenMode=2;
+    
+
+    
+    @IBOutlet var activityIndicatior: UIActivityIndicatorView?;
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +43,22 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
             self.tableView.reloadData()
         })
         */
+        
+        switch (self.screenMode){
+            case GlobalConstants.BRANDS_SCREEN_MODE_SEARCH:
+                self.navigationItem.title="انتخاب برند";
+            case GlobalConstants.BRANDS_SCREEN_MODE_SIGNUP:
+                self.navigationItem.title="۳-انتخاب برند";
+            default:
+                self.navigationItem.title="";
+        }
 
+        let backBtn = UIBarButtonItem(title: "<", style: UIBarButtonItemStyle.Plain, target: self, action: "backPressed");
+        navigationItem.leftBarButtonItem = backBtn;
+        
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
+        self.activityIndicatior?.startAnimating()
+        self.activityIndicatior?.hidesWhenStopped=true
         
         let fetcher = BOHttpfetcher()
         
@@ -55,6 +74,8 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
         tracker.set(kGAIScreenName, value:"Home Screen")
         var build = GAIDictionaryBuilder.createScreenView().build() as [NSObject : AnyObject]
         tracker.send(build)
+        
+        
         
     }
 
@@ -159,6 +180,7 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
                 counter=counter+1;
                 if (counter == self.brandsArray.count){
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.activityIndicatior?.stopAnimating()
                         self.tableView.reloadData()
                     })
                 }
@@ -179,6 +201,7 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
                         counter=counter+1;
                         if (counter == self.brandsArray.count){
                             dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                self.activityIndicatior?.stopAnimating()
                                 self.tableView.reloadData()
                             })
                         }
@@ -197,7 +220,14 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
         
         self.brandId=selectedBrand.bId;
         
-        performSegueWithIdentifier("ShowStoresSegue", sender: nil)
+        if (self.screenMode==GlobalConstants.BRANDS_SCREEN_MODE_SEARCH){
+            performSegueWithIdentifier("ShowStoresSegue", sender: nil);
+        }
+        else if (self.screenMode==GlobalConstants.BRANDS_SCREEN_MODE_SIGNUP){
+            performSegueWithIdentifier("segueContinueSignUp", sender: nil);
+        }
+        
+
     }
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -216,6 +246,18 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
                 destinationVC.areaCode = self.areaCode
             }
         }
+        
+        if segue.identifier == "segueContinueSignUp"
+        {
+            if let destinationVC = segue.destinationViewController as? RegisterViewController{
+                destinationVC.screenMode = self.screenMode
+            }
+            
+        }
+    }
+    
+    @IBAction func backPressed () {
+        self.navigationController?.popViewControllerAnimated(true);
     }
 
     

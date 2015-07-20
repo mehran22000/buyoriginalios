@@ -9,18 +9,44 @@
 import UIKit
 
 class CitiesTableViewController: UITableViewController,UISearchBarDelegate {
-
+    
     var selectedAreaCode:String="";
-    var citiesEn = ["esfahan","tehran","shiraz","Kish","Urmia"];
-    var citiesFa = ["ارومیه" ,"کیش" ,"شیراز", "تهران","اصفهان"];
-    var filteredCities:NSMutableArray = []
+    var cities = [CityModel]();
+    var filteredCities=[CityModel]();
     var is_searching=false   // It's flag for searching
-
+    var screenMode=1;
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
+        
+        var c = CityModel(cityName: "Tehran", areaCode: "021", cityNameFa: "تهران", imageName: "tehran");
+        self.cities+=[c];
+        c = CityModel(cityName: "Isfahan", areaCode: "031", cityNameFa: "اصفهان", imageName: "isfahan");
+        self.cities+=[c];
+        c = CityModel(cityName: "Kish", areaCode: "0764", cityNameFa: "کیش", imageName: "kish");
+        self.cities+=[c];
+        c = CityModel(cityName: "Urmia", areaCode: "0443", cityNameFa: "ارومیه", imageName: "urmia");
+        self.cities+=[c];
+        c = CityModel(cityName: "Shiraz", areaCode: "0711", cityNameFa: "شیراز", imageName: "shiraz");
+        self.cities+=[c];
+        
+        switch (self.screenMode){
+            case GlobalConstants.CITIES_SCREEN_MODE_SEARCH:
+                self.navigationItem.title="محل سکونت";
+            case GlobalConstants.CITIES_SCREEN_MODE_SIGNUP:
+                self.navigationItem.title="۲-شهر";
+            case GlobalConstants.CITIES_SCREEN_MODE_CHANGE:
+                self.navigationItem.title="تغییر شهر";
+            default:
+                self.navigationItem.title="";
+        }
+        
+        let backBtn = UIBarButtonItem(title: "<", style: UIBarButtonItemStyle.Plain, target: self, action: "backPressed");
+        navigationItem.leftBarButtonItem = backBtn;
+        
        // self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cityCell")
       //  self.tableView.backgroundColor = UIColor(patternImage: UIImage(named: "welcome.pink")!);
         
@@ -47,53 +73,45 @@ class CitiesTableViewController: UITableViewController,UISearchBarDelegate {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 5
+        if is_searching==true {
+            return self.filteredCities.count;
+        }
+        else {
+            return self.cities.count;
+        }
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> BOCityTableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cityCell", forIndexPath: indexPath) as! BOCityTableViewCell
+        
+        var cell:BOCityTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cellCity") as! BOCityTableViewCell
         
         
-    
-        switch (indexPath.row){
-            case 0:
-                cell.cityImageView.image = UIImage(named: "isfahan");
-            case 1:
-                cell.cityImageView.image = UIImage(named: "tehran");
-            case 2:
-                cell.cityImageView.image = UIImage(named: "kish");
-            case 3:
-                cell.cityImageView.image = UIImage(named: "shiraz");
-            case 4:
-                cell.cityImageView.image = UIImage(named: "urumiye");
-
-
-            default:
-                cell.cityImageView.image=nil
+        var cityImgName:String;
+        if is_searching==true {
+            var c:CityModel = self.filteredCities[indexPath.row] as CityModel;
+            cityImgName = c.imageName;
+        } else {
+            var c:CityModel = self.cities[indexPath.row] as CityModel;
+            cityImgName = c.imageName;
         }
-        // Configure the cell...
+        
+        cell.cityImageView.image = UIImage(named: cityImgName);
 
         return cell
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         println("You selected cell #\(indexPath.row)!")
-        
-        switch (indexPath.row){
-            case 0:
-                self.selectedAreaCode="031"
-            case 1:
-                self.selectedAreaCode="021"
-            case 2:
-                self.selectedAreaCode="0711"
-            case 3:
-                self.selectedAreaCode="0811"
-            case 4:
-                self.selectedAreaCode="0811"
-            default:
-                self.selectedAreaCode=""
+    
+        if is_searching==true {
+            var c:CityModel = self.filteredCities[indexPath.row] as CityModel;
+            self.selectedAreaCode = c.areaCode;
+        } else {
+            var c:CityModel = self.cities[indexPath.row] as CityModel;
+            self.selectedAreaCode = c.areaCode;
         }
+        
         performSegueWithIdentifier("pushBrands", sender: nil)
     }
     
@@ -106,21 +124,26 @@ class CitiesTableViewController: UITableViewController,UISearchBarDelegate {
         } else {
             println(" search text %@ ",searchBar.text as NSString)
             is_searching = true
-            self.filteredCities=[];
-            for var index = 0; index < self.filteredCities.count; index++
+            self.filteredCities.removeAll(keepCapacity: false)
+            for var index = 0; index < self.cities.count; index++
             {
-                var currentString = citiesEn[index];
-                if currentString.lowercaseString.rangeOfString(searchText.lowercaseString)  != nil {
-                    self.filteredCities.addObject(currentString);
-                }
-                else if currentString.lowercaseString.rangeOfString(searchText.lowercaseString)  != nil {
-                    
+                var cityEn:String = cities[index].cityName as String;
+                var cityFa:String = cities[index].cityNameFa as String;
+               
+                if ((cityEn.lowercaseString.rangeOfString(searchText.lowercaseString) != nil) ||
+                   (cityFa.lowercaseString.rangeOfString(searchText.lowercaseString) != nil))
+                {
+                    self.filteredCities+=[cities[index]];
                 }
             }
             tableView.reloadData()
         }
     }
     
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 110
+    }
     
     /*
     // Override to support conditional editing of the table view.
@@ -168,9 +191,16 @@ class CitiesTableViewController: UITableViewController,UISearchBarDelegate {
         {
             if let destinationVC = segue.destinationViewController as? BrandViewController{
                 destinationVC.areaCode = self.selectedAreaCode
+                destinationVC.screenMode=self.screenMode
+                self.navigationItem.leftBarButtonItem?.title="";
+                
             }
         }
         
+    }
+    
+    @IBAction func backPressed () {
+        self.navigationController?.popViewControllerAnimated(true);
     }
 
 }

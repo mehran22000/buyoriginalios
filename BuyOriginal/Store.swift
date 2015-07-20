@@ -16,7 +16,7 @@ class StoreModel: NSObject, Printable {
     let sAddress: String
     let sTel1: String
     let sTel2: String
-    let sDiscount: String
+    let sDiscount: Int
     let sDistance: String
     let bCategory: String
     let bLogo: String
@@ -32,7 +32,7 @@ class StoreModel: NSObject, Printable {
         return "bId: \(bId), bName: \(bName),sId: \(sId), sName: \(sName), sAddress: \(sAddress), sTel1: \(sTel1), sTel2: \(sTel2), sDiscount: \(sDiscount), sDistance: \(sDistance), bCategory: \(bCategory), bLogo: \(bLogo), sLat: \(sLat), sLong: \(sLong),sVerified: \(sVerified), \n"
     }
     
-    init(bId: String?, bName: String?, sId: String?, sName: String?, sAddress: String?, sTel1: String?, sTel2: String?, sDiscount: String?, sDistance: String?, bCategory: String?, bLogo: String?, sLat: String?, sLong: String?, sVerified: String?, sAreaCode:String?, sHours:String?) {
+    init(bId: String?, bName: String?, sId: String?, sName: String?, sAddress: String?, sTel1: String?, sTel2: String?, sDiscount: Int!, sDistance: String?, bCategory: String?, bLogo: String?, sLat: String?, sLong: String?, sVerified: String?, sAreaCode:String?, sHours:String?) {
         self.bId = bId ?? ""
         self.bName = bName ?? ""
         self.sId = sId ?? ""
@@ -40,7 +40,12 @@ class StoreModel: NSObject, Printable {
         self.sAddress = sAddress ?? ""
         self.sTel1 = sTel1 ?? ""
         self.sTel2 = sTel2 ?? ""
-        self.sDiscount = sDiscount ?? ""
+        if (sDiscount==nil){
+            self.sDiscount = 0;
+        }
+        else {
+            self.sDiscount=sDiscount;
+        }
         self.sDistance = sDistance ?? ""
         self.bCategory = bCategory ?? ""
         self.bLogo = bLogo ?? ""

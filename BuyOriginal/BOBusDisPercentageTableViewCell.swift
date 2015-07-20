@@ -8,8 +8,11 @@
 
 import UIKit
 
-class BOBusDisPersentageTableViewCell: UITableViewCell {
+class BOBusDisPercentageTableViewCell: UITableViewCell {
 
+    @IBOutlet var percentage:UITextField!
+
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

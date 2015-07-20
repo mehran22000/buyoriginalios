@@ -12,6 +12,9 @@ class ChangePasswordViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let backBtn = UIBarButtonItem(title: "<", style: UIBarButtonItemStyle.Plain, target: self, action: "backPressed");
+        navigationItem.leftBarButtonItem = backBtn;
 
         // Do any additional setup after loading the view.
     }
@@ -21,7 +24,10 @@ class ChangePasswordViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func backPressed () {
+        self.navigationController?.popViewControllerAnimated(true);
+    }
+    
     /*
     // MARK: - Navigation
 

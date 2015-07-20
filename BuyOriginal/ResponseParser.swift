@@ -104,7 +104,7 @@ class ResponseParser: NSObject, Printable {
             let sDistance = elem["distance"] as? String
             let sVerified = elem["sVerified"] as? String
             let bCategory = elem["bCategory"] as? String
-            let sDiscount = elem["sDiscount"] as? String
+            let sDiscount = elem["sDiscount"] as? Int
             let sAreaCode = elem["sAreaCode"] as? String
             
             let s = StoreModel(bId: bId, bName: bName, sId:sId, sName:sName, sAddress: sAddress, sTel1:sTel1, sTel2:sTel2, sDiscount: sDiscount, sDistance: sDistance, bCategory:bCategory, bLogo:bLogo, sLat:sLat, sLong:sLong, sVerified:sVerified, sAreaCode:sAreaCode,sHours:sHours);
@@ -130,6 +130,17 @@ class ResponseParser: NSObject, Printable {
         return results;
     }
     
+    
+    func parseLogin(array:NSArray) -> NSString {
+        
+        var result:String=""
+        for elem: AnyObject in array {
+            result = elem["result"] as! String;
+        }
+        
+        return result;
+    }
+
     
 
     /*

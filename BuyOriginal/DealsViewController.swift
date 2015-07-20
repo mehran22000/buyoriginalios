@@ -7,6 +7,8 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
     var filteredStores = [StoreModel]()
     var brandId=0
     var is_searching=false   // It's flag for searching
+    var selectedRow=0;
+    @IBOutlet var activityIndicatior: UIActivityIndicatorView?;
     
     
     override func viewDidLoad() {
@@ -16,6 +18,7 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
         
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
         
+        /*
         DataManager.getTopAppsDataFromFileWithSuccess ("Deals",success: {(data) -> Void in
             let resstr = NSString(data: data, encoding: NSUTF8StringEncoding)
             let parser = ResponseParser()
@@ -24,15 +27,17 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
             */
             self.tableView.reloadData()
         })
+        */
         
-        self.tableView.tableFooterView = UIView(frame: CGRectZero)
+        self.activityIndicatior?.startAnimating()
+        self.activityIndicatior?.hidesWhenStopped=true
+        fetchDeals(2);
         
         // Do any additional setup after loading the view.
     }
     
     
     override func viewDidAppear(animated: Bool) {
-        self.tableView.reloadData()
     }
 
     
@@ -61,35 +66,34 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
             store = self.dealsStoresArray[indexPath.row] as! StoreModel
         }
         
-        cell.storeNameLabel.text = store.sName;
-        cell.storeLocationLabel.text = store.sAddress
-        cell.storeDistanceLabel.text = store.sDistance
+        cell.storeDistanceLabel.text = store.sDistance+" Km"
         cell.brandCategoryLabel.text = store.bCategory
         cell.brandNameLabel.text = store.bName
         
         var image : UIImage = UIImage(named:store.bLogo)!
         cell.brandImageView.image=image;
         
-        if (store.sDiscount=="10"){
-            image = UIImage(named:"discount_10")!
-        } else if (store.sDiscount == "15"){
-            image = UIImage(named:"discount_15")!
-        } else {
-            image = UIImage(named:"discount_20")!
-        }
-        
-        cell.dealImageView.image = image
+        var imageName:NSString = discountImageName(store.sDiscount);
+        image = UIImage(named:imageName as String)!;
+        cell.dealImageView.image = image;
         
         return cell
         
     }
     
+    func discountImageName(discount:Int)->NSString {
+        return "discount_"+String(discount);
+
+    }
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         println("You selected cell #\(indexPath.row)!")
+        self.selectedRow=indexPath.row;
+        self.performSegueWithIdentifier("pushStoreDetails", sender: nil)
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 130
+        return 85
     }
     
     // Search Bar Delegates
@@ -114,6 +118,106 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
         }
     }
     
+    func fetchDeals(distance:Int){
+        let fetcher = BOHttpfetcher()
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        var curLat = String(format:"%f",appDelegate.curLocationLat)
+        var curLon = String(format:"%f",appDelegate.curLocationLong)
+        
+        // Test Data
+        // ToDo: Remove
+        // var curLat="32.637817";
+        // var curLon="51.658522";
+        
+        fetcher.fetchStores ("all",distance:String(distance),lat:curLat,lon:curLon,areaCode:"",discount:true,completionHandler: {(result: NSArray) -> () in
+            self.dealsStoresArray = result
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.loadBrandsLogo()
+            })
+        });
+    }
+    
+    
+    func loadBrandsLogo() {
+        
+        let path = NSBundle.mainBundle().pathForResource("logos", ofType:"plist")
+        let dict = NSDictionary(contentsOfFile:path!)
+        var counter = 0;
+        let fetcher = BOHttpfetcher()
+        
+        if (self.dealsStoresArray.count==0){
+            self.activityIndicatior?.hidden=true;
+            self.activityIndicatior?.stopAnimating()
+            return;
+        }
+        
+        for store in self.dealsStoresArray {
+            var s:StoreModel = store as! StoreModel;
+            if ((dict?.valueForKey(s.bLogo)) != nil){
+                // Load available logos
+                println(" Logo Found: %@ ",s.bLogo);
+                var logo:UIImage! = UIImage(named: s.bLogo);
+                s.bLogoImage = logo!;
+                counter=counter+1;
+                if (counter == self.dealsStoresArray.count){
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.sortStores()
+                        self.activityIndicatior?.hidden=true;
+                        self.activityIndicatior?.stopAnimating()
+                        self.tableView.reloadData()
+                    })
+                }
+            }
+            else {
+                // Download missing logos
+                
+                fetcher.fetchBrandLogo(s.bLogo, completionHandler: { (imgData) -> Void in
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        if ((imgData) != nil){
+                            s.bLogoImage = UIImage(data: imgData)!;
+                            println(" Logo Downloaded: %@ ",s.bLogo);
+                        }
+                        else{
+                            s.bLogoImage = UIImage(named:"brand.default")!;
+                        }
+                        counter=counter+1;
+                        if (counter == self.dealsStoresArray.count){
+                            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                self.sortStores()
+                                self.tableView.reloadData()
+                            })
+                        }
+                    })
+                })
+            }
+        }
+    }
+    
+    func sortStores() {
+        var descriptor: NSSortDescriptor = NSSortDescriptor(key: "sDistance", ascending: true)
+        var sortedResults: NSArray = dealsStoresArray.sortedArrayUsingDescriptors([descriptor])
+        self.dealsStoresArray = sortedResults;
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "pushStoreDetails"
+        {
+            if let destinationVC = segue.destinationViewController as? StoreViewController{
+                
+                var store:StoreModel;
+                
+                if is_searching==true {
+                    store = self.filteredStores[self.selectedRow] as StoreModel
+                } else {
+                    store = self.dealsStoresArray[self.selectedRow] as! StoreModel
+                }
+                destinationVC.storesArray=[store];
+            }
+        }
+    }
+
     
     /*
     // MARK: - Navigation

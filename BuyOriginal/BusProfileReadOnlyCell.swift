@@ -9,6 +9,10 @@
 import UIKit
 
 class BusProfileReadOnlyCell: UITableViewCell {
+    
+    @IBOutlet var label: UILabel!
+    @IBOutlet var value: UILabel!
+    var passwordField: Bool = false
 
     override func awakeFromNib() {
         super.awakeFromNib()

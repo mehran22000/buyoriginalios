@@ -10,6 +10,10 @@ import UIKit
 
 class BusProfileInputCell: UITableViewCell {
 
+    @IBOutlet var label: UILabel!
+    @IBOutlet var value: UITextView!
+
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

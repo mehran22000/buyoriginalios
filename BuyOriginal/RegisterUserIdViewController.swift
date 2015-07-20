@@ -12,6 +12,10 @@ class RegisterUserIdViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let backBtn = UIBarButtonItem(title: "<", style: UIBarButtonItemStyle.Plain, target: self, action: "backPressed");
+        navigationItem.leftBarButtonItem = backBtn;
+        
 
         // Do any additional setup after loading the view.
     }
@@ -22,6 +26,27 @@ class RegisterUserIdViewController: UIViewController {
     }
     
 
+    @IBAction func continuePressed (sender:AnyObject?) {
+        self.performSegueWithIdentifier("seguePushCities", sender: sender)
+    }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "seguePushCities"
+        {
+            if let destinationVC = segue.destinationViewController as? CitiesTableViewController{
+                destinationVC.screenMode = GlobalConstants.CITIES_SCREEN_MODE_SIGNUP
+            }
+            
+        }
+
+    }
+    
+    @IBAction func backPressed () {
+        self.navigationController?.popViewControllerAnimated(true);
+    }
+    
     /*
     // MARK: - Navigation
 

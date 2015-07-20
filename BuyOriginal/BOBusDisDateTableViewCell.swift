@@ -10,6 +10,10 @@ import UIKit
 
 class BOBusDisDateTableViewCell: UITableViewCell {
 
+    @IBOutlet var disDateYear:UITextField!
+    @IBOutlet var disDateMonth:UITextField!
+    @IBOutlet var disDateDay:UITextField!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

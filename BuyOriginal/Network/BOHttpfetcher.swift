@@ -40,10 +40,14 @@ class BOHttpfetcher: NSObject {
                       lat: String!,
                       lon: String!,
                       areaCode: String,
+                      discount: Bool,
                       completionHandler:(result: NSArray)->Void) -> () {
         
         var url : String;
-        if (distance != nil){
+        if (discount) {
+            url = "https://buyoriginal.herokuapp.com/stores/storelist/discounts/"+lat+"/"+lon+"/"+distance;
+        }
+        else if (distance != nil){
             url = "https://buyoriginal.herokuapp.com/stores/storelist/"+brandId+"/"+lat+"/"+lon+"/"+distance;
         }
         else {

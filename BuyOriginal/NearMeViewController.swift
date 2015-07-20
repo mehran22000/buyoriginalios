@@ -7,6 +7,7 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
     var filteredStores = [StoreModel]()
     var brandId=0
     var is_searching=false   // It's flag for searching
+    var selectedRow=0;
     
 
     override func viewDidLoad() {
@@ -90,6 +91,8 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         println("You selected cell #\(indexPath.row)!")
+        self.selectedRow=indexPath.row-1;
+        self.performSegueWithIdentifier("pushStoreDetails", sender: nil)
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -141,7 +144,7 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
         // curLat="35.790493";
         // curLon="51.435261";
         
-        fetcher.fetchStores ("all",distance:String(distance),lat:curLat,lon:curLon,areaCode:"",completionHandler: {(result: NSArray) -> () in
+        fetcher.fetchStores ("all",distance:String(distance),lat:curLat,lon:curLon,areaCode:"",discount:false,completionHandler: {(result: NSArray) -> () in
             self.nearStoresArray = result
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.loadBrandsLogo()
@@ -206,7 +209,23 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
     }
     
     
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "pushStoreDetails"
+        {
+            if let destinationVC = segue.destinationViewController as? StoreViewController{
+                
+                var store:StoreModel;
+                
+                if is_searching==true {
+                    store = self.filteredStores[self.selectedRow] as StoreModel
+                } else {
+                    store = self.nearStoresArray[self.selectedRow] as! StoreModel
+                }
+                destinationVC.storesArray=[store];
+            }
+        }
+    }
     
     
     /*

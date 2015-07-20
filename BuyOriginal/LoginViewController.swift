@@ -10,6 +10,10 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    
+    @IBOutlet var emailTextField: UITextField!
+    @IBOutlet var passwordTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +25,9 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidAppear(animated: Bool) {
+        self.passwordTextField.text = "";
+    }
 
     /*
     // MARK: - Navigation
@@ -31,5 +38,68 @@ class LoginViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    @IBAction func registerPressed (sender:AnyObject?) {
+        self.performSegueWithIdentifier("segueRegister", sender: sender)
+    }
+    
+    @IBAction func loginPressed (sender:AnyObject?) {
+        
+        let email = self.emailTextField.text as NSString;
+        let password = self.passwordTextField.text as NSString;
+        
+        let httpLogin = BOHttpLogin()
+        
+        httpLogin.login(email, password: password) { (result:NSString) -> Void in
+            println("Login Successful");
+            if (result=="successful"){
+                self.performSegueWithIdentifier("segueLogin", sender: sender)
+            }
+            else {
+                self.loginFailed(result);
+            }
+        };
+        
+        
+        
+    }
+    
+    func loginFailed (err:NSString) {
+        let alertController = UIAlertController(title: "", message:
+            "نام کاربری یا رمز عبور شما نادرست است.", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        let okAction = UIAlertAction(title: "دوباره تلاش کنید", style:UIAlertActionStyle.Default) { (action) in
+            self.navigationController?.popToRootViewControllerAnimated(false);
+        }
+        
+        alertController.addAction(okAction);
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+        
+    }
+    
+    
+    
+    
+    @IBAction func forgetPasswordPressed (sender:AnyObject?) {
+        self.performSegueWithIdentifier("segueForgetPassword", sender: sender)
+    }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "segueRegister"
+        {
+            
+        }
+        else if segue.identifier == "segueLogin"
+        {
+            
+        }
+        else if segue.identifier == "segueForgetPassword"
+        {
+            
+        }
+    }
+    
 }

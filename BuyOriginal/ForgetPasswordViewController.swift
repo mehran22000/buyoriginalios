@@ -12,6 +12,10 @@ class ForgetPasswordViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let backBtn = UIBarButtonItem(title: "<", style: UIBarButtonItemStyle.Plain, target: self, action: "backPressed");
+        navigationItem.leftBarButtonItem = backBtn;
+
 
         // Do any additional setup after loading the view.
     }
@@ -21,7 +25,24 @@ class ForgetPasswordViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func backPressed () {
+        self.navigationController?.popViewControllerAnimated(true);
+    }
 
+    
+    @IBAction func emailBtnPressed () {
+        let alertController = UIAlertController(title: "", message:
+            "رمز عبور شما با موفقیت ارسال شد", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        let okAction = UIAlertAction(title: "ادامه", style:UIAlertActionStyle.Default) { (action) in
+            self.navigationController?.popViewControllerAnimated(true);
+        }
+        
+        alertController.addAction(okAction);
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 

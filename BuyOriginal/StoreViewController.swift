@@ -15,9 +15,11 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
     var filteredStores = [StoreModel]()
     var brandId="0"
     var areaCode = ""
-    let kDemoStores:String="[{\"brandId\":\"1\",\"name\":\"آریاپخش نقش جهان\",\"phoneNumber\":\"۳۶۳۰۴۹۲۷\",\"address\":\"اصفهان خیابان چهارباغ بالا\"}]"
     var is_searching=false   // It's flag for searching
- 
+    @IBOutlet var activityIndicatior: UIActivityIndicatorView?;
+    
+    let kDemoStores:String="[{\"brandId\":\"1\",\"name\":\"آریاپخش نقش جهان\",\"phoneNumber\":\"۳۶۳۰۴۹۲۷\",\"address\":\"اصفهان خیابان چهارباغ بالا\"}]"
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,13 +32,19 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
         self.navigationController?.navigationItem.backBarButtonItem=backButton;
         
         let fetcher = BOHttpfetcher()
-        
-        fetcher.fetchStores (self.brandId,distance: nil,lat: nil,lon: nil,areaCode:self.areaCode, completionHandler: {(result: NSArray) -> () in
-            self.storesArray = result
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                self.tableView.reloadData()
-            })
-        });
+        self.activityIndicatior?.hidden = true;
+        if (storesArray.count==0){
+            self.activityIndicatior?.hidden = false;
+            self.activityIndicatior?.startAnimating()
+            self.activityIndicatior?.hidesWhenStopped=true
+            fetcher.fetchStores (self.brandId,distance: nil,lat: nil,lon: nil,areaCode:self.areaCode, discount:false, completionHandler: {(result: NSArray) -> () in
+                self.storesArray = result
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.activityIndicatior?.stopAnimating()
+                    self.tableView.reloadData()
+                })
+            });
+        }
         
         /*
         
@@ -92,10 +100,10 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
         cell.storePhoneNumberLabel.text = store.sTel1;
         cell.storeHoursLabel.text = store.sHours;
         
-        if ((store.sVerified=="Yes") && (store.sDiscount=="Yes")){
+        if ((store.sVerified=="Yes") && (store.sDiscount>0)){
             cell.storeImageView.image = UIImage(named: "discount+verified");
         }
-        else if (store.sDiscount=="Yes"){
+        else if (store.sDiscount>0){
             cell.storeImageView.image = UIImage(named: "discount+verified");
         }
         else if (store.sVerified=="Yes"){
