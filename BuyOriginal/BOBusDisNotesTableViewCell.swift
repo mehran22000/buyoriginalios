@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 MandM. All rights reserved.
 //
 
-import Cocoa
+import UIKit
 
-class BOBusDisTableViewCell: UITableViewCell {
-
+class BOBusDisNotesTableViewCell: UITableViewCell {
+    @IBOutlet var note: UITextField!
 }

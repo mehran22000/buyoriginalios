@@ -1,97 +1,108 @@
 //
-//  RegisterCinfirmationTableViewController.swift
+//  RegisterTermsViewController.swift
 //  BuyOriginal
 //
-//  Created by mehran najafi on 2015-07-27.
+//  Created by mehran najafi on 2015-07-11.
 //  Copyright (c) 2015 MandM. All rights reserved.
 //
 
 import UIKit
 
-class RegisterCinfirmationTableViewController: UITableViewController {
-
+class RegisterConfirmationViewController: UITableViewController {
+    
+    var account:AccountModel!;
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        let backBtn = UIBarButtonItem(title: " ", style: UIBarButtonItemStyle.Plain, target: self, action: nil);
+        navigationItem.leftBarButtonItem = backBtn;
+        
+        
+        
+        self.tableView.tableFooterView = UIView(frame: CGRectZero)
+        
+        
+        // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 0
+    
+    @IBAction func backPressed () {
+        self.navigationController?.popViewControllerAnimated(true);
     }
-
+    
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return 0
+        return 4;
     }
-
-    /*
+    
+    
+    
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
-
-        // Configure the cell...
-
-        return cell
+        
+        var cell:UITableViewCell!;
+        
+        switch (indexPath.row) {
+        case 0:
+            cell = self.tableView.dequeueReusableCellWithIdentifier("cell1") as! UITableViewCell;
+        case 1:
+            cell = self.tableView.dequeueReusableCellWithIdentifier("cell2") as! UITableViewCell;
+        case 2:
+            cell = self.tableView.dequeueReusableCellWithIdentifier("cell3") as! UITableViewCell;
+        case 3:
+            cell = self.tableView.dequeueReusableCellWithIdentifier("cell4") as! UITableViewCell;
+        default:
+            cell = nil;
+        }
+        return cell;
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        switch (indexPath.row) {
+        case 0:
+            return 55;
+        case 1:
+            return 55;
+        case 2:
+            return 150;
+        case 3:
+            return 55;
+        default:
+            return 44;
+        }
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        println("You selected cell #\(indexPath.row)!")
+        
+        switch (indexPath.row) {
+        case 3:
+            self.finishPressed();
+        default:
+            return;
+        }
+        
+        
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
+    
+    
+    @IBAction func finishPressed () {
+        self.navigationController?.popToRootViewControllerAnimated(false);
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
+    
+    
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }

@@ -104,10 +104,12 @@ class ResponseParser: NSObject, Printable {
             let sDistance = elem["distance"] as? String
             let sVerified = elem["sVerified"] as? String
             let bCategory = elem["bCategory"] as? String
-            let sDiscount = elem["sDiscount"] as? Int
+            let sDiscountStr = elem["dPrecentage"] as? String
+            let sDiscount = sDiscountStr?.toInt()
             let sAreaCode = elem["sAreaCode"] as? String
+            let bDistributor = elem["bDistributor"] as? String
             
-            let s = StoreModel(bId: bId, bName: bName, sId:sId, sName:sName, sAddress: sAddress, sTel1:sTel1, sTel2:sTel2, sDiscount: sDiscount, sDistance: sDistance, bCategory:bCategory, bLogo:bLogo, sLat:sLat, sLong:sLong, sVerified:sVerified, sAreaCode:sAreaCode,sHours:sHours);
+            let s = StoreModel(bId: bId, bName: bName, sId:sId, sName:sName, sAddress: sAddress, sTel1:sTel1, sTel2:sTel2, sDiscount: sDiscount, sDistance: sDistance, bCategory:bCategory, bLogo:bLogo, sLat:sLat, sLong:sLong, sVerified:sVerified, sAreaCode:sAreaCode,sHours:sHours, bDistributor:bDistributor);
             stores+=[s]
             
             let b = BrandModel(bId: bId, bName: bName, bCategory: bCategory, sNumbers: "", sNearestLocation: "", bLogo: bLogo)
@@ -131,7 +133,70 @@ class ResponseParser: NSObject, Printable {
     }
     
     
-    func parseLogin(array:NSArray) -> NSString {
+    func parseLogin(array:NSArray) -> AccountModel? {
+        
+        var account =  AccountModel()
+        
+        for elem: AnyObject in array {
+            
+            var err = elem["err"] as? String;
+            
+            if (err == nil){
+            
+                account.uEmail = elem["buEmail"] as? String;
+                account.uPassword = elem["buPassword"] as? String;
+            
+                // City Object
+                var city = CityModel()
+                city.cityName = elem["buCityName"] as? String;
+                city.cityNameFa = elem["buCityNameFa"] as? String;
+                city.areaCode = elem["buAreaCode"] as? String;
+                account.sCity = city;
+            
+                // Brand Object
+                var brand = BrandModel()
+                brand.bId = elem["buId"] as? String
+                brand.bName = elem["buBrandName"] as? String
+                brand.bCategory = elem["buBrandCategory"] as? String
+                brand.bLogo = elem["buBrandLogoName"] as? String
+                account.brand = brand;
+            
+                // Store Object
+                var store = StoreModel()
+                store.bId = elem["buBrandId"] as? String
+                store.bName = elem["buBrandName"] as? String
+                store.sId = elem["buStoreId"] as? String
+                store.sName = elem ["buStoreName"] as? String
+                store.sAddress = elem ["buStoreAddress"] as? String
+                store.sTel1 = elem["buTel"] as? String
+                store.bCategory = elem["buBrandCategory"] as? String
+                store.bLogo = elem["buBrandLogo"] as? String
+                store.sLat = elem["buStoreLat"] as? String
+                store.sLong = elem["buStoreLon"] as? String
+                store.sHours = elem["buStoreHours"] as? String
+                store.sAreaCode = elem["buAreaCode"] as? String
+                store.bDistributor = elem["buDistributor"] as? String
+                account.store = store;
+            
+                // Discount Object
+                var discount = DiscountModel()
+                discount.startDateStr=elem["buDiscStartDate"] as? String
+                discount.endDateStr=elem["buDiscEndDate"] as? String
+                discount.startDateStrFa=elem["buDiscStartDateFa"] as? String
+                discount.endDateStrFa=elem["buDiscEndDateFa"] as? String
+                discount.precentage=elem["buDiscPrecentage"] as? String
+                discount.note=elem["buDiscNote"] as? String
+                account.discount=discount;
+            }
+            
+        }
+        
+        return account;
+    }
+    
+    
+
+    func parsePost(array:NSArray) -> NSString {
         
         var result:String=""
         for elem: AnyObject in array {
@@ -140,7 +205,7 @@ class ResponseParser: NSObject, Printable {
         
         return result;
     }
-
+    
     
 
     /*

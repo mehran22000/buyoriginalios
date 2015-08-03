@@ -18,6 +18,8 @@ class BODealsTableViewCell: UITableViewCell {
     @IBOutlet var brandCategoryLabel: UILabel!
     @IBOutlet var dealImageView: UIImageView!
     @IBOutlet var brandImageView: UIImageView!
+    @IBOutlet var noteLabel: UILabel!
+    @IBOutlet var dateLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

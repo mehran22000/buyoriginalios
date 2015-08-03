@@ -10,17 +10,22 @@ import Foundation
 
 
 class BrandModel: NSObject, Printable {
-    let bId: String
-    let bName: String
-    let bCategory: String
-    let sNumbers: String
-    let sNearestLocation: String
-    let bLogo: String
-    var bLogoImage: UIImage
-    
+    var bId: String!
+    var bName: String!
+    var bCategory: String!
+    var sNumbers: String!
+    var sNearestLocation: String!
+    var bLogo: String!
+    var bLogoImage: UIImage!
+        
     override var description: String {
         return "bId: \(bId), bName: \(bName), bCategory: \(bCategory), sNumbers: \(sNumbers), sNearestLocation: \(sNearestLocation), bLogo: \(bLogo) \n"
     }
+    
+    override init() {
+        super.init();
+    }
+    
     
     init(bId: String?, bName: String?, bCategory: String?, sNumbers: String?, sNearestLocation: String?, bLogo: String?) {
         self.bId = bId ?? ""

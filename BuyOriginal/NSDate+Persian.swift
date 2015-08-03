@@ -7,3 +7,24 @@
 //
 
 import Foundation
+
+extension NSDate
+{
+    func convertPersianDate(dateStr:String)->NSDate {
+        let df  = NSDateFormatter()
+        df.calendar = NSCalendar(calendarIdentifier: NSPersianCalendar)!
+        df.dateStyle = NSDateFormatterStyle.MediumStyle;
+        df.dateFormat = "yyyy/MM/dd"
+        let date = df.dateFromString(dateStr);
+        print(date);
+        return date!;
+    }
+    
+    func dateToString()-> String {
+        let df  = NSDateFormatter()
+        df.dateFormat = "yyyy/MM/dd";
+        var result = df.stringFromDate(self);
+        return result;
+        
+    }
+}

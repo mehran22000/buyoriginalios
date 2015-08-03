@@ -15,6 +15,7 @@ class CitiesTableViewController: UITableViewController,UISearchBarDelegate {
     var filteredCities=[CityModel]();
     var is_searching=false   // It's flag for searching
     var screenMode=1;
+    var account:AccountModel!;
     
     
     override func viewDidLoad() {
@@ -104,13 +105,19 @@ class CitiesTableViewController: UITableViewController,UISearchBarDelegate {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         println("You selected cell #\(indexPath.row)!")
     
+        var c:CityModel!
         if is_searching==true {
-            var c:CityModel = self.filteredCities[indexPath.row] as CityModel;
+            c = self.filteredCities[indexPath.row] as CityModel;
             self.selectedAreaCode = c.areaCode;
         } else {
-            var c:CityModel = self.cities[indexPath.row] as CityModel;
+            c = self.cities[indexPath.row] as CityModel;
             self.selectedAreaCode = c.areaCode;
         }
+        
+        if ((self.account) != nil){
+            self.account.sCity=c;
+        }
+        
         
         performSegueWithIdentifier("pushBrands", sender: nil)
     }
@@ -193,7 +200,7 @@ class CitiesTableViewController: UITableViewController,UISearchBarDelegate {
                 destinationVC.areaCode = self.selectedAreaCode
                 destinationVC.screenMode=self.screenMode
                 self.navigationItem.leftBarButtonItem?.title="";
-                
+                destinationVC.account = self.account
             }
         }
         

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		020EAFA91B61F2E8001C7974 /* BOHttpPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020EAFA81B61F2E8001C7974 /* BOHttpPost.swift */; };
+		020EAFB81B6722D9001C7974 /* RegisterCinfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020EAFB71B6722D9001C7974 /* RegisterCinfirmationViewController.swift */; };
 		021DA5B31B0FD53E0030815A /* BONearmeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021DA5B21B0FD53E0030815A /* BONearmeTableViewCell.swift */; };
 		021DA5B51B0FD5B00030815A /* BODealsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021DA5B41B0FD5B00030815A /* BODealsTableViewCell.swift */; };
 		021DA5B81B1164810030815A /* brands.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 021DA5B71B1164810030815A /* brands.xcassets */; };
@@ -29,6 +31,7 @@
 		0240569D1B51A51F00612263 /* RegisterTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0240569C1B51A51F00612263 /* RegisterTermsViewController.swift */; };
 		02445F911B4EB271006D5F13 /* BOBusDisActionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02445F901B4EB271006D5F13 /* BOBusDisActionTableViewCell.swift */; };
 		0249CCEA1B5C0AB4001C84BA /* BOHttpLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0249CCE91B5C0AB4001C84BA /* BOHttpLogin.swift */; };
+		0249CCEC1B5DDC6D001C84BA /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0249CCEB1B5DDC6D001C84BA /* Account.swift */; };
 		02577EB11AFAC97400F3521B /* BOBrandTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02577EB01AFAC97400F3521B /* BOBrandTableViewCell.swift */; };
 		02577EB41AFAD06F00F3521B /* BOStoresTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02577EB31AFAD06F00F3521B /* BOStoresTableViewCell.swift */; };
 		02577EB61AFAF81700F3521B /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02577EB51AFAF81700F3521B /* StoreViewController.swift */; };
@@ -54,7 +57,9 @@
 		02C9BD011B042CF7000C6FA6 /* Brands.json in Resources */ = {isa = PBXBuildFile; fileRef = 02577EB91AFC5BB700F3521B /* Brands.json */; };
 		02C9BD0A1B054C09000C6FA6 /* NearMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C9BD091B054C09000C6FA6 /* NearMeViewController.swift */; };
 		02C9BD0C1B054C3D000C6FA6 /* DealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C9BD0B1B054C3D000C6FA6 /* DealsViewController.swift */; };
-		02C9BD0E1B054C56000C6FA6 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C9BD0D1B054C56000C6FA6 /* RegisterViewController.swift */; };
+		02CB3A711B6E70AE00561F53 /* NSDate+Persian.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CB3A701B6E70AE00561F53 /* NSDate+Persian.swift */; };
+		02CB3A731B6E860700561F53 /* BOBusDisNotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CB3A721B6E860700561F53 /* BOBusDisNotesTableViewCell.swift */; };
+		02CB3A751B6FD6D400561F53 /* Discount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CB3A741B6FD6D400561F53 /* Discount.swift */; };
 		02D4ADF31B0D3717006ED90F /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02D4ADF21B0D3717006ED90F /* Icons.xcassets */; };
 		02E442021B0E9AD40097D2E6 /* Button Background.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02E442011B0E9AD40097D2E6 /* Button Background.xcassets */; };
 		02E442041B0F5FFA0097D2E6 /* Deals.json in Resources */ = {isa = PBXBuildFile; fileRef = 02E442031B0F5FFA0097D2E6 /* Deals.json */; };
@@ -87,6 +92,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		020EAFA81B61F2E8001C7974 /* BOHttpPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BOHttpPost.swift; sourceTree = "<group>"; };
+		020EAFB71B6722D9001C7974 /* RegisterCinfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterCinfirmationViewController.swift; sourceTree = "<group>"; };
 		021DA5B21B0FD53E0030815A /* BONearmeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BONearmeTableViewCell.swift; sourceTree = "<group>"; };
 		021DA5B41B0FD5B00030815A /* BODealsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BODealsTableViewCell.swift; sourceTree = "<group>"; };
 		021DA5B71B1164810030815A /* brands.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = brands.xcassets; sourceTree = "<group>"; };
@@ -109,6 +116,7 @@
 		0240569C1B51A51F00612263 /* RegisterTermsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterTermsViewController.swift; sourceTree = "<group>"; };
 		02445F901B4EB271006D5F13 /* BOBusDisActionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BOBusDisActionTableViewCell.swift; sourceTree = "<group>"; };
 		0249CCE91B5C0AB4001C84BA /* BOHttpLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BOHttpLogin.swift; sourceTree = "<group>"; };
+		0249CCEB1B5DDC6D001C84BA /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		02577EB01AFAC97400F3521B /* BOBrandTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BOBrandTableViewCell.swift; sourceTree = "<group>"; };
 		02577EB31AFAD06F00F3521B /* BOStoresTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BOStoresTableViewCell.swift; sourceTree = "<group>"; };
 		02577EB51AFAF81700F3521B /* StoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
@@ -151,7 +159,9 @@
 		02C9BCFF1B042AF6000C6FA6 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		02C9BD091B054C09000C6FA6 /* NearMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearMeViewController.swift; sourceTree = "<group>"; };
 		02C9BD0B1B054C3D000C6FA6 /* DealsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealsViewController.swift; sourceTree = "<group>"; };
-		02C9BD0D1B054C56000C6FA6 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		02CB3A701B6E70AE00561F53 /* NSDate+Persian.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Persian.swift"; sourceTree = "<group>"; };
+		02CB3A721B6E860700561F53 /* BOBusDisNotesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BOBusDisNotesTableViewCell.swift; sourceTree = "<group>"; };
+		02CB3A741B6FD6D400561F53 /* Discount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Discount.swift; path = DataModels/Discount.swift; sourceTree = "<group>"; };
 		02D4ADF21B0D3717006ED90F /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		02E442011B0E9AD40097D2E6 /* Button Background.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Button Background.xcassets"; sourceTree = "<group>"; };
 		02E442031B0F5FFA0097D2E6 /* Deals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Deals.json; sourceTree = "<group>"; };
@@ -204,6 +214,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		020EAFB21B6582B9001C7974 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				02CB3A701B6E70AE00561F53 /* NSDate+Persian.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		022A95DE1B571E470091659B /* BusinesProfile */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,9 +245,9 @@
 				0240569A1B51A50300612263 /* LocateStoreViewController.swift */,
 				0240569C1B51A51F00612263 /* RegisterTermsViewController.swift */,
 				024056981B51A4E100612263 /* RegisterStoreViewController.swift */,
-				02C9BD0D1B054C56000C6FA6 /* RegisterViewController.swift */,
 				024056961B51A4C400612263 /* RegisterUserIdViewController.swift */,
 				022A95CD1B5472040091659B /* RegisterBusinessPhoneController.swift */,
+				020EAFB71B6722D9001C7974 /* RegisterCinfirmationViewController.swift */,
 			);
 			name = BusinessRegisteration;
 			sourceTree = "<group>";
@@ -248,6 +266,7 @@
 				02445F901B4EB271006D5F13 /* BOBusDisActionTableViewCell.swift */,
 				022A95CF1B54BD740091659B /* BusProfileReadOnlyCell.swift */,
 				022A95D11B54BE8C0091659B /* BusProfileInputCell.swift */,
+				02CB3A721B6E860700561F53 /* BOBusDisNotesTableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -372,6 +391,7 @@
 			children = (
 				02A3B2921B1A36E900B99AAA /* BOHttpfetcher.swift */,
 				0249CCE91B5C0AB4001C84BA /* BOHttpLogin.swift */,
+				020EAFA81B61F2E8001C7974 /* BOHttpPost.swift */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -382,6 +402,8 @@
 				02AA9A081AFD67120090A88B /* Brand.swift */,
 				02662BF31B03004F00093D7D /* Store.swift */,
 				0264E0C51B3A4A610075F95C /* City.swift */,
+				0249CCEB1B5DDC6D001C84BA /* Account.swift */,
+				02CB3A741B6FD6D400561F53 /* Discount.swift */,
 			);
 			name = DataModel;
 			sourceTree = "<group>";
@@ -411,6 +433,7 @@
 		02FB4DD61AF7A47900884750 /* BuyOriginal */ = {
 			isa = PBXGroup;
 			children = (
+				020EAFB21B6582B9001C7974 /* Extensions */,
 				02A3B2911B1A35C300B99AAA /* Network */,
 				02C9BCFF1B042AF6000C6FA6 /* DataManager.swift */,
 				0232F57A1B016E7B009274BA /* Parser */,
@@ -503,6 +526,7 @@
 		02FB4DCC1AF7A47900884750 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = MandM;
 				TargetAttributes = {
@@ -580,6 +604,7 @@
 				02A3B2931B1A36E900B99AAA /* BOHttpfetcher.swift in Sources */,
 				024056931B51A1F000612263 /* GlobalConstants.swift in Sources */,
 				02577EB11AFAC97400F3521B /* BOBrandTableViewCell.swift in Sources */,
+				0249CCEC1B5DDC6D001C84BA /* Account.swift in Sources */,
 				022A95D61B54C7E30091659B /* ChangePasswordViewController.swift in Sources */,
 				02C9BD001B042AF6000C6FA6 /* DataManager.swift in Sources */,
 				022A95DD1B5715030091659B /* ForgetPasswordViewController.swift in Sources */,
@@ -591,24 +616,28 @@
 				02662BF41B03004F00093D7D /* Store.swift in Sources */,
 				021DA5B31B0FD53E0030815A /* BONearmeTableViewCell.swift in Sources */,
 				0232F57C1B016EA4009274BA /* ResponseParser.swift in Sources */,
+				020EAFB81B6722D9001C7974 /* RegisterCinfirmationViewController.swift in Sources */,
 				024056971B51A4C400612263 /* RegisterUserIdViewController.swift in Sources */,
 				02577EB41AFAD06F00F3521B /* BOStoresTableViewCell.swift in Sources */,
 				023EBF6F1B321292003E2997 /* BODistanceTableViewCell.swift in Sources */,
 				0240569B1B51A50300612263 /* LocateStoreViewController.swift in Sources */,
 				022A95D21B54BE8C0091659B /* BusProfileInputCell.swift in Sources */,
 				022A95D41B54BF440091659B /* BussinssProfileController.swift in Sources */,
+				02CB3A731B6E860700561F53 /* BOBusDisNotesTableViewCell.swift in Sources */,
 				02C9BD0C1B054C3D000C6FA6 /* DealsViewController.swift in Sources */,
 				0249CCEA1B5C0AB4001C84BA /* BOHttpLogin.swift in Sources */,
 				02ED15921B351E9000A08215 /* BOCityTableViewCell.swift in Sources */,
 				02445F911B4EB271006D5F13 /* BOBusDisActionTableViewCell.swift in Sources */,
 				02EA3EEC1B4E143300ECE384 /* BOBusDisDateTableViewCell.swift in Sources */,
 				02AA9A091AFD67120090A88B /* Brand.swift in Sources */,
-				02C9BD0E1B054C56000C6FA6 /* RegisterViewController.swift in Sources */,
 				02ED15901B351E5B00A08215 /* CitiesTableViewController.swift in Sources */,
 				02EA3EEA1B4E13E000ECE384 /* BOBusDisPercentageTableViewCell.swift in Sources */,
 				022A95D01B54BD740091659B /* BusProfileReadOnlyCell.swift in Sources */,
+				02CB3A751B6FD6D400561F53 /* Discount.swift in Sources */,
 				02EA3EEE1B4E148900ECE384 /* DiscountViewController.swift in Sources */,
 				021DA5B51B0FD5B00030815A /* BODealsTableViewCell.swift in Sources */,
+				02CB3A711B6E70AE00561F53 /* NSDate+Persian.swift in Sources */,
+				020EAFA91B61F2E8001C7974 /* BOHttpPost.swift in Sources */,
 				0264E0C61B3A4A610075F95C /* City.swift in Sources */,
 				02ED15961B36810300A08215 /* TabBarController.swift in Sources */,
 				02FB4DDA1AF7A47900884750 /* AppDelegate.swift in Sources */,

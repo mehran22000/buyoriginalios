@@ -11,6 +11,7 @@ import UIKit
 class RegisterTermsViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var tableView: UITableView!
 
+    var account:AccountModel!;
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,28 +35,73 @@ class RegisterTermsViewController: UIViewController,UITableViewDelegate, UITable
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0;
+        return 4;
     }
     
     
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:UITableViewCell=UITableViewCell.alloc()
-        return cell
+        
+        var cell:UITableViewCell!;
+            
+        switch (indexPath.row) {
+            case 0:
+                cell = self.tableView.dequeueReusableCellWithIdentifier("cell1") as! UITableViewCell;
+            case 1:
+                cell = self.tableView.dequeueReusableCellWithIdentifier("cell2") as! UITableViewCell;
+            case 2:
+                cell = self.tableView.dequeueReusableCellWithIdentifier("cell3") as! UITableViewCell;
+            case 3:
+                cell = self.tableView.dequeueReusableCellWithIdentifier("cell4") as! UITableViewCell;
+            default:
+                cell = nil;
+        }
+        return cell;
     }
     
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        switch (indexPath.row) {
+            case 0:
+                return 155;
+            case 1:
+                return 130;
+            case 2:
+                return 75;
+            case 3:
+                return 75;
+            default:
+                return 75;
+        }
+    }
+
+    
+    
     @IBAction func agreePressed () {
-        let alertController = UIAlertController(title: "", message:
-            "حساب کاربری شما با موفقیت ثبت شد.", preferredStyle: UIAlertControllerStyle.Alert)
         
         let okAction = UIAlertAction(title: "پایان", style:UIAlertActionStyle.Default) { (action) in
             self.navigationController?.popToRootViewControllerAnimated(false);
         }
         
-        alertController.addAction(okAction);
+        let httpPost = BOHttpPost()
         
-        self.presentViewController(alertController, animated: true, completion: nil)
+        httpPost.addBusiness(account) { (result) -> Void in
+            println("Registeration Successful");
+            if (result=="success"){
+                self.performSegueWithIdentifier("pushConfirmation", sender: nil)
+            }
+            else {
+                
+                let alertController = UIAlertController(title: "", message:
+                    "خطادر ثبت شرکت", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(okAction);
+                self.presentViewController(alertController, animated: true, completion: nil);
+                
+                
+            }
+            
+            
+        };
     }
 
 

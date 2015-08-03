@@ -10,7 +10,7 @@ import UIKit
 
 class BOHttpLogin: NSObject {
     
-    func login (email: NSString, password:NSString, completionHandler:(result:NSString)->Void) -> () {
+    func login (email: NSString, password:NSString, completionHandler:(result:AccountModel?)->Void) -> () {
         var url: String = "https://buyoriginal.herokuapp.com/users/business/login"
         var request : NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)
@@ -25,7 +25,7 @@ class BOHttpLogin: NSObject {
             response, data, error in
             
             var jsonResult: NSArray!
-            var loginResult = "";
+            var accountInfo: AccountModel?
             var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
             
             if (data != nil){
@@ -34,10 +34,10 @@ class BOHttpLogin: NSObject {
             if (jsonResult != nil) {
                 
                 let parser = ResponseParser()
-                loginResult = parser.parseLogin(jsonResult) as String;
+                accountInfo = parser.parseLogin(jsonResult);
             }
             
-            completionHandler(result: loginResult);
+            completionHandler(result: accountInfo);
         }
         
         /*

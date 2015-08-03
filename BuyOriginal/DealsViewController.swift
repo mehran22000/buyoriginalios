@@ -87,22 +87,22 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        println("You selected cell #\(indexPath.row)!")
+        print("You selected cell #\(indexPath.row)!")
         self.selectedRow=indexPath.row;
         self.performSegueWithIdentifier("pushStoreDetails", sender: nil)
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 85
+        return 150
     }
     
     // Search Bar Delegates
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String){
-        if searchBar.text.isEmpty{
+        if searchBar.text!.isEmpty{
             is_searching = false
             tableView.reloadData()
         } else {
-            println(" search text %@ ",searchBar.text as NSString)
+            print(" search text %@ ",searchBar.text! as NSString)
             is_searching = true
             self.filteredStores.removeAll(keepCapacity: false)
             for var index = 0; index < self.dealsStoresArray.count; index++
@@ -156,7 +156,7 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
             var s:StoreModel = store as! StoreModel;
             if ((dict?.valueForKey(s.bLogo)) != nil){
                 // Load available logos
-                println(" Logo Found: %@ ",s.bLogo);
+                // println(" Logo Found: %@ ",&s.bLogo);
                 var logo:UIImage! = UIImage(named: s.bLogo);
                 s.bLogoImage = logo!;
                 counter=counter+1;
@@ -176,7 +176,7 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         if ((imgData) != nil){
                             s.bLogoImage = UIImage(data: imgData)!;
-                            println(" Logo Downloaded: %@ ",s.bLogo);
+                           // println(" Logo Downloaded: %@ ",&s.bLogo);
                         }
                         else{
                             s.bLogoImage = UIImage(named:"brand.default")!;

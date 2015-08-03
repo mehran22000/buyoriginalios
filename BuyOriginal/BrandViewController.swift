@@ -22,6 +22,8 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
     var is_searching=false   // It's flag for searching
     var areaCode:String="";
     var screenMode=2;
+    var account:AccountModel!;
+    
     
 
     
@@ -174,7 +176,7 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
             var b:BrandModel = brand as! BrandModel;
             if ((dict?.valueForKey(b.bLogo)) != nil){
                 // Load available logos
-                println(" Logo Found: %@ ",b.bLogo);
+            //    println(" Logo Found: %@ ",&b.bLogo);
                 var logo:UIImage! = UIImage(named: b.bLogo);
                 b.bLogoImage = logo!;
                 counter=counter+1;
@@ -193,7 +195,7 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         if ((imgData) != nil){
                             b.bLogoImage = UIImage(data: imgData)!;
-                            println(" Logo Downloaded: %@ ",b.bLogo);
+                   //         println(" Logo Downloaded: %@ ",&b.bLogo);
                         }
                         else{
                             b.bLogoImage = UIImage(named:"brand.default")!;
@@ -220,11 +222,15 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
         
         self.brandId=selectedBrand.bId;
         
+        if ((self.account) != nil){
+            self.account.brand=selectedBrand;
+        }
+        
         if (self.screenMode==GlobalConstants.BRANDS_SCREEN_MODE_SEARCH){
             performSegueWithIdentifier("ShowStoresSegue", sender: nil);
         }
         else if (self.screenMode==GlobalConstants.BRANDS_SCREEN_MODE_SIGNUP){
-            performSegueWithIdentifier("segueContinueSignUp", sender: nil);
+            performSegueWithIdentifier("segueShowStoreEntryForm", sender: nil);
         }
         
 
@@ -247,10 +253,10 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
             }
         }
         
-        if segue.identifier == "segueContinueSignUp"
+        if segue.identifier == "segueShowStoreEntryForm"
         {
-            if let destinationVC = segue.destinationViewController as? RegisterViewController{
-                destinationVC.screenMode = self.screenMode
+            if let destinationVC = segue.destinationViewController as? RegisterStoreViewController{
+                destinationVC.account=self.account;
             }
             
         }

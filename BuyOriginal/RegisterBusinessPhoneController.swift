@@ -10,6 +10,10 @@ import UIKit
 
 class RegisterBusinessPhoneController: UIViewController {
 
+    var account:AccountModel!;
+    @IBOutlet var areaCodeTextField: UITextField!
+    @IBOutlet var telTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,11 +34,50 @@ class RegisterBusinessPhoneController: UIViewController {
     }
     
     @IBAction func continuePressed (sender:AnyObject?) {
-        self.performSegueWithIdentifier("seguePushTerms", sender: sender)
+        
+        
+        var err=0;
+        var errMsg="";
+        
+        if (self.areaCodeTextField.text.toInt() == nil){
+            err = GlobalConstants.REGISTER_BUSINESS_INVALID_AREACODE;
+            errMsg = "کد شهر شما نادرست است" ;
+        }
+        else if (self.telTextField.text.toInt() == nil) {
+            err = GlobalConstants.REGISTER_BUSINESS_INVALID_PHONE;
+            errMsg = "تلفن شما نادرست است" ;
+        }
+        else {
+            self.account.store.sAreaCode = self.areaCodeTextField.text;
+            self.account.store.sTel1 = self.areaCodeTextField.text+self.telTextField.text;
+            self.performSegueWithIdentifier("seguePushTerms", sender: sender)
+        }
+        
+        if (err>0){
+            
+            let alertController = UIAlertController(title: "", message:errMsg, preferredStyle: UIAlertControllerStyle.Alert)
+            
+            let okAction = UIAlertAction(title: "ادامه", style:UIAlertActionStyle.Default) { (action) in
+            }
+            
+            alertController.addAction(okAction);
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
+        
     }
     
     
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "seguePushTerms"
+        {
+            if let destinationVC = segue.destinationViewController as? RegisterTermsViewController{
+                destinationVC.account = self.account;
+            }
+            
+        }
         
     }
     

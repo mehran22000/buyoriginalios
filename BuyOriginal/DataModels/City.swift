@@ -9,11 +9,14 @@
 import Foundation
 
 class CityModel: NSObject, Printable {
-    let cityName: String
-    let cityNameFa: String
-    let areaCode: String
-    let imageName:String
+    var cityName: String!
+    var cityNameFa: String!
+    var areaCode: String!
+    var imageName:String!
     
+    override init() {
+        super.init();
+    }
     
     override var description: String {
         return "cityName: \(cityName), cityNameFa: \(cityNameFa), areaCode: \(areaCode), imageName: \(imageName) \n"

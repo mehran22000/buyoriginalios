@@ -60,6 +60,9 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
         
         // Do any additional setup after loading the view.
+        
+    
+        
     }
 
     
@@ -104,7 +107,7 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
             cell.storeImageView.image = UIImage(named: "discount+verified");
         }
         else if (store.sDiscount>0){
-            cell.storeImageView.image = UIImage(named: "discount+verified");
+            cell.storeImageView.image = UIImage(named: "discount");
         }
         else if (store.sVerified=="Yes"){
             cell.storeImageView.image = UIImage(named: "verified");
@@ -181,6 +184,31 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
         let phone = "tel://"+selectedStore.sAreaCode+selectedStore.sTel1;
         let url:NSURL = NSURL(string:phone)!;
         UIApplication.sharedApplication().openURL(url);
+        
+    }
+    
+    func getDayOfWeek(today:String)->() {
+        
+        let df  = NSDateFormatter()
+        df.calendar = NSCalendar(calendarIdentifier: NSPersianCalendar)!
+        df.dateStyle = NSDateFormatterStyle.MediumStyle;
+        df.dateFormat = "yyyy/MM/dd"
+        let stringDate = "1391/04/07"
+        let date = df.dateFromString(stringDate);
+        print(date);
+        
+        /*
+        
+        let todayDate = formatter.dateFromString(today)!
+        let myCalendar = NSCalendar(calendarIdentifier: NSPersianCalendar)!
+        formatter.calendar = myCalendar;
+        formatter.dateStyle = NSDateFormatterStyle.MediumStyle;
+        formatter.calendar = NSCalendar(calendarIdentifier: NSGregorianCalendar);
+        
+        let myComponents = myCalendar.components(.CalendarUnitWeekday, fromDate: todayDate)
+        let weekDay = myComponents.weekday
+        return weekDay
+        */
         
     }
     

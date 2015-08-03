@@ -9,30 +9,36 @@
 import Foundation
 
 class StoreModel: NSObject, Printable {
-    let bId: String
-    let bName: String
-    let sId: String
-    let sName: String
-    let sAddress: String
-    let sTel1: String
-    let sTel2: String
-    let sDiscount: Int
-    let sDistance: String
-    let bCategory: String
-    let bLogo: String
-    let sLat: String
-    let sLong: String
-    let sVerified: String
-    let sHours: String
-    let sAreaCode: String
-    var bLogoImage: UIImage
-
+    var bId: String!
+    var bName: String!
+    var sId: String!
+    var sName: String!
+    var sAddress: String!
+    var sTel1: String!
+    var sTel2: String!
+    var sDiscount: Int!
+    var sDistance: String!
+    var bCategory: String!
+    var bLogo: String!
+    var sLat: String!
+    var sLong: String!
+    var sVerified: String!
+    var sHours: String!
+    var sAreaCode: String!
+    var bDistributor: String!
+    var bLogoImage: UIImage!
+    
     
     override var description: String {
-        return "bId: \(bId), bName: \(bName),sId: \(sId), sName: \(sName), sAddress: \(sAddress), sTel1: \(sTel1), sTel2: \(sTel2), sDiscount: \(sDiscount), sDistance: \(sDistance), bCategory: \(bCategory), bLogo: \(bLogo), sLat: \(sLat), sLong: \(sLong),sVerified: \(sVerified), \n"
+        return "bId: \(bId), bName: \(bName),sId: \(sId), sName: \(sName), sAddress: \(sAddress), sTel1: \(sTel1), sTel2: \(sTel2), sDiscount: \(sDiscount), sDistance: \(sDistance), bCategory: \(bCategory), bLogo: \(bLogo), sLat: \(sLat), sLong: \(sLong),sVerified: \(sVerified), bDistributor: \(bDistributor) \n"
     }
     
-    init(bId: String?, bName: String?, sId: String?, sName: String?, sAddress: String?, sTel1: String?, sTel2: String?, sDiscount: Int!, sDistance: String?, bCategory: String?, bLogo: String?, sLat: String?, sLong: String?, sVerified: String?, sAreaCode:String?, sHours:String?) {
+    override init() {
+        super.init();
+    }
+    
+    
+    init(bId: String?, bName: String?, sId: String?, sName: String?, sAddress: String?, sTel1: String?, sTel2: String?, sDiscount: Int!, sDistance: String?, bCategory: String?, bLogo: String?, sLat: String?, sLong: String?, sVerified: String?, sAreaCode:String?, sHours:String?, bDistributor:String?) {
         self.bId = bId ?? ""
         self.bName = bName ?? ""
         self.sId = sId ?? ""
@@ -55,6 +61,7 @@ class StoreModel: NSObject, Printable {
         self.sHours = sHours ?? ""
         self.sAreaCode = sAreaCode ?? ""
         self.bLogoImage = UIImage();
+        self.bDistributor = bDistributor ?? ""
         
         super.init();
         

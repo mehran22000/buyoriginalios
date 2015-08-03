@@ -13,6 +13,7 @@ class LoginViewController: UIViewController {
     
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
+    var accountInfo: AccountModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,13 +51,16 @@ class LoginViewController: UIViewController {
         
         let httpLogin = BOHttpLogin()
         
-        httpLogin.login(email, password: password) { (result:NSString) -> Void in
+        
+        httpLogin.login(email, password: password) { (accountInfo) -> Void in
             println("Login Successful");
-            if (result=="successful"){
+            if ((accountInfo) != nil){
+                self.accountInfo = accountInfo;
                 self.performSegueWithIdentifier("segueLogin", sender: sender)
+                
             }
             else {
-                self.loginFailed(result);
+                self.loginFailed();
             }
         };
         
@@ -64,7 +68,7 @@ class LoginViewController: UIViewController {
         
     }
     
-    func loginFailed (err:NSString) {
+    func loginFailed () {
         let alertController = UIAlertController(title: "", message:
             "نام کاربری یا رمز عبور شما نادرست است.", preferredStyle: UIAlertControllerStyle.Alert)
         
@@ -88,13 +92,17 @@ class LoginViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
+        
         if segue.identifier == "segueRegister"
         {
             
         }
         else if segue.identifier == "segueLogin"
         {
-            
+            var tabBarVC = segue.destinationViewController as! UITabBarController;
+            var navVC = tabBarVC.viewControllers?[0] as! UINavigationController;
+            var discountVC = navVC.viewControllers?[0] as! DiscountViewController;
+            discountVC.account = self.accountInfo;
         }
         else if segue.identifier == "segueForgetPassword"
         {

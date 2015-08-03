@@ -10,6 +10,12 @@ import UIKit
 
 class RegisterStoreViewController: UIViewController {
 
+    var account:AccountModel!;
+    @IBOutlet var sNameTextField: UITextField!
+    @IBOutlet var sAddressTextField: UITextField!
+    @IBOutlet var sHoursTextField: UITextField!
+    @IBOutlet var bDistributorTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let backBtn = UIBarButtonItem(title: "<", style: UIBarButtonItemStyle.Plain, target: self, action: "backPressed");
@@ -27,6 +33,86 @@ class RegisterStoreViewController: UIViewController {
         self.navigationController?.popViewControllerAnimated(true);
     }
 
+    
+    @IBAction func continuePressed (sender:AnyObject?) {
+        
+        if (self.isFormCompelete()){
+            var store=StoreModel();
+            store.sName = self.sNameTextField.text;
+            store.sAddress = self.sAddressTextField.text;
+            store.sHours = self.sHoursTextField.text;
+            store.bDistributor = self.bDistributorTextField.text;
+        
+            self.account.store = store;
+            self.performSegueWithIdentifier("seguePushRegisterLocation", sender: sender)
+        }
+    }
+    
+    func isFormCompelete() -> Bool {
+        var err=0;
+        var errMsg="";
+        
+        if (self.sNameTextField.text.isEmpty) {
+            err = GlobalConstants.REGISTER_BUSINESS_INVALID_STORE_NAME;
+            errMsg = "نام فروشگاه خود را وارد کنید" ;
+        }
+        else if (self.sAddressTextField.text.isEmpty) {
+            err = GlobalConstants.REGISTER_BUSINESS_INVALID_STORE_ADDRESS;
+            errMsg = "آدرس فروشگاه خود را وارد کنید" ;
+        }
+        else if (self.sHoursTextField.text.isEmpty) {
+            err = GlobalConstants.REGISTER_BUSINESS_INVALID_STORE_HOURS;
+            errMsg = "ساعات کار فروشگاه خود را وارد کنید" ;
+        }
+        /*
+        else if (self.isHourseValid(self.sHoursTextField.text)==false){
+            err = GlobalConstants.REGISTER_BUSINESS_INVALID_STORE_HOURS_FORMAT;
+            errMsg = "ساعات کار نادرست است. مثلا ۱۰-۲۱ یا ۸-۱۲ ۱۴-۲۲" ;
+        }
+        */
+        if (err>0){
+            
+            let alertController = UIAlertController(title: "", message:errMsg, preferredStyle: UIAlertControllerStyle.Alert)
+            
+            let okAction = UIAlertAction(title: "ادامه", style:UIAlertActionStyle.Default) { (action) in
+            }
+            
+            alertController.addAction(okAction);
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+            return false;
+        }
+        
+        return true;
+        
+    }
+    
+    /*
+    // ToDo: Check Hours format
+    func isHourseValid(hours:String) -> Bool {
+        
+        let hoursRegEx = "(\\d{1-2})-(\\d{1-2})"
+        
+        let hoursTest = NSPredicate(format:"SELF MATCHES %@", hoursRegEx)
+        return hoursTest.evaluateWithObject(hours);
+        
+    }
+    */
+    
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "seguePushRegisterLocation"
+        {
+            if let destinationVC = segue.destinationViewController as? LocateStoreViewController{
+                destinationVC.account = self.account;
+            }
+            
+        }
+        
+    }
+    
     /*
     // MARK: - Navigation
 

@@ -165,7 +165,7 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
             var s:StoreModel = store as! StoreModel;
             if ((dict?.valueForKey(s.bLogo)) != nil){
                 // Load available logos
-                println(" Logo Found: %@ ",s.bLogo);
+               // println(" Logo Found: %@ ",&s.bLogo);
                 var logo:UIImage! = UIImage(named: s.bLogo);
                 s.bLogoImage = logo!;
                 counter=counter+1;
@@ -183,7 +183,7 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         if ((imgData) != nil){
                             s.bLogoImage = UIImage(data: imgData)!;
-                            println(" Logo Downloaded: %@ ",s.bLogo);
+                         //   println(" Logo Downloaded: %@ ",&s.bLogo);
                         }
                         else{
                             s.bLogoImage = UIImage(named:"brand.default")!;
