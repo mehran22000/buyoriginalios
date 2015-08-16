@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- ****************************************************************************** 
+ * Licensed Materials - Property of IBM 
+ * "Restricted Materials of IBM"
+ * © Copyright IBM Corp. 2014 All Rights Reserved. 
+ * 
+ * Copying, redistribution and/or modification is prohibited. 
+ * U.S. Government Users Restricted Rights - Use, duplication or 
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp. 
+ *****************************************************************************/
+ --><plist version="1.0">
+<dict>
+    <!-- Note: you must not change the value of any key field
+        You must not change the values of the string fields for userName and serviceEndpoint
+        You don't need to change the value of the string field for password if the value is 'none'
+        You need to change the value of the string field for password to your own password if the value is "required" 
+        The supported logLevels are: error, warning, info, or verbose.
+    -->
+	<key>userName</key>
+	<string>mehr.najafi@gmail.com</string>
+	<key>password</key>
+	<string>none</string>
+	<key>serviceEndpoint</key>
+	<string>http://accessibility.mybluemix.net:80/service/evaluation/interface</string>
+	<key>buildNumber</key>
+	<string>2.2</string>
+	<key>logLevel</key>
+	<string>Info</string>
+	
+</dict>
+</plist>

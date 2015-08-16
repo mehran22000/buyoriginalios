@@ -87,6 +87,10 @@ class ResponseParser: NSObject, Printable {
         
         var stores = [StoreModel]()
         var brands = [BrandModel]()
+        var categoryBrands = [String:[BrandModel]]();
+        var brandStores = [String:[StoreModel]]();
+        var catCounter = 0;
+        var brandCounter = 0;
         
         for elem: AnyObject in array {
             let bId = elem["bId"] as? String
@@ -104,12 +108,18 @@ class ResponseParser: NSObject, Printable {
             let sDistance = elem["distance"] as? String
             let sVerified = elem["sVerified"] as? String
             let bCategory = elem["bCategory"] as? String
-            let sDiscountStr = elem["dPrecentage"] as? String
-            let sDiscount = sDiscountStr?.toInt()
+            let sDiscountStartDateFa = elem["dStartDateFa"] as? String
+            let sDiscountEndDateFa = elem["dEndDateFa"] as? String
+            let sDiscountStartDate = elem["dStartDate"] as? String
+            let sDiscountEndDate = elem["dEndDate"] as? String
+            let sDiscountNote = elem["dNote"] as? String
+            let sDiscountPercentage = elem["dPrecentage"] as? Int
+            
+            
             let sAreaCode = elem["sAreaCode"] as? String
             let bDistributor = elem["bDistributor"] as? String
             
-            let s = StoreModel(bId: bId, bName: bName, sId:sId, sName:sName, sAddress: sAddress, sTel1:sTel1, sTel2:sTel2, sDiscount: sDiscount, sDistance: sDistance, bCategory:bCategory, bLogo:bLogo, sLat:sLat, sLong:sLong, sVerified:sVerified, sAreaCode:sAreaCode,sHours:sHours, bDistributor:bDistributor);
+            let s = StoreModel(bId: bId, bName: bName, sId:sId, sName:sName, sAddress: sAddress, sTel1:sTel1, sTel2:sTel2, sDistance: sDistance, bCategory:bCategory, bLogo:bLogo, sLat:sLat, sLong:sLong, sVerified:sVerified, sAreaCode:sAreaCode,sHours:sHours, bDistributor:bDistributor, sDiscountStartDateFa:sDiscountStartDateFa, sDiscountStartDate:sDiscountStartDate,sDiscountEndDateFa:sDiscountEndDateFa,sDiscountEndDate:sDiscountEndDate,sDiscountNote:sDiscountNote,sDiscountPercentage:sDiscountPercentage);
             stores+=[s]
             
             let b = BrandModel(bId: bId, bName: bName, bCategory: bCategory, sNumbers: "", sNearestLocation: "", bLogo: bLogo)
@@ -125,13 +135,80 @@ class ResponseParser: NSObject, Printable {
                 brands+=[b]
             }
             
+            
+            // Categories - Brands
+            if (categoryBrands[bCategory!] == nil) {
+                var newCatBrands = [BrandModel]();
+                newCatBrands=[b];
+                categoryBrands[bCategory!]=newCatBrands;
+            }
+            else {
+                var exCatBrands = categoryBrands[bCategory!] as [BrandModel]?;
+                var newBrand = true;
+                var newCatBrands =  [BrandModel]();
+                
+                for elem:BrandModel in exCatBrands!{
+                    newCatBrands+=[elem];
+                    if (elem.bName==b.bName){
+                        newBrand = false;
+                    }
+                }
+                
+                if (newBrand) {
+                    newCatBrands+=[b];
+                    categoryBrands.updateValue(newCatBrands, forKey: bCategory!);
+                    brandCounter = brandCounter+1;
+                }
+            
+            }
+            
+            for (cat, brandsArray) in categoryBrands {
+                println("New Category:"+cat);
+                for elem:BrandModel in brandsArray {
+                    println(elem.bName);
+                }
+            }
+            
+            // Brands - Stores
+            
+            if (brandStores[bName!] == nil) {
+                var newBrandStores = [StoreModel]();
+                newBrandStores=[s];
+                brandStores[bName!]=newBrandStores;
+            }
+            else {
+                var exBrandStores = brandStores[bName!] as [StoreModel]?;
+                var newStore = true;
+                var newBrandStore =  [StoreModel]();
+                
+                for elem:StoreModel in exBrandStores!{
+                    newBrandStore+=[elem];
+                }
+                newBrandStore+=[s];
+                brandStores.updateValue(newBrandStore, forKey: bName!);
+                
+            }
+            
+            for (brand, storesArray) in brandStores {
+                println("New Brand:"+brand);
+                for elem:StoreModel in storesArray {
+                    println(elem.sName);
+                }
+            }
+            
+            
+            
+            
         }
         
-        var results:NSDictionary = ["brands":brands,"stores":stores];
+        var results:NSDictionary = ["brands":brands,"stores":stores, "catBrands":categoryBrands, "brandStores":brandStores];
+        
         
         return results;
     }
     
+    
+
     
     func parseLogin(array:NSArray) -> AccountModel? {
         

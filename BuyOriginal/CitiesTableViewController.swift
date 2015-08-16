@@ -17,7 +17,6 @@ class CitiesTableViewController: UITableViewController,UISearchBarDelegate {
     var screenMode=1;
     var account:AccountModel!;
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -119,7 +118,7 @@ class CitiesTableViewController: UITableViewController,UISearchBarDelegate {
         }
         
         
-        performSegueWithIdentifier("pushBrands", sender: nil)
+        performSegueWithIdentifier("pushCategories", sender: nil)
     }
     
     
@@ -194,9 +193,9 @@ class CitiesTableViewController: UITableViewController,UISearchBarDelegate {
         
         print (segue.identifier)
         
-        if segue.identifier == "pushBrands"
+        if segue.identifier == "pushCategories"
         {
-            if let destinationVC = segue.destinationViewController as? BrandViewController{
+            if let destinationVC = segue.destinationViewController as? CategoriesViewController{
                 destinationVC.areaCode = self.selectedAreaCode
                 destinationVC.screenMode=self.screenMode
                 self.navigationItem.leftBarButtonItem?.title="";

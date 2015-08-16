@@ -29,5 +29,8 @@ struct GlobalConstants {
     static let DISCOUNT_ADD_DISCOUNT_DETAILS_REQUIRED = 10;
     static let DISCOUNT_ADD_INVALID_DATE = 11;
     
+    static let CATEGORIES_SCREEN_MODE_SEARCH = 1;
+    static let CATEGORIES_SCREEN_MODE_SIGNUP = 2;
+    
     
 }

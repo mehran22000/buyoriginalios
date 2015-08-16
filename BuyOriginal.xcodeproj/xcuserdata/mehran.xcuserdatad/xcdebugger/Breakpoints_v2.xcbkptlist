@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/BrandViewController.swift"
-            timestampString = "459140822.212827"
+            timestampString = "461198949.10221"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "251"
-            endingLineNumber = "251"
+            startingLineNumber = "252"
+            endingLineNumber = "252"
             landmarkName = "prepareForSegue(_:sender:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/BrandViewController.swift"
-            timestampString = "459140822.212827"
+            timestampString = "461198949.10221"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "247"
-            endingLineNumber = "247"
+            startingLineNumber = "248"
+            endingLineNumber = "248"
             landmarkName = "prepareForSegue(_:sender:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/BrandViewController.swift"
-            timestampString = "459140822.212827"
+            timestampString = "461198949.10221"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "220"
-            endingLineNumber = "220"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
             landmarkName = "tableView(_:didSelectRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -90,13 +90,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/BrandViewController.swift"
-            timestampString = "459140822.212827"
+            timestampString = "461198949.10221"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
-            landmarkName = "tableView(_:numberOfRowsInSection:)"
-            landmarkType = "5">
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "BrandViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/ResponseParser.swift"
-            timestampString = "460331756.005935"
+            timestampString = "461460625.603876"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "229"
-            endingLineNumber = "229"
+            startingLineNumber = "306"
+            endingLineNumber = "306"
             landmarkName = "ResponseParser"
             landmarkType = "3">
          </BreakpointContent>
@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/ResponseParser.swift"
-            timestampString = "460331756.005935"
+            timestampString = "461460625.603876"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "217"
-            endingLineNumber = "217"
+            startingLineNumber = "294"
+            endingLineNumber = "294"
             landmarkName = "ResponseParser"
             landmarkType = "3">
          </BreakpointContent>
@@ -282,11 +282,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/BrandViewController.swift"
-            timestampString = "459140822.212827"
+            timestampString = "461198949.10221"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
             landmarkName = "tableView(_:cellForRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -426,11 +426,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/BrandViewController.swift"
-            timestampString = "459140822.212827"
+            timestampString = "461198949.10221"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
             landmarkName = "tableView(_:cellForRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -442,11 +442,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/Network/BOHttpfetcher.swift"
-            timestampString = "457408553.146957"
+            timestampString = "460525500.872775"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
             landmarkName = "fetchBrandLogo(_:completionHandler:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -458,13 +458,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/BrandViewController.swift"
-            timestampString = "459140822.212827"
+            timestampString = "461198949.10221"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
-            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
-            landmarkType = "5">
+            startingLineNumber = "135"
+            endingLineNumber = "135"
+            landmarkName = "BrandViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -474,11 +474,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/Network/BOHttpfetcher.swift"
-            timestampString = "457408553.146957"
+            timestampString = "460525500.872775"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "fetchStores(_:distance:lat:lon:areaCode:discount:completionHandler:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -490,11 +490,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/Network/BOHttpfetcher.swift"
-            timestampString = "457408553.146957"
+            timestampString = "460525500.872775"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "fetchStores(_:distance:lat:lon:areaCode:discount:completionHandler:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -570,11 +570,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/BrandViewController.swift"
-            timestampString = "459140822.212827"
+            timestampString = "461198949.10221"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "223"
-            endingLineNumber = "223"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
             landmarkName = "tableView(_:didSelectRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -794,12 +794,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/BrandViewController.swift"
-            timestampString = "459140822.212827"
+            timestampString = "461198949.10221"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "viewWillAppear(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -810,11 +810,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/Network/BOHttpfetcher.swift"
-            timestampString = "457408553.146957"
+            timestampString = "460525500.872775"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
             landmarkName = "fetchBrandLogo(_:completionHandler:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -826,11 +826,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/BrandViewController.swift"
-            timestampString = "459140822.212827"
+            timestampString = "461198949.10221"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
             landmarkName = "tableView(_:cellForRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -937,13 +937,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BuyOriginal/CitiesTableViewController.swift"
-            timestampString = "459138152.815568"
+            filePath = "BuyOriginal/CategoriesViewController.swift"
+            timestampString = "461363668.002674"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "numberOfSectionsInTableView(_:)"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -953,28 +953,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BuyOriginal/CitiesTableViewController.swift"
-            timestampString = "459138152.815568"
+            filePath = "BuyOriginal/CategoriesViewController.swift"
+            timestampString = "461363668.002674"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "numberOfSectionsInTableView(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BuyOriginal/BrandViewController.swift"
-            timestampString = "459140822.212827"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1001,13 +985,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BuyOriginal/CitiesTableViewController.swift"
-            timestampString = "459140822.212827"
+            filePath = "BuyOriginal/CategoriesViewController.swift"
+            timestampString = "461363668.002674"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "200"
-            endingLineNumber = "200"
-            landmarkName = "prepareForSegue(_:sender:)"
+            startingLineNumber = "194"
+            endingLineNumber = "194"
+            landmarkName = "searchBar(_:textDidChange:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1017,13 +1001,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BuyOriginal/CitiesTableViewController.swift"
-            timestampString = "459140822.212827"
+            filePath = "BuyOriginal/CategoriesViewController.swift"
+            timestampString = "461363668.002674"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197"
-            landmarkName = "prepareForSegue(_:sender:)"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
+            landmarkName = "searchBar(_:textDidChange:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1050,11 +1034,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/BrandViewController.swift"
-            timestampString = "459140822.212827"
+            timestampString = "461198949.10221"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1066,11 +1050,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/Network/BOHttpfetcher.swift"
-            timestampString = "457408553.146957"
+            timestampString = "460525500.872775"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "fetchStores(_:distance:lat:lon:areaCode:discount:completionHandler:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1081,28 +1065,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BuyOriginal/BrandViewController.swift"
-            timestampString = "459140822.212827"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "BuyOriginal/Network/BOHttpfetcher.swift"
-            timestampString = "457408553.146957"
+            timestampString = "460525500.872775"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
             landmarkName = "fetchCityBrands(_:completionHandler:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1145,13 +1113,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BuyOriginal/CitiesTableViewController.swift"
-            timestampString = "459138152.815568"
+            filePath = "BuyOriginal/CategoriesViewController.swift"
+            timestampString = "461363668.002674"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
-            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1161,13 +1129,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BuyOriginal/CitiesTableViewController.swift"
-            timestampString = "459140822.212827"
+            filePath = "BuyOriginal/CategoriesViewController.swift"
+            timestampString = "461363668.002674"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
-            landmarkName = "searchBar(_:textDidChange:)"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "loadBrandsLogo()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1177,13 +1145,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BuyOriginal/CitiesTableViewController.swift"
-            timestampString = "459140822.212827"
+            filePath = "BuyOriginal/CategoriesViewController.swift"
+            timestampString = "461363668.002674"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
-            landmarkName = "searchBar(_:textDidChange:)"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
+            landmarkName = "loadBrandsLogo()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1226,75 +1194,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/DealsViewController.swift"
-            timestampString = "457473162.441537"
+            timestampString = "461129794.222169"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BuyOriginal/DealsViewController.swift"
-            timestampString = "457473162.441537"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BuyOriginal/ResponseParser.swift"
-            timestampString = "460331756.005935"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
-            landmarkName = "parseStoreArray(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BuyOriginal/DealsViewController.swift"
-            timestampString = "457473162.441537"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
-            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BuyOriginal/DealsViewController.swift"
-            timestampString = "457479161.817525"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "207"
-            endingLineNumber = "207"
+            startingLineNumber = "252"
+            endingLineNumber = "252"
             landmarkName = "prepareForSegue(_:sender:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1306,11 +1210,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/DealsViewController.swift"
-            timestampString = "457479161.817525"
+            timestampString = "461129794.222169"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
             landmarkName = "loadBrandsLogo()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1322,11 +1226,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/DealsViewController.swift"
-            timestampString = "457479161.817525"
+            timestampString = "461129794.222169"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
+            startingLineNumber = "211"
+            endingLineNumber = "211"
             landmarkName = "loadBrandsLogo()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1338,11 +1242,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/DealsViewController.swift"
-            timestampString = "457478629.201818"
+            timestampString = "461129794.222169"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
+            startingLineNumber = "179"
+            endingLineNumber = "179"
             landmarkName = "fetchDeals(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1354,11 +1258,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/DealsViewController.swift"
-            timestampString = "457478673.238018"
+            timestampString = "461129794.222169"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
             landmarkName = "fetchDeals(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1401,12 +1305,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BuyOriginal/CitiesTableViewController.swift"
-            timestampString = "459138152.815568"
+            filePath = "BuyOriginal/CategoriesViewController.swift"
+            timestampString = "461363668.002674"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1417,13 +1321,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BuyOriginal/CitiesTableViewController.swift"
-            timestampString = "459140966.004348"
+            filePath = "BuyOriginal/CategoriesViewController.swift"
+            timestampString = "461363668.002674"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "203"
-            endingLineNumber = "203"
-            landmarkName = "prepareForSegue(_:sender:)"
+            startingLineNumber = "197"
+            endingLineNumber = "197"
+            landmarkName = "searchBar(_:textDidChange:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1433,14 +1337,14 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BuyOriginal/CitiesTableViewController.swift"
-            timestampString = "459140822.212827"
+            filePath = "BuyOriginal/CategoriesViewController.swift"
+            timestampString = "461363668.002674"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "210"
-            endingLineNumber = "210"
-            landmarkName = "backPressed()"
-            landmarkType = "5">
+            startingLineNumber = "205"
+            endingLineNumber = "205"
+            landmarkName = "CategoriesViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1625,12 +1529,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BuyOriginal/CitiesTableViewController.swift"
-            timestampString = "459138144.841549"
+            filePath = "BuyOriginal/CategoriesViewController.swift"
+            timestampString = "461363668.002674"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1642,12 +1546,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/BrandViewController.swift"
-            timestampString = "459138697.04536"
+            timestampString = "461198949.10221"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "258"
-            endingLineNumber = "258"
-            landmarkName = "prepareForSegue(_:sender:)"
+            startingLineNumber = "259"
+            endingLineNumber = "259"
+            landmarkName = "backPressed()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1658,11 +1562,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/BrandViewController.swift"
-            timestampString = "459140817.517521"
+            timestampString = "461198949.10221"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
+            startingLineNumber = "227"
+            endingLineNumber = "227"
             landmarkName = "tableView(_:didSelectRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1673,13 +1577,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BuyOriginal/CitiesTableViewController.swift"
-            timestampString = "459140861.264071"
+            filePath = "BuyOriginal/CategoriesViewController.swift"
+            timestampString = "461363668.002674"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
-            landmarkName = "tableView(_:didSelectRowAtIndexPath:)"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "loadBrandsLogo()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2218,11 +2122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/ResponseParser.swift"
-            timestampString = "460331756.005935"
+            timestampString = "461460625.603876"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
+            startingLineNumber = "223"
+            endingLineNumber = "223"
             landmarkName = "parseLogin(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -2266,11 +2170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/LoginViewController.swift"
-            timestampString = "460326125.891911"
+            timestampString = "460512976.054024"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "prepareForSegue(_:sender:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -2329,12 +2233,428 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BuyOriginal/ResponseParser.swift"
-            timestampString = "460331746.539032"
+            filePath = "BuyOriginal/Store.swift"
+            timestampString = "460869131.191274"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "init(bId:bName:sId:sName:sAddress:sTel1:sTel2:sDistance:bCategory:bLogo:sLat:sLong:sVerified:sAreaCode:sHours:bDistributor:sDiscountStartDateFa:sDiscountStartDate:sDiscountEndDateFa:sDiscountEndDate:sDiscountNote:sDiscountPercentage:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BuyOriginal.StoreModel.init (BuyOriginal.StoreModel.Type)(bId : Swift.Optional&lt;Swift.String&gt;, bName : Swift.Optional&lt;Swift.String&gt;, sId : Swift.Optional&lt;Swift.String&gt;, sName : Swift.Optional&lt;Swift.String&gt;, sAddress : Swift.Optional&lt;Swift.String&gt;, sTel1 : Swift.Optional&lt;Swift.String&gt;, sTel2 : Swift.Optional&lt;Swift.String&gt;, sDistance : Swift.Optional&lt;Swift.String&gt;, bCategory : Swift.Optional&lt;Swift.String&gt;, bLogo : Swift.Optional&lt;Swift.String&gt;, sLat : Swift.Optional&lt;Swift.String&gt;, sLong : Swift.Optional&lt;Swift.String&gt;, sVerified : Swift.Optional&lt;Swift.String&gt;, sAreaCode : Swift.Optional&lt;Swift.String&gt;, sHours : Swift.Optional&lt;Swift.String&gt;, bDistributor : Swift.Optional&lt;Swift.String&gt;, sDiscountStartDateFa : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, sDiscountStartDate : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, sDiscountEndDateFa : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, sDiscountEndDate : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, sDiscountNote : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, sDiscountPercentage : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;) -&gt; BuyOriginal.StoreModel"
+                  moduleName = "BuyOriginal"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mehran/Desktop/BuyOriginal/BuyOriginal/Store.swift"
+                  timestampString = "460434002.438772"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "17306">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BuyOriginal.StoreModel.(init (BuyOriginal.StoreModel.Type) -&gt; (bId : Swift.Optional&lt;Swift.String&gt;, bName : Swift.Optional&lt;Swift.String&gt;, sId : Swift.Optional&lt;Swift.String&gt;, sName : Swift.Optional&lt;Swift.String&gt;, sAddress : Swift.Optional&lt;Swift.String&gt;, sTel1 : Swift.Optional&lt;Swift.String&gt;, sTel2 : Swift.Optional&lt;Swift.String&gt;, sDistance : Swift.Optional&lt;Swift.String&gt;, bCategory : Swift.Optional&lt;Swift.String&gt;, bLogo : Swift.Optional&lt;Swift.String&gt;, sLat : Swift.Optional&lt;Swift.String&gt;, sLong : Swift.Optional&lt;Swift.String&gt;, sVerified : Swift.Optional&lt;Swift.String&gt;, sAreaCode : Swift.Optional&lt;Swift.String&gt;, sHours : Swift.Optional&lt;Swift.String&gt;, bDistributor : Swift.Optional&lt;Swift.String&gt;, sDiscountStartDateFa : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, sDiscountStartDate : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, sDiscountEndDateFa : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, sDiscountEndDate : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, sDiscountNote : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, sDiscountPercentage : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;) -&gt; BuyOriginal.StoreModel).(implicit closure #21)"
+                  moduleName = "BuyOriginal"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mehran/Desktop/BuyOriginal/BuyOriginal/Store.swift"
+                  timestampString = "460434002.439057"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuyOriginal/Store.swift"
+            timestampString = "460513888.020766"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "init(bId:bName:sId:sName:sAddress:sTel1:sTel2:sDistance:bCategory:bLogo:sLat:sLong:sVerified:sAreaCode:sHours:bDistributor:sDiscountStartDateFa:sDiscountStartDate:sDiscountEndDateFa:sDiscountEndDate:sDiscountNote:sDiscountPercentage:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BuyOriginal.StoreModel.init (BuyOriginal.StoreModel.Type)(bId : Swift.Optional&lt;Swift.String&gt;, bName : Swift.Optional&lt;Swift.String&gt;, sId : Swift.Optional&lt;Swift.String&gt;, sName : Swift.Optional&lt;Swift.String&gt;, sAddress : Swift.Optional&lt;Swift.String&gt;, sTel1 : Swift.Optional&lt;Swift.String&gt;, sTel2 : Swift.Optional&lt;Swift.String&gt;, sDistance : Swift.Optional&lt;Swift.String&gt;, bCategory : Swift.Optional&lt;Swift.String&gt;, bLogo : Swift.Optional&lt;Swift.String&gt;, sLat : Swift.Optional&lt;Swift.String&gt;, sLong : Swift.Optional&lt;Swift.String&gt;, sVerified : Swift.Optional&lt;Swift.String&gt;, sAreaCode : Swift.Optional&lt;Swift.String&gt;, sHours : Swift.Optional&lt;Swift.String&gt;, bDistributor : Swift.Optional&lt;Swift.String&gt;, sDiscountStartDateFa : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, sDiscountStartDate : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, sDiscountEndDateFa : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, sDiscountEndDate : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, sDiscountNote : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, sDiscountPercentage : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;) -&gt; BuyOriginal.StoreModel"
+                  moduleName = "BuyOriginal"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mehran/Desktop/BuyOriginal/BuyOriginal/Store.swift"
+                  timestampString = "460513896.69032"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "14006">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BuyOriginal.StoreModel.(init (BuyOriginal.StoreModel.Type) -&gt; (bId : Swift.Optional&lt;Swift.String&gt;, bName : Swift.Optional&lt;Swift.String&gt;, sId : Swift.Optional&lt;Swift.String&gt;, sName : Swift.Optional&lt;Swift.String&gt;, sAddress : Swift.Optional&lt;Swift.String&gt;, sTel1 : Swift.Optional&lt;Swift.String&gt;, sTel2 : Swift.Optional&lt;Swift.String&gt;, sDistance : Swift.Optional&lt;Swift.String&gt;, bCategory : Swift.Optional&lt;Swift.String&gt;, bLogo : Swift.Optional&lt;Swift.String&gt;, sLat : Swift.Optional&lt;Swift.String&gt;, sLong : Swift.Optional&lt;Swift.String&gt;, sVerified : Swift.Optional&lt;Swift.String&gt;, sAreaCode : Swift.Optional&lt;Swift.String&gt;, sHours : Swift.Optional&lt;Swift.String&gt;, bDistributor : Swift.Optional&lt;Swift.String&gt;, sDiscountStartDateFa : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, sDiscountStartDate : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, sDiscountEndDateFa : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, sDiscountEndDate : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, sDiscountNote : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, sDiscountPercentage : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;) -&gt; BuyOriginal.StoreModel).(implicit closure #17)"
+                  moduleName = "BuyOriginal"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mehran/Desktop/BuyOriginal/BuyOriginal/Store.swift"
+                  timestampString = "460513896.690474"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuyOriginal/DealsViewController.swift"
+            timestampString = "461129794.222169"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "tableView(_:heightForRowAtIndexPath:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuyOriginal/DiscountViewController.swift"
+            timestampString = "460524194.807886"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
+            landmarkName = "savePressed()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuyOriginal/ResponseParser.swift"
+            timestampString = "461460625.603876"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "279"
+            endingLineNumber = "279"
+            landmarkName = "parsePost(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuyOriginal/ResponseParser.swift"
+            timestampString = "461460625.603876"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "280"
+            endingLineNumber = "280"
+            landmarkName = "parsePost(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuyOriginal/BOHttpPost.swift"
+            timestampString = "460524244.529472"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "addDiscount(_:discount:completionHandler:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuyOriginal/BOHttpPost.swift"
+            timestampString = "460524262.283031"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "addDiscount(_:discount:completionHandler:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuyOriginal/Network/BOHttpfetcher.swift"
+            timestampString = "460525034.118332"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "fetchStores(_:distance:lat:lon:areaCode:discount:completionHandler:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuyOriginal/DealsViewController.swift"
+            timestampString = "460525133.780079"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuyOriginal/Network/BOHttpfetcher.swift"
+            timestampString = "460525500.872775"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "fetchStores(_:distance:lat:lon:areaCode:discount:completionHandler:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuyOriginal/ResponseParser.swift"
+            timestampString = "461460625.603876"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "262"
+            endingLineNumber = "262"
+            landmarkName = "parseLogin(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuyOriginal/Store.swift"
+            timestampString = "460869285.449748"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "init(bId:bName:sId:sName:sAddress:sTel1:sTel2:sDistance:bCategory:bLogo:sLat:sLong:sVerified:sAreaCode:sHours:bDistributor:sDiscountStartDateFa:sDiscountStartDate:sDiscountEndDateFa:sDiscountEndDate:sDiscountNote:sDiscountPercentage:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BuyOriginal.StoreModel.init (BuyOriginal.StoreModel.Type)(bId : Swift.Optional&lt;Swift.String&gt;, bName : Swift.Optional&lt;Swift.String&gt;, sId : Swift.Optional&lt;Swift.String&gt;, sName : Swift.Optional&lt;Swift.String&gt;, sAddress : Swift.Optional&lt;Swift.String&gt;, sTel1 : Swift.Optional&lt;Swift.String&gt;, sTel2 : Swift.Optional&lt;Swift.String&gt;, sDistance : Swift.Optional&lt;Swift.String&gt;, bCategory : Swift.Optional&lt;Swift.String&gt;, bLogo : Swift.Optional&lt;Swift.String&gt;, sLat : Swift.Optional&lt;Swift.String&gt;, sLong : Swift.Optional&lt;Swift.String&gt;, sVerified : Swift.Optional&lt;Swift.String&gt;, sAreaCode : Swift.Optional&lt;Swift.String&gt;, sHours : Swift.Optional&lt;Swift.String&gt;, bDistributor : Swift.Optional&lt;Swift.String&gt;, sDiscountStartDateFa : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, sDiscountStartDate : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, sDiscountEndDateFa : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, sDiscountEndDate : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, sDiscountNote : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, sDiscountPercentage : Swift.ImplicitlyUnwrappedOptional&lt;Swift.Int&gt;) -&gt; BuyOriginal.StoreModel"
+                  moduleName = "BuyOriginal"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mehran/Desktop/BuyOriginal/BuyOriginal/Store.swift"
+                  timestampString = "460870693.359006"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "82"
+                  endingLineNumber = "82"
+                  offsetFromSymbolStart = "18900">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BuyOriginal.StoreModel.(init (BuyOriginal.StoreModel.Type) -&gt; (bId : Swift.Optional&lt;Swift.String&gt;, bName : Swift.Optional&lt;Swift.String&gt;, sId : Swift.Optional&lt;Swift.String&gt;, sName : Swift.Optional&lt;Swift.String&gt;, sAddress : Swift.Optional&lt;Swift.String&gt;, sTel1 : Swift.Optional&lt;Swift.String&gt;, sTel2 : Swift.Optional&lt;Swift.String&gt;, sDistance : Swift.Optional&lt;Swift.String&gt;, bCategory : Swift.Optional&lt;Swift.String&gt;, bLogo : Swift.Optional&lt;Swift.String&gt;, sLat : Swift.Optional&lt;Swift.String&gt;, sLong : Swift.Optional&lt;Swift.String&gt;, sVerified : Swift.Optional&lt;Swift.String&gt;, sAreaCode : Swift.Optional&lt;Swift.String&gt;, sHours : Swift.Optional&lt;Swift.String&gt;, bDistributor : Swift.Optional&lt;Swift.String&gt;, sDiscountStartDateFa : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, sDiscountStartDate : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, sDiscountEndDateFa : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, sDiscountEndDate : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, sDiscountNote : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, sDiscountPercentage : Swift.ImplicitlyUnwrappedOptional&lt;Swift.Int&gt;) -&gt; BuyOriginal.StoreModel).(implicit closure #23)"
+                  moduleName = "BuyOriginal"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mehran/Desktop/BuyOriginal/BuyOriginal/Store.swift"
+                  timestampString = "460870693.359165"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "82"
+                  endingLineNumber = "82"
+                  offsetFromSymbolStart = "11">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuyOriginal/Network/BOHttpfetcher.swift"
+            timestampString = "460869348.824209"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "fetchStores(_:distance:lat:lon:areaCode:discount:completionHandler:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuyOriginal/Network/BOHttpfetcher.swift"
+            timestampString = "460869369.455331"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "fetchStores(_:distance:lat:lon:areaCode:discount:completionHandler:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuyOriginal/CategoriesViewController.swift"
+            timestampString = "461439844.346559"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuyOriginal/CategoriesViewController.swift"
+            timestampString = "461439919.68821"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuyOriginal/CategoriesViewController.swift"
+            timestampString = "461439959.260702"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BuyOriginal.CategoriesViewController.viewDidLoad (BuyOriginal.CategoriesViewController)() -&gt; ()"
+                  moduleName = "BuyOriginal"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mehran/Desktop/BuyOriginal/BuyOriginal/CategoriesViewController.swift"
+                  timestampString = "461440337.700989"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "2559">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BuyOriginal.CategoriesViewController.(viewDidLoad (BuyOriginal.CategoriesViewController) -&gt; () -&gt; ()).(closure #1)"
+                  moduleName = "BuyOriginal"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mehran/Desktop/BuyOriginal/BuyOriginal/CategoriesViewController.swift"
+                  timestampString = "461440337.701154"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "30">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuyOriginal/ResponseParser.swift"
+            timestampString = "461460487.112007"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "parseStoreArray(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -2346,11 +2666,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/ResponseParser.swift"
-            timestampString = "460331750.066035"
+            timestampString = "461460487.112007"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
+            landmarkName = "parseStoreArray(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuyOriginal/ResponseParser.swift"
+            timestampString = "461460625.603876"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "204"
+            endingLineNumber = "204"
             landmarkName = "parseStoreArray(_:)"
             landmarkType = "5">
          </BreakpointContent>

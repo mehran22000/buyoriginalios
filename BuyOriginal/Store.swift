@@ -16,7 +16,6 @@ class StoreModel: NSObject, Printable {
     var sAddress: String!
     var sTel1: String!
     var sTel2: String!
-    var sDiscount: Int!
     var sDistance: String!
     var bCategory: String!
     var bLogo: String!
@@ -27,10 +26,16 @@ class StoreModel: NSObject, Printable {
     var sAreaCode: String!
     var bDistributor: String!
     var bLogoImage: UIImage!
+    var sDiscountStartDateFa: String!
+    var sDiscountEndDateFa: String!
+    var sDiscountStartDate: String!
+    var sDiscountEndDate: String!
+    var sDiscountNote: String!
+    var sDiscountPercentage: Int!
     
     
     override var description: String {
-        return "bId: \(bId), bName: \(bName),sId: \(sId), sName: \(sName), sAddress: \(sAddress), sTel1: \(sTel1), sTel2: \(sTel2), sDiscount: \(sDiscount), sDistance: \(sDistance), bCategory: \(bCategory), bLogo: \(bLogo), sLat: \(sLat), sLong: \(sLong),sVerified: \(sVerified), bDistributor: \(bDistributor) \n"
+        return "bId: \(bId), bName: \(bName),sId: \(sId), sName: \(sName), sAddress: \(sAddress), sTel1: \(sTel1), sTel2: \(sTel2), sDistance: \(sDistance), bCategory: \(bCategory), bLogo: \(bLogo), sLat: \(sLat), sLong: \(sLong),sVerified: \(sVerified), bDistributor: \(bDistributor), sDiscountStartDateFa: \(sDiscountStartDateFa),sDiscountStartDate: \(sDiscountStartDate), sDiscountEndDateFa: \(sDiscountEndDateFa), sDiscountEndDate: \(sDiscountEndDate), sDiscountNote: \(sDiscountNote), sDiscountPrecentage: \(sDiscountPercentage) \n"
     }
     
     override init() {
@@ -38,7 +43,19 @@ class StoreModel: NSObject, Printable {
     }
     
     
-    init(bId: String?, bName: String?, sId: String?, sName: String?, sAddress: String?, sTel1: String?, sTel2: String?, sDiscount: Int!, sDistance: String?, bCategory: String?, bLogo: String?, sLat: String?, sLong: String?, sVerified: String?, sAreaCode:String?, sHours:String?, bDistributor:String?) {
+    func hasDiscount()-> Bool {
+        if (sDiscountNote.isEmpty){
+            return true;
+        }
+        else if (sDiscountPercentage>0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    
+    init(bId: String?, bName: String?, sId: String?, sName: String?, sAddress: String?, sTel1: String?, sTel2: String?, sDistance: String?, bCategory: String?, bLogo: String?, sLat: String?, sLong: String?, sVerified: String?, sAreaCode:String?, sHours:String?, bDistributor:String?, sDiscountStartDateFa: String!, sDiscountStartDate: String!, sDiscountEndDateFa: String!, sDiscountEndDate: String!,sDiscountNote: String!, sDiscountPercentage: Int!) {
         self.bId = bId ?? ""
         self.bName = bName ?? ""
         self.sId = sId ?? ""
@@ -46,12 +63,6 @@ class StoreModel: NSObject, Printable {
         self.sAddress = sAddress ?? ""
         self.sTel1 = sTel1 ?? ""
         self.sTel2 = sTel2 ?? ""
-        if (sDiscount==nil){
-            self.sDiscount = 0;
-        }
-        else {
-            self.sDiscount=sDiscount;
-        }
         self.sDistance = sDistance ?? ""
         self.bCategory = bCategory ?? ""
         self.bLogo = bLogo ?? ""
@@ -62,6 +73,14 @@ class StoreModel: NSObject, Printable {
         self.sAreaCode = sAreaCode ?? ""
         self.bLogoImage = UIImage();
         self.bDistributor = bDistributor ?? ""
+        self.sDiscountStartDate=sDiscountStartDate ?? ""
+        self.sDiscountStartDateFa=sDiscountStartDateFa ?? ""
+        self.sDiscountEndDateFa=sDiscountEndDateFa ?? ""
+        self.sDiscountEndDate=sDiscountEndDate ?? ""
+        self.sDiscountEndDateFa=sDiscountEndDateFa ?? ""
+        self.sDiscountNote=sDiscountNote ?? ""
+        self.sDiscountPercentage = sDiscountPercentage ?? -1
+    
         
         super.init();
         

@@ -10,6 +10,9 @@ import UIKit
 
 class BussinessProfileController: UITableViewController  {
 
+    var account: AccountModel?
+    var cellBrand: BOBrandTableViewCell?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
@@ -36,7 +39,14 @@ class BussinessProfileController: UITableViewController  {
         
         switch (indexPath.row) {
         case 0:
-            cell = self.tableView.dequeueReusableCellWithIdentifier("cellBrand") as! BOBrandTableViewCell;
+            self.cellBrand = self.tableView.dequeueReusableCellWithIdentifier("cellBrand") as? BOBrandTableViewCell;
+            cellBrand?.brandNameLabel.text = self.account?.brand.bName;
+            cellBrand?.brandCategoryLabel.text = self.account?.brand.bCategory;
+            cellBrand?.brandImageView.image = UIImage(named: self.account!.brand.bLogo!);
+            cellBrand?.brandImageView.layer.cornerRadius = 8.0
+            cellBrand?.brandImageView.clipsToBounds = true
+            return cellBrand!;
+        
         case 1:
             cell = self.tableView.dequeueReusableCellWithIdentifier("cellEmail") as! BusProfileReadOnlyCell;
         case 2:
@@ -94,7 +104,7 @@ class BussinessProfileController: UITableViewController  {
         case 7:
             return 75;
         case 8:
-            return 60;
+            return 114;
             
         default:
             return 0;

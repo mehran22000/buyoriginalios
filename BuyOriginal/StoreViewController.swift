@@ -103,10 +103,10 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
         cell.storePhoneNumberLabel.text = store.sTel1;
         cell.storeHoursLabel.text = store.sHours;
         
-        if ((store.sVerified=="Yes") && (store.sDiscount>0)){
+        if ((store.sVerified=="Yes") && (store.sDiscountPercentage>0)){
             cell.storeImageView.image = UIImage(named: "discount+verified");
         }
-        else if (store.sDiscount>0){
+        else if (store.sDiscountPercentage>0){
             cell.storeImageView.image = UIImage(named: "discount");
         }
         else if (store.sVerified=="Yes"){

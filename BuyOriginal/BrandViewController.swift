@@ -23,7 +23,8 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
     var areaCode:String="";
     var screenMode=2;
     var account:AccountModel!;
-    
+    var selectedCategoryNameFa:String="";
+
     
 
     
@@ -61,15 +62,6 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
         self.activityIndicatior?.startAnimating()
         self.activityIndicatior?.hidesWhenStopped=true
-        
-        let fetcher = BOHttpfetcher()
-        
-        fetcher.fetchCityBrands (self.areaCode, completionHandler:{ (result: NSArray) -> () in
-            self.brandsArray = result
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                self.loadBrandsLogo()
-            })
-        })
         
         // GA
         var tracker:GAITracker = GAI.sharedInstance().defaultTracker as GAITracker

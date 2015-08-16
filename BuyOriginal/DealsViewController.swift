@@ -31,7 +31,7 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
         
         self.activityIndicatior?.startAnimating()
         self.activityIndicatior?.hidesWhenStopped=true
-        fetchDeals(2);
+        fetchDeals(1000000);
         
         // Do any additional setup after loading the view.
     }
@@ -67,15 +67,45 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
         }
         
         cell.storeDistanceLabel.text = store.sDistance+" Km"
-        cell.brandCategoryLabel.text = store.bCategory
+       // cell.brandCategoryLabel.text = store.bCategory
         cell.brandNameLabel.text = store.bName
         
         var image : UIImage = UIImage(named:store.bLogo)!
         cell.brandImageView.image=image;
+       
+        if (store.sDiscountPercentage>0){
+            var imageName:NSString? = discountImageName(store.sDiscountPercentage);
+            if (imageName != nil){
+                image = UIImage(named:imageName! as String)!;
+                cell.dealImageView.image = image;
+            }
+        }
         
-        var imageName:NSString = discountImageName(store.sDiscount);
-        image = UIImage(named:imageName as String)!;
-        cell.dealImageView.image = image;
+        if ((store.sDiscountStartDateFa != nil) && (store.sDiscountEndDateFa != nil)) {
+            cell.dateLabel.text = store.sDiscountStartDateFa + "-" + store.sDiscountEndDateFa;
+        }
+        else {
+            let today = NSDate();
+            cell.dateLabel.text="امروز";
+        }
+        
+        let cat=CategoryModel();
+        let iconName = cat.getIconName(store.bCategory);
+        if (iconName != nil){
+            cell.categoryImageView.image = UIImage(named:iconName! as String);
+        }
+        
+        
+        if (store.sDiscountNote != nil){
+            cell.noteLabel.numberOfLines=0;
+            cell.noteLabel.text = store.sDiscountNote;
+            cell.noteLabel.textAlignment = .Right;
+            cell.noteLabel.sizeToFit()
+        }
+        else {
+            cell.noteLabel.text="";
+        }
+
         
         return cell
         
@@ -93,7 +123,21 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 150
+        
+        var store:StoreModel?;
+        
+        if is_searching==true {
+            store = self.filteredStores[indexPath.row] as StoreModel
+        } else {
+            store = self.dealsStoresArray[indexPath.row] as? StoreModel
+        }
+        
+        if ((store!.sDiscountNote == nil) || (store!.sDiscountNote.isEmpty)){
+            return 115;
+        }
+        else {
+            return 150;
+        }
     }
     
     // Search Bar Delegates
@@ -122,13 +166,14 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
         let fetcher = BOHttpfetcher()
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
+        
         var curLat = String(format:"%f",appDelegate.curLocationLat)
         var curLon = String(format:"%f",appDelegate.curLocationLong)
         
         // Test Data
         // ToDo: Remove
-        // var curLat="32.637817";
-        // var curLon="51.658522";
+        // var curLat="43.667855";
+        // var curLon="-79.395564";
         
         fetcher.fetchStores ("all",distance:String(distance),lat:curLat,lon:curLon,areaCode:"",discount:true,completionHandler: {(result: NSArray) -> () in
             self.dealsStoresArray = result

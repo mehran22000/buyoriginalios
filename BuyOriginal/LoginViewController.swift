@@ -103,6 +103,8 @@ class LoginViewController: UIViewController {
             var navVC = tabBarVC.viewControllers?[0] as! UINavigationController;
             var discountVC = navVC.viewControllers?[0] as! DiscountViewController;
             discountVC.account = self.accountInfo;
+         //   var profileVC = navVC.viewControllers?[0] as! BussinessProfileController;
+         //   profileVC.account = self.accountInfo;
         }
         else if segue.identifier == "segueForgetPassword"
         {

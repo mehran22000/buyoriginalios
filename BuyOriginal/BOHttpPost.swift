@@ -47,8 +47,8 @@ class BOHttpPost: NSObject {
     
     func addDiscount (account:AccountModel, discount:DiscountModel, completionHandler:(result:NSString)->Void) -> () {
         
-        // var url: String = "https://buyoriginal.herokuapp.com/stores/adddiscount"
-          var url: String = "http://localhost:5000/stores/adddiscount"
+         var url: String = "https://buyoriginal.herokuapp.com/stores/adddiscount"
+        //  var url: String = "http://localhost:5000/stores/adddiscount"
         var request : NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)
         request.HTTPMethod = "POST"
@@ -57,7 +57,7 @@ class BOHttpPost: NSObject {
             discount.note = "";
         }
         if (discount.precentage.isEmpty==true){
-            discount.precentage = "";
+            discount.precentage = "0";
         }
         
         var bodyData = "bId="+(account.store.bId as String)+"&sId="+(account.store.sId as String)+"&startDate="+(discount.startDateStr as String)+"&endDate="+(discount.endDateStr as String)+"&startDateFa="+(discount.startDateStrFa as String)+"&endDateFa="+(discount.endDateStrFa as String)+"&precentage="+(discount.precentage as String)+"&note="+(discount.note as String);
