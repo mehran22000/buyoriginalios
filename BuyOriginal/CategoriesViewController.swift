@@ -13,8 +13,10 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
     @IBOutlet var tableView: UITableView!
     var selectedCategory:String="";
     var brandsArray = NSArray()
-    var categories = [CategoryModel]();
-    var filteredCategories=[CategoryModel]();
+    var categoryBrands = [String:[BrandModel]]();
+    var categoriesArray = [String]();
+    var filteredCategorisArray = [String]();
+    var brandStores = [String:[StoreModel]]();
     var is_searching=false   // It's flag for searching
     var screenMode=1;
     var account:AccountModel!;
@@ -46,14 +48,22 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
         
         let fetcher = BOHttpfetcher()
         
-        fetcher.fetchCityBrands (self.areaCode, completionHandler:{ (result: NSArray) -> () in
-            self.brandsArray = result
+        fetcher.fetchCityCategories (self.areaCode, completionHandler:{ (result: NSDictionary) -> () in
+            
+            self.brandsArray = result.objectForKey("brands") as! NSArray;
+            self.categoryBrands = result.objectForKey("catBrands") as! Dictionary;
+            self.brandStores = result.objectForKey("brandStores") as! Dictionary;
+            self.categoriesArray = self.categoryBrands.keys.array;
+            
+            
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.loadBrandsLogo()
             })
         })
         
-        
+        self.activityIndicatior?.hidden=false;
+        self.activityIndicatior?.hidesWhenStopped=true;
+        self.activityIndicatior?.startAnimating();
        // self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cityCell")
       //  self.tableView.backgroundColor = UIColor(patternImage: UIImage(named: "welcome.pink")!);
         
@@ -81,10 +91,10 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
         if is_searching==true {
-            return self.filteredCategories.count;
+            return self.filteredCategorisArray.count;
         }
         else {
-            return self.categories.count;
+            return self.categoriesArray.count;
         }
     }
     
@@ -136,24 +146,106 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
             }
         }
     }
+    
+    
+    func loadCategoriesLogo(cell: BOCategoriesTableViewCell, cat: String ) {
+        
+        var categoryBrands = [String:[BrandModel]]();
+        var catbrandsArray = self.categoryBrands[cat];
+        var brandNo = catbrandsArray!.count;
+        
+        var brand = catbrandsArray![0] as BrandModel;
+        cell.logo1ImageView.image = brand.bLogoImage;
+        cell.logo1ImageView.layer.borderColor = UIColor.blackColor().CGColor
+        cell.logo1ImageView.layer.borderWidth = 0.5
+        
+        
+        if (brandNo>2){
+            var brand = catbrandsArray![1] as BrandModel;
+            cell.logo2ImageView.image = brand.bLogoImage;
+            cell.logo2ImageView.layer.borderColor = UIColor.blackColor().CGColor
+            cell.logo2ImageView.layer.borderWidth = 0.5
+        }
+        
+        if (brandNo>3){
+            var brand = catbrandsArray![2] as BrandModel;
+            cell.logo3ImageView.image = brand.bLogoImage;
+            cell.logo3ImageView.layer.borderColor = UIColor.blackColor().CGColor
+            cell.logo3ImageView.layer.borderWidth = 0.5
+        }
+        
+        if (brandNo>4){
+            var brand = catbrandsArray![3] as BrandModel;
+            cell.logo4ImageView.image = brand.bLogoImage;
+            cell.logo4ImageView.layer.borderColor = UIColor.blackColor().CGColor
+            cell.logo4ImageView.layer.borderWidth = 0.5
+        }
+        
+        if (brandNo>5){
+            var brand = catbrandsArray![4] as BrandModel;
+            cell.logo5ImageView.image = brand.bLogoImage;
+            cell.logo5ImageView.layer.borderColor = UIColor.blackColor().CGColor
+            cell.logo5ImageView.layer.borderWidth = 0.5
+        }
+        
+        if (brandNo>6){
+            var brand = catbrandsArray![5] as BrandModel;
+            cell.logo6ImageView.image = brand.bLogoImage;
+            cell.logo6ImageView.layer.borderColor = UIColor.blackColor().CGColor
+            cell.logo6ImageView.layer.borderWidth = 0.5
+        }
+        
+        if (brandNo>7){
+            var brand = catbrandsArray![6] as BrandModel;
+            cell.logo7ImageView.image = brand.bLogoImage;
+            cell.logo7ImageView.layer.borderColor = UIColor.blackColor().CGColor
+            cell.logo7ImageView.layer.borderWidth = 0.5
+        }
+        
+        if (brandNo>8){
+            var brand = catbrandsArray![7] as BrandModel;
+            cell.logo8ImageView.image = brand.bLogoImage;
+            cell.logo8ImageView.layer.borderColor = UIColor.blackColor().CGColor
+            cell.logo8ImageView.layer.borderWidth = 0.5
+            
+        }
+        
+
+        if (brandNo>9){
+            cell.brandCountLabel.text = "+" + String(brandNo - 9);
+        }
+        else {
+            cell.brandCountLabel.hidden = true;
+        }
+    
+        
+    
+        
+    }
 
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell:BOCategoriesTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cellCategory") as! BOCategoriesTableViewCell
         
-        // retrieve brands available in stores for each category
-        /*
-        var cityImgName:String;
+        var category="";
+        
+        
         if is_searching==true {
-            var c:CityModel = self.filteredCities[indexPath.row] as CityModel;
-            cityImgName = c.imageName;
+            category = self.filteredCategorisArray[indexPath.row] as String;
         } else {
-            var c:CityModel = self.cities[indexPath.row] as CityModel;
-            cityImgName = c.imageName;
+            category = self.categoriesArray[indexPath.row] as String;
         }
         
-        cell.cityImageView.image = UIImage(named: cityImgName);
-        */
+        cell.categoryNameLabel.text = category;
+        
+        
+        let cat=CategoryModel();
+        let iconName = cat.getIconName(category);
+        if (iconName != nil){
+      //      cell.categoryImageView.image = UIImage(named:iconName! as String);
+        }
+        
+        loadCategoriesLogo(cell,cat: category);
         
         return cell
     }
@@ -161,13 +253,13 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         println("You selected cell #\(indexPath.row)!")
     
-        var c:CategoryModel!
+        var c="";
         if is_searching==true {
-            c = self.filteredCategories[indexPath.row] as CategoryModel;
-            self.selectedCategory = c.cNameFa;
+            c = self.filteredCategorisArray[indexPath.row] as String;
+            self.selectedCategory = c;
         } else {
-            c = self.categories[indexPath.row] as CategoryModel;
-            self.selectedCategory = c.cNameFa;
+            c = self.categoriesArray[indexPath.row] as String;
+            self.selectedCategory = c;
         }
         
         /*
@@ -188,14 +280,14 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
         } else {
             println(" search text %@ ",searchBar.text as NSString)
             is_searching = true
-            self.filteredCategories.removeAll(keepCapacity: false)
-            for var index = 0; index < self.categories.count; index++
+            self.filteredCategorisArray.removeAll(keepCapacity: false)
+            for var index = 0; index < self.categoriesArray.count; index++
             {
-                var cNameFa:String = categories[index].cNameFa as String;
+                var cNameFa:String = categoriesArray[index] as String;
                
                 if (cNameFa.lowercaseString.rangeOfString(searchText.lowercaseString) != nil)
                 {
-                    self.filteredCategories+=[categories[index]];
+                    self.filteredCategorisArray+=[categoriesArray[index]];
                 }
             }
             tableView.reloadData()
@@ -204,7 +296,7 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
     
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 110
+        return 85
     }
     
     /*
@@ -257,6 +349,7 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
                 self.navigationItem.leftBarButtonItem?.title="";
                 destinationVC.account = self.account
                 destinationVC.selectedCategoryNameFa = self.selectedCategory;
+                destinationVC.brandsArray =  self.categoryBrands[self.selectedCategory]!;
             }
         }
         

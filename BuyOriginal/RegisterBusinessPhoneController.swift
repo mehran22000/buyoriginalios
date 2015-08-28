@@ -13,6 +13,8 @@ class RegisterBusinessPhoneController: UIViewController {
     var account:AccountModel!;
     @IBOutlet var areaCodeTextField: UITextField!
     @IBOutlet var telTextField: UITextField!
+    var screenMode=GlobalConstants.BUSINESS_PHONE_SCREEN_MODE_SIGNUP;
+    var delegate:BuPhoneDelegate?;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +52,14 @@ class RegisterBusinessPhoneController: UIViewController {
         else {
             self.account.store.sAreaCode = self.areaCodeTextField.text;
             self.account.store.sTel1 = self.areaCodeTextField.text+self.telTextField.text;
-            self.performSegueWithIdentifier("seguePushTerms", sender: sender)
+            
+            if (self.screenMode == GlobalConstants.BUSINESS_PHONE_SCREEN_MODE_SIGNUP) {
+                self.performSegueWithIdentifier("seguePushTerms", sender: sender)
+            }
+            else if (self.screenMode == GlobalConstants.BUSINESS_PHONE_SCREEN_MODE_CHANGE) {
+                self.delegate?.updatePhone(self.account.store.sTel1,newAreaCode: self.account.store.sAreaCode);
+                self.navigationController?.popViewControllerAnimated(true);
+            }
         }
         
         if (err>0){

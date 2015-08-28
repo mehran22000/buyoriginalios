@@ -16,6 +16,7 @@ class CitiesTableViewController: UITableViewController,UISearchBarDelegate {
     var is_searching=false   // It's flag for searching
     var screenMode=1;
     var account:AccountModel!;
+    var delegate: BuCityDelegate?;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,6 +116,7 @@ class CitiesTableViewController: UITableViewController,UISearchBarDelegate {
         
         if ((self.account) != nil){
             self.account.sCity=c;
+            self.delegate?.updateCity(c);
         }
         
         

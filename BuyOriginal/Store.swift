@@ -84,7 +84,7 @@ class StoreModel: NSObject, Printable {
         
         super.init();
         
-        println("store:"+self.description);
+     //   println("store:"+self.description);
         
     }
 }

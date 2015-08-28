@@ -32,5 +32,10 @@ struct GlobalConstants {
     static let CATEGORIES_SCREEN_MODE_SEARCH = 1;
     static let CATEGORIES_SCREEN_MODE_SIGNUP = 2;
     
+    static let PROFILE_NEWPASSWORD_INVALID_OLDPASSWORD = 1;
+    static let PROFILE_NEWPASSWORD_NOMATCH = 2;
+    
+    static let BUSINESS_PHONE_SCREEN_MODE_SIGNUP = 1;
+    static let BUSINESS_PHONE_SCREEN_MODE_CHANGE = 2;
     
 }

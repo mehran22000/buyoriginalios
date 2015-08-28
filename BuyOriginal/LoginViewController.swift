@@ -100,11 +100,12 @@ class LoginViewController: UIViewController {
         else if segue.identifier == "segueLogin"
         {
             var tabBarVC = segue.destinationViewController as! UITabBarController;
-            var navVC = tabBarVC.viewControllers?[0] as! UINavigationController;
-            var discountVC = navVC.viewControllers?[0] as! DiscountViewController;
+            var discNavVC = tabBarVC.viewControllers?[0] as! UINavigationController;
+            var discountVC = discNavVC.viewControllers?[0] as! DiscountViewController;
             discountVC.account = self.accountInfo;
-         //   var profileVC = navVC.viewControllers?[0] as! BussinessProfileController;
-         //   profileVC.account = self.accountInfo;
+            var profNavVC = tabBarVC.viewControllers?[1] as! UINavigationController;
+            var profileVC = profNavVC.viewControllers?[0] as! BussinessProfileController;
+            profileVC.account = self.accountInfo;
         }
         else if segue.identifier == "segueForgetPassword"
         {

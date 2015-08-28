@@ -65,20 +65,64 @@ class DiscountViewController: UITableViewController {
                 cellBrand?.brandImageView.image = UIImage(named: self.account!.brand.bLogo!);
                 cellBrand?.brandImageView.layer.cornerRadius = 8.0
                 cellBrand?.brandImageView.clipsToBounds = true
-                
-                
                 return self.cellBrand!;
             case 1:
                 self.cellStartDate = self.tableView.dequeueReusableCellWithIdentifier("cellStartDate") as? BOBusDisDateTableViewCell;
+                
+                let startDate:String! = self.account?.discount.startDateStrFa!;
+                
+                // Year
+                let rangeOfYear = Range(start: advance(startDate.startIndex,2),
+                    end: advance(startDate.startIndex, 4));
+                let year = startDate.substringWithRange(rangeOfYear)
+                self.cellStartDate?.disDateYear.text = year;
+                
+                // Month
+                let rangeOfMonth = Range(start: advance(startDate.startIndex,5),
+                    end: advance(startDate.startIndex, 7));
+                let month = startDate.substringWithRange(rangeOfMonth)
+                self.cellStartDate?.disDateMonth.text = month;
+                
+                
+                // Day
+                let rangeOfDay = Range(start: advance(startDate.startIndex,8),
+                    end: advance(startDate.startIndex, 10));
+                let day = startDate.substringWithRange(rangeOfDay)
+                self.cellStartDate?.disDateDay.text = day;
+                
                 return self.cellStartDate!;
             case 2:
                 self.cellEndDate = self.tableView.dequeueReusableCellWithIdentifier("cellEndDate") as? BOBusDisDateTableViewCell;
+                
+                let endDate:String! = self.account?.discount.endDateStrFa!;
+                
+                
+                // Year
+                let rangeOfYear = Range(start: advance(endDate.startIndex,2),
+                    end: advance(endDate.startIndex, 4));
+                let year = endDate.substringWithRange(rangeOfYear)
+                self.cellEndDate?.disDateYear.text = year;
+                
+                // Month
+                let rangeOfMonth = Range(start: advance(endDate.startIndex,5),
+                    end: advance(endDate.startIndex, 7));
+                let month = endDate.substringWithRange(rangeOfMonth)
+                self.cellEndDate?.disDateMonth.text = month;
+                
+                
+                // Day
+                let rangeOfDay = Range(start: advance(endDate.startIndex,8),
+                    end: advance(endDate.startIndex, 10));
+                let day = endDate.substringWithRange(rangeOfDay)
+                self.cellEndDate?.disDateDay.text = day;
                 return self.cellEndDate!;
             case 3:
                 self.cellPrecentage = self.tableView.dequeueReusableCellWithIdentifier("cellPrecentage") as? BOBusDisPercentageTableViewCell;
+                self.cellPrecentage?.percentage.text = self.account?.discount.precentage;
                 return self.cellPrecentage!;
             case 4:
                 self.cellNote = self.tableView.dequeueReusableCellWithIdentifier("cellNote") as? BOBusDisNotesTableViewCell;
+                self.cellNote?.note.text = self.account?.discount.note;
                 return self.cellNote!;
             case 5:
                 cell = self.tableView.dequeueReusableCellWithIdentifier("cellAction") as! BOBusDisActionTableViewCell;
@@ -188,8 +232,17 @@ class DiscountViewController: UITableViewController {
         
     
         var sYear = self.cellStartDate?.disDateYear.text;
-        var sMonth = self.cellStartDate?.disDateMonth.text;
-        var sDay = self.cellStartDate?.disDateDay.text;
+        var sMonth:String! = self.cellStartDate?.disDateMonth.text as String!;
+        
+        if (count(sMonth)<2) {
+            sMonth = "0" + sMonth;
+        }
+        
+        var sDay:String! = self.cellStartDate?.disDateDay.text as String!;
+        
+        if (count(sDay)<2) {
+            sDay = "0" + sDay;
+        }
         
         var eYear = self.cellEndDate?.disDateYear.text;
         var eMonth = self.cellEndDate?.disDateMonth.text;

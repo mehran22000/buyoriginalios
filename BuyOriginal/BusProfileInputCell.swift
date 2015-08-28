@@ -11,7 +11,7 @@ import UIKit
 class BusProfileInputCell: UITableViewCell {
 
     @IBOutlet var label: UILabel!
-    @IBOutlet var value: UITextView!
+    @IBOutlet var value: UITextField!
 
     
     override func awakeFromNib() {

@@ -26,10 +26,6 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
     var selectedCategoryNameFa:String="";
 
     
-
-    
-    @IBOutlet var activityIndicatior: UIActivityIndicatorView?;
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,8 +56,6 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
         navigationItem.leftBarButtonItem = backBtn;
         
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
-        self.activityIndicatior?.startAnimating()
-        self.activityIndicatior?.hidesWhenStopped=true
         
         // GA
         var tracker:GAITracker = GAI.sharedInstance().defaultTracker as GAITracker
@@ -156,6 +150,7 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
     }
     
     
+    /*
     func loadBrandsLogo() {
         
         let path = NSBundle.mainBundle().pathForResource("logos", ofType:"plist")
@@ -174,7 +169,6 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
                 counter=counter+1;
                 if (counter == self.brandsArray.count){
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        self.activityIndicatior?.stopAnimating()
                         self.tableView.reloadData()
                     })
                 }
@@ -195,7 +189,6 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
                         counter=counter+1;
                         if (counter == self.brandsArray.count){
                             dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                                self.activityIndicatior?.stopAnimating()
                                 self.tableView.reloadData()
                             })
                         }
@@ -204,7 +197,7 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
             }
         }
     }
-    
+    */
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

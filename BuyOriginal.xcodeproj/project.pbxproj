@@ -57,6 +57,9 @@
 		02662BF41B03004F00093D7D /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02662BF31B03004F00093D7D /* Store.swift */; };
 		02A3B2931B1A36E900B99AAA /* BOHttpfetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A3B2921B1A36E900B99AAA /* BOHttpfetcher.swift */; };
 		02AA9A091AFD67120090A88B /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AA9A081AFD67120090A88B /* Brand.swift */; };
+		02C99C191B8E677C00F8DA23 /* BuPasswordDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C99C181B8E677C00F8DA23 /* BuPasswordDelegate.swift */; };
+		02C99C1C1B8E6DC300F8DA23 /* BuPhoneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C99C1B1B8E6DC300F8DA23 /* BuPhoneDelegate.swift */; };
+		02C99C1E1B8E6F5900F8DA23 /* BuCityDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C99C1D1B8E6F5900F8DA23 /* BuCityDelegate.swift */; };
 		02C9BD001B042AF6000C6FA6 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C9BCFF1B042AF6000C6FA6 /* DataManager.swift */; };
 		02C9BD011B042CF7000C6FA6 /* Brands.json in Resources */ = {isa = PBXBuildFile; fileRef = 02577EB91AFC5BB700F3521B /* Brands.json */; };
 		02C9BD0A1B054C09000C6FA6 /* NearMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C9BD091B054C09000C6FA6 /* NearMeViewController.swift */; };
@@ -166,6 +169,9 @@
 		02662BF31B03004F00093D7D /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		02A3B2921B1A36E900B99AAA /* BOHttpfetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BOHttpfetcher.swift; path = Network/BOHttpfetcher.swift; sourceTree = "<group>"; };
 		02AA9A081AFD67120090A88B /* Brand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Brand.swift; path = DataModels/Brand.swift; sourceTree = "<group>"; };
+		02C99C181B8E677C00F8DA23 /* BuPasswordDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuPasswordDelegate.swift; sourceTree = "<group>"; };
+		02C99C1B1B8E6DC300F8DA23 /* BuPhoneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuPhoneDelegate.swift; sourceTree = "<group>"; };
+		02C99C1D1B8E6F5900F8DA23 /* BuCityDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuCityDelegate.swift; sourceTree = "<group>"; };
 		02C9BCFF1B042AF6000C6FA6 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		02C9BD091B054C09000C6FA6 /* NearMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearMeViewController.swift; sourceTree = "<group>"; };
 		02C9BD0B1B054C3D000C6FA6 /* DealsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealsViewController.swift; sourceTree = "<group>"; };
@@ -245,6 +251,7 @@
 		022A95DE1B571E470091659B /* BusinesProfile */ = {
 			isa = PBXGroup;
 			children = (
+				02C99C1A1B8E68AD00F8DA23 /* Protocols */,
 				022A95D31B54BF440091659B /* BussinssProfileController.swift */,
 				02EA3EED1B4E148900ECE384 /* DiscountViewController.swift */,
 			);
@@ -429,6 +436,16 @@
 				02031EF51B7C42EA00F21F96 /* Category.swift */,
 			);
 			name = DataModel;
+			sourceTree = "<group>";
+		};
+		02C99C1A1B8E68AD00F8DA23 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				02C99C181B8E677C00F8DA23 /* BuPasswordDelegate.swift */,
+				02C99C1B1B8E6DC300F8DA23 /* BuPhoneDelegate.swift */,
+				02C99C1D1B8E6F5900F8DA23 /* BuCityDelegate.swift */,
+			);
+			name = Protocols;
 			sourceTree = "<group>";
 		};
 		02FB4DCB1AF7A47900884750 = {
@@ -640,8 +657,10 @@
 				022A95DD1B5715030091659B /* ForgetPasswordViewController.swift in Sources */,
 				02FB4DDF1AF7A47900884750 /* BrandViewController.swift in Sources */,
 				02293BDA1B23D15200D77387 /* LocationViewController.swift in Sources */,
+				02C99C1E1B8E6F5900F8DA23 /* BuCityDelegate.swift in Sources */,
 				02577EB61AFAF81700F3521B /* StoreViewController.swift in Sources */,
 				02C9BD0A1B054C09000C6FA6 /* NearMeViewController.swift in Sources */,
+				02C99C191B8E677C00F8DA23 /* BuPasswordDelegate.swift in Sources */,
 				024056991B51A4E100612263 /* RegisterStoreViewController.swift in Sources */,
 				02662BF41B03004F00093D7D /* Store.swift in Sources */,
 				021DA5B31B0FD53E0030815A /* BONearmeTableViewCell.swift in Sources */,
@@ -674,6 +693,7 @@
 				02ED15961B36810300A08215 /* TabBarController.swift in Sources */,
 				02FB4DDA1AF7A47900884750 /* AppDelegate.swift in Sources */,
 				02FB4DDD1AF7A47900884750 /* BuyOriginal.xcdatamodeld in Sources */,
+				02C99C1C1B8E6DC300F8DA23 /* BuPhoneDelegate.swift in Sources */,
 				022A95CE1B5472040091659B /* RegisterBusinessPhoneController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,8 +8,14 @@
 
 import UIKit
 
-class ChangePasswordViewController: UIViewController {
+class ChangePasswordViewController: UIViewController{
 
+    @IBOutlet var oldPasswordTextField: UITextField!
+    @IBOutlet var newPasswordTextField: UITextField!
+    @IBOutlet var reNewPasswordTextField: UITextField!
+    var account: AccountModel?
+    var delegate: BuPasswordDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,6 +33,42 @@ class ChangePasswordViewController: UIViewController {
     @IBAction func backPressed () {
         self.navigationController?.popViewControllerAnimated(true);
     }
+    
+    @IBAction func savePasswordPressed () {
+        
+        var err=0;
+        var errMsg="";
+
+        
+        // Check old password is valid
+        if (self.oldPasswordTextField.text != self.account?.uPassword) {
+        
+            err = GlobalConstants.PROFILE_NEWPASSWORD_INVALID_OLDPASSWORD;
+            errMsg = "رمزعبو شما نادرست است." ;
+            
+        }
+        else if (self.newPasswordTextField.text != self.reNewPasswordTextField.text){
+            
+            err = GlobalConstants.PROFILE_NEWPASSWORD_NOMATCH;
+            errMsg = "رمز عبور جدید و تکرار آن مطابقت ندارند" ;
+
+        }
+        else {
+            self.delegate?.updatePassword(self.newPasswordTextField.text);
+            self.navigationController?.popViewControllerAnimated(true);
+        }
+        
+        if (err>0){
+            let alertController = UIAlertController(title: "", message:errMsg, preferredStyle: UIAlertControllerStyle.Alert)
+            let okAction = UIAlertAction(title: "ادامه", style:UIAlertActionStyle.Default) { (action) in
+            }
+            alertController.addAction(okAction);
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
+        
+    }
+    
+    
     
     /*
     // MARK: - Navigation

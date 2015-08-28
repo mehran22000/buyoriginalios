@@ -21,6 +21,7 @@ class BOCategoriesTableViewCell: UITableViewCell {
     @IBOutlet var logo9ImageView: UIImageView!
     @IBOutlet var brandCountLabel: UILabel!
     @IBOutlet var categoryNameLabel: UILabel!
+    @IBOutlet var categoryImageView: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()

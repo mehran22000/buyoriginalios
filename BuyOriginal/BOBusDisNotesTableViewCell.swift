@@ -9,5 +9,5 @@
 import UIKit
 
 class BOBusDisNotesTableViewCell: UITableViewCell {
-    @IBOutlet var note: UITextField!
+    @IBOutlet var note: UITextView!
 }

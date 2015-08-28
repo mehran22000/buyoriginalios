@@ -111,6 +111,39 @@ class BOHttpfetcher: NSObject {
     }
     
     
+    
+    func fetchCityCategories (areaCode:String,
+        completionHandler:(result: NSDictionary)->Void) -> () {
+            
+            var url : String;
+            url = "https://buyoriginal.herokuapp.com/stores/storelist/city/"+areaCode;
+            println("url: \(url)");
+            
+            var request : NSMutableURLRequest = NSMutableURLRequest()
+            request.URL = NSURL(string: url)
+            request.HTTPMethod = "GET"
+            
+            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+                var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
+                var jsonResult: NSArray!
+                if (data != nil){
+                    jsonResult = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions.MutableContainers, error: error) as? NSArray
+                }
+                if (jsonResult != nil) {
+                    
+                    let parser = ResponseParser()
+                    var dic:NSDictionary = parser.parseStoreArray(jsonResult);
+                    completionHandler(result: dic)
+                    // process jsonResult
+                } else {
+                    // couldn't load JSON, look at error
+                }
+            })
+    }
+    
+    
+    
+    
     func fetchBrandLogo (logo:String, completionHandler:(imgData:NSData!)->Void) -> () {
         
         var logoUrl : String = "https://buyoriginal.herokuapp.com/images/logos/"+logo+".jpg";

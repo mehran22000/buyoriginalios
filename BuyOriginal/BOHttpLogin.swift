@@ -11,7 +11,8 @@ import UIKit
 class BOHttpLogin: NSObject {
     
     func login (email: NSString, password:NSString, completionHandler:(result:AccountModel?)->Void) -> () {
-        var url: String = "https://buyoriginal.herokuapp.com/users/business/login"
+        // var url: String = "https://buyoriginal.herokuapp.com/users/business/login"
+        var url: String = "http://localhost:5000/users/business/login"
         var request : NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)
         request.HTTPMethod = "POST"
@@ -39,26 +40,62 @@ class BOHttpLogin: NSObject {
             
             completionHandler(result: accountInfo);
         }
-        
-        /*
-        
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse!, data: NSData!, error: NSError!) -> Void in
-            var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
-            var jsonResult: NSArray!
-            if (data != nil){
-                jsonResult = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions.MutableContainers, error: error) as? NSArray
-            }
-            if (jsonResult != nil) {
+    }
+    
+    func recoverPassword (email:String,
+            completionHandler:(result: String)->Void) -> () {
                 
-           //     let parser = ResponseParser()
-           //     var parsedArray = parser.parseBrandArray(jsonResult)
-           //     completionHandler(result: parsedArray)
-                // process jsonResult
-            } else {
-                // couldn't load JSON, look at error
-            }
-        })
-
-        */
+          let url = "https://buyoriginal.herokuapp.com/users/business/forgetpassword/"+email;
+    //    let url = "http://localhost:5000/users/business/forgetpassword/"+email;
+                println("url: \(url)");
+                
+                var request : NSMutableURLRequest = NSMutableURLRequest()
+                request.URL = NSURL(string: url)
+                request.HTTPMethod = "GET"
+                
+                NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+                    var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
+                    var jsonResult: NSDictionary!
+                    if (data != nil){
+                        jsonResult = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions.MutableContainers, error: error) as? NSDictionary
+                    }
+                    if (jsonResult != nil) {
+                        let parser = ResponseParser()
+                        var result:String = parser.parseServiceResult(jsonResult) as String;
+                        completionHandler(result: result)
+                        // process jsonResult
+                    } else {
+                        // couldn't load JSON, look at error
+                    }
+                })
+        }
+    
+    
+    func deleteUserAccount (email:String?,
+        completionHandler:(result: String)->Void) -> () {
+            
+            let url = "https://buyoriginal.herokuapp.com/users/business/deleteuser/"+email!;
+            
+            println("url: \(url)");
+            
+            var request : NSMutableURLRequest = NSMutableURLRequest()
+            request.URL = NSURL(string: url)
+            request.HTTPMethod = "GET"
+            
+            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+                var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
+                var jsonResult: NSDictionary!
+                if (data != nil){
+                    jsonResult = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions.MutableContainers, error: error) as? NSDictionary
+                }
+                if (jsonResult != nil) {
+                    let parser = ResponseParser()
+                    var result:String = parser.parseServiceResult(jsonResult) as String;
+                    completionHandler(result: result)
+                    // process jsonResult
+                } else {
+                    // couldn't load JSON, look at error
+                }
+            })
     }
 }

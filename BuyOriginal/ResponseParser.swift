@@ -137,12 +137,12 @@ class ResponseParser: NSObject, Printable {
             
             
             // Categories - Brands
-            if (categoryBrands[bCategory!] == nil) {
+            if ((bCategory != nil) && (categoryBrands[bCategory!] == nil)) {
                 var newCatBrands = [BrandModel]();
                 newCatBrands=[b];
                 categoryBrands[bCategory!]=newCatBrands;
             }
-            else {
+            else if (bCategory != nil){
                 var exCatBrands = categoryBrands[bCategory!] as [BrandModel]?;
                 var newBrand = true;
                 var newCatBrands =  [BrandModel]();
@@ -162,12 +162,14 @@ class ResponseParser: NSObject, Printable {
             
             }
             
+            /*
             for (cat, brandsArray) in categoryBrands {
                 println("New Category:"+cat);
                 for elem:BrandModel in brandsArray {
                     println(elem.bName);
                 }
             }
+            */
             
             // Brands - Stores
             
@@ -189,15 +191,14 @@ class ResponseParser: NSObject, Printable {
                 
             }
             
+            /*
             for (brand, storesArray) in brandStores {
                 println("New Brand:"+brand);
                 for elem:StoreModel in storesArray {
                     println(elem.sName);
                 }
             }
-            
-            
-            
+            */
             
         }
         
@@ -257,15 +258,18 @@ class ResponseParser: NSObject, Printable {
             
                 // Discount Object
                 var discount = DiscountModel()
-                discount.startDateStr=elem["buDiscStartDate"] as? String
-                discount.endDateStr=elem["buDiscEndDate"] as? String
-                discount.startDateStrFa=elem["buDiscStartDateFa"] as? String
-                discount.endDateStrFa=elem["buDiscEndDateFa"] as? String
-                discount.precentage=elem["buDiscPrecentage"] as? String
-                discount.note=elem["buDiscNote"] as? String
+                discount.startDateStr=elem["dStartDate"] as? String
+                discount.endDateStr=elem["dEndDate"] as? String
+                discount.startDateStrFa=elem["dStartDateFa"] as? String
+                discount.endDateStrFa=elem["dEndDateFa"] as? String
+                let dPrec:Double? = elem["dPrecentage"] as! Double?;
+                discount.precentage = String(format:"%.0f", dPrec!);
+                discount.note=elem["dNote"] as? String
                 account.discount=discount;
             }
-            
+            else {
+                return nil;
+            }
         }
         
         return account;
@@ -280,6 +284,19 @@ class ResponseParser: NSObject, Printable {
             result = elem["result"] as! String;
         }
         
+        return result;
+    }
+    
+    
+    func parseServiceResult(dic:NSDictionary) -> NSString {
+        
+        var result:String="";
+        if ((dic["result"]) != nil){
+            result = dic["result"] as! String;
+        }
+        else if ((dic["err"]) != nil){
+            result = dic["err"] as! String;
+        }
         return result;
     }
     
