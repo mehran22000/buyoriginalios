@@ -55,6 +55,9 @@
 		02656B931B2BDDC800DFC51A /* Backgrounds.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02656B921B2BDDC800DFC51A /* Backgrounds.xcassets */; };
 		02662BF21B02FF1B00093D7D /* Stores.json in Resources */ = {isa = PBXBuildFile; fileRef = 02662BF11B02FF1B00093D7D /* Stores.json */; };
 		02662BF41B03004F00093D7D /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02662BF31B03004F00093D7D /* Store.swift */; };
+		0292219A1BA2651B006CBC2B /* SimulatorUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029221991BA2651B006CBC2B /* SimulatorUtility.swift */; };
+		0292219C1BA28471006CBC2B /* BOStoresDiscountNoteTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0292219B1BA28471006CBC2B /* BOStoresDiscountNoteTableCell.swift */; };
+		029CD9B71B976CC2007F3A21 /* BuBrandDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029CD9B61B976CC2007F3A21 /* BuBrandDelegate.swift */; };
 		02A3B2931B1A36E900B99AAA /* BOHttpfetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A3B2921B1A36E900B99AAA /* BOHttpfetcher.swift */; };
 		02AA9A091AFD67120090A88B /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AA9A081AFD67120090A88B /* Brand.swift */; };
 		02C99C191B8E677C00F8DA23 /* BuPasswordDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C99C181B8E677C00F8DA23 /* BuPasswordDelegate.swift */; };
@@ -167,6 +170,9 @@
 		02656B921B2BDDC800DFC51A /* Backgrounds.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Backgrounds.xcassets; sourceTree = "<group>"; };
 		02662BF11B02FF1B00093D7D /* Stores.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Stores.json; sourceTree = "<group>"; };
 		02662BF31B03004F00093D7D /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		029221991BA2651B006CBC2B /* SimulatorUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimulatorUtility.swift; sourceTree = "<group>"; };
+		0292219B1BA28471006CBC2B /* BOStoresDiscountNoteTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BOStoresDiscountNoteTableCell.swift; sourceTree = "<group>"; };
+		029CD9B61B976CC2007F3A21 /* BuBrandDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuBrandDelegate.swift; sourceTree = "<group>"; };
 		02A3B2921B1A36E900B99AAA /* BOHttpfetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BOHttpfetcher.swift; path = Network/BOHttpfetcher.swift; sourceTree = "<group>"; };
 		02AA9A081AFD67120090A88B /* Brand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Brand.swift; path = DataModels/Brand.swift; sourceTree = "<group>"; };
 		02C99C181B8E677C00F8DA23 /* BuPasswordDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuPasswordDelegate.swift; sourceTree = "<group>"; };
@@ -236,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				02031EF31B7C427A00F21F96 /* Utilities.swift */,
+				029221991BA2651B006CBC2B /* SimulatorUtility.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -295,6 +302,7 @@
 				022A95D11B54BE8C0091659B /* BusProfileInputCell.swift */,
 				02CB3A721B6E860700561F53 /* BOBusDisNotesTableViewCell.swift */,
 				02031EF71B7CD1A300F21F96 /* BOCategoriesTableViewCell.swift */,
+				0292219B1BA28471006CBC2B /* BOStoresDiscountNoteTableCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -442,6 +450,7 @@
 			isa = PBXGroup;
 			children = (
 				02C99C181B8E677C00F8DA23 /* BuPasswordDelegate.swift */,
+				029CD9B61B976CC2007F3A21 /* BuBrandDelegate.swift */,
 				02C99C1B1B8E6DC300F8DA23 /* BuPhoneDelegate.swift */,
 				02C99C1D1B8E6F5900F8DA23 /* BuCityDelegate.swift */,
 			);
@@ -678,9 +687,12 @@
 				02ED15921B351E9000A08215 /* BOCityTableViewCell.swift in Sources */,
 				02445F911B4EB271006D5F13 /* BOBusDisActionTableViewCell.swift in Sources */,
 				02EA3EEC1B4E143300ECE384 /* BOBusDisDateTableViewCell.swift in Sources */,
+				0292219C1BA28471006CBC2B /* BOStoresDiscountNoteTableCell.swift in Sources */,
 				02AA9A091AFD67120090A88B /* Brand.swift in Sources */,
 				02ED15901B351E5B00A08215 /* CategoriesViewController.swift in Sources */,
 				02EA3EEA1B4E13E000ECE384 /* BOBusDisPercentageTableViewCell.swift in Sources */,
+				029CD9B71B976CC2007F3A21 /* BuBrandDelegate.swift in Sources */,
+				0292219A1BA2651B006CBC2B /* SimulatorUtility.swift in Sources */,
 				02031EF41B7C427A00F21F96 /* Utilities.swift in Sources */,
 				022A95D01B54BD740091659B /* BusProfileReadOnlyCell.swift in Sources */,
 				02CB3A751B6FD6D400561F53 /* Discount.swift in Sources */,
@@ -829,7 +841,7 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ebd52df5-0bc9-489c-8d4c-6ed8bf03942a";
+				PROVISIONING_PROFILE = "1b16d6f8-c3a6-4f85-b5fe-3bfd5ee64a17";
 				SWIFT_OBJC_BRIDGING_HEADER = Header.h;
 			};
 			name = Debug;

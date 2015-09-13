@@ -16,6 +16,7 @@ struct GlobalConstants {
     
     static let BRANDS_SCREEN_MODE_SEARCH = 1;
     static let BRANDS_SCREEN_MODE_SIGNUP = 2;
+    static let BRANDS_SCREEN_MODE_CHANGE = 3;
     
     static let REGISTER_BUSINESS_INVALID_EMAIL = 1;
     static let REGISTER_BUSINESS_INVALID_PASSWORD = 2;
@@ -37,5 +38,8 @@ struct GlobalConstants {
     
     static let BUSINESS_PHONE_SCREEN_MODE_SIGNUP = 1;
     static let BUSINESS_PHONE_SCREEN_MODE_CHANGE = 2;
+    
+    static let STORES_SCREEN_MODE_SEARCH = 1;
+    static let STORES_SCREEN_MODE_DISCOUNT = 2;
     
 }

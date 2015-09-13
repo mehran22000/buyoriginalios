@@ -12,6 +12,7 @@ class AccountModel: NSObject {
     
     var uEmail: String!
     var uPassword: String!
+    var uId: String!
     var sCity: CityModel!
     var brand: BrandModel!
     var store: StoreModel!

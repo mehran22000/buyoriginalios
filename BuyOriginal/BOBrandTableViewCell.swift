@@ -12,12 +12,16 @@ class BOBrandTableViewCell: UITableViewCell {
     
     @IBOutlet var brandImageView: UIImageView!
     @IBOutlet var brandNameLabel: UILabel!
-    @IBOutlet var brandCategoryLabel: UILabel!
+    @IBOutlet var brandNameCentreLabel: UILabel!
+    
+    @IBOutlet var categoryOrStoreNoLabel: UILabel!
     @IBOutlet var brandNoStoreLabel: UILabel!
     @IBOutlet var brandNearLocationLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.brandNameLabel.hidden = true;
+        self.brandNameCentreLabel.hidden = true;
         // Initialization code
     }
 

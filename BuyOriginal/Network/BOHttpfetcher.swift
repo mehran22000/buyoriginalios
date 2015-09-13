@@ -50,6 +50,7 @@ class BOHttpfetcher: NSObject {
         }
         else if (distance != nil){
             url = "https://buyoriginal.herokuapp.com/stores/storelist/"+brandId+"/"+lat+"/"+lon+"/"+distance;
+        //    url = "http://localhost:5000/stores/storelist/"+brandId+"/"+lat+"/"+lon+"/"+distance;
         }
         else {
                 url = "https://buyoriginal.herokuapp.com/stores/storelist/city/"+areaCode+"/"+brandId;

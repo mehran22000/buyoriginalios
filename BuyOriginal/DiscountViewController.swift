@@ -23,7 +23,7 @@ class DiscountViewController: UITableViewController {
         super.viewDidLoad()
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
         
-        let backBtn = UIBarButtonItem(title: "<", style: UIBarButtonItemStyle.Plain, target: self, action: "backPressed");
+        let backBtn = UIBarButtonItem(title: " خروج >", style: UIBarButtonItemStyle.Plain, target: self, action: "backPressed");
         navigationItem.leftBarButtonItem = backBtn;
         
         if let font = UIFont(name: "system", size: 74) {
@@ -33,6 +33,7 @@ class DiscountViewController: UITableViewController {
         // Do any additional setup after loading the view.
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -61,68 +62,84 @@ class DiscountViewController: UITableViewController {
             case 0:
                 self.cellBrand = self.tableView.dequeueReusableCellWithIdentifier("cellBrand") as? BOBrandTableViewCell;
                 cellBrand?.brandNameLabel.text = self.account?.brand.bName;
-                cellBrand?.brandCategoryLabel.text = self.account?.brand.bCategory;
+                cellBrand?.categoryOrStoreNoLabel.text = self.account?.brand.bCategory;
                 cellBrand?.brandImageView.image = UIImage(named: self.account!.brand.bLogo!);
                 cellBrand?.brandImageView.layer.cornerRadius = 8.0
                 cellBrand?.brandImageView.clipsToBounds = true
+                cellBrand?.brandNameLabel.hidden=false;
                 return self.cellBrand!;
             case 1:
                 self.cellStartDate = self.tableView.dequeueReusableCellWithIdentifier("cellStartDate") as? BOBusDisDateTableViewCell;
                 
-                let startDate:String! = self.account?.discount.startDateStrFa!;
+                if (self.account?.discount.startDateStrFa != nil){
                 
-                // Year
-                let rangeOfYear = Range(start: advance(startDate.startIndex,2),
-                    end: advance(startDate.startIndex, 4));
-                let year = startDate.substringWithRange(rangeOfYear)
-                self.cellStartDate?.disDateYear.text = year;
+                    let startDate:String? = self.account?.discount.startDateStrFa!;
                 
-                // Month
-                let rangeOfMonth = Range(start: advance(startDate.startIndex,5),
-                    end: advance(startDate.startIndex, 7));
-                let month = startDate.substringWithRange(rangeOfMonth)
-                self.cellStartDate?.disDateMonth.text = month;
+                    // Year
+                    let rangeOfYear = Range(start: advance(startDate!.startIndex,2),
+                        end: advance(startDate!.startIndex, 4));
+                    let year = startDate!.substringWithRange(rangeOfYear)
+                    self.cellStartDate?.disDateYear.text = year;
+                
+                    // Month
+                    let rangeOfMonth = Range(start: advance(startDate!.startIndex,5),
+                        end: advance(startDate!.startIndex, 7));
+                    let month = startDate!.substringWithRange(rangeOfMonth)
+                    self.cellStartDate?.disDateMonth.text = month;
                 
                 
-                // Day
-                let rangeOfDay = Range(start: advance(startDate.startIndex,8),
-                    end: advance(startDate.startIndex, 10));
-                let day = startDate.substringWithRange(rangeOfDay)
-                self.cellStartDate?.disDateDay.text = day;
-                
+                    // Day
+                    let rangeOfDay = Range(start: advance(startDate!.startIndex,8),
+                        end: advance(startDate!.startIndex, 10));
+                    let day = startDate!.substringWithRange(rangeOfDay)
+                    self.cellStartDate?.disDateDay.text = day;
+                }
                 return self.cellStartDate!;
+            
             case 2:
                 self.cellEndDate = self.tableView.dequeueReusableCellWithIdentifier("cellEndDate") as? BOBusDisDateTableViewCell;
                 
+                if (self.account?.discount.endDateStrFa != nil){
+                
                 let endDate:String! = self.account?.discount.endDateStrFa!;
                 
+                    // Year
+                    let rangeOfYear = Range(start: advance(endDate.startIndex,2),
+                        end: advance(endDate.startIndex, 4));
+                    let year = endDate.substringWithRange(rangeOfYear)
+                    self.cellEndDate?.disDateYear.text = year;
                 
-                // Year
-                let rangeOfYear = Range(start: advance(endDate.startIndex,2),
-                    end: advance(endDate.startIndex, 4));
-                let year = endDate.substringWithRange(rangeOfYear)
-                self.cellEndDate?.disDateYear.text = year;
-                
-                // Month
-                let rangeOfMonth = Range(start: advance(endDate.startIndex,5),
-                    end: advance(endDate.startIndex, 7));
-                let month = endDate.substringWithRange(rangeOfMonth)
-                self.cellEndDate?.disDateMonth.text = month;
+                    // Month
+                    let rangeOfMonth = Range(start: advance(endDate.startIndex,5),
+                        end: advance(endDate.startIndex, 7));
+                    let month = endDate.substringWithRange(rangeOfMonth)
+                    self.cellEndDate?.disDateMonth.text = month;
                 
                 
-                // Day
-                let rangeOfDay = Range(start: advance(endDate.startIndex,8),
-                    end: advance(endDate.startIndex, 10));
-                let day = endDate.substringWithRange(rangeOfDay)
-                self.cellEndDate?.disDateDay.text = day;
+                    // Day
+                    let rangeOfDay = Range(start: advance(endDate.startIndex,8),
+                        end: advance(endDate.startIndex, 10));
+                    let day = endDate.substringWithRange(rangeOfDay)
+                    self.cellEndDate?.disDateDay.text = day;
+                }
                 return self.cellEndDate!;
+            
             case 3:
+                
                 self.cellPrecentage = self.tableView.dequeueReusableCellWithIdentifier("cellPrecentage") as? BOBusDisPercentageTableViewCell;
-                self.cellPrecentage?.percentage.text = self.account?.discount.precentage;
+                
+                if (self.account?.discount.precentage != nil){
+                    self.cellPrecentage?.percentage.text = self.account?.discount.precentage;
+                }
                 return self.cellPrecentage!;
+            
             case 4:
+                
                 self.cellNote = self.tableView.dequeueReusableCellWithIdentifier("cellNote") as? BOBusDisNotesTableViewCell;
-                self.cellNote?.note.text = self.account?.discount.note;
+                
+                if (self.account?.discount.note != nil){
+                    self.cellNote?.note.text = self.account?.discount.note;
+                }
                 return self.cellNote!;
             case 5:
                 cell = self.tableView.dequeueReusableCellWithIdentifier("cellAction") as! BOBusDisActionTableViewCell;
@@ -163,6 +180,22 @@ class DiscountViewController: UITableViewController {
         
     }
     
+    func clearTextFields()->() {
+        
+        self.cellStartDate?.disDateYear.text = "";
+        self.cellStartDate?.disDateMonth.text = "";
+        self.cellStartDate?.disDateDay.text = "";
+        
+        self.cellEndDate?.disDateYear.text = "";
+        self.cellEndDate?.disDateMonth.text = "";
+        self.cellEndDate?.disDateDay.text = "";
+        
+        self.cellNote?.note.text = "";
+        
+        self.cellPrecentage?.percentage.text="";
+    }
+    
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print("You selected cell #\(indexPath.row)!")
     }
@@ -178,7 +211,7 @@ class DiscountViewController: UITableViewController {
         case 3:
             return 85;
         case 4:
-            return 128;
+            return 85;
         case 5:
             return 60;
         default:
@@ -219,8 +252,52 @@ class DiscountViewController: UITableViewController {
             };
         }
         
+    }
+    
+    
+    @IBAction func deleteDiscountPressed () {
+        
+        let okAction = UIAlertAction(title: "بله", style:UIAlertActionStyle.Default) { (action) in
+            self.deleteDiscount();
+        }
+        
+        let cancelAction = UIAlertAction(title: "خیر", style:UIAlertActionStyle.Default) { (action) in
+        }
+        
+        let alertController = UIAlertController(title: "", message:
+            "آیا مطمین هستید؟", preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(okAction);
+        alertController.addAction(cancelAction);
+        self.presentViewController(alertController, animated: true, completion: nil)
         
     }
+    
+    func deleteDiscount() {
+        
+        let httpPost = BOHttpPost();
+        
+        let bid = self.account?.brand.bId;
+        let sid = self.account?.store.sId;
+        
+        httpPost.deleteDiscount(sid!, bId: bid!) { (result) -> Void in
+            println("Delete discount completed");
+            if (result == "success"){
+                self.clearTextFields();
+            }
+            else {
+                let okAction = UIAlertAction(title: "ادامه", style:UIAlertActionStyle.Default) { (action) in
+                }
+                let alertController = UIAlertController(title: "", message:
+                    "خطادر حذف حراج، دوباره تلاش کنید", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(okAction);
+                self.presentViewController(alertController, animated: true, completion: nil);
+            }
+        };
+    }
+    
+    
+
+    
     
     
     func generateDiscountsObj () {
@@ -233,20 +310,29 @@ class DiscountViewController: UITableViewController {
     
         var sYear = self.cellStartDate?.disDateYear.text;
         var sMonth:String! = self.cellStartDate?.disDateMonth.text as String!;
+        var sDay:String! = self.cellStartDate?.disDateDay.text as String!;
         
         if (count(sMonth)<2) {
             sMonth = "0" + sMonth;
         }
         
-        var sDay:String! = self.cellStartDate?.disDateDay.text as String!;
         
         if (count(sDay)<2) {
             sDay = "0" + sDay;
         }
         
         var eYear = self.cellEndDate?.disDateYear.text;
-        var eMonth = self.cellEndDate?.disDateMonth.text;
-        var eDay = self.cellEndDate?.disDateDay.text;
+        var eMonth = self.cellEndDate?.disDateMonth.text as String!;
+        var eDay = self.cellEndDate?.disDateDay.text as String!;
+        
+        if (count(eMonth) < 2) {
+            eMonth = "0" + eMonth;
+        }
+        
+        if (count(eDay)<2) {
+            eDay = "0" + eDay;
+        }
+        
         
         var startDateValidation = sYear! + sMonth! + sDay!;
         var endDateValidation = eYear! + eMonth! + eDay!;
@@ -274,8 +360,8 @@ class DiscountViewController: UITableViewController {
         print ("Discount Manger: End"+endDate);
         
         // remove
-        startDate = "1394/01/12";
-        endDate = "1395/02/11";
+        // startDate = "1394/01/12";
+        // endDate = "1395/02/11";
         
         self.discount = DiscountModel(startDateStrFa: startDate, endDateStrFa: endDate, precentage: self.cellPrecentage?.percentage.text, note: self.cellNote?.note.text);
         

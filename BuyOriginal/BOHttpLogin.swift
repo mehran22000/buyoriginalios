@@ -33,7 +33,6 @@ class BOHttpLogin: NSObject {
                 jsonResult = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions.MutableContainers, error: error) as! NSArray
             }
             if (jsonResult != nil) {
-                
                 let parser = ResponseParser()
                 accountInfo = parser.parseLogin(jsonResult);
             }
@@ -71,10 +70,11 @@ class BOHttpLogin: NSObject {
         }
     
     
-    func deleteUserAccount (email:String?,
+    func deleteUserAccount (email:String?,sid:String?,
         completionHandler:(result: String)->Void) -> () {
             
-            let url = "https://buyoriginal.herokuapp.com/users/business/deleteuser/"+email!;
+            let url = "https://buyoriginal.herokuapp.com/users/business/deleteuser/"+email!+"/"+sid!;
+        //    let url = "http://localhost:5000/users/business/deleteuser/"+email!+"/"+sid!;
             
             println("url: \(url)");
             

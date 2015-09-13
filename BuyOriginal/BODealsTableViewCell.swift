@@ -19,9 +19,12 @@ class BODealsTableViewCell: UITableViewCell {
     @IBOutlet var dealImageView: UIImageView!
     @IBOutlet var brandImageView: UIImageView!
     @IBOutlet var categoryImageView: UIImageView!
+    @IBOutlet var announcementImageView: UIImageView!
+    @IBOutlet var noteContinueBtn: UIButton!;
     
     @IBOutlet var noteLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
+    
     
     
     override func awakeFromNib() {

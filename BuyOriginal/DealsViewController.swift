@@ -29,15 +29,21 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
         })
         */
         
-        self.activityIndicatior?.startAnimating()
-        self.activityIndicatior?.hidesWhenStopped=true
-        fetchDeals(1000000);
-        
         // Do any additional setup after loading the view.
     }
     
     
     override func viewDidAppear(animated: Bool) {
+        
+        self.activityIndicatior?.startAnimating()
+        self.activityIndicatior?.hidesWhenStopped=true
+        fetchDeals(1000000);
+        
+    }
+    
+    
+    @IBAction func noteContinueBtnPressed () {
+  
     }
 
     
@@ -68,7 +74,7 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
         
         cell.storeDistanceLabel.text = store.sDistance+" Km"
        // cell.brandCategoryLabel.text = store.bCategory
-        cell.brandNameLabel.text = store.bName
+       // cell.brandNameLabel.text = store.bName
         
         var image : UIImage = UIImage(named:store.bLogo)!
         cell.brandImageView.image=image;
@@ -96,14 +102,16 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
         }
         
         
-        if (store.sDiscountNote != nil){
+        if ((store.sDiscountNote != nil) && (store.sDiscountNote != "")){
             cell.noteLabel.numberOfLines=0;
             cell.noteLabel.text = store.sDiscountNote;
-            cell.noteLabel.textAlignment = .Right;
-            cell.noteLabel.sizeToFit()
+      //      cell.noteLabel.textAlignment = .Left;
+      //      cell.noteLabel.sizeToFit()
         }
         else {
             cell.noteLabel.text="";
+            cell.announcementImageView.hidden = true;
+            cell.noteContinueBtn.hidden = true;
         }
 
         
@@ -112,10 +120,16 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
     }
     
     func discountImageName(discount:Int)->NSString {
-        return "discount_"+String(discount);
-
-    }
+        
+        var dis = discount;
+        if (discount % 5 != 0){
+            dis=(discount / 5 ) * 5;
+        }
+        
+        return "discount_"+String(dis);
     
+    }
+
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print("You selected cell #\(indexPath.row)!")
         self.selectedRow=indexPath.row;
@@ -132,11 +146,11 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
             store = self.dealsStoresArray[indexPath.row] as? StoreModel
         }
         
-        if ((store!.sDiscountNote == nil) || (store!.sDiscountNote.isEmpty)){
-            return 115;
+        if ((store!.sDiscountNote == nil) && (store!.sDiscountEndDateFa != nil)){
+            return 80;
         }
         else {
-            return 150;
+            return 115;
         }
     }
     
@@ -166,9 +180,17 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
         let fetcher = BOHttpfetcher()
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
+        var curLat="", curLon="";
+        if SimulatorUtility.isRunningSimulator{
+            curLat="35.771479";
+            curLon="51.435261";
+        }
+        else {
+            curLat = String(format:"%f",appDelegate.curLocationLat)
+            curLon = String(format:"%f",appDelegate.curLocationLong)
+        }
+
         
-        var curLat = String(format:"%f",appDelegate.curLocationLat)
-        var curLon = String(format:"%f",appDelegate.curLocationLong)
         
         // Test Data
         // ToDo: Remove
@@ -259,6 +281,7 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
                     store = self.dealsStoresArray[self.selectedRow] as! StoreModel
                 }
                 destinationVC.storesArray=[store];
+                destinationVC.screenMode = GlobalConstants.STORES_SCREEN_MODE_DISCOUNT;
             }
         }
     }

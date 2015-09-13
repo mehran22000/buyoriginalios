@@ -14,6 +14,7 @@ class TabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+      //  UITabBar.appearance().barTintColor = UIColor.darkGrayColor()
        // var navVC:UINavigationController = self.viewControllers?[0] as! UINavigationController;
        // var brandVC:BrandViewController = navVC.topViewController as! BrandViewController;
        // brandVC.areaCode = self.areaCode;

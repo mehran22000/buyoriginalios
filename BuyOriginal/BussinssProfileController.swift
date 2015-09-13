@@ -8,13 +8,16 @@
 
 import UIKit
 
-class BussinessProfileController: UITableViewController, BuPasswordDelegate, BuPhoneDelegate, BuCityDelegate  {
+class BussinessProfileController: UITableViewController, BuPasswordDelegate, BuPhoneDelegate, BuCityDelegate, BuBrandDelegate  {
 
     var account: AccountModel?
     var cellBrand: BOBrandTableViewCell?
     var cellHours: BusProfileInputCell?
     var cellAddress: BusProfileInputCell?
-    
+    var cellPhone: BusProfileReadOnlyCell?
+    var cellDistributor: BusProfileInputCell?
+    var cellCity: BusProfileReadOnlyCell?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
@@ -43,10 +46,11 @@ class BussinessProfileController: UITableViewController, BuPasswordDelegate, BuP
         case 0:
             self.cellBrand = self.tableView.dequeueReusableCellWithIdentifier("cellBrand") as? BOBrandTableViewCell;
             cellBrand?.brandNameLabel.text = self.account?.brand.bName;
-            cellBrand?.brandCategoryLabel.text = self.account?.brand.bCategory;
+            cellBrand?.categoryOrStoreNoLabel.text = self.account?.brand.bCategory;
             cellBrand?.brandImageView.image = UIImage(named: self.account!.brand.bLogo!);
             cellBrand?.brandImageView.layer.cornerRadius = 8.0
             cellBrand?.brandImageView.clipsToBounds = true
+            cellBrand?.brandNameLabel.hidden=false;
             return cellBrand!;
         
         case 1:
@@ -59,21 +63,21 @@ class BussinessProfileController: UITableViewController, BuPasswordDelegate, BuP
            // passwordCell.value.text = self.account?.uPassword;
             return passwordCell;
         case 3:
-            var cityCell = self.tableView.dequeueReusableCellWithIdentifier("cellCity") as! BusProfileReadOnlyCell;
-            cityCell.value.text = self.account?.sCity.cityNameFa;
-            return cityCell;
+            self.cellCity = self.tableView.dequeueReusableCellWithIdentifier("cellCity") as? BusProfileReadOnlyCell;
+            self.cellCity?.value.text = self.account?.sCity.cityNameFa;
+            return self.cellCity!;
         case 4:
             self.cellAddress = self.tableView.dequeueReusableCellWithIdentifier("cellAddress") as? BusProfileInputCell;
             self.cellAddress?.value.text = self.account?.store.sAddress;
             return self.cellAddress!;
         case 5:
-            var phoneCell = self.tableView.dequeueReusableCellWithIdentifier("cellPhone") as! BusProfileReadOnlyCell;
-            phoneCell.value.text = self.account?.store.sTel1;
-            return phoneCell;
+            self.cellPhone = self.tableView.dequeueReusableCellWithIdentifier("cellPhone") as? BusProfileReadOnlyCell;
+            self.cellPhone?.value.text = self.account?.store.sTel1;
+            return self.cellPhone!;
         case 6:
-            var distributorCell = self.tableView.dequeueReusableCellWithIdentifier("cellDistributor") as! BusProfileInputCell;
-            distributorCell.value.text = self.account?.store.bDistributor;
-            return distributorCell;
+            self.cellDistributor = self.tableView.dequeueReusableCellWithIdentifier("cellDistributor") as? BusProfileInputCell;
+            self.cellDistributor?.value.text = self.account?.store.bDistributor;
+            return self.cellDistributor!;
             
         case 7:
             self.cellHours = self.tableView.dequeueReusableCellWithIdentifier("cellHours") as? BusProfileInputCell;
@@ -92,6 +96,8 @@ class BussinessProfileController: UITableViewController, BuPasswordDelegate, BuP
         println("You selected cell #\(indexPath.row)!")
         
         switch (indexPath.row) {
+        case 0:
+            performSegueWithIdentifier("segueBrands", sender: nil);
         case 3:
             performSegueWithIdentifier("seguePushCities", sender: nil);
         case 5:
@@ -157,6 +163,13 @@ class BussinessProfileController: UITableViewController, BuPasswordDelegate, BuP
                 destinationVC.delegate = self;
             }
         }
+        else if segue.identifier == "segueBrands"
+        {
+            if let destinationVC = segue.destinationViewController as? BrandViewController{
+                destinationVC.screenMode=GlobalConstants.BRANDS_SCREEN_MODE_CHANGE;
+                destinationVC.delegate = self;
+            }
+        }
         
     }
     
@@ -168,6 +181,10 @@ class BussinessProfileController: UITableViewController, BuPasswordDelegate, BuP
     
     @IBAction func updateAccountPressed () {
         
+        self.account?.store.sHours = self.cellHours?.value.text;
+        self.account?.store.sAddress = self.cellAddress?.value.text;
+        self.account?.store.bDistributor = self.cellDistributor?.value.text;
+        
         let okAction = UIAlertAction(title: "پایان", style:UIAlertActionStyle.Default) { (action) in
             self.navigationController?.popToRootViewControllerAnimated(false);
         }
@@ -175,7 +192,7 @@ class BussinessProfileController: UITableViewController, BuPasswordDelegate, BuP
         let httpPost = BOHttpPost()
         
         var msg = "";
-        httpPost.addBusiness(account!) { (result) -> Void in
+        httpPost.addOrUpdateBusiness(true, account:account!) { (result) -> Void in
             println("Profile update complete");
             if (result=="success"){
                 msg = "شناسه کاربری شما با موفقیت به روز رسانی شد.";
@@ -194,56 +211,35 @@ class BussinessProfileController: UITableViewController, BuPasswordDelegate, BuP
             
         };
     
-    
-    @IBAction func hoursChanged () {
-        self.account?.store.sHours = self.cellHours?.value.text;
-    }
-    
-    @IBAction func addressChanged () {
-        self.account?.store.sAddress = self.cellAddress?.value.text;
-    }
-    
+
     
     @IBAction func deleteAccountPressed () {
         
-        let okAction = UIAlertAction(title: "", style:UIAlertActionStyle.Default) { (action) in
+        let okAction = UIAlertAction(title: "ادامه", style:UIAlertActionStyle.Default) { (action) in
             self.deleteAccount();
         }
         let alertController = UIAlertController(title: "", message:
-            "پاک کردن پروفایل شما باعث پال کردن تمامی اطلاعات شما می شود", preferredStyle: UIAlertControllerStyle.Alert)
+            "پاک کردن پروفایل شما باعث پاک کردن تمامی اطلاعات شما می شود", preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(okAction);
         self.presentViewController(alertController, animated: true, completion: nil)
         
     }
     
     func deleteAccount() {
-        
-        let okAction = UIAlertAction(title: "", style:UIAlertActionStyle.Default) { (action) in
-            self.navigationController?.popToRootViewControllerAnimated(false);
-        }
-        
+    
         let httpLogin = BOHttpLogin();
         
         let email = self.account?.uEmail;
+        let sid = self.account?.store.sId;
         
-        httpLogin.deleteUserAccount(email) { (result) -> Void in
+        httpLogin.deleteUserAccount(email,sid:sid) { (result) -> Void in
             println("Delete user profile completed");
-            if (result=="success"){
-                let alertController = UIAlertController(title: "", message:
-                    "شناسه کاربری شما با موفقیت حذف شد", preferredStyle: UIAlertControllerStyle.Alert)
-                
-                let okAction = UIAlertAction(title: "ادامه", style:UIAlertActionStyle.Default) { (action) in
-                    self.navigationController?.popViewControllerAnimated(true);
-                }
-                
-                alertController.addAction(okAction);
-                self.presentViewController(alertController, animated: true, completion: nil)
+            if (result == "success"){
+                self.dismissViewControllerAnimated(false, completion: nil);
             }
             else {
-                
                 let alertController = UIAlertController(title: "", message:
                     "خطادر حذف شناسه کاربری شما. دوباره تلاش کنید", preferredStyle: UIAlertControllerStyle.Alert)
-                alertController.addAction(okAction);
                 self.presentViewController(alertController, animated: true, completion: nil);
             }
         };
@@ -258,11 +254,20 @@ class BussinessProfileController: UITableViewController, BuPasswordDelegate, BuP
     func updatePhone(newPhoneNumber:String, newAreaCode:String) -> () {
         self.account?.store.sTel1 = newPhoneNumber;
         self.account?.store.sAreaCode = newAreaCode;
+        self.cellPhone?.value.text = newAreaCode+"-"+newPhoneNumber;
     }
     
     func updateCity(newCity: CityModel) {
         self.account?.sCity=newCity;
+        self.cellCity?.value.text = newCity.cityNameFa;
     }
+    
+    func updateBrand(newBrand:BrandModel) -> () {
+        self.account?.brand=newBrand;
+        self.cellBrand?.brandNameLabel.text=newBrand.bName;
+        self.cellBrand?.brandImageView.image=newBrand.bLogoImage;
+    }
+    
     /*
     // MARK: - Navigation
 

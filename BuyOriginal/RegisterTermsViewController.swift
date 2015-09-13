@@ -85,7 +85,7 @@ class RegisterTermsViewController: UIViewController,UITableViewDelegate, UITable
         
         let httpPost = BOHttpPost()
         
-        httpPost.addBusiness(account) { (result) -> Void in
+        httpPost.addOrUpdateBusiness(false, account:account) { (result) -> Void in
             println("Registeration Successful");
             if (result=="success"){
                 self.performSegueWithIdentifier("pushConfirmation", sender: nil)

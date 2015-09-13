@@ -16,6 +16,7 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
     var brandId="0"
     var areaCode = ""
     var is_searching=false   // It's flag for searching
+    var screenMode = 0;
     @IBOutlet var activityIndicatior: UIActivityIndicatorView?;
     
     let kDemoStores:String="[{\"brandId\":\"1\",\"name\":\"آریاپخش نقش جهان\",\"phoneNumber\":\"۳۶۳۰۴۹۲۷\",\"address\":\"اصفهان خیابان چهارباغ بالا\"}]"
@@ -76,7 +77,21 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
         // Dispose of any resources that can be recreated.
     }
     
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        // #warning Potentially incomplete method implementation.
+        // Return the number of sections.
+        return 1
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        
+        if (self.screenMode == GlobalConstants.STORES_SCREEN_MODE_DISCOUNT){
+            var store = self.storesArray[0] as! StoreModel
+            if ((store.sDiscountNote != nil) && (store.sDiscountNote != "")){
+                return 2;
+            }
+        }
         
         if is_searching==true {
             return self.filteredStores.count
@@ -88,34 +103,47 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell:BOStoresTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cellStore") as! BOStoresTableViewCell
         
-        var store = self.storesArray[indexPath.row] as! StoreModel
-        
-        if is_searching==true {
-            store = self.filteredStores[indexPath.row] as StoreModel
-        } else {
-            store = self.storesArray[indexPath.row] as! StoreModel
+        if ((self.screenMode == GlobalConstants.STORES_SCREEN_MODE_DISCOUNT) && (indexPath.row == 1)){
+            var store = self.storesArray[0] as! StoreModel
+            var cell:BOStoresDiscountNoteTableCell = self.tableView.dequeueReusableCellWithIdentifier("cellDiscountNote") as! BOStoresDiscountNoteTableCell
+            
+            cell.noteLabel.text = store.sDiscountNote;
+            cell.noteLabel.numberOfLines=0;
+            cell.noteLabel.sizeToFit()
+            
+            return cell;
         }
+        else {
+            var store = self.storesArray[indexPath.row] as! StoreModel
+            
+            var cell:BOStoresTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cellStore") as! BOStoresTableViewCell
+            
+            if is_searching==true {
+                store = self.filteredStores[indexPath.row] as StoreModel
+            } else {
+                store = self.storesArray[indexPath.row] as! StoreModel
+            }
 
-        cell.storeNameLabel.text = store.sName;
-        cell.storeLocationLabel.text = store.sAddress
-        cell.storePhoneNumberLabel.text = store.sTel1;
-        cell.storeHoursLabel.text = store.sHours;
+            cell.storeNameLabel.text = store.sName;
+            cell.storeLocationLabel.text = store.sAddress
+            cell.storePhoneNumberLabel.text = store.sTel1;
+            cell.storeHoursLabel.text = store.sHours;
         
-        if ((store.sVerified=="Yes") && (store.sDiscountPercentage>0)){
-            cell.storeImageView.image = UIImage(named: "discount+verified");
-        }
-        else if (store.sDiscountPercentage>0){
-            cell.storeImageView.image = UIImage(named: "discount");
-        }
-        else if (store.sVerified=="Yes"){
-            cell.storeImageView.image = UIImage(named: "verified");
-        }
+            if ((store.sVerified=="Yes") && (store.sDiscountPercentage>0)){
+                cell.storeImageView.image = UIImage(named: "discount+verified");
+            }
+            else if (store.sDiscountPercentage>0){
+                cell.storeImageView.image = UIImage(named: "discount");
+            }
+            else if (store.sVerified=="Yes"){
+                cell.storeImageView.image = UIImage(named: "verified");
+            }
         
         // cell.textLabel?.text = self.items[indexPath.row]
         
-        return cell
+            return cell
+        }
         
     }
     
@@ -124,7 +152,13 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 140
+        
+        if ((self.screenMode == GlobalConstants.STORES_SCREEN_MODE_DISCOUNT) && (indexPath.row == 2)){
+            return 140;
+        }
+        else{
+            return 140;
+        }
     }
 // Search Bar Delegates
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String){

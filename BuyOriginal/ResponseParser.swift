@@ -223,6 +223,7 @@ class ResponseParser: NSObject, Printable {
             
                 account.uEmail = elem["buEmail"] as? String;
                 account.uPassword = elem["buPassword"] as? String;
+                account.uId = elem["buId"] as? String;
             
                 // City Object
                 var city = CityModel()
@@ -233,7 +234,7 @@ class ResponseParser: NSObject, Printable {
             
                 // Brand Object
                 var brand = BrandModel()
-                brand.bId = elem["buId"] as? String
+                brand.bId = elem["buBrandId"] as? String
                 brand.bName = elem["buBrandName"] as? String
                 brand.bCategory = elem["buBrandCategory"] as? String
                 brand.bLogo = elem["buBrandLogoName"] as? String
@@ -263,7 +264,9 @@ class ResponseParser: NSObject, Printable {
                 discount.startDateStrFa=elem["dStartDateFa"] as? String
                 discount.endDateStrFa=elem["dEndDateFa"] as? String
                 let dPrec:Double? = elem["dPrecentage"] as! Double?;
-                discount.precentage = String(format:"%.0f", dPrec!);
+                if (dPrec != nil) {
+                    discount.precentage = String(format:"%.0f", dPrec!);
+                }
                 discount.note=elem["dNote"] as? String
                 account.discount=discount;
             }

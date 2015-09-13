@@ -35,14 +35,14 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
         
         switch (self.screenMode){
             case GlobalConstants.CATEGORIES_SCREEN_MODE_SEARCH:
-                self.navigationItem.title="طبقه بندی برند";
+                self.navigationItem.title="گروه ها";
             case GlobalConstants.CATEGORIES_SCREEN_MODE_SIGNUP:
-                self.navigationItem.title="۲- طبقه بندی برند ";
+                self.navigationItem.title="۳- گروه برند ";
             default:
                 self.navigationItem.title="";
         }
         
-        let backBtn = UIBarButtonItem(title: "<", style: UIBarButtonItemStyle.Plain, target: self, action: "backPressed");
+        let backBtn = UIBarButtonItem(title: "شهر >", style: UIBarButtonItemStyle.Plain, target: self, action: "backPressed");
         navigationItem.leftBarButtonItem = backBtn;
         
         

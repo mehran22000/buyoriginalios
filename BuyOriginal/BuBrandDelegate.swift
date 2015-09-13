@@ -6,4 +6,8 @@
 //  Copyright (c) 2015 MandM. All rights reserved.
 //
 
-import Foundation
+protocol BuBrandDelegate
+{
+    func updateBrand(newBrand:BrandModel) -> ()
+    //Function and property prototypes go here.
+}

@@ -23,30 +23,24 @@ class CitiesTableViewController: UITableViewController,UISearchBarDelegate {
 
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
         
-        var c = CityModel(cityName: "Tehran", areaCode: "021", cityNameFa: "تهران", imageName: "tehran");
-        self.cities+=[c];
-        c = CityModel(cityName: "Isfahan", areaCode: "031", cityNameFa: "اصفهان", imageName: "isfahan");
-        self.cities+=[c];
-        c = CityModel(cityName: "Kish", areaCode: "0764", cityNameFa: "کیش", imageName: "kish");
-        self.cities+=[c];
-        c = CityModel(cityName: "Urmia", areaCode: "0443", cityNameFa: "ارومیه", imageName: "urmia");
-        self.cities+=[c];
-        c = CityModel(cityName: "Shiraz", areaCode: "0711", cityNameFa: "شیراز", imageName: "shiraz");
-        self.cities+=[c];
+        self.initCities();
+        
+        let backBtn = UIBarButtonItem(title: "<", style: UIBarButtonItemStyle.Plain, target: self, action: "backPressed");
+        
         
         switch (self.screenMode){
             case GlobalConstants.CITIES_SCREEN_MODE_SEARCH:
-                self.navigationItem.title="محل سکونت";
+                self.navigationItem.title="شهر";
             case GlobalConstants.CITIES_SCREEN_MODE_SIGNUP:
                 self.navigationItem.title="۲-شهر";
+                navigationItem.leftBarButtonItem = backBtn;
             case GlobalConstants.CITIES_SCREEN_MODE_CHANGE:
                 self.navigationItem.title="تغییر شهر";
+                navigationItem.leftBarButtonItem = backBtn;
             default:
                 self.navigationItem.title="";
         }
         
-        let backBtn = UIBarButtonItem(title: "<", style: UIBarButtonItemStyle.Plain, target: self, action: "backPressed");
-        navigationItem.leftBarButtonItem = backBtn;
         
        // self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cityCell")
       //  self.tableView.backgroundColor = UIColor(patternImage: UIImage(named: "welcome.pink")!);
@@ -58,6 +52,23 @@ class CitiesTableViewController: UITableViewController,UISearchBarDelegate {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
+    func initCities() {
+        var c = CityModel(cityName: "Tehran", areaCode: "021", cityNameFa: "تهران", imageName: "tehran");
+        self.cities+=[c];
+        c = CityModel(cityName: "Isfahan", areaCode: "031", cityNameFa: "اصفهان", imageName: "isfahan");
+        self.cities+=[c];
+        c = CityModel(cityName: "Kish", areaCode: "076", cityNameFa: "کیش", imageName: "kish");
+        self.cities+=[c];
+       // c = CityModel(cityName: "Urmia", areaCode: "0443", cityNameFa: "ارومیه", imageName: "urmia");
+       // self.cities+=[c];
+        c = CityModel(cityName: "Shiraz", areaCode: "071", cityNameFa: "شیراز", imageName: "shiraz");
+        self.cities+=[c];
+        c = CityModel(cityName: "Mashhad", areaCode: "051", cityNameFa: "مشهد", imageName: "mashhad");
+        self.cities+=[c];
+        
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -114,13 +125,17 @@ class CitiesTableViewController: UITableViewController,UISearchBarDelegate {
             self.selectedAreaCode = c.areaCode;
         }
         
-        if ((self.account) != nil){
+        if (self.screenMode == GlobalConstants.CITIES_SCREEN_MODE_SIGNUP){
             self.account.sCity=c;
-            self.delegate?.updateCity(c);
+            self.performSegueWithIdentifier("pushAllBrands", sender: nil)
         }
-        
-        
-        performSegueWithIdentifier("pushCategories", sender: nil)
+        else if (self.screenMode == GlobalConstants.CITIES_SCREEN_MODE_CHANGE ){
+            self.delegate?.updateCity(c);
+            self.navigationController?.popViewControllerAnimated(true);
+        }
+        else {
+            performSegueWithIdentifier("pushCategories", sender: nil)
+        }
     }
     
     
@@ -202,6 +217,14 @@ class CitiesTableViewController: UITableViewController,UISearchBarDelegate {
                 destinationVC.screenMode=self.screenMode
                 self.navigationItem.leftBarButtonItem?.title="";
                 destinationVC.account = self.account
+            }
+        }
+        
+        if segue.identifier == "pushAllBrands"
+        {
+            if let destinationVC = segue.destinationViewController as? BrandViewController{
+                destinationVC.account = self.account;
+                destinationVC.screenMode=self.screenMode;
             }
         }
         

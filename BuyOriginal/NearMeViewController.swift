@@ -8,6 +8,7 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
     var brandId=0
     var is_searching=false   // It's flag for searching
     var selectedRow=0;
+    var distance:Float=2.0;
     
 
     override func viewDidLoad() {
@@ -61,6 +62,7 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
         if (indexPath.row == 0)
         {
             var cell:BODisatnceTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cellDistance") as! BODisatnceTableViewCell
+            cell.distanceSlider.value=self.distance;
             return cell;
         }
         else {
@@ -98,7 +100,7 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
         if (indexPath.row == 0){
-            return 50;
+            return 60;
         }
         else {
             return 80;
@@ -129,6 +131,7 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
     
     @IBAction func sliderValueChanged(sender: UISlider) {
         var distValue = Int(sender.value)
+        self.distance = sender.value;
         fetchNearLocations(distValue);
     }
     
@@ -136,13 +139,16 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
     func fetchNearLocations(distance:Int){
         let fetcher = BOHttpfetcher()
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        var curLat = String(format:"%f",appDelegate.curLocationLat)
-        var curLon = String(format:"%f",appDelegate.curLocationLong)
         
-        // Test Data
-        // ToDo: Remove
-        // curLat="35.790493";
-        // curLon="51.435261";
+        var curLat="", curLon="";
+        if SimulatorUtility.isRunningSimulator{
+            curLat="35.771479";
+            curLon="51.435261";
+        }
+        else {
+            curLat = String(format:"%f",appDelegate.curLocationLat)
+            curLon = String(format:"%f",appDelegate.curLocationLong)
+        }
         
         fetcher.fetchStores ("all",distance:String(distance),lat:curLat,lon:curLon,areaCode:"",discount:false,completionHandler: {(result: NSArray) -> () in
             self.nearStoresArray = result
