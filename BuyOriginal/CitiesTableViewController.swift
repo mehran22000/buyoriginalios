@@ -65,6 +65,10 @@ class CitiesTableViewController: UITableViewController,UISearchBarDelegate {
         self.cities+=[c];
         c = CityModel(cityName: "Mashhad", areaCode: "051", cityNameFa: "مشهد", imageName: "mashhad");
         self.cities+=[c];
+        c = CityModel(cityName: "Tabriz", areaCode: "051", cityNameFa: "تبریز", imageName: "tabriz");
+        self.cities+=[c];
+        c = CityModel(cityName: "Karaj", areaCode: "041", cityNameFa: "کرج", imageName: "karaj");
+        self.cities+=[c];
         
     }
     

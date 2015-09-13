@@ -14,8 +14,8 @@ class BOHttpPost: NSObject {
         
         var url: String;
         if (update == true) {
-         //   url = "https://buyoriginal.herokuapp.com/users/business/updateuser"
-            url = "http://localhost:5000/users/business/updateuser"
+            url = "https://buyoriginal.herokuapp.com/users/business/updateuser"
+         //   url = "http://localhost:5000/users/business/updateuser"
         }
         else {
             url = "https://buyoriginal.herokuapp.com/users/business/adduser"

@@ -43,9 +43,7 @@ class RegisterUserIdViewController: UIViewController {
             errMsg = "رمز کاربری را وارد کنید" ;
         }
         else {
-            self.account.uEmail=self.emailTextField.text;
-            self.account.uPassword=self.passwordTextField.text;
-            self.performSegueWithIdentifier("seguePushCities", sender: sender)
+            self.duplicatedEmailValidation();
         }
         
         if (err>0){
@@ -61,6 +59,41 @@ class RegisterUserIdViewController: UIViewController {
         }
         
     }
+    
+    
+    func duplicatedEmailValidation () {
+        let okAction = UIAlertAction(title: "", style:UIAlertActionStyle.Default) { (action) in
+            self.navigationController?.popToRootViewControllerAnimated(false);
+        }
+        
+        let httpLogin = BOHttpLogin();
+        
+        httpLogin.duplicateEmail(self.emailTextField.text) { (result) -> Void in
+            println("duplicateEmail response back");
+            if (result=="false"){
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.account.uEmail=self.emailTextField.text;
+                self.account.uPassword=self.passwordTextField.text;
+                self.performSegueWithIdentifier("seguePushCities", sender:nil)
+                    });
+            }
+            else {
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    let alertController = UIAlertController(title: "", message:
+                        "این ایمیل آدرس ثبت شده است. یک آدرس جدید وارد کنید.", preferredStyle: UIAlertControllerStyle.Alert)
+                    let okAction = UIAlertAction(title: "ادامه", style:UIAlertActionStyle.Default) { (action) in
+                        self.emailTextField.text="";
+                        self.passwordTextField.text="";
+                    }
+                    alertController.addAction(okAction);
+                    self.presentViewController(alertController, animated: true, completion: nil);
+                });
+            }
+        };
+    }
+    
+    
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

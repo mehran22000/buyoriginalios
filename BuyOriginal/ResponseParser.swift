@@ -304,6 +304,19 @@ class ResponseParser: NSObject, Printable {
     }
     
     
+    func parseValidateEmail(dic:NSDictionary) -> NSString {
+        
+        var result:String="";
+        if ((dic["duplicate"]) != nil){
+            result = dic["duplicate"] as! String;
+        }
+        else if ((dic["err"]) != nil){
+            result = dic["err"] as! String;
+        }
+        return result;
+    }
+    
+    
 
     /*
     func parseStoresJson(_bId: NSString?, json: NSString?) -> [StoreModel] {
