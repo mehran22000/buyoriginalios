@@ -35,7 +35,7 @@ class CategoryModel: NSObject, Printable {
             return "Sports";
         }
         else if (cNameFa=="پوشاک"){
-            return "Cloths";
+            return "Clothes";
         }
         else if (cNameFa=="آرایش و زیبایی"){
             return "Beauity";

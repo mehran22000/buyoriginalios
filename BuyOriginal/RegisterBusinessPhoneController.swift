@@ -51,7 +51,7 @@ class RegisterBusinessPhoneController: UIViewController {
         }
         else {
             self.account.store.sAreaCode = self.areaCodeTextField.text;
-            self.account.store.sTel1 = self.areaCodeTextField.text+self.telTextField.text;
+            self.account.store.sTel1 = self.telTextField.text;
             
             if (self.screenMode == GlobalConstants.BUSINESS_PHONE_SCREEN_MODE_SIGNUP) {
                 self.performSegueWithIdentifier("seguePushTerms", sender: sender)

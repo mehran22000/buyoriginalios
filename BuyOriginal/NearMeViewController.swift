@@ -18,8 +18,6 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
         
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
         
-        fetchNearLocations(2);
-        
         
         /*
         DataManager.getTopAppsDataFromFileWithSuccess ("NearStores",success: {(data) -> Void in
@@ -36,6 +34,10 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
         // Do any additional setup after loading the view.
     }
     
+    
+    override func viewWillAppear(animated: Bool) {
+         fetchNearLocations(2);
+    }
     
     override func viewDidAppear(animated: Bool) {
         self.tableView.reloadData()
@@ -142,8 +144,8 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
         
         var curLat="", curLon="";
         if SimulatorUtility.isRunningSimulator{
-            curLat="35.771479";
-            curLon="51.435261";
+            curLat="35.793521";
+            curLon="51.438165";
         }
         else {
             curLat = String(format:"%f",appDelegate.curLocationLat)
@@ -172,7 +174,8 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
             if ((dict?.valueForKey(s.bLogo)) != nil){
                 // Load available logos
                // println(" Logo Found: %@ ",&s.bLogo);
-                var logo:UIImage! = UIImage(named: s.bLogo);
+                var logoName = dict?.valueForKey(s.bLogo) as! String!;
+                var logo:UIImage! = UIImage(named: logoName);
                 s.bLogoImage = logo!;
                 counter=counter+1;
                 if (counter == self.nearStoresArray.count){

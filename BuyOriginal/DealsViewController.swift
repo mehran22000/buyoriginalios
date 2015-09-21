@@ -33,7 +33,7 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
     }
     
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewWillAppear(animated: Bool) {
         
         self.activityIndicatior?.startAnimating()
         self.activityIndicatior?.hidesWhenStopped=true
@@ -95,12 +95,14 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
             cell.dateLabel.text="امروز";
         }
         
+        /*
         let cat=CategoryModel();
         let iconName = cat.getIconName(store.bCategory);
+        println(iconName);
         if (iconName != nil){
-            cell.categoryImageView.image = UIImage(named:iconName! as String);
+            cell.categoryImageView.image = UIImage(named:"Clothes");
         }
-        
+        */
         
         if ((store.sDiscountNote != nil) && (store.sDiscountNote != "")){
             cell.noteLabel.numberOfLines=0;

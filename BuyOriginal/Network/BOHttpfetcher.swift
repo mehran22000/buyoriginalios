@@ -148,7 +148,7 @@ class BOHttpfetcher: NSObject {
     func fetchBrandLogo (logo:String, completionHandler:(imgData:NSData!)->Void) -> () {
         
         var logoUrl : String = "https://buyoriginal.herokuapp.com/images/logos/"+logo+".jpg";
-        println("logoUrl: \(logoUrl)");
+    //    println("logoUrl: \(logoUrl)");
         
         if let url = NSURL(string: logoUrl) {
             var imageDataFromURL = NSData(contentsOfURL: url)

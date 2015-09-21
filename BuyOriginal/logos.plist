@@ -2,85 +2,189 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>pierrecardin</key>
+	<string>pierrecardin</string>
+	<key>biooil</key>
+	<string>biooil</string>
+	<key>acer</key>
+	<string>acer</string>
+	<key>bailleul</key>
+	<string>bailleul</string>
+	<key>bioderma</key>
+	<string>bioderma</string>
+	<key>caudalie</key>
+	<string>caudalie</string>
+	<key>ego</key>
+	<string>ego</string>
+	<key>esthederm</key>
+	<string>esthederm</string>
+	<key>imedeen</key>
+	<string>imedeen</string>
+	<key>lierac</key>
+	<string>lierac</string>
+	<key>tiffi</key>
+	<string>tiffi</string>
+	<key>noreva</key>
+	<string>noreva</string>
+	<key>nuxe</key>
+	<string>nuxe</string>
+	<key>uriage</key>
+	<string>uriage</string>
+	<key>asics</key>
+	<string>asics</string>
+	<key>vertu</key>
+	<string>vertu</string>
+	<key>apple</key>
+	<string>apple</string>
+	<key>ramsey</key>
+	<string>ramsey</string>
+	<key>blackbuffalo</key>
+	<string>blackbuffalo</string>
+	<key>kalcharm</key>
+	<string>kalcharm</string>
+	<key>nader</key>
+	<string>nader</string>
+	<key>beheshtian</key>
+	<string>beheshtian</string>
+	<key>jamee</key>
+	<string>jamee</string>
+	<key>bamboo</key>
+	<string>bamboo</string>
+	<key>luisaspagnoli</key>
+	<string>luisaspagnoli</string>
+	<key>gizia</key>
+	<string>gizia</string>
+	<key>pandora</key>
+	<string>pandora</string>
+	<key>novinleather</key>
+	<string>novincharm</string>
+	<key>mashadleather</key>
+	<string>mashadleather</string>
+	<key>dorsa</key>
+	<string>dorsa</string>
+	<key>vahid</key>
+	<string>vahidcharm</string>
+	<key>maybelline</key>
+	<string>maybelline</string>
+	<key>garnier</key>
+	<string>garnier</string>
+	<key>women&apos;secret</key>
+	<string>womensecret</string>
+	<key>firs</key>
+	<string>firs</string>
+	<key>lrc</key>
+	<string>lrc</string>
+	<key>abercrombie&amp;fitch</key>
+	<string>abercrombie</string>
+	<key>ecut</key>
+	<string>ecut</string>
+	<key>hacoupian</key>
+	<string>hacoupian</string>
+	<key>gerad</key>
+	<string>gerad</string>
+	<key>daniellee</key>
+	<string>daniellee</string>
+	<key>skechers</key>
+	<string>skechers</string>
+	<key>salomon</key>
+	<string>salomon</string>
+	<key>atomic</key>
+	<string>atomic</string>
+	<key>arc&apos;teryx</key>
+	<string>arcteryx</string>
+	<key>suunto</key>
+	<string>suunto</string>
+	<key>thule</key>
+	<string>thule</string>
+	<key>pronovias</key>
+	<string>pronovias</string>
+	<key>hamilton</key>
+	<string>hamilton</string>
+	<key>rado</key>
+	<string>rado</string>
 	<key>benetton</key>
-	<true/>
+	<string>benetton</string>
+	<key>boggi</key>
+	<string>boggi</string>
+	<key>springfield</key>
+	<string>springfield</string>
 	<key>converse</key>
-	<true/>
+	<string>converse</string>
 	<key>flossy</key>
-	<true/>
+	<string>flossy</string>
+	<key>l&apos;oreal</key>
+	<string>loreal</string>
 	<key>lacoste</key>
-	<true/>
-	<key>loreal</key>
-	<true/>
+	<string>lacoste</string>
 	<key>marinarinaldi</key>
-	<true/>
+	<string>marinarinaldi</string>
 	<key>puma</key>
-	<true/>
+	<string>puma</string>
 	<key>replay</key>
-	<true/>
+	<string>replay</string>
 	<key>adolfodominguez</key>
-	<true/>
+	<string>adolfodominguez</string>
 	<key>bossini</key>
-	<true/>
+	<string>bossini</string>
 	<key>cat</key>
-	<true/>
-    <key>caterpillar</key>
-    <true/>
+	<string>cat</string>
+	<key>caterpillar</key>
+	<string>caterpillar</string>
 	<key>certina</key>
-	<true/>
+	<string>certina</string>
 	<key>ck</key>
-	<true/>
+	<string>ck</string>
 	<key>clarks</key>
-	<true/>
+	<string>clarks</string>
 	<key>dcshoes</key>
-	<true/>
+	<string>dcshoes</string>
 	<key>debenhams</key>
-	<true/>
+	<string>debenhams</string>
 	<key>diesel</key>
-	<true/>
+	<string>diesel</string>
 	<key>ecco</key>
-	<true/>
+	<string>ecco</string>
 	<key>esprit</key>
-	<true/>
+	<string>esprit</string>
 	<key>fila</key>
-	<true/>
+	<string>fila</string>
 	<key>geox</key>
-	<true/>
+	<string>geox</string>
 	<key>giordano</key>
-	<true/>
+	<string>giordano</string>
 	<key>jeanswest</key>
-	<true/>
-    <key>jeanwest</key>
-    <true/>
-    <key>koton</key>
-	<true/>
+	<string>jeanswest</string>
+	<key>jeanwest</key>
+	<string>jeanwest</string>
+	<key>koton</key>
+	<string>koton</string>
 	<key>liujo</key>
-	<true/>
+	<string>liujo</string>
 	<key>mango</key>
-	<true/>
+	<string>mango</string>
 	<key>massimodutti</key>
-	<true/>
+	<string>massimodutti</string>
 	<key>mido</key>
-	<true/>
+	<string>mido</string>
 	<key>nike</key>
-	<true/>
+	<string>nike</string>
 	<key>polo</key>
-	<true/>
+	<string>polo</string>
 	<key>reebok</key>
-	<true/>
+	<string>reebok</string>
 	<key>sisley</key>
-	<true/>
+	<string>sisley</string>
 	<key>adidas</key>
-	<true/>
+	<string>adidas</string>
 	<key>swatch</key>
-	<true/>
+	<string>swatch</string>
 	<key>tissot</key>
-	<true/>
+	<string>tissot</string>
 	<key>tommy</key>
-	<true/>
+	<string>tommy</string>
 	<key>versace</key>
-	<true/>
+	<string>versace</string>
 	<key>zara</key>
-	<true/>
+	<string>zara</string>
 </dict>
 </plist>

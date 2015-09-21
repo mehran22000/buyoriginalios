@@ -46,6 +46,18 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
         navigationItem.leftBarButtonItem = backBtn;
         
         
+       // self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cityCell")
+      //  self.tableView.backgroundColor = UIColor(patternImage: UIImage(named: "welcome.pink")!);
+        
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+
+    
+    override func viewWillAppear(animated: Bool) {
         let fetcher = BOHttpfetcher()
         
         fetcher.fetchCityCategories (self.areaCode, completionHandler:{ (result: NSDictionary) -> () in
@@ -64,16 +76,9 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
         self.activityIndicatior?.hidden=false;
         self.activityIndicatior?.hidesWhenStopped=true;
         self.activityIndicatior?.startAnimating();
-       // self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cityCell")
-      //  self.tableView.backgroundColor = UIColor(patternImage: UIImage(named: "welcome.pink")!);
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -111,7 +116,8 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
             if ((dict?.valueForKey(b.bLogo)) != nil){
                 // Load available logos
                 //    println(" Logo Found: %@ ",&b.bLogo);
-                var logo:UIImage! = UIImage(named: b.bLogo);
+                var logoName = dict?.valueForKey(b.bLogo) as! String!;
+                var logo:UIImage! = UIImage(named: logoName);
                 b.bLogoImage = logo!;
                 counter=counter+1;
                 if (counter == self.brandsArray.count){
@@ -124,7 +130,7 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
             }
             else {
                 // Download missing logos
-                
+                println("missing:"+b.bLogo);
                 fetcher.fetchBrandLogo(b.bLogo, completionHandler: { (imgData) -> Void in
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         if ((imgData) != nil){

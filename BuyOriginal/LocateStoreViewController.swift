@@ -38,12 +38,11 @@ class LocateStoreViewController: UIViewController, MKMapViewDelegate {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
         // ToDo: Remove
-        /*
+        
         if (appDelegate.curLocationLat == nil) {
             appDelegate.curLocationLat=35.790493;
             appDelegate.curLocationLong=51.435261;
         }
-        */
         
         var curLat = String(format:"%f",appDelegate.curLocationLat)
         var curLon = String(format:"%f",appDelegate.curLocationLong)

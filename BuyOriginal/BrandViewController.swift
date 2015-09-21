@@ -32,29 +32,6 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
         
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
-        if ((self.screenMode == GlobalConstants.BRANDS_SCREEN_MODE_CHANGE) ||
-            (self.screenMode == GlobalConstants.BRANDS_SCREEN_MODE_SIGNUP)) {
-            
-                /*
-                DataManager.getTopAppsDataFromFileWithSuccess ("Brands",success: {(data) -> Void in
-                let resstr = NSString(data: data, encoding: NSUTF8StringEncoding)
-                let parser = ResponseParser()
-                self.brandsArray = parser.parseBrandJson(resstr)
-                self.tableView.reloadData()
-                */
-                
-                
-                let fetcher = BOHttpfetcher()
-                fetcher.fetchBrands({ (result) -> Void in
-                    self.brandsArray = result as NSArray;
-                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        self.loadBrandsLogo()
-                    })
-                    
-                })
-        }
-        
-        
         switch (self.screenMode){
             case GlobalConstants.BRANDS_SCREEN_MODE_SEARCH:
                 self.navigationItem.title=self.selectedCategoryNameFa;
@@ -76,12 +53,30 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
         tracker.set(kGAIScreenName, value:"Home Screen")
         var build = GAIDictionaryBuilder.createScreenView().build() as [NSObject : AnyObject]
         tracker.send(build)
-        
-        
-        
     }
 
     override func viewWillAppear(animated: Bool) {
+        if ((self.screenMode == GlobalConstants.BRANDS_SCREEN_MODE_CHANGE) ||
+            (self.screenMode == GlobalConstants.BRANDS_SCREEN_MODE_SIGNUP)) {
+                
+                /*
+                DataManager.getTopAppsDataFromFileWithSuccess ("Brands",success: {(data) -> Void in
+                let resstr = NSString(data: data, encoding: NSUTF8StringEncoding)
+                let parser = ResponseParser()
+                self.brandsArray = parser.parseBrandJson(resstr)
+                self.tableView.reloadData()
+                */
+                
+                
+                let fetcher = BOHttpfetcher()
+                fetcher.fetchBrands({ (result) -> Void in
+                    self.brandsArray = result as NSArray;
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.loadBrandsLogo()
+                    })
+                    
+                })
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -249,7 +244,8 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
             if ((dict?.valueForKey(b.bLogo)) != nil){
                 // Load available logos
                 //    println(" Logo Found: %@ ",&b.bLogo);
-                var logo:UIImage! = UIImage(named: b.bLogo);
+                var logoName = dict?.valueForKey(b.bLogo) as! String!;
+                var logo:UIImage! = UIImage(named: logoName);
                 b.bLogoImage = logo!;
                 counter=counter+1;
                 if (counter == self.brandsArray.count){

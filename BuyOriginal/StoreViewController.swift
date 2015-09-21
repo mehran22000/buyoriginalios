@@ -59,10 +59,7 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
         */
         
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
-        
         // Do any additional setup after loading the view.
-        
-    
         
     }
 
@@ -84,7 +81,6 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         
         if (self.screenMode == GlobalConstants.STORES_SCREEN_MODE_DISCOUNT){
             var store = self.storesArray[0] as! StoreModel

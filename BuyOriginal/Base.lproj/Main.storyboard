@@ -126,7 +126,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="نام برند " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bEd-hx-cRw">
                                                     <rect key="frame" x="71" y="-2" width="208" height="28"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="26"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -273,7 +273,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="شرح حراج" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ipO-3K-bAg">
-                                                    <rect key="frame" x="5.9999962220582761" y="59" width="173" height="52.5"/>
+                                                    <rect key="frame" x="5.9999991520067502" y="59" width="173" height="52.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.1401703859" blue="0.28238594210000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -349,7 +349,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" id="vo5-SO-Hqi">
-                                            <rect key="frame" x="16.999997683419544" y="36" width="260" height="30"/>
+                                            <rect key="frame" x="17" y="36" width="259.99999632817907" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
@@ -379,7 +379,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" id="9nT-Si-1Wz">
-                                            <rect key="frame" x="16.000001394044354" y="36" width="260" height="30"/>
+                                            <rect key="frame" x="16.000002261847442" y="36" width="260" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
@@ -1352,14 +1352,14 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="نام برند" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dod-fV-mj5">
                                                     <rect key="frame" x="69" y="1" width="214" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="26"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="نام برند" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nc4-5a-qpv">
                                                     <rect key="frame" x="69" y="10" width="214" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="26"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1431,7 +1431,7 @@
                                     </connections>
                                 </searchBar>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellStore" rowHeight="140" id="Kvu-A7-MQB" customClass="BOStoresTableViewCell" customModule="BuyOriginal" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cellStore" rowHeight="140" id="Kvu-A7-MQB" customClass="BOStoresTableViewCell" customModule="BuyOriginal" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="130" width="320" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kvu-A7-MQB" id="bNl-RQ-qaR">
@@ -1455,7 +1455,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="نام  فروشگاه" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zIN-Fx-sgx">
                                                     <rect key="frame" x="88" y="-2" width="224" height="28"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="26"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1521,6 +1521,8 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="storeHoursLabel" destination="J2U-1g-Ziw" id="ZX9-LT-gFK"/>
                                             <outlet property="storeImageView" destination="Cyi-zz-bmj" id="b1t-wm-EX2"/>
@@ -1943,7 +1945,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell1" rowHeight="155" id="iNc-SJ-VIF">
-                                        <rect key="frame" x="0.0" y="66" width="320" height="155"/>
+                                        <rect key="frame" x="0.0" y="22" width="320" height="155"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iNc-SJ-VIF" id="Be0-ag-fab">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="154.5"/>
@@ -1962,7 +1964,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell2" rowHeight="130" id="Sy7-8k-jrr">
-                                        <rect key="frame" x="0.0" y="221" width="320" height="130"/>
+                                        <rect key="frame" x="0.0" y="177" width="320" height="130"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Sy7-8k-jrr" id="6dB-AU-vP8">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="129.5"/>
@@ -1980,7 +1982,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell3" rowHeight="75" id="4Bi-S7-BWe">
-                                        <rect key="frame" x="0.0" y="351" width="320" height="75"/>
+                                        <rect key="frame" x="0.0" y="307" width="320" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Bi-S7-BWe" id="Tkx-uU-5nf">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="74.5"/>
@@ -1997,7 +1999,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell4" rowHeight="75" id="pmi-4v-N48">
-                                        <rect key="frame" x="0.0" y="426" width="320" height="75"/>
+                                        <rect key="frame" x="0.0" y="382" width="320" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pmi-4v-N48" id="WA6-RP-zvc">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="74.5"/>
@@ -2049,7 +2051,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell1" rowHeight="55" id="NhA-xt-EeF">
-                                <rect key="frame" x="0.0" y="86" width="320" height="55"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="55"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NhA-xt-EeF" id="ISO-mz-d9z">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="54.5"/>
@@ -2070,7 +2072,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell2" rowHeight="55" id="Agn-BE-XWN">
-                                <rect key="frame" x="0.0" y="141" width="320" height="55"/>
+                                <rect key="frame" x="0.0" y="77" width="320" height="55"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Agn-BE-XWN" id="zwc-GU-NI4">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="54.5"/>
@@ -2091,7 +2093,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell3" rowHeight="150" id="Nhz-dz-ljx">
-                                <rect key="frame" x="0.0" y="196" width="320" height="150"/>
+                                <rect key="frame" x="0.0" y="132" width="320" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nhz-dz-ljx" id="YQo-jm-sWk">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="149.5"/>
@@ -2113,7 +2115,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell4" rowHeight="53" id="iek-sU-fTh">
-                                <rect key="frame" x="0.0" y="346" width="320" height="53"/>
+                                <rect key="frame" x="0.0" y="282" width="320" height="53"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iek-sU-fTh" id="Ulm-lP-VIp">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="52.5"/>
@@ -2174,9 +2176,9 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="L6t-T9-tlG"/>
-        <segue reference="bTt-WG-ae1"/>
         <segue reference="jox-BJ-M8F"/>
         <segue reference="w6G-ac-eaQ"/>
+        <segue reference="l5r-YM-H1u"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.53188751850000004" green="0.0" blue="0.0048371410560000003" alpha="1" colorSpace="calibratedRGB"/>
 </document>
