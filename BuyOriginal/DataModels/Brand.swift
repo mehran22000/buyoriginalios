@@ -9,7 +9,7 @@
 import Foundation
 
 
-class BrandModel: NSObject, Printable {
+class BrandModel: NSObject{
     var bId: String!
     var bName: String!
     var bCategory: String!

@@ -2,18 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "jamee.jpg"
+      "filename" : "jamee-1.png",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "jamee-1.jpg"
+      "filename" : "jamee-2.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "jamee-2.jpg"
+      "filename" : "jamee-3.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

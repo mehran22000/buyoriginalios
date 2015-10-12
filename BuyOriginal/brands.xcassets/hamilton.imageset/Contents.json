@@ -2,18 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "hamilton.jpg"
+      "filename" : "hamilton.png",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "hamilton-1.jpg"
+      "filename" : "hamilton-1.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "hamilton-2.jpg"
+      "filename" : "hamilton-2.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

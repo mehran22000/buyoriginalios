@@ -2,18 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "lacoste.jpg"
+      "filename" : "lacoste-1.png",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "lacoste-1.jpg"
+      "filename" : "lacoste-2.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "lacoste-2.jpg"
+      "filename" : "lacoste-3.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

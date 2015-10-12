@@ -2,18 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "puma.jpg"
+      "filename" : "puma-2.png",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "puma-1.jpg"
+      "filename" : "puma-3.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "puma-2.jpg"
+      "filename" : "puma-4.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

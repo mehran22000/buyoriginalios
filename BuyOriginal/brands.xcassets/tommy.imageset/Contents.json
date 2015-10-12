@@ -2,18 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "tommy.jpg"
+      "filename" : "tommy-1.png",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "tommy-1.jpg"
+      "filename" : "tommy-2.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "tommy-2.jpg"
+      "filename" : "tommy-3.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

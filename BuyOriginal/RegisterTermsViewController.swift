@@ -8,14 +8,15 @@
 
 import UIKit
 
-class RegisterTermsViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
+class RegisterTermsViewController: UIViewController,UITableViewDelegate, UITableViewDataSource,UIAlertViewDelegate {
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var confrimBtn: UIBarButtonItem!
 
     var account:AccountModel!;
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let backBtn = UIBarButtonItem(title: "<", style: UIBarButtonItemStyle.Plain, target: self, action: "backPressed");
+        let backBtn = UIBarButtonItem(title: "تلفن >", style: UIBarButtonItemStyle.Plain, target: self, action: "backPressed");
         navigationItem.leftBarButtonItem = backBtn;
         
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
@@ -47,13 +48,13 @@ class RegisterTermsViewController: UIViewController,UITableViewDelegate, UITable
             
         switch (indexPath.row) {
             case 0:
-                cell = self.tableView.dequeueReusableCellWithIdentifier("cell1") as! UITableViewCell;
+                cell = self.tableView.dequeueReusableCellWithIdentifier("cell1");
             case 1:
-                cell = self.tableView.dequeueReusableCellWithIdentifier("cell2") as! UITableViewCell;
+                cell = self.tableView.dequeueReusableCellWithIdentifier("cell2");
             case 2:
-                cell = self.tableView.dequeueReusableCellWithIdentifier("cell3") as! UITableViewCell;
+                cell = self.tableView.dequeueReusableCellWithIdentifier("cell3");
             case 3:
-                cell = self.tableView.dequeueReusableCellWithIdentifier("cell4") as! UITableViewCell;
+                cell = self.tableView.dequeueReusableCellWithIdentifier("cell4");
             default:
                 cell = nil;
         }
@@ -79,31 +80,39 @@ class RegisterTermsViewController: UIViewController,UITableViewDelegate, UITable
     
     @IBAction func agreePressed () {
         
-        let okAction = UIAlertAction(title: "پایان", style:UIAlertActionStyle.Default) { (action) in
-            self.navigationController?.popToRootViewControllerAnimated(false);
-        }
-        
         let httpPost = BOHttpPost()
-        
+        self.confrimBtn.enabled = false;
         httpPost.addOrUpdateBusiness(false, account:account) { (result) -> Void in
-            println("Registeration Successful");
+            self.confrimBtn.enabled = true;
+            print("Registeration Successful");
             if (result=="success"){
-                self.performSegueWithIdentifier("pushConfirmation", sender: nil)
+               // self.performSegueWithIdentifier("pushConfirmation", sender: nil)
+                let alert = UIAlertView(title: "پایان", message: "فروشگاه شما با موفقیت ثبت گردید", delegate: self, cancelButtonTitle: "پایان")
+                alert.tag=1;
+                alert.show()
             }
             else {
                 
-                let alertController = UIAlertController(title: "", message:
-                    "خطادر ثبت شرکت", preferredStyle: UIAlertControllerStyle.Alert)
-                alertController.addAction(okAction);
-                self.presentViewController(alertController, animated: true, completion: nil);
-                
-                
+                let alert = UIAlertView(title: "پایان", message: "خطادر ثبت شرکت", delegate: self, cancelButtonTitle: "پایان")
+                alert.tag=1;
+                alert.show()
             }
-            
-            
         };
     }
-
+    
+    func alertView(alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int)
+    {
+        if alertView.tag==1
+        {
+            if buttonIndex==0
+            {
+                print("پایان");
+                self.navigationController?.popToRootViewControllerAnimated(false);
+                
+            }
+        }
+    }
+    
 
     /*
     // MARK: - Navigation

@@ -3,12 +3,14 @@ import UIKit
 class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var noInternetConnectionView: UIView!
+    
     var nearStoresArray = NSArray()
     var filteredStores = [StoreModel]()
     var brandId=0
     var is_searching=false   // It's flag for searching
     var selectedRow=0;
-    var distance:Float=2.0;
+    var distance:Float=0.5;
     
 
     override func viewDidLoad() {
@@ -31,12 +33,20 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
         
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
         
+        
         // Do any additional setup after loading the view.
     }
     
     
     override func viewWillAppear(animated: Bool) {
-         fetchNearLocations(2);
+        
+        if (Utilities.isConnectedToNetwork() == false) {
+            self.noInternetConnectionView.hidden = false
+        }
+        else {
+            self.noInternetConnectionView.hidden = true
+            fetchNearLocations(1);
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -63,12 +73,12 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
         
         if (indexPath.row == 0)
         {
-            var cell:BODisatnceTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cellDistance") as! BODisatnceTableViewCell
+            let cell:BODisatnceTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cellDistance") as! BODisatnceTableViewCell
             cell.distanceSlider.value=self.distance;
             return cell;
         }
         else {
-            var cell:BONearmeTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cellStore") as! BONearmeTableViewCell
+            let cell:BONearmeTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cellStore") as! BONearmeTableViewCell
             
             var store = self.nearStoresArray[indexPath.row-1] as! StoreModel
             
@@ -94,7 +104,7 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        println("You selected cell #\(indexPath.row)!")
+        print("You selected cell #\(indexPath.row)!")
         self.selectedRow=indexPath.row-1;
         self.performSegueWithIdentifier("pushStoreDetails", sender: nil)
     }
@@ -111,18 +121,18 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
     
     // Search Bar Delegates
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String){
-        if searchBar.text.isEmpty{
+        if searchBar.text!.isEmpty{
             is_searching = false
             tableView.reloadData()
         } else {
-            println(" search text %@ ",searchBar.text as NSString)
+            print(" search text %@ ",searchBar.text! as NSString)
             is_searching = true
             self.filteredStores.removeAll(keepCapacity: false)
             for var index = 0; index < self.nearStoresArray.count; index++
             {
-                var store: StoreModel = self.nearStoresArray.objectAtIndex(index) as! StoreModel
+                let store: StoreModel = self.nearStoresArray.objectAtIndex(index) as! StoreModel
                 
-                var currentString = store.bName as String
+                let currentString = store.bName as String
                 if currentString.lowercaseString.rangeOfString(searchText.lowercaseString)  != nil {
                     self.filteredStores+=[store];
                 }
@@ -132,7 +142,7 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
     }
     
     @IBAction func sliderValueChanged(sender: UISlider) {
-        var distValue = Int(sender.value)
+        let distValue = Int(sender.value)
         self.distance = sender.value;
         fetchNearLocations(distValue);
     }
@@ -170,12 +180,12 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
         
         
         for store in self.nearStoresArray {
-            var s:StoreModel = store as! StoreModel;
+            let s:StoreModel = store as! StoreModel;
             if ((dict?.valueForKey(s.bLogo)) != nil){
                 // Load available logos
                // println(" Logo Found: %@ ",&s.bLogo);
-                var logoName = dict?.valueForKey(s.bLogo) as! String!;
-                var logo:UIImage! = UIImage(named: logoName);
+                let logoName = dict?.valueForKey(s.bLogo) as! String!;
+                let logo:UIImage! = UIImage(named: logoName);
                 s.bLogoImage = logo!;
                 counter=counter+1;
                 if (counter == self.nearStoresArray.count){
@@ -212,8 +222,8 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
 
     
     func sortStores() {
-        var descriptor: NSSortDescriptor = NSSortDescriptor(key: "sDistance", ascending: true)
-        var sortedResults: NSArray = nearStoresArray.sortedArrayUsingDescriptors([descriptor])
+        let descriptor: NSSortDescriptor = NSSortDescriptor(key: "sDistance", ascending: true)
+        let sortedResults: NSArray = nearStoresArray.sortedArrayUsingDescriptors([descriptor])
         self.nearStoresArray = sortedResults;
     }
     

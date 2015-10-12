@@ -2,18 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "Abercrombie.jpg"
+      "filename" : "Abercrombie-1.png",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "Abercrombie-1.jpg"
+      "filename" : "Abercrombie-2.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "Abercrombie-2.jpg"
+      "filename" : "Abercrombie-3.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

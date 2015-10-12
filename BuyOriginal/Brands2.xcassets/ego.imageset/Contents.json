@@ -2,18 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "ego.jpg"
+      "filename" : "ego-1.png",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "ego-1.jpg"
+      "filename" : "ego-2.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "ego-2.jpg"
+      "filename" : "ego-3.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

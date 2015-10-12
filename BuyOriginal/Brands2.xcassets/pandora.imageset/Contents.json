@@ -2,18 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "pandora.jpg"
+      "filename" : "pandora.png",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "pandora-1.jpg"
+      "filename" : "pandora-1.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "pandora-2.jpg"
+      "filename" : "pandora-2.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

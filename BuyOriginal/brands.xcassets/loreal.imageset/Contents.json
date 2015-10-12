@@ -2,18 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "loreal.jpg"
+      "filename" : "loreal-1.png",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "loreal-1.jpg"
+      "filename" : "loreal-2.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "loreal-2.jpg"
+      "filename" : "loreal-3.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

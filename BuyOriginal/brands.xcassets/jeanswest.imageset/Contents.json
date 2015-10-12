@@ -2,18 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "jeanswest.jpg"
+      "filename" : "jeanswest-1.png",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "jeanswest-1.jpg"
+      "filename" : "jeanswest-2.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "jeanswest-2.jpg"
+      "filename" : "jeanswest-3.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

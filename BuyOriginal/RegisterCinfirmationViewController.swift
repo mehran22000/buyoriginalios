@@ -44,21 +44,21 @@ class RegisterConfirmationViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell:UITableViewCell!;
+        var cell:UITableViewCell?;
         
         switch (indexPath.row) {
         case 0:
-            cell = self.tableView.dequeueReusableCellWithIdentifier("cell1") as! UITableViewCell;
+            cell = self.tableView.dequeueReusableCellWithIdentifier("cell1") as UITableViewCell?;
         case 1:
-            cell = self.tableView.dequeueReusableCellWithIdentifier("cell2") as! UITableViewCell;
+            cell = self.tableView.dequeueReusableCellWithIdentifier("cell2") as UITableViewCell?;
         case 2:
-            cell = self.tableView.dequeueReusableCellWithIdentifier("cell3") as! UITableViewCell;
+            cell = self.tableView.dequeueReusableCellWithIdentifier("cell3") as UITableViewCell?;
         case 3:
-            cell = self.tableView.dequeueReusableCellWithIdentifier("cell4") as! UITableViewCell;
+            cell = self.tableView.dequeueReusableCellWithIdentifier("cell4") as UITableViewCell?;
         default:
             cell = nil;
         }
-        return cell;
+        return cell!;
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -77,7 +77,7 @@ class RegisterConfirmationViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        println("You selected cell #\(indexPath.row)!")
+        print("You selected cell #\(indexPath.row)!")
         
         switch (indexPath.row) {
         case 3:

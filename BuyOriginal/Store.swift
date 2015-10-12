@@ -8,7 +8,7 @@
 
 import Foundation
 
-class StoreModel: NSObject, Printable {
+class StoreModel: NSObject{
     var bId: String!
     var bName: String!
     var sId: String!

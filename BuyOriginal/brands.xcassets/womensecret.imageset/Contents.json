@@ -2,18 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "womensecret.jpg"
+      "filename" : "womensecret-1.png",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "womensecret-1.jpg"
+      "filename" : "womensecret-2.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "womensecret-2.jpg"
+      "filename" : "womensecret-3.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

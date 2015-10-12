@@ -2,18 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "tissot.jpg"
+      "filename" : "tissot-1.png",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "tissot-1.jpg"
+      "filename" : "tissot-2.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "tissot-2.jpg"
+      "filename" : "tissot-3.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

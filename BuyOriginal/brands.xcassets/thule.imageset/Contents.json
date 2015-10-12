@@ -2,18 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "thule.jpg"
+      "filename" : "thule-1.png",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "thule-1.jpg"
+      "filename" : "thule-2.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "thule-2.jpg"
+      "filename" : "thule-3.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

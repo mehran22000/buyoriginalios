@@ -13,12 +13,12 @@ let TopAppURL = "https://itunes.apple.com/us/rss/topgrossingipadapplications/lim
 
 class DataManager {
     
+    /*
     class func getTopAppsDataFromFileWithSuccess(fileName: String?, success: ((data: NSData) -> Void)) {
         //1
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
             //2
             let filePath = NSBundle.mainBundle().pathForResource(fileName,ofType:"json")
-            
             var readError:NSError?
             if let data = NSData(contentsOfFile:filePath!,
                 options: NSDataReadingOptions.DataReadingUncached,
@@ -27,7 +27,9 @@ class DataManager {
             }
         })
     }
+    */
     
+    /*
     class func loadDataFromURL(url: NSURL, completion:(data: NSData?, error: NSError?) -> Void) {
         var session = NSURLSession.sharedSession()
         
@@ -47,4 +49,5 @@ class DataManager {
         
         loadDataTask.resume()
     }
+    */
 }

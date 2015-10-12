@@ -11,14 +11,14 @@ import UIKit
 class BOHttpLogin: NSObject {
     
     func login (email: NSString, password:NSString, completionHandler:(result:AccountModel?)->Void) -> () {
-        var url: String = "https://buyoriginal.herokuapp.com/users/business/login"
+        let url: String = "https://buyoriginal.herokuapp.com/users/business/login"
         // var url: String = "http://localhost:5000/users/business/login"
-        var request : NSMutableURLRequest = NSMutableURLRequest()
+        let request : NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)
         request.HTTPMethod = "POST"
         
-        var bodyData = "email="+(email as String)+"&password="+(password as String);
-        println(bodyData);
+        let bodyData = "email="+(email as String)+"&password="+(password as String);
+        print(bodyData);
         request.HTTPBody = bodyData.dataUsingEncoding(NSUTF8StringEncoding);
         
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()){
@@ -27,10 +27,15 @@ class BOHttpLogin: NSObject {
             
             var jsonResult: NSArray!
             var accountInfo: AccountModel?
-            var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
+           // var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
             
             if (data != nil){
-                jsonResult = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions.MutableContainers, error: error) as! NSArray
+                do {
+                    try jsonResult = NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as! NSArray
+                }
+                catch {
+                    
+                }
             }
             if (jsonResult != nil) {
                 let parser = ResponseParser()
@@ -46,21 +51,26 @@ class BOHttpLogin: NSObject {
                 
           let url = "https://buyoriginal.herokuapp.com/users/business/forgetpassword/"+email;
     //    let url = "http://localhost:5000/users/business/forgetpassword/"+email;
-                println("url: \(url)");
+                print("url: \(url)");
                 
-                var request : NSMutableURLRequest = NSMutableURLRequest()
+                let request : NSMutableURLRequest = NSMutableURLRequest()
                 request.URL = NSURL(string: url)
                 request.HTTPMethod = "GET"
                 
-                NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse!, data: NSData!, error: NSError!) -> Void in
-                    var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
+                NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse?, data: NSData?, error: NSError?) -> Void in
+                 //   var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
                     var jsonResult: NSDictionary!
                     if (data != nil){
-                        jsonResult = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions.MutableContainers, error: error) as? NSDictionary
+                        do {
+                        try jsonResult = NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as? NSDictionary
+                        }
+                        catch {
+                            
+                        }
                     }
                     if (jsonResult != nil) {
                         let parser = ResponseParser()
-                        var result:String = parser.parseServiceResult(jsonResult) as String;
+                        let result:String = parser.parseServiceResult(jsonResult) as String;
                         completionHandler(result: result)
                         // process jsonResult
                     } else {
@@ -75,21 +85,26 @@ class BOHttpLogin: NSObject {
             
             let url = "https://buyoriginal.herokuapp.com/users/business/validateemail/"+email;
             // let url = "http://localhost:5000/users/business/validateemail/"+email;
-            println("url: \(url)");
+            print("url: \(url)");
             
-            var request : NSMutableURLRequest = NSMutableURLRequest()
+            let request : NSMutableURLRequest = NSMutableURLRequest()
             request.URL = NSURL(string: url)
             request.HTTPMethod = "GET"
             
-            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse!, data: NSData!, error: NSError!) -> Void in
-                var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
+            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse?, data: NSData?, error: NSError?) -> Void in
+             //   var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
                 var jsonResult: NSDictionary!
                 if (data != nil){
-                    jsonResult = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions.MutableContainers, error: error) as? NSDictionary
+                    do {
+                        try jsonResult = NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as? NSDictionary
+                    }
+                    catch {
+                        
+                    }
                 }
                 if (jsonResult != nil) {
                     let parser = ResponseParser()
-                    var result:String = parser.parseValidateEmail(jsonResult) as String;
+                    let result:String = parser.parseValidateEmail(jsonResult) as String;
                     completionHandler(result: result)
                     // process jsonResult
                 } else {
@@ -104,21 +119,26 @@ class BOHttpLogin: NSObject {
             let url = "https://buyoriginal.herokuapp.com/users/business/deleteuser/"+email!+"/"+sid!;
         //    let url = "http://localhost:5000/users/business/deleteuser/"+email!+"/"+sid!;
             
-            println("url: \(url)");
+            print("url: \(url)");
             
-            var request : NSMutableURLRequest = NSMutableURLRequest()
+            let request : NSMutableURLRequest = NSMutableURLRequest()
             request.URL = NSURL(string: url)
             request.HTTPMethod = "GET"
             
-            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse!, data: NSData!, error: NSError!) -> Void in
-                var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
+            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse?, data: NSData?, error: NSError?) -> Void in
+      //          var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
                 var jsonResult: NSDictionary!
                 if (data != nil){
-                    jsonResult = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions.MutableContainers, error: error) as? NSDictionary
+                    do {
+                        try jsonResult = NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as? NSDictionary
+                    }
+                    catch {
+                        
+                    }
                 }
                 if (jsonResult != nil) {
                     let parser = ResponseParser()
-                    var result:String = parser.parseServiceResult(jsonResult) as String;
+                    let result:String = parser.parseServiceResult(jsonResult) as String;
                     completionHandler(result: result)
                     // process jsonResult
                 } else {

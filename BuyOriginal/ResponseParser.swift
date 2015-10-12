@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class ResponseParser: NSObject, Printable {
+class ResponseParser: NSObject {
     
     override init() {
     }
@@ -24,7 +24,7 @@ class ResponseParser: NSObject, Printable {
             let sNumbers = elem["sNumbers"] as? String
             let sNearestLocation = elem["sNearestLocation"] as? String
             let bLogo = elem["bLogo"] as! String
-            println("bId: \(bId)", "bName: \(bName)", "bCategory: \(bCategory)", "sNumbers: \(sNumbers)", "sNearestLocation: \(sNearestLocation)")
+            print("bId: \(bId)", "bName: \(bName)", "bCategory: \(bCategory)", "sNumbers: \(sNumbers)", "sNearestLocation: \(sNearestLocation)")
             let b = BrandModel(bId: bId, bName: bName, bCategory: bCategory, sNumbers: sNumbers, sNearestLocation: sNearestLocation, bLogo:bLogo);
             array+=[b]
             
@@ -43,7 +43,7 @@ class ResponseParser: NSObject, Printable {
             let bName = elem["bName"] as? String
             let cName = elem["cName"] as? String
             let bLogo = elem["bLogo"] as! String
-            println("bId: \(bId)", "bName: \(bName)", "cName: \(cName)", "bLogo: \(bLogo)")
+            print("bId: \(bId)", "bName: \(bName)", "cName: \(cName)", "bLogo: \(bLogo)")
             let b = BrandModel(bId: bId, bName: bName, bCategory: cName, sNumbers: "", sNearestLocation: "", bLogo:bLogo);
             brands+=[b]
         }
@@ -89,7 +89,7 @@ class ResponseParser: NSObject, Printable {
         var brands = [BrandModel]()
         var categoryBrands = [String:[BrandModel]]();
         var brandStores = [String:[StoreModel]]();
-        var catCounter = 0;
+       // var catCounter = 0;
         var brandCounter = 0;
         
         for elem: AnyObject in array {
@@ -97,7 +97,7 @@ class ResponseParser: NSObject, Printable {
             let bName = elem["bName"] as? String
             let sId = elem["sId"] as? String
             let sName = elem["sName"] as? String
-            let cName = elem["cName"] as? String
+            // let cName = elem["cName"] as? String
             let bLogo = bName?.stringByReplacingOccurrencesOfString(" ", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil).lowercaseString
             let sHours = elem["sHours"] as? String
             let sAddress = elem["sAddress"] as? String
@@ -143,7 +143,7 @@ class ResponseParser: NSObject, Printable {
                 categoryBrands[bCategory!]=newCatBrands;
             }
             else if (bCategory != nil){
-                var exCatBrands = categoryBrands[bCategory!] as [BrandModel]?;
+                let exCatBrands = categoryBrands[bCategory!] as [BrandModel]?;
                 var newBrand = true;
                 var newCatBrands =  [BrandModel]();
                 
@@ -179,8 +179,8 @@ class ResponseParser: NSObject, Printable {
                 brandStores[bName!]=newBrandStores;
             }
             else {
-                var exBrandStores = brandStores[bName!] as [StoreModel]?;
-                var newStore = true;
+                let exBrandStores = brandStores[bName!] as [StoreModel]?;
+                // var newStore = true;
                 var newBrandStore =  [StoreModel]();
                 
                 for elem:StoreModel in exBrandStores!{
@@ -202,7 +202,7 @@ class ResponseParser: NSObject, Printable {
             
         }
         
-        var results:NSDictionary = ["brands":brands,"stores":stores, "catBrands":categoryBrands, "brandStores":brandStores];
+        let results:NSDictionary = ["brands":brands,"stores":stores, "catBrands":categoryBrands, "brandStores":brandStores];
         
         
         return results;
@@ -213,11 +213,11 @@ class ResponseParser: NSObject, Printable {
     
     func parseLogin(array:NSArray) -> AccountModel? {
         
-        var account =  AccountModel()
+        let account =  AccountModel()
         
         for elem: AnyObject in array {
             
-            var err = elem["err"] as? String;
+            let err = elem["err"] as? String;
             
             if (err == nil){
             
@@ -226,14 +226,14 @@ class ResponseParser: NSObject, Printable {
                 account.uId = elem["buId"] as? String;
             
                 // City Object
-                var city = CityModel()
+                let city = CityModel()
                 city.cityName = elem["buCityName"] as? String;
                 city.cityNameFa = elem["buCityNameFa"] as? String;
                 city.areaCode = elem["buAreaCode"] as? String;
                 account.sCity = city;
             
                 // Brand Object
-                var brand = BrandModel()
+                let brand = BrandModel()
                 brand.bId = elem["buBrandId"] as? String
                 brand.bName = elem["buBrandName"] as? String
                 brand.bCategory = elem["buBrandCategory"] as? String
@@ -241,7 +241,7 @@ class ResponseParser: NSObject, Printable {
                 account.brand = brand;
             
                 // Store Object
-                var store = StoreModel()
+                let store = StoreModel()
                 store.bId = elem["buBrandId"] as? String
                 store.bName = elem["buBrandName"] as? String
                 store.sId = elem["buStoreId"] as? String
@@ -258,7 +258,7 @@ class ResponseParser: NSObject, Printable {
                 account.store = store;
             
                 // Discount Object
-                var discount = DiscountModel()
+                let discount = DiscountModel()
                 discount.startDateStr=elem["dStartDate"] as? String
                 discount.endDateStr=elem["dEndDate"] as? String
                 discount.startDateStrFa=elem["dStartDateFa"] as? String
@@ -354,8 +354,14 @@ class ResponseParser: NSObject, Printable {
     
     func JSONParseArray(jsonString: String) -> [AnyObject] {
         if let data = jsonString.dataUsingEncoding(NSUTF8StringEncoding) {
-            if let array = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(0), error: nil)  as? [AnyObject] {
-                return array
+            do {
+                let array = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0));
+                if (array as? [AnyObject] != nil) {
+                    return array as! [AnyObject]
+                }
+            }
+            catch {
+                
             }
         }
         return [AnyObject]()

@@ -19,8 +19,20 @@ class RegisterBusinessPhoneController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let backBtn = UIBarButtonItem(title: "<", style: UIBarButtonItemStyle.Plain, target: self, action: "backPressed");
-        navigationItem.leftBarButtonItem = backBtn;
+        switch (self.screenMode){
+        case GlobalConstants.BUSINESS_PHONE_SCREEN_MODE_SIGNUP:
+            let backBtn = UIBarButtonItem(title: "مکان یابی >", style: UIBarButtonItemStyle.Plain, target: self, action: "backPressed");
+            navigationItem.leftBarButtonItem = backBtn;
+        case GlobalConstants.BUSINESS_PHONE_SCREEN_MODE_CHANGE:
+            let backBtn = UIBarButtonItem(title: "پروفایل >", style: UIBarButtonItemStyle.Plain, target: self, action: "backPressed");
+            navigationItem.leftBarButtonItem = backBtn;
+        default:
+            self.navigationItem.title="";
+        }
+        
+        
+        
+        
         
         
         // Do any additional setup after loading the view.
@@ -41,11 +53,11 @@ class RegisterBusinessPhoneController: UIViewController {
         var err=0;
         var errMsg="";
         
-        if (self.areaCodeTextField.text.toInt() == nil){
+        if (Int(self.areaCodeTextField.text!) == nil){
             err = GlobalConstants.REGISTER_BUSINESS_INVALID_AREACODE;
             errMsg = "کد شهر شما نادرست است" ;
         }
-        else if (self.telTextField.text.toInt() == nil) {
+        else if (Int(self.telTextField.text!) == nil) {
             err = GlobalConstants.REGISTER_BUSINESS_INVALID_PHONE;
             errMsg = "تلفن شما نادرست است" ;
         }
@@ -64,14 +76,12 @@ class RegisterBusinessPhoneController: UIViewController {
         
         if (err>0){
             
-            let alertController = UIAlertController(title: "", message:errMsg, preferredStyle: UIAlertControllerStyle.Alert)
-            
-            let okAction = UIAlertAction(title: "ادامه", style:UIAlertActionStyle.Default) { (action) in
-            }
-            
-            alertController.addAction(okAction);
-            
-            self.presentViewController(alertController, animated: true, completion: nil)
+            let alert = UIAlertView()
+            alert.title = ""
+            alert.message = errMsg
+            alert.addButtonWithTitle("ادامه")
+            alert.tag = 1
+            alert.show()
         }
         
     }

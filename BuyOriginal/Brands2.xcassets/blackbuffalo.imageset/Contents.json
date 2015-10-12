@@ -2,18 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "blackbuffalo.jpg"
+      "filename" : "blackbuffalo-1.png",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "blackbuffalo-1.jpg"
+      "filename" : "blackbuffalo-2.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "blackbuffalo-2.jpg"
+      "filename" : "blackbuffalo-3.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

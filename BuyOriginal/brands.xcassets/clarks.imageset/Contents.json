@@ -2,18 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "clark.jpg"
+      "filename" : "clark-1.png",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "clark-1.jpg"
+      "filename" : "clark-2.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "clark-2.jpg"
+      "filename" : "clark-3.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

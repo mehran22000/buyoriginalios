@@ -2,18 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "acer.jpg"
+      "filename" : "acer-1.png",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "acer-1.jpg"
+      "filename" : "acer-2.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "acer-2.jpg"
+      "filename" : "acer-3.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

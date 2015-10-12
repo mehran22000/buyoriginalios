@@ -83,7 +83,7 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if (self.screenMode == GlobalConstants.STORES_SCREEN_MODE_DISCOUNT){
-            var store = self.storesArray[0] as! StoreModel
+            let store = self.storesArray[0] as! StoreModel
             if ((store.sDiscountNote != nil) && (store.sDiscountNote != "")){
                 return 2;
             }
@@ -101,8 +101,8 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
         
         
         if ((self.screenMode == GlobalConstants.STORES_SCREEN_MODE_DISCOUNT) && (indexPath.row == 1)){
-            var store = self.storesArray[0] as! StoreModel
-            var cell:BOStoresDiscountNoteTableCell = self.tableView.dequeueReusableCellWithIdentifier("cellDiscountNote") as! BOStoresDiscountNoteTableCell
+            let store = self.storesArray[0] as! StoreModel
+            let cell:BOStoresDiscountNoteTableCell = self.tableView.dequeueReusableCellWithIdentifier("cellDiscountNote") as! BOStoresDiscountNoteTableCell
             
             cell.noteLabel.text = store.sDiscountNote;
             cell.noteLabel.numberOfLines=0;
@@ -113,7 +113,7 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
         else {
             var store = self.storesArray[indexPath.row] as! StoreModel
             
-            var cell:BOStoresTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cellStore") as! BOStoresTableViewCell
+            let cell:BOStoresTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cellStore") as! BOStoresTableViewCell
             
             if is_searching==true {
                 store = self.filteredStores[indexPath.row] as StoreModel
@@ -122,17 +122,21 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
             }
 
             cell.storeNameLabel.text = store.sName;
+            
             cell.storeLocationLabel.text = store.sAddress
+            // cell.storeLocationLabel.numberOfLines=0;
+            // cell.storeLocationLabel.sizeToFit();
+            
             cell.storePhoneNumberLabel.text = store.sTel1;
             cell.storeHoursLabel.text = store.sHours;
         
-            if ((store.sVerified=="Yes") && (store.sDiscountPercentage>0)){
+            if ((store.sVerified=="YES") && (store.sDiscountPercentage>0)){
                 cell.storeImageView.image = UIImage(named: "discount+verified");
             }
             else if (store.sDiscountPercentage>0){
                 cell.storeImageView.image = UIImage(named: "discount");
             }
-            else if (store.sVerified=="Yes"){
+            else if (store.sVerified=="YES"){
                 cell.storeImageView.image = UIImage(named: "verified");
             }
         
@@ -144,32 +148,32 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        println("You selected cell #\(indexPath.row)!")
+        print("You selected cell #\(indexPath.row)!")
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
         if ((self.screenMode == GlobalConstants.STORES_SCREEN_MODE_DISCOUNT) && (indexPath.row == 2)){
-            return 140;
+            return 150;
         }
         else{
-            return 140;
+            return 150;
         }
     }
 // Search Bar Delegates
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String){
-        if searchBar.text.isEmpty{
+        if searchBar.text!.isEmpty{
             is_searching = false
             tableView.reloadData()
         } else {
-            println(" search text %@ ",searchBar.text as NSString)
+            print(" search text %@ ",searchBar.text! as NSString)
             is_searching = true
             self.filteredStores.removeAll(keepCapacity: false)
             for var index = 0; index < self.storesArray.count; index++
             {
-                var store: StoreModel = self.storesArray.objectAtIndex(index) as! StoreModel
+                let store: StoreModel = self.storesArray.objectAtIndex(index) as! StoreModel
                 
-                var currentString = store.sName as String
+                let currentString = store.sName as String
                 if currentString.lowercaseString.rangeOfString(searchText.lowercaseString)  != nil {
                     self.filteredStores+=[store];
                 }
@@ -182,7 +186,7 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
         
         if segue.identifier == "segueShowMap"
         {
-            var selectedStore = getSelectedStore(sender);
+            let selectedStore = getSelectedStore(sender);
             if let destinationVC = segue.destinationViewController as? LocationViewController{
                     destinationVC.lat = (selectedStore.sLat as NSString).doubleValue
                     destinationVC.long = (selectedStore.sLong as NSString).doubleValue
@@ -197,7 +201,7 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
         let cellIndexPath = self.tableView.indexPathForRowAtPoint(pointInTable)
         
         if (cellIndexPath != nil) {
-            var row = cellIndexPath?.row
+            let row = cellIndexPath?.row
             return self.storesArray[row!] as! StoreModel;
         }
         return nil
@@ -209,7 +213,7 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
     
     @IBAction func callPressed (sender:AnyObject?) {
         
-        var selectedStore = getSelectedStore(sender);
+        let selectedStore = getSelectedStore(sender);
         
         let phone = "tel://"+selectedStore.sAreaCode+selectedStore.sTel1;
         let url:NSURL = NSURL(string:phone)!;

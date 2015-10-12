@@ -13,11 +13,13 @@ class LoginViewController: UIViewController {
     
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
+    @IBOutlet var noInternetConnectionView: UIView!
+    
     var accountInfo: AccountModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    
         // Do any additional setup after loading the view.
     }
 
@@ -28,6 +30,14 @@ class LoginViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         self.passwordTextField.text = "";
+        
+        if (Utilities.isConnectedToNetwork() == false) {
+            self.noInternetConnectionView.hidden = false
+        }
+        else {
+            self.noInternetConnectionView.hidden = true
+        }
+
     }
 
     /*
@@ -46,14 +56,15 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginPressed (sender:AnyObject?) {
         
-        let email = self.emailTextField.text as NSString;
-        let password = self.passwordTextField.text as NSString;
+        let email = self.emailTextField.text as String?;
+        let password = self.passwordTextField.text as String?;
+        
         
         let httpLogin = BOHttpLogin()
         
         
-        httpLogin.login(email, password: password) { (accountInfo) -> Void in
-            println("Login Successful");
+        httpLogin.login(email!, password: password!) { (accountInfo) -> Void in
+            print("Login Successful");
             if ((accountInfo) != nil){
                 self.accountInfo = accountInfo;
                 self.performSegueWithIdentifier("segueLogin", sender: sender)
@@ -69,17 +80,9 @@ class LoginViewController: UIViewController {
     }
     
     func loginFailed () {
-        let alertController = UIAlertController(title: "", message:
-            "نام کاربری یا رمز عبور شما نادرست است.", preferredStyle: UIAlertControllerStyle.Alert)
-        
-        let okAction = UIAlertAction(title: "دوباره تلاش کنید", style:UIAlertActionStyle.Default) { (action) in
-            self.navigationController?.popToRootViewControllerAnimated(false);
-        }
-        
-        alertController.addAction(okAction);
-        
-        self.presentViewController(alertController, animated: true, completion: nil)
-        
+        let alert = UIAlertView(title: "دوباره تلاش کنید", message: "نام کاربری یا رمز عبور شما نادرست است.", delegate: nil, cancelButtonTitle: "پایان")
+        alert.tag=1;
+        alert.show()
     }
     
     
@@ -99,12 +102,12 @@ class LoginViewController: UIViewController {
         }
         else if segue.identifier == "segueLogin"
         {
-            var tabBarVC = segue.destinationViewController as! UITabBarController;
-            var discNavVC = tabBarVC.viewControllers?[0] as! UINavigationController;
-            var discountVC = discNavVC.viewControllers?[0] as! DiscountViewController;
+            let tabBarVC = segue.destinationViewController as! UITabBarController;
+            let discNavVC = tabBarVC.viewControllers?[0] as! UINavigationController;
+            let discountVC = discNavVC.viewControllers[0] as! DiscountViewController;
             discountVC.account = self.accountInfo;
-            var profNavVC = tabBarVC.viewControllers?[1] as! UINavigationController;
-            var profileVC = profNavVC.viewControllers?[0] as! BussinessProfileController;
+            let profNavVC = tabBarVC.viewControllers?[1] as! UINavigationController;
+            let profileVC = profNavVC.viewControllers[0] as! BussinessProfileController;
             profileVC.account = self.accountInfo;
         }
         else if segue.identifier == "segueForgetPassword"

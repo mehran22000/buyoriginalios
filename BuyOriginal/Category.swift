@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CategoryModel: NSObject, Printable {
+class CategoryModel: NSObject {
     var cId: String!
     var cName: String!
     var cNameFa: String!

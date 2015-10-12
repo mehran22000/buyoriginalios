@@ -10,6 +10,9 @@ import UIKit
 
 class BOBusDisActionTableViewCell: UITableViewCell {
 
+    @IBOutlet var saveBtn: UIButton!
+    @IBOutlet var deleteBtn: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

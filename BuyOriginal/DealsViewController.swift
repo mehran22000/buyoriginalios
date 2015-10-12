@@ -3,6 +3,8 @@ import UIKit
 class DealsViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var noInternetConnectionView: UIView!
+    
     var dealsStoresArray = NSArray()
     var filteredStores = [StoreModel]()
     var brandId=0
@@ -30,6 +32,7 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
         */
         
         // Do any additional setup after loading the view.
+        
     }
     
     
@@ -37,7 +40,16 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
         
         self.activityIndicatior?.startAnimating()
         self.activityIndicatior?.hidesWhenStopped=true
-        fetchDeals(1000000);
+        
+        if (Utilities.isConnectedToNetwork() == false) {
+            self.noInternetConnectionView.hidden = false
+            self.activityIndicatior?.stopAnimating();
+        }
+        else {
+            self.noInternetConnectionView.hidden = true
+            fetchDeals(10);
+        }
+    
         
     }
     
@@ -62,7 +74,7 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell:BODealsTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cellDeal") as! BODealsTableViewCell
+        let cell:BODealsTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cellDeal") as! BODealsTableViewCell
         
         var store = self.dealsStoresArray[indexPath.row] as! StoreModel
         
@@ -80,7 +92,7 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
         cell.brandImageView.image=image;
        
         if (store.sDiscountPercentage>0){
-            var imageName:NSString? = discountImageName(store.sDiscountPercentage);
+            let imageName:NSString? = discountImageName(store.sDiscountPercentage);
             if (imageName != nil){
                 image = UIImage(named:imageName! as String)!;
                 cell.dealImageView.image = image;
@@ -91,7 +103,7 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
             cell.dateLabel.text = store.sDiscountStartDateFa + "-" + store.sDiscountEndDateFa;
         }
         else {
-            let today = NSDate();
+         //   let today = NSDate();
             cell.dateLabel.text="امروز";
         }
         
@@ -167,9 +179,9 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
             self.filteredStores.removeAll(keepCapacity: false)
             for var index = 0; index < self.dealsStoresArray.count; index++
             {
-                var store: StoreModel = self.dealsStoresArray.objectAtIndex(index) as! StoreModel
+                let store: StoreModel = self.dealsStoresArray.objectAtIndex(index) as! StoreModel
                 
-                var currentString = store.bName as String
+                let currentString = store.bName as String
                 if currentString.lowercaseString.rangeOfString(searchText.lowercaseString)  != nil {
                     self.filteredStores+=[store];
                 }
@@ -184,8 +196,8 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
         
         var curLat="", curLon="";
         if SimulatorUtility.isRunningSimulator{
-            curLat="35.771479";
-            curLon="51.435261";
+            curLat="35.793521";
+            curLon="51.438165";
         }
         else {
             curLat = String(format:"%f",appDelegate.curLocationLat)
@@ -222,11 +234,11 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
         }
         
         for store in self.dealsStoresArray {
-            var s:StoreModel = store as! StoreModel;
+            let s:StoreModel = store as! StoreModel;
             if ((dict?.valueForKey(s.bLogo)) != nil){
                 // Load available logos
                 // println(" Logo Found: %@ ",&s.bLogo);
-                var logo:UIImage! = UIImage(named: s.bLogo);
+                let logo:UIImage! = UIImage(named: s.bLogo);
                 s.bLogoImage = logo!;
                 counter=counter+1;
                 if (counter == self.dealsStoresArray.count){
@@ -264,8 +276,8 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
     }
     
     func sortStores() {
-        var descriptor: NSSortDescriptor = NSSortDescriptor(key: "sDistance", ascending: true)
-        var sortedResults: NSArray = dealsStoresArray.sortedArrayUsingDescriptors([descriptor])
+        let descriptor: NSSortDescriptor = NSSortDescriptor(key: "sDistance", ascending: true)
+        let sortedResults: NSArray = dealsStoresArray.sortedArrayUsingDescriptors([descriptor])
         self.dealsStoresArray = sortedResults;
     }
     

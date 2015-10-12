@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CityModel: NSObject, Printable {
+class CityModel: NSObject {
     var cityName: String!
     var cityNameFa: String!
     var areaCode: String!

@@ -2,18 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "apple.jpg"
+      "filename" : "apple-1.png",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "apple-1.jpg"
+      "filename" : "apple-2.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "apple-2.jpg"
+      "filename" : "apple-3.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

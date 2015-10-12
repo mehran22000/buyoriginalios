@@ -8,13 +8,15 @@
 
 import UIKit
 
-class DiscountViewController: UITableViewController {
+class DiscountViewController: UITableViewController, UIAlertViewDelegate {
 
     var cellBrand: BOBrandTableViewCell?
     var cellStartDate: BOBusDisDateTableViewCell?
     var cellEndDate: BOBusDisDateTableViewCell?
     var cellNote: BOBusDisNotesTableViewCell?
     var cellPrecentage: BOBusDisPercentageTableViewCell?
+    var cellAction: BOBusDisActionTableViewCell?
+    
     
     var account: AccountModel?
     var discount: DiscountModel?
@@ -76,23 +78,23 @@ class DiscountViewController: UITableViewController {
                     let startDate:String? = self.account?.discount.startDateStrFa!;
                 
                     // Year
-                    let rangeOfYear = Range(start: advance(startDate!.startIndex,2),
-                        end: advance(startDate!.startIndex, 4));
-                    let year = startDate!.substringWithRange(rangeOfYear)
-                    self.cellStartDate?.disDateYear.text = year;
-                
+                    let y1=startDate!.startIndex.advancedBy(2);
+                    let y2=startDate!.startIndex.advancedBy(3);
+                    let startYear = String(startDate![y1]) + String(startDate![y2]);
+                    self.cellStartDate?.disDateYear.text = startYear;
+                    
                     // Month
-                    let rangeOfMonth = Range(start: advance(startDate!.startIndex,5),
-                        end: advance(startDate!.startIndex, 7));
-                    let month = startDate!.substringWithRange(rangeOfMonth)
-                    self.cellStartDate?.disDateMonth.text = month;
-                
-                
+                    let m1=startDate!.startIndex.advancedBy(5);
+                    let m2=startDate!.startIndex.advancedBy(6);
+                    let startMonth = String(startDate![m1]) + String(startDate![m2]);
+                    self.cellStartDate?.disDateMonth.text = startMonth;
+                    
                     // Day
-                    let rangeOfDay = Range(start: advance(startDate!.startIndex,8),
-                        end: advance(startDate!.startIndex, 10));
-                    let day = startDate!.substringWithRange(rangeOfDay)
-                    self.cellStartDate?.disDateDay.text = day;
+                    let d1=startDate!.startIndex.advancedBy(8);
+                    let d2=startDate!.startIndex.advancedBy(9);
+                    let startDay = String(startDate![d1]) + String(startDate![d2]);
+                    self.cellStartDate?.disDateDay.text = startDay;
+                    
                 }
                 return self.cellStartDate!;
             
@@ -104,23 +106,23 @@ class DiscountViewController: UITableViewController {
                 let endDate:String! = self.account?.discount.endDateStrFa!;
                 
                     // Year
-                    let rangeOfYear = Range(start: advance(endDate.startIndex,2),
-                        end: advance(endDate.startIndex, 4));
-                    let year = endDate.substringWithRange(rangeOfYear)
-                    self.cellEndDate?.disDateYear.text = year;
-                
+                    let y1=endDate!.startIndex.advancedBy(2);
+                    let y2=endDate!.startIndex.advancedBy(3);
+                    let endYear = String(endDate![y1]) + String(endDate![y2]);
+                    self.cellEndDate?.disDateYear.text = endYear;
+                    
                     // Month
-                    let rangeOfMonth = Range(start: advance(endDate.startIndex,5),
-                        end: advance(endDate.startIndex, 7));
-                    let month = endDate.substringWithRange(rangeOfMonth)
-                    self.cellEndDate?.disDateMonth.text = month;
-                
-                
+                    let m1=endDate!.startIndex.advancedBy(5);
+                    let m2=endDate!.startIndex.advancedBy(6);
+                    let endMonth = String(endDate![m1]) + String(endDate![m2]);
+                    self.cellEndDate?.disDateMonth.text = endMonth;
+                    
                     // Day
-                    let rangeOfDay = Range(start: advance(endDate.startIndex,8),
-                        end: advance(endDate.startIndex, 10));
-                    let day = endDate.substringWithRange(rangeOfDay)
-                    self.cellEndDate?.disDateDay.text = day;
+                    let d1=endDate!.startIndex.advancedBy(8);
+                    let d2=endDate!.startIndex.advancedBy(9);
+                    let endDay = String(endDate![d1]) + String(endDate![d2]);
+                    self.cellEndDate?.disDateDay.text = endDay;
+                    
                 }
                 return self.cellEndDate!;
             
@@ -142,7 +144,8 @@ class DiscountViewController: UITableViewController {
                 }
                 return self.cellNote!;
             case 5:
-                cell = self.tableView.dequeueReusableCellWithIdentifier("cellAction") as! BOBusDisActionTableViewCell;
+                self.cellAction = self.tableView.dequeueReusableCellWithIdentifier("cellAction") as? BOBusDisActionTableViewCell;
+                return self.cellAction!;
             default:
                 cell = nil;
         }
@@ -229,25 +232,22 @@ class DiscountViewController: UITableViewController {
 
             let httpPost = BOHttpPost()
         
-            let okAction = UIAlertAction(title: "پایان", style:UIAlertActionStyle.Default) { (action) in
-                self.navigationController?.popToRootViewControllerAnimated(false);
-            }
+            self.cellAction?.saveBtn.enabled = false;
         
             httpPost.addDiscount(self.account!, discount: self.discount!) { (result) -> Void in
-                println("Registeration Successful");
+                self.cellAction?.saveBtn.enabled = true;
+                print("Registeration Successful");
                 if (result=="success"){
-                    let alertController = UIAlertController(title: "", message:
-                        "حراج شما با موفقیت ثبت شد", preferredStyle: UIAlertControllerStyle.Alert)
-                    alertController.addAction(okAction);
-                    self.presentViewController(alertController, animated: true, completion: nil);
-
+                    let alert = UIAlertView(title: "", message: "حراج شما با موفقیت ثبت شد",
+                        delegate: self, cancelButtonTitle: "ادامه");
+                    alert.tag=1;
+                    alert.show()
                 }
                 else {
-                
-                    let alertController = UIAlertController(title: "", message:
-                    "خطادر ثبت حراج", preferredStyle: UIAlertControllerStyle.Alert)
-                    alertController.addAction(okAction);
-                    self.presentViewController(alertController, animated: true, completion: nil);
+                    let alert = UIAlertView(title: "", message: "خطادر ثبت حراج",
+                        delegate: self, cancelButtonTitle: "ادامه");
+                    alert.tag=2;
+                    alert.show()
                 }
             };
         }
@@ -256,19 +256,14 @@ class DiscountViewController: UITableViewController {
     
     
     @IBAction func deleteDiscountPressed () {
-        
-        let okAction = UIAlertAction(title: "بله", style:UIAlertActionStyle.Default) { (action) in
-            self.deleteDiscount();
-        }
-        
-        let cancelAction = UIAlertAction(title: "خیر", style:UIAlertActionStyle.Default) { (action) in
-        }
-        
-        let alertController = UIAlertController(title: "", message:
-            "آیا مطمین هستید؟", preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(okAction);
-        alertController.addAction(cancelAction);
-        self.presentViewController(alertController, animated: true, completion: nil)
+    
+        let alert = UIAlertView()
+        alert.title = ""
+        alert.message = "آیا مطمین هستید؟"
+        alert.addButtonWithTitle("بله")
+        alert.addButtonWithTitle("خیر")
+        alert.tag = 3
+        alert.show()
         
     }
     
@@ -279,18 +274,20 @@ class DiscountViewController: UITableViewController {
         let bid = self.account?.brand.bId;
         let sid = self.account?.store.sId;
         
+        self.cellAction?.deleteBtn.enabled = false;
         httpPost.deleteDiscount(sid!, bId: bid!) { (result) -> Void in
-            println("Delete discount completed");
+            self.cellAction?.deleteBtn.enabled = true;
+            print("Delete discount completed");
             if (result == "success"){
                 self.clearTextFields();
             }
             else {
-                let okAction = UIAlertAction(title: "ادامه", style:UIAlertActionStyle.Default) { (action) in
-                }
-                let alertController = UIAlertController(title: "", message:
-                    "خطادر حذف حراج، دوباره تلاش کنید", preferredStyle: UIAlertControllerStyle.Alert)
-                alertController.addAction(okAction);
-                self.presentViewController(alertController, animated: true, completion: nil);
+                let alert = UIAlertView()
+                alert.title = ""
+                alert.message = "خطادر حذف حراج، دوباره تلاش کنید"
+                alert.addButtonWithTitle("ادامه")
+                alert.tag = 4
+                alert.show()
             }
         };
     }
@@ -304,60 +301,59 @@ class DiscountViewController: UITableViewController {
         
         // Validation
         // Start Date is not in the past
-        var err=0;
-        var errMsg="";
+        var err = Int();
+        var errMsg = String();
         
     
-        var sYear = self.cellStartDate?.disDateYear.text;
+        let sYear = self.cellStartDate?.disDateYear.text;
         var sMonth:String! = self.cellStartDate?.disDateMonth.text as String!;
         var sDay:String! = self.cellStartDate?.disDateDay.text as String!;
         
-        if (count(sMonth)<2) {
+        
+        if (sMonth.characters.count < 2){
             sMonth = "0" + sMonth;
         }
         
-        
-        if (count(sDay)<2) {
+        if (sDay.characters.count < 2) {
             sDay = "0" + sDay;
         }
         
-        var eYear = self.cellEndDate?.disDateYear.text;
+        let eYear = self.cellEndDate?.disDateYear.text;
         var eMonth = self.cellEndDate?.disDateMonth.text as String!;
         var eDay = self.cellEndDate?.disDateDay.text as String!;
         
-        if (count(eMonth) < 2) {
+        if (eMonth.characters.count < 2) {
             eMonth = "0" + eMonth;
         }
         
-        if (count(eDay)<2) {
+        if (eDay.characters.count<2) {
             eDay = "0" + eDay;
         }
         
         
-        var startDateValidation = sYear! + sMonth! + sDay!;
-        var endDateValidation = eYear! + eMonth! + eDay!;
+        let startDateValidation = sYear! + sMonth! + sDay!;
+        let endDateValidation = eYear! + eMonth! + eDay!;
         
-        if (startDateValidation.toInt()==nil)
+        if (Int(startDateValidation)==nil)
         {
             err = GlobalConstants.DISCOUNT_ADD_INVALID_DATE;
             errMsg = " تاریخ شروع حراج معتبر نیست" ;
         }
         
-        if (endDateValidation.toInt()==nil)
+        if (Int(endDateValidation)==nil)
         {
             err = GlobalConstants.DISCOUNT_ADD_INVALID_DATE;
             errMsg = " تاریخ پایان حراج معتبر نیست" ;
         }
       
         
-        var startDate = "13" + sYear!+"/"+sMonth!+"/"+sDay!;
-        var endDate = "13" + eYear!+"/"+eMonth!+"/"+eDay!;
-        
-        
+        let startDate = "13" + sYear!+"/"+sMonth!+"/"+sDay!;
+        let endDate = "13" + eYear!+"/"+eMonth!+"/"+eDay!;
         
         
         print ("Discount Manger: Start"+startDate);
         print ("Discount Manger: End"+endDate);
+        print ("Error"+String(err)+errMsg);
         
         // remove
         // startDate = "1394/01/12";
@@ -374,31 +370,31 @@ class DiscountViewController: UITableViewController {
         var errMsg="";
         
         
-        if (self.cellStartDate?.disDateYear.text.isEmpty == true ||
-            self.cellStartDate?.disDateMonth.text.isEmpty == true ||
-            self.cellStartDate?.disDateDay.text.isEmpty == true ||
-            self.cellEndDate?.disDateYear.text.isEmpty == true ||
-            self.cellEndDate?.disDateMonth.text.isEmpty == true ||
-            self.cellEndDate?.disDateDay.text.isEmpty == true)
+        if (self.cellStartDate?.disDateYear.text!.isEmpty == true ||
+            self.cellStartDate?.disDateMonth.text!.isEmpty == true ||
+            self.cellStartDate?.disDateDay.text!.isEmpty == true ||
+            self.cellEndDate?.disDateYear.text!.isEmpty == true ||
+            self.cellEndDate?.disDateMonth.text!.isEmpty == true ||
+            self.cellEndDate?.disDateDay.text!.isEmpty == true)
         {
             err = GlobalConstants.DISCOUNT_ADD_INCOMPLETE_DATE;
             errMsg = "لطفااطلاعات مرتبط با تاریخ حراج را وارد نمایید" ;
         }
         
-        if (self.cellNote?.note.text.isEmpty == true &&
-            self.cellPrecentage?.percentage.text.isEmpty == true) {
+        if (self.cellNote?.note.text!.isEmpty == true &&
+            self.cellPrecentage?.percentage.text!.isEmpty == true) {
            
             err = GlobalConstants.DISCOUNT_ADD_DISCOUNT_DETAILS_REQUIRED;
             errMsg = "درصد تخفیف یا شرح تخفیف را وارد کنید" ;
         }
         
         if (err>0){
-            let alertController = UIAlertController(title: "", message:errMsg, preferredStyle: UIAlertControllerStyle.Alert)
-        
-            let okAction = UIAlertAction(title: "ادامه", style:UIAlertActionStyle.Default) { (action) in
-            }
-            alertController.addAction(okAction);
-            self.presentViewController(alertController, animated: true, completion: nil)
+            let alert = UIAlertView()
+            alert.title = ""
+            alert.message = errMsg
+            alert.addButtonWithTitle("ادامه")
+            alert.tag = 1
+            alert.show()
             return false;
         }
         
@@ -406,6 +402,18 @@ class DiscountViewController: UITableViewController {
        
     }
     
+    
+    func alertView(alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int)
+    {
+        if alertView.tag==3
+        {
+            if buttonIndex==0
+            {
+                print("حذف حراج");
+                self.deleteDiscount();
+            }
+        }
+    }
     
     
 }

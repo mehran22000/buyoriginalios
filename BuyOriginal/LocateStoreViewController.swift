@@ -28,7 +28,7 @@ class LocateStoreViewController: UIViewController, MKMapViewDelegate {
         tapRecognizer.numberOfTouchesRequired = 1;
         self.mapView.delegate = self
         
-        let backBtn = UIBarButtonItem(title: "<", style: UIBarButtonItemStyle.Plain, target: self, action: "backPressed");
+        let backBtn = UIBarButtonItem(title: "فروشگاه >", style: UIBarButtonItemStyle.Plain, target: self, action: "backPressed");
         navigationItem.leftBarButtonItem = backBtn;
         
         
@@ -44,8 +44,8 @@ class LocateStoreViewController: UIViewController, MKMapViewDelegate {
             appDelegate.curLocationLong=51.435261;
         }
         
-        var curLat = String(format:"%f",appDelegate.curLocationLat)
-        var curLon = String(format:"%f",appDelegate.curLocationLong)
+        // var curLat = String(format:"%f",appDelegate.curLocationLat)
+        // var curLon = String(format:"%f",appDelegate.curLocationLong)
         
         let location = CLLocationCoordinate2DMake(appDelegate.curLocationLat, appDelegate.curLocationLong)
         // Drop a pin
@@ -74,13 +74,12 @@ class LocateStoreViewController: UIViewController, MKMapViewDelegate {
         if (self.mapClicked==false) {
             
             let errMsg = "با حرکت دادن نقشه فروشگاه خود را بیایید و روی آن کلیک کنید" ;
-            
-            let alertController = UIAlertController(title: "", message:errMsg, preferredStyle: UIAlertControllerStyle.Alert)
-            
-            let okAction = UIAlertAction(title: "ادامه", style:UIAlertActionStyle.Default) { (action) in
-            }
-            alertController.addAction(okAction);
-            self.presentViewController(alertController, animated: true, completion: nil)
+            let alert = UIAlertView()
+            alert.title = ""
+            alert.message = errMsg
+            alert.addButtonWithTitle("ادامه")
+            alert.tag = 1
+            alert.show()
         }
         else {
             self.performSegueWithIdentifier("seguePushStorePhoneEntry", sender: sender)
@@ -88,7 +87,7 @@ class LocateStoreViewController: UIViewController, MKMapViewDelegate {
         
     }
     
-    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+    @objc func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         if (annotation is MKUserLocation) {
             //if annotation is not an MKPointAnnotation (eg. MKUserLocation),
             //return nil so map draws default view for it (eg. blue dot)...
@@ -100,21 +99,21 @@ class LocateStoreViewController: UIViewController, MKMapViewDelegate {
         var anView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
         if anView == nil {
             anView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-            anView.image = UIImage(named:"Pin.Store")
-            anView.canShowCallout = true
+            anView!.image = UIImage(named:"Pin.Store")
+            anView!.canShowCallout = true
         }
         else {
             //we are re-using a view, update its annotation reference...
-            anView.annotation = annotation
+            anView!.annotation = annotation
         }
         
         return anView
     }
     
     func foundTap(recognizer: UIGestureRecognizer) {
-        var point = recognizer.locationInView(self.mapView) as CGPoint;
-        var tapPoint = self.mapView.convertPoint(point, toCoordinateFromView: self.view);
-        var point1 = MKPointAnnotation.alloc();
+        let point = recognizer.locationInView(self.mapView) as CGPoint;
+        let tapPoint = self.mapView.convertPoint(point, toCoordinateFromView: self.view);
+        let point1 = MKPointAnnotation();
         point1.coordinate = tapPoint;
         point1.subtitle = "mehran";
         self.mapView.removeAnnotation(self.annotation)

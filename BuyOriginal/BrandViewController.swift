@@ -35,23 +35,32 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
         switch (self.screenMode){
             case GlobalConstants.BRANDS_SCREEN_MODE_SEARCH:
                 self.navigationItem.title=self.selectedCategoryNameFa;
+                let backBtn = UIBarButtonItem(title: "گروه >", style: UIBarButtonItemStyle.Plain, target: self, action: "backPressed");
+                navigationItem.leftBarButtonItem = backBtn;
+            
+            
             case GlobalConstants.BRANDS_SCREEN_MODE_SIGNUP:
                 self.navigationItem.title="۳-انتخاب برند";
+                let backBtn = UIBarButtonItem(title: "گروه >", style: UIBarButtonItemStyle.Plain, target: self, action: "backPressed");
+                navigationItem.leftBarButtonItem = backBtn;
+            
+            
             case GlobalConstants.BRANDS_SCREEN_MODE_CHANGE:
                 self.navigationItem.title="برند";
+                let backBtn = UIBarButtonItem(title: "پروفایل >", style: UIBarButtonItemStyle.Plain, target: self, action: "backPressed");
+                navigationItem.leftBarButtonItem = backBtn;
+            
+            
             default:
                 self.navigationItem.title="";
         }
 
-        let backBtn = UIBarButtonItem(title: "گروه >", style: UIBarButtonItemStyle.Plain, target: self, action: "backPressed");
-        navigationItem.leftBarButtonItem = backBtn;
-        
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
         
         // GA
-        var tracker:GAITracker = GAI.sharedInstance().defaultTracker as GAITracker
+        let tracker:GAITracker = GAI.sharedInstance().defaultTracker as GAITracker
         tracker.set(kGAIScreenName, value:"Home Screen")
-        var build = GAIDictionaryBuilder.createScreenView().build() as [NSObject : AnyObject]
+        let build = GAIDictionaryBuilder.createScreenView().build() as [NSObject : AnyObject]
         tracker.send(build)
     }
 
@@ -102,7 +111,7 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell:BOBrandTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cellBrand") as! BOBrandTableViewCell
+        let cell:BOBrandTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cellBrand") as! BOBrandTableViewCell
         
         var brand:BrandModel
         
@@ -155,18 +164,18 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
     
     // Search Bar Delegates
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String){
-        if searchBar.text.isEmpty{
+        if searchBar.text!.isEmpty{
             is_searching = false
             tableView.reloadData()
         } else {
-            println(" search text %@ ",searchBar.text as NSString)
+            print(" search text %@ ",searchBar.text! as NSString)
             is_searching = true
             self.filteredBrands.removeAll(keepCapacity: false)
             for var index = 0; index < self.brandsArray.count; index++
             {
-                var brand: BrandModel = self.brandsArray.objectAtIndex(index) as! BrandModel
+                let brand: BrandModel = self.brandsArray.objectAtIndex(index) as! BrandModel
                 
-                var currentString = brand.bName as String
+                let currentString = brand.bName as String
                 if currentString.lowercaseString.rangeOfString(searchText.lowercaseString)  != nil {
                     self.filteredBrands+=[brand];
                 }
@@ -176,9 +185,9 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        println("You selected cell #\(indexPath.row)!")
+        print("You selected cell #\(indexPath.row)!")
         
-        var selectedBrand = self.brandsArray[indexPath.row] as! BrandModel
+        let selectedBrand = self.brandsArray[indexPath.row] as! BrandModel
         
         self.brandId=selectedBrand.bId;
         
@@ -240,12 +249,12 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
         
         
         for brand in self.brandsArray {
-            var b:BrandModel = brand as! BrandModel;
+            let b:BrandModel = brand as! BrandModel;
             if ((dict?.valueForKey(b.bLogo)) != nil){
                 // Load available logos
                 //    println(" Logo Found: %@ ",&b.bLogo);
-                var logoName = dict?.valueForKey(b.bLogo) as! String!;
-                var logo:UIImage! = UIImage(named: logoName);
+                let logoName = dict?.valueForKey(b.bLogo) as! String!;
+                let logo:UIImage! = UIImage(named: logoName);
                 b.bLogoImage = logo!;
                 counter=counter+1;
                 if (counter == self.brandsArray.count){

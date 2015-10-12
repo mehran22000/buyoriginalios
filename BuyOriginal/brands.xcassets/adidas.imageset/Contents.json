@@ -2,18 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "adidas.jpg"
+      "filename" : "adidas-1.png",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "adidas-1.jpg"
+      "filename" : "adidas-2.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "adidas-2.jpg"
+      "filename" : "adidas-3.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

@@ -18,7 +18,7 @@ class RegisterStoreViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let backBtn = UIBarButtonItem(title: "<", style: UIBarButtonItemStyle.Plain, target: self, action: "backPressed");
+        let backBtn = UIBarButtonItem(title: "برند >", style: UIBarButtonItemStyle.Plain, target: self, action: "backPressed");
         navigationItem.leftBarButtonItem = backBtn;
 
         // Do any additional setup after loading the view.
@@ -37,7 +37,7 @@ class RegisterStoreViewController: UIViewController {
     @IBAction func continuePressed (sender:AnyObject?) {
         
         if (self.isFormCompelete()){
-            var store=StoreModel();
+            let store=StoreModel();
             store.sName = self.sNameTextField.text;
             store.sAddress = self.sAddressTextField.text;
             store.sHours = self.sHoursTextField.text;
@@ -52,15 +52,15 @@ class RegisterStoreViewController: UIViewController {
         var err=0;
         var errMsg="";
         
-        if (self.sNameTextField.text.isEmpty) {
+        if (self.sNameTextField.text!.isEmpty) {
             err = GlobalConstants.REGISTER_BUSINESS_INVALID_STORE_NAME;
             errMsg = "نام فروشگاه خود را وارد کنید" ;
         }
-        else if (self.sAddressTextField.text.isEmpty) {
+        else if (self.sAddressTextField.text!.isEmpty) {
             err = GlobalConstants.REGISTER_BUSINESS_INVALID_STORE_ADDRESS;
             errMsg = "آدرس فروشگاه خود را وارد کنید" ;
         }
-        else if (self.sHoursTextField.text.isEmpty) {
+        else if (self.sHoursTextField.text!.isEmpty) {
             err = GlobalConstants.REGISTER_BUSINESS_INVALID_STORE_HOURS;
             errMsg = "ساعات کار فروشگاه خود را وارد کنید" ;
         }
@@ -71,15 +71,12 @@ class RegisterStoreViewController: UIViewController {
         }
         */
         if (err>0){
-            
-            let alertController = UIAlertController(title: "", message:errMsg, preferredStyle: UIAlertControllerStyle.Alert)
-            
-            let okAction = UIAlertAction(title: "ادامه", style:UIAlertActionStyle.Default) { (action) in
-            }
-            
-            alertController.addAction(okAction);
-            
-            self.presentViewController(alertController, animated: true, completion: nil)
+            let alert = UIAlertView()
+            alert.title = ""
+            alert.message = errMsg
+            alert.addButtonWithTitle("ادامه")
+            alert.tag = 1
+            alert.show()
             return false;
         }
         

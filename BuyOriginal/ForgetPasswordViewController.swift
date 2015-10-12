@@ -38,7 +38,7 @@ class ForgetPasswordViewController: UIViewController {
         var err=0;
         var errMsg="";
         
-        if (self.isValidEmail(self.emailTextField.text)==false){
+        if (self.isValidEmail(self.emailTextField.text!)==false){
             err = GlobalConstants.REGISTER_BUSINESS_INVALID_EMAIL;
             errMsg = "ایمیل شما نادرست است" ;
         }
@@ -47,15 +47,9 @@ class ForgetPasswordViewController: UIViewController {
         }
         
         if (err>0){
-            
-            let alertController = UIAlertController(title: "", message:errMsg, preferredStyle: UIAlertControllerStyle.Alert)
-            
-            let okAction = UIAlertAction(title: "دوباره تلاش کنید", style:UIAlertActionStyle.Default) { (action) in
-            }
-            
-            alertController.addAction(okAction);
-            
-            self.presentViewController(alertController, animated: true, completion: nil)
+            let alert = UIAlertView(title: "خطا", message: errMsg, delegate: nil, cancelButtonTitle: "ادامه")
+            alert.tag=1;
+            alert.show()
         }
     }
     
@@ -63,39 +57,24 @@ class ForgetPasswordViewController: UIViewController {
     
     
     func sendPassword () {
-        let okAction = UIAlertAction(title: "", style:UIAlertActionStyle.Default) { (action) in
-            self.navigationController?.popToRootViewControllerAnimated(false);
-        }
         
         let httpLogin = BOHttpLogin();
         
-        httpLogin.recoverPassword (self.emailTextField.text) { (result) -> Void in
-            println("Send Password Request Completed");
+        httpLogin.recoverPassword (self.emailTextField.text!) { (result) -> Void in
+            print("Send Password Request Completed");
             if (result=="success"){
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    
-                    let alertController = UIAlertController(title: "", message:
-                        "رمز عبور شما با موفقیت ارسال شد", preferredStyle: UIAlertControllerStyle.Alert)
-                    
-                    let okAction = UIAlertAction(title: "ادامه", style:UIAlertActionStyle.Default) { (action) in
-                        self.navigationController?.popViewControllerAnimated(true);
-                    }
-                    
-                    alertController.addAction(okAction);
-                    self.presentViewController(alertController, animated: true, completion: nil)
-                    
+                    let alert = UIAlertView(title: "", message: "رمز عبور شما با موفقیت ارسال شد", delegate: nil, cancelButtonTitle: "ادامه")
+                    alert.tag=2;
+                    alert.show()
                 });
             }
             else {
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    let alertController = UIAlertController(title: "", message:
-                    "خطادر ارسال رمز عبور لطفا دوباره تلاش کنید", preferredStyle: UIAlertControllerStyle.Alert)
-                    let okAction = UIAlertAction(title: "ادامه", style:UIAlertActionStyle.Default) { (action) in
-                        self.emailTextField.text="";
-                    }
-                    alertController.addAction(okAction);
-                    self.presentViewController(alertController, animated: true, completion: nil);
+                    let alert = UIAlertView(title: "", message: "خطادر ارسال رمز عبور لطفا دوباره تلاش کنید", delegate: nil, cancelButtonTitle: "ادامه")
+                    alert.tag=3;
+                    alert.show()
                 });
             }
         };

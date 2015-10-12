@@ -2,18 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "polo.jpg"
+      "filename" : "polo-1.png",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "polo-1.jpg"
+      "filename" : "polo-2.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "polo-2.jpg"
+      "filename" : "polo-3.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

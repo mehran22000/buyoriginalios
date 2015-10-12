@@ -10,7 +10,7 @@
 import Foundation
 
 
-class DiscountModel: NSObject, Printable {
+class DiscountModel: NSObject {
     var startDateStr: String!
     var startDate: NSDate!
     var endDateStr: String!

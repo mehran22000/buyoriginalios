@@ -23,7 +23,7 @@ extension NSDate
     func dateToString()-> String {
         let df  = NSDateFormatter()
         df.dateFormat = "yyyy/MM/dd";
-        var result = df.stringFromDate(self);
+        let result = df.stringFromDate(self);
         return result;
         
     }

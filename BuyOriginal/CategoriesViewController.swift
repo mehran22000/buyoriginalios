@@ -11,6 +11,8 @@ import UIKit
 class CategoriesViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var noInternetConnectionView: UIView!
+    
     var selectedCategory:String="";
     var brandsArray = NSArray()
     var categoryBrands = [String:[BrandModel]]();
@@ -54,28 +56,41 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
     }
 
     
     override func viewWillAppear(animated: Bool) {
         let fetcher = BOHttpfetcher()
         
-        fetcher.fetchCityCategories (self.areaCode, completionHandler:{ (result: NSDictionary) -> () in
-            
-            self.brandsArray = result.objectForKey("brands") as! NSArray;
-            self.categoryBrands = result.objectForKey("catBrands") as! Dictionary;
-            self.brandStores = result.objectForKey("brandStores") as! Dictionary;
-            self.categoriesArray = self.categoryBrands.keys.array;
-            
-            
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                self.loadBrandsLogo()
-            })
-        })
-        
         self.activityIndicatior?.hidden=false;
         self.activityIndicatior?.hidesWhenStopped=true;
         self.activityIndicatior?.startAnimating();
+        
+        fetcher.fetchCityCategories (self.areaCode, completionHandler:{ (result: NSDictionary) -> () in
+            
+            if (result.count>0){
+                self.brandsArray = result.objectForKey("brands") as! NSArray;
+                self.categoryBrands = result.objectForKey("catBrands") as! Dictionary;
+                self.brandStores = result.objectForKey("brandStores") as! Dictionary;
+                self.categoriesArray = Array(self.categoryBrands.keys);
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.loadBrandsLogo()
+                })
+            }
+            else {
+                self.activityIndicatior?.stopAnimating();
+            }
+        })
+        
+        
+        if (Utilities.isConnectedToNetwork() == false) {
+            self.noInternetConnectionView.hidden = false
+        }
+        else {
+            self.noInternetConnectionView.hidden = true
+        }
+        
     }
     
     
@@ -112,12 +127,12 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
         
         
         for brand in self.brandsArray {
-            var b:BrandModel = brand as! BrandModel;
+            let b:BrandModel = brand as! BrandModel;
             if ((dict?.valueForKey(b.bLogo)) != nil){
                 // Load available logos
                 //    println(" Logo Found: %@ ",&b.bLogo);
-                var logoName = dict?.valueForKey(b.bLogo) as! String!;
-                var logo:UIImage! = UIImage(named: logoName);
+                let logoName = dict?.valueForKey(b.bLogo) as! String!;
+                let logo:UIImage! = UIImage(named: logoName);
                 b.bLogoImage = logo!;
                 counter=counter+1;
                 if (counter == self.brandsArray.count){
@@ -130,7 +145,7 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
             }
             else {
                 // Download missing logos
-                println("missing:"+b.bLogo);
+                print("missing:"+b.bLogo);
                 fetcher.fetchBrandLogo(b.bLogo, completionHandler: { (imgData) -> Void in
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         if ((imgData) != nil){
@@ -156,60 +171,60 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
     
     func loadCategoriesLogo(cell: BOCategoriesTableViewCell, cat: String ) {
         
-        var categoryBrands = [String:[BrandModel]]();
+       // var categoryBrands = [String:[BrandModel]]();
         var catbrandsArray = self.categoryBrands[cat];
-        var brandNo = catbrandsArray!.count;
+        let brandNo = catbrandsArray!.count;
         
-        var brand = catbrandsArray![0] as BrandModel;
+        let brand = catbrandsArray![0] as BrandModel;
         cell.logo1ImageView.image = brand.bLogoImage;
         cell.logo1ImageView.layer.borderColor = UIColor.blackColor().CGColor
         cell.logo1ImageView.layer.borderWidth = 0.5
         
         
         if (brandNo>2){
-            var brand = catbrandsArray![1] as BrandModel;
+            let brand = catbrandsArray![1] as BrandModel;
             cell.logo2ImageView.image = brand.bLogoImage;
             cell.logo2ImageView.layer.borderColor = UIColor.blackColor().CGColor
             cell.logo2ImageView.layer.borderWidth = 0.5
         }
         
         if (brandNo>3){
-            var brand = catbrandsArray![2] as BrandModel;
+            let brand = catbrandsArray![2] as BrandModel;
             cell.logo3ImageView.image = brand.bLogoImage;
             cell.logo3ImageView.layer.borderColor = UIColor.blackColor().CGColor
             cell.logo3ImageView.layer.borderWidth = 0.5
         }
         
         if (brandNo>4){
-            var brand = catbrandsArray![3] as BrandModel;
+            let brand = catbrandsArray![3] as BrandModel;
             cell.logo4ImageView.image = brand.bLogoImage;
             cell.logo4ImageView.layer.borderColor = UIColor.blackColor().CGColor
             cell.logo4ImageView.layer.borderWidth = 0.5
         }
         
         if (brandNo>5){
-            var brand = catbrandsArray![4] as BrandModel;
+            let brand = catbrandsArray![4] as BrandModel;
             cell.logo5ImageView.image = brand.bLogoImage;
             cell.logo5ImageView.layer.borderColor = UIColor.blackColor().CGColor
             cell.logo5ImageView.layer.borderWidth = 0.5
         }
         
         if (brandNo>6){
-            var brand = catbrandsArray![5] as BrandModel;
+            let brand = catbrandsArray![5] as BrandModel;
             cell.logo6ImageView.image = brand.bLogoImage;
             cell.logo6ImageView.layer.borderColor = UIColor.blackColor().CGColor
             cell.logo6ImageView.layer.borderWidth = 0.5
         }
         
         if (brandNo>7){
-            var brand = catbrandsArray![6] as BrandModel;
+            let brand = catbrandsArray![6] as BrandModel;
             cell.logo7ImageView.image = brand.bLogoImage;
             cell.logo7ImageView.layer.borderColor = UIColor.blackColor().CGColor
             cell.logo7ImageView.layer.borderWidth = 0.5
         }
         
         if (brandNo>8){
-            var brand = catbrandsArray![7] as BrandModel;
+            let brand = catbrandsArray![7] as BrandModel;
             cell.logo8ImageView.image = brand.bLogoImage;
             cell.logo8ImageView.layer.borderColor = UIColor.blackColor().CGColor
             cell.logo8ImageView.layer.borderWidth = 0.5
@@ -231,7 +246,7 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
 
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:BOCategoriesTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cellCategory") as! BOCategoriesTableViewCell
+        let cell:BOCategoriesTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cellCategory") as! BOCategoriesTableViewCell
         
         var category="";
         
@@ -257,7 +272,7 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        println("You selected cell #\(indexPath.row)!")
+        print("You selected cell #\(indexPath.row)!")
     
         var c="";
         if is_searching==true {
@@ -280,16 +295,16 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
     
     // Search Bar Delegates
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String){
-        if searchBar.text.isEmpty{
+        if searchBar.text!.isEmpty{
             is_searching = false
             tableView.reloadData()
         } else {
-            println(" search text %@ ",searchBar.text as NSString)
+            print(" search text %@ ",searchBar.text! as NSString)
             is_searching = true
             self.filteredCategorisArray.removeAll(keepCapacity: false)
             for var index = 0; index < self.categoriesArray.count; index++
             {
-                var cNameFa:String = categoriesArray[index] as String;
+                let cNameFa:String = categoriesArray[index] as String;
                
                 if (cNameFa.lowercaseString.rangeOfString(searchText.lowercaseString) != nil)
                 {

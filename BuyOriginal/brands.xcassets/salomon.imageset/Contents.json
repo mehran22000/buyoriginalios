@@ -2,18 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "salomon.jpg"
+      "filename" : "salomon-1.png",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "salomon-1.jpg"
+      "filename" : "salomon-2.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "salomon-2.jpg"
+      "filename" : "salomon-3.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

@@ -19,5 +19,6 @@
 #import "GAILogger.h"
 #import "GAITrackedViewController.h"
 #import "GAITracker.h"
+#import "Flurry.h"
 
 #endif

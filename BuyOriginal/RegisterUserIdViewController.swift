@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegisterUserIdViewController: UIViewController {
+class RegisterUserIdViewController: UIViewController, UIAlertViewDelegate {
     
     var account:AccountModel!;
     @IBOutlet var emailTextField: UITextField!
@@ -34,11 +34,11 @@ class RegisterUserIdViewController: UIViewController {
         var err=0;
         var errMsg="";
         
-        if (self.isValidEmail(self.emailTextField.text)==false){
+        if (self.isValidEmail(self.emailTextField.text!)==false){
             err = GlobalConstants.REGISTER_BUSINESS_INVALID_EMAIL;
             errMsg = "ایمیل شما نادرست است" ;
         }
-        else if (self.passwordTextField.text.isEmpty) {
+        else if (self.passwordTextField.text!.isEmpty) {
             err = GlobalConstants.REGISTER_BUSINESS_INVALID_PASSWORD;
             errMsg = "رمز کاربری را وارد کنید" ;
         }
@@ -47,29 +47,23 @@ class RegisterUserIdViewController: UIViewController {
         }
         
         if (err>0){
-           
-            let alertController = UIAlertController(title: "", message:errMsg, preferredStyle: UIAlertControllerStyle.Alert)
-            
-            let okAction = UIAlertAction(title: "ادامه", style:UIAlertActionStyle.Default) { (action) in
-            }
-            
-            alertController.addAction(okAction);
-            
-            self.presentViewController(alertController, animated: true, completion: nil)
+            let alert = UIAlertView()
+            alert.title = ""
+            alert.message = errMsg
+            alert.addButtonWithTitle("ادامه")
+            alert.tag = 1
+            alert.show()
         }
         
     }
     
     
     func duplicatedEmailValidation () {
-        let okAction = UIAlertAction(title: "", style:UIAlertActionStyle.Default) { (action) in
-            self.navigationController?.popToRootViewControllerAnimated(false);
-        }
         
         let httpLogin = BOHttpLogin();
         
-        httpLogin.duplicateEmail(self.emailTextField.text) { (result) -> Void in
-            println("duplicateEmail response back");
+        httpLogin.duplicateEmail(self.emailTextField.text!) { (result) -> Void in
+            print("duplicateEmail response back");
             if (result=="false"){
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.account.uEmail=self.emailTextField.text;
@@ -80,19 +74,17 @@ class RegisterUserIdViewController: UIViewController {
             else {
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    let alertController = UIAlertController(title: "", message:
-                        "این ایمیل آدرس ثبت شده است. یک آدرس جدید وارد کنید.", preferredStyle: UIAlertControllerStyle.Alert)
-                    let okAction = UIAlertAction(title: "ادامه", style:UIAlertActionStyle.Default) { (action) in
-                        self.emailTextField.text="";
-                        self.passwordTextField.text="";
-                    }
-                    alertController.addAction(okAction);
-                    self.presentViewController(alertController, animated: true, completion: nil);
+                    let alert = UIAlertView()
+                    alert.title = ""
+                    alert.message =  "این ایمیل آدرس ثبت شده است. یک آدرس جدید وارد کنید"
+                    alert.addButtonWithTitle("ادامه")
+                    alert.tag = 1
+                    alert.show()
+                
                 });
             }
         };
     }
-    
     
     
     
@@ -120,6 +112,20 @@ class RegisterUserIdViewController: UIViewController {
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluateWithObject(email)
     }
+    
+    
+    func alertView(alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int)
+    {
+        if alertView.tag==1
+        {
+            if buttonIndex==0
+            {
+                self.emailTextField.text="";
+                self.passwordTextField.text="";
+            }
+        }
+    }
+    
     
     /*
     // MARK: - Navigation

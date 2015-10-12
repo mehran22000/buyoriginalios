@@ -2,18 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "giordano.jpg"
+      "filename" : "giordano-1.png",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "giordano-1.jpg"
+      "filename" : "giordano-2.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "giordano-2.jpg"
+      "filename" : "giordano-3.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

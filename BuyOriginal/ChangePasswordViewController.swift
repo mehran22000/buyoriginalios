@@ -19,7 +19,7 @@ class ChangePasswordViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let backBtn = UIBarButtonItem(title: "<", style: UIBarButtonItemStyle.Plain, target: self, action: "backPressed");
+        let backBtn = UIBarButtonItem(title: "پروفایل >", style: UIBarButtonItemStyle.Plain, target: self, action: "backPressed");
         navigationItem.leftBarButtonItem = backBtn;
 
         // Do any additional setup after loading the view.
@@ -54,16 +54,14 @@ class ChangePasswordViewController: UIViewController{
 
         }
         else {
-            self.delegate?.updatePassword(self.newPasswordTextField.text);
+            self.delegate?.updatePassword(self.newPasswordTextField.text!);
             self.navigationController?.popViewControllerAnimated(true);
         }
         
         if (err>0){
-            let alertController = UIAlertController(title: "", message:errMsg, preferredStyle: UIAlertControllerStyle.Alert)
-            let okAction = UIAlertAction(title: "ادامه", style:UIAlertActionStyle.Default) { (action) in
-            }
-            alertController.addAction(okAction);
-            self.presentViewController(alertController, animated: true, completion: nil)
+            let alert = UIAlertView(title: "خطا", message: errMsg, delegate: nil, cancelButtonTitle: "ادامه")
+            alert.tag=1;
+            alert.show()
         }
         
     }

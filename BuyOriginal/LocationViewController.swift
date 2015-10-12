@@ -31,24 +31,24 @@ class LocationViewController: UIViewController,MKMapViewDelegate {
     
     
     func showLocation(lat: Double, long: Double) {
-        var latDelta:CLLocationDegrees = 0.01
+        let latDelta:CLLocationDegrees = 0.01
     
-        var longDelta:CLLocationDegrees = 0.01
+        let longDelta:CLLocationDegrees = 0.01
     
-        var theSpan:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
-        var pointLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(lat, long)
+        let theSpan:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
+        let pointLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(lat, long)
     
-        var region:MKCoordinateRegion = MKCoordinateRegionMake(pointLocation, theSpan)
+        let region:MKCoordinateRegion = MKCoordinateRegionMake(pointLocation, theSpan)
         mapView.setRegion(region, animated: true)
     
-        var pinLocation : CLLocationCoordinate2D = CLLocationCoordinate2DMake(lat, long)
-        var objectAnnotation = MKPointAnnotation()
+        let pinLocation : CLLocationCoordinate2D = CLLocationCoordinate2DMake(lat, long)
+        let objectAnnotation = MKPointAnnotation()
         objectAnnotation.coordinate = pinLocation
         objectAnnotation.title = storeName
         self.mapView.addAnnotation(objectAnnotation)
     }
     
-    
+    /*
     func showDirection (lat: Double, long: Double) {
         
         var lat = 42.290509;
@@ -75,16 +75,17 @@ class LocationViewController: UIViewController,MKMapViewDelegate {
             
         })
     }
+    */
     
     func showRoute(response: MKDirectionsResponse) {
         
-        for route in response.routes as! [MKRoute] {
+        for route in response.routes {
             
             self.mapView.addOverlay(route.polyline,
                 level: MKOverlayLevel.AboveRoads)
             
             for step in route.steps {
-                println(step.instructions)
+                print(step.instructions)
             }
         }
         
@@ -94,14 +95,14 @@ class LocationViewController: UIViewController,MKMapViewDelegate {
         
         
         let region = MKCoordinateRegionMakeWithDistance(
-            userLocation.location.coordinate, 2000, 2000)
+            userLocation.location!.coordinate, 2000, 2000)
         
         self.mapView.setRegion(region, animated: true)
         
     }
     
-    func mapView(mapView: MKMapView!, rendererForOverlay
-        overlay: MKOverlay!) -> MKOverlayRenderer! {
+    func mapView(mapView: MKMapView, rendererForOverlay
+        overlay: MKOverlay) -> MKOverlayRenderer {
             let renderer = MKPolylineRenderer(overlay: overlay)
             
             renderer.strokeColor = UIColor.blueColor()

@@ -2,18 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "beheshtian.jpg"
+      "filename" : "beheshtian-1.png",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "beheshtian-1.jpg"
+      "filename" : "beheshtian-2.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "beheshtian-2.jpg"
+      "filename" : "beheshtian-3.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

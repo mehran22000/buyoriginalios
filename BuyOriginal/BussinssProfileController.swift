@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BussinessProfileController: UITableViewController, BuPasswordDelegate, BuPhoneDelegate, BuCityDelegate, BuBrandDelegate  {
+class BussinessProfileController: UITableViewController, BuPasswordDelegate, BuPhoneDelegate, BuCityDelegate, BuBrandDelegate, UIAlertViewDelegate  {
 
     var account: AccountModel?
     var cellBrand: BOBrandTableViewCell?
@@ -54,12 +54,12 @@ class BussinessProfileController: UITableViewController, BuPasswordDelegate, BuP
             return cellBrand!;
         
         case 1:
-            var emailCell = self.tableView.dequeueReusableCellWithIdentifier("cellEmail") as! BusProfileReadOnlyCell;
+            let emailCell = self.tableView.dequeueReusableCellWithIdentifier("cellEmail") as! BusProfileReadOnlyCell;
             emailCell.value.text = self.account?.uEmail;
             return emailCell;
             
         case 2:
-            var passwordCell = self.tableView.dequeueReusableCellWithIdentifier("cellPassword") as! BusProfileReadOnlyCell;
+            let passwordCell = self.tableView.dequeueReusableCellWithIdentifier("cellPassword") as! BusProfileReadOnlyCell;
            // passwordCell.value.text = self.account?.uPassword;
             return passwordCell;
         case 3:
@@ -93,7 +93,7 @@ class BussinessProfileController: UITableViewController, BuPasswordDelegate, BuP
     
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        println("You selected cell #\(indexPath.row)!")
+        print("You selected cell #\(indexPath.row)!")
         
         switch (indexPath.row) {
         case 0:
@@ -185,66 +185,69 @@ class BussinessProfileController: UITableViewController, BuPasswordDelegate, BuP
         self.account?.store.sAddress = self.cellAddress?.value.text;
         self.account?.store.bDistributor = self.cellDistributor?.value.text;
         
-        let okAction = UIAlertAction(title: "پایان", style:UIAlertActionStyle.Default) { (action) in
-            self.navigationController?.popToRootViewControllerAnimated(false);
-        }
-        
         let httpPost = BOHttpPost()
         
         var msg = "";
         httpPost.addOrUpdateBusiness(true, account:account!) { (result) -> Void in
-            println("Profile update complete");
+            print("Profile update complete");
             if (result=="success"){
                 msg = "شناسه کاربری شما با موفقیت به روز رسانی شد.";
             }
             else {
                 msg = "خطاذر به روز رسانی شناسه کاربری شما. دوباره تلاش کنید";
             }
-                
-                let alertController = UIAlertController(title: "", message:
-                    msg, preferredStyle: UIAlertControllerStyle.Alert)
-                alertController.addAction(okAction);
-                self.presentViewController(alertController, animated: true, completion: nil);
-                
-            }
             
-            
-        };
+            let alert = UIAlertView(title: "", message: msg, delegate: nil, cancelButtonTitle: "ادامه")
+            alert.tag=1;
+            alert.show()
+        }
+    };
     
 
     
     @IBAction func deleteAccountPressed () {
-        
-        let okAction = UIAlertAction(title: "ادامه", style:UIAlertActionStyle.Default) { (action) in
-            self.deleteAccount();
-        }
-        let alertController = UIAlertController(title: "", message:
-            "پاک کردن پروفایل شما باعث پاک کردن تمامی اطلاعات شما می شود", preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(okAction);
-        self.presentViewController(alertController, animated: true, completion: nil)
-        
+        let alert = UIAlertView(title: "", message: "پاک کردن پروفایل شما باعث پاک کردن تمامی اطلاعات شما می شود",
+            delegate: self, cancelButtonTitle: "ادامه");
+        alert.tag=2;
+        alert.show()
     }
     
+
     func deleteAccount() {
     
         let httpLogin = BOHttpLogin();
-        
         let email = self.account?.uEmail;
         let sid = self.account?.store.sId;
         
         httpLogin.deleteUserAccount(email,sid:sid) { (result) -> Void in
-            println("Delete user profile completed");
+            print("Delete user profile completed");
             if (result == "success"){
                 self.dismissViewControllerAnimated(false, completion: nil);
             }
             else {
-                let alertController = UIAlertController(title: "", message:
-                    "خطادر حذف شناسه کاربری شما. دوباره تلاش کنید", preferredStyle: UIAlertControllerStyle.Alert)
-                self.presentViewController(alertController, animated: true, completion: nil);
+                let alert = UIAlertView(title: "", message: "خطادر حذف شناسه کاربری شما. دوباره تلاش کنید",
+                    delegate: self, cancelButtonTitle: "ادامه");
+                alert.tag=3;
+                alert.show()
             }
         };
         
     }
+    
+    func alertView(alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int)
+    {
+        if alertView.tag==2
+        {
+            if buttonIndex==0
+            {
+                print("حذف پروفایل");
+                self.deleteAccount();
+            }
+        }
+    }
+    
+    
+    
 
     
     func updatePassword(newPassword:String) -> () {

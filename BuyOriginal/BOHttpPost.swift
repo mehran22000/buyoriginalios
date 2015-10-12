@@ -21,7 +21,7 @@ class BOHttpPost: NSObject {
             url = "https://buyoriginal.herokuapp.com/users/business/adduser"
        //   url = "http://localhost:5000/users/business/adduser"
         }
-        var request : NSMutableURLRequest = NSMutableURLRequest()
+        let request : NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)
         request.HTTPMethod = "POST"
     
@@ -32,7 +32,7 @@ class BOHttpPost: NSObject {
         else {
             bodyData = "buEmail="+(account.uEmail as String)+"&buPassword="+(account.uPassword as String)+"&buCityName="+(account.sCity.cityName as String)+"&buCityNameFa="+(account.sCity.cityNameFa as String)+"&buBrandId="+(account.brand.bId as String)+"&buBrandName="+(account.brand.bName as String)+"&buBrandCategory="+(account.brand.bCategory as String)+"&buStoreName="+(account.store.sName as String)+"&buStoreAddress="+(account.store.sAddress as String)+"&buStoreHours="+(account.store.sHours as String)+"&buDistributor="+(account.store.bDistributor as String)+"&buStoreLat="+(account.store.sLat as String)+"&buStoreLon="+(account.store.sLong as String)+"&buAreaCode="+(account.sCity.areaCode as String)+"&buTel="+(account.store.sTel1 as String)+"&buBrandLogoName="+(account.brand.bLogo as String);
         }
-        println(bodyData);
+        print(bodyData);
         request.HTTPBody = bodyData.dataUsingEncoding(NSUTF8StringEncoding);
         
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()){
@@ -41,10 +41,15 @@ class BOHttpPost: NSObject {
             
             var jsonResult: NSArray!
             var postResult = "";
-            var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
+           // var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
             
             if (data != nil){
-                jsonResult = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions.MutableContainers, error: error) as! NSArray
+                do {
+                    try jsonResult = NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as! NSArray
+                }
+                catch{
+                    
+                }
             }
             if (jsonResult != nil) {
                 
@@ -59,9 +64,9 @@ class BOHttpPost: NSObject {
     
     func addDiscount (account:AccountModel, discount:DiscountModel, completionHandler:(result:NSString)->Void) -> () {
         
-         var url: String = "https://buyoriginal.herokuapp.com/stores/adddiscount"
+        let url: String = "https://buyoriginal.herokuapp.com/stores/adddiscount"
         //  var url: String = "http://localhost:5000/stores/adddiscount"
-        var request : NSMutableURLRequest = NSMutableURLRequest()
+        let request : NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)
         request.HTTPMethod = "POST"
         
@@ -74,9 +79,9 @@ class BOHttpPost: NSObject {
         
         
         
-        var bodyData = "bId="+(account.store.bId as String)+"&sId="+(account.store.sId as String)+"&startDate="+(discount.startDateStr as String)+"&endDate="+(discount.endDateStr as String)+"&startDateFa="+(discount.startDateStrFa as String)+"&endDateFa="+(discount.endDateStrFa as String)+"&precentage="+(discount.precentage as String)+"&note="+(discount.note as String);
+        let bodyData = "bId="+(account.store.bId as String)+"&sId="+(account.store.sId as String)+"&startDate="+(discount.startDateStr as String)+"&endDate="+(discount.endDateStr as String)+"&startDateFa="+(discount.startDateStrFa as String)+"&endDateFa="+(discount.endDateStrFa as String)+"&precentage="+(discount.precentage as String)+"&note="+(discount.note as String);
         
-        println(bodyData);
+        print(bodyData);
         request.HTTPBody = bodyData.dataUsingEncoding(NSUTF8StringEncoding);
         
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()){
@@ -85,10 +90,16 @@ class BOHttpPost: NSObject {
             
             var jsonResult: NSArray!
             var postResult = "";
-            var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
+         //   var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
             
             if (data != nil){
-                jsonResult = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions.MutableContainers, error: error) as! NSArray
+                do {
+                    try jsonResult = NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as! NSArray
+                }
+                catch {
+                    
+                }
+                
             }
             if (jsonResult != nil) {
                 
@@ -103,15 +114,15 @@ class BOHttpPost: NSObject {
     
     func deleteDiscount (sId:String, bId:String, completionHandler:(result:NSString)->Void) -> () {
         
-        var url: String = "https://buyoriginal.herokuapp.com/stores/deletediscount"
+        let url: String = "https://buyoriginal.herokuapp.com/stores/deletediscount"
         // var url: String = "http://localhost:5000/stores/deletediscount"
-        var request : NSMutableURLRequest = NSMutableURLRequest()
+        let request : NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)
         request.HTTPMethod = "POST"
     
-        var bodyData = "bId="+bId+"&sId="+sId;
+        let bodyData = "bId="+bId+"&sId="+sId;
         
-        println(bodyData);
+        print(bodyData);
         request.HTTPBody = bodyData.dataUsingEncoding(NSUTF8StringEncoding);
         
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()){
@@ -120,10 +131,15 @@ class BOHttpPost: NSObject {
             
             var jsonResult: NSDictionary!
             var postResult = "";
-            var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
+       //     var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
             
             if (data != nil){
-                jsonResult = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions.MutableContainers, error: error) as! NSDictionary
+                do {
+                    try jsonResult = NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as! NSDictionary
+                }
+                catch {
+                    
+                }
             }
             if (jsonResult != nil) {
                 

@@ -2,18 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "pierrecardin.jpg"
+      "filename" : "pierrecardin-1.png",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "pierrecardin-1.jpg"
+      "filename" : "pierrecardin-2.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "pierrecardin-2.jpg"
+      "filename" : "pierrecardin-3.png",
+      "scale" : "3x"
     }
   ],
   "info" : {
