@@ -2,8 +2,126 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>lcman</key>
+	<string>lcman</string>
+	<key>lcwaikiki</key>
+	<string>lcwaikiki</string>
+	<key>mavi</key>
+	<string>mavi</string>
+	<key>montblanc</key>
+	<string>montblanc</string>
+	<key>ninaricci</key>
+	<string>ninaricci</string>
+	<key>pacorabanne</key>
+	<string>pacorabanne</string>
+	<key>prada</key>
+	<string>prada</string>
+	<key>rihanna</key>
+	<string>rihanna</string>
+	<key>robertocavalli</key>
+	<string>robertocavalli</string>
+	<key>salvatoreferragamo</key>
+	<string>salvatoreferragamo</string>
+	<key>shiseido</key>
+	<string>shiseido</string>
+	<key>stdupont</key>
+	<string>stdupont</string>
+	<key>tedlapidus</key>
+	<string>tedlapidus</string>
+	<key>thierrymugler</key>
+	<string>thierrymugler</string>
+	<key>tomford</key>
+	<string>tomford</string>
+	<key>verawang</key>
+	<string>verawang</string>
+	<key>whitebuffalo</key>
+	<string>whitebuffalo</string>
+	<key>yvessaintlaurent</key>
+	<string>yvessaintlaurent</string>
+	<key>DandG</key>
+	<string>DandG</string>
+	<key>davidoff</key>
+	<string>davidoff</string>
+	<key>dkny</key>
+	<string>dkny</string>
+	<key>dsquared</key>
+	<string>dsquared</string>
+	<key>dunhill</key>
+	<string>dunhill</string>
+	<key>escada</key>
+	<string>escada</string>
+	<key>fendi</key>
+	<string>fendi</string>
+	<key>ferrari</key>
+	<string>ferrari</string>
+	<key>giorgioarmani</key>
+	<string>giorgioarmani</string>
+	<key>givenchy</key>
+	<string>givenchy</string>
+	<key>guerlain</key>
+	<string>guerlain</string>
+	<key>guess</key>
+	<string>guess</string>
+	<key>hermes</key>
+	<string>hermes</string>
+	<key>jacquesbogart</key>
+	<string>jacquesbogart</string>
+	<key>jaguar</key>
+	<string>jaguar</string>
+	<key>jesusdelpozo</key>
+	<string>jesusdelpozo</string>
+	<key>kenzo</key>
+	<string>kenzo</string>
+	<key>juicycouture</key>
+	<string>juicycouture</string>
+	<key>korloff</key>
+	<string>korloff</string>
+	<key>lalique</key>
+	<string>lalique</string>
+	<key>lanvin</key>
+	<string>lanvin</string>
 	<key>pierrecardin</key>
 	<string>pierrecardin</string>
+	<key>aigner</key>
+	<string>aigner</string>
+	<key>alpina</key>
+	<string>alpina</string>
+	<key>angelschlesser</key>
+	<string>angelschlesser</string>
+	<key>antoniobanderas</key>
+	<string>antoniobanderas</string>
+	<key>aramis</key>
+	<string>aramis</string>
+	<key>axis</key>
+	<string>axis</string>
+	<key>azzaro</key>
+	<string>azzaro</string>
+	<key>balmaso</key>
+	<string>balmaso</string>
+	<key>boss</key>
+	<string>boss</string>
+	<key>britneyspears</key>
+	<string>britneyspears</string>
+	<key>burberry</key>
+	<string>burberry</string>
+	<key>bvlgari</key>
+	<string>bvlgari</string>
+	<key>cacharel</key>
+	<string>cacharel</string>
+	<key>caron</key>
+	<string>caron</string>
+	<key>cartier</key>
+	<string>cartier</string>
+	<key>ch</key>
+	<string>ch</string>
+	<key>chanel</key>
+	<string>chanel</string>
+	<key>chopard</key>
+	<string>chopard</string>
+	<key>clinique</key>
+	<string>clinique</string>
+	<key>creed</key>
+	<string>creed</string>
 	<key>timberland</key>
 	<string>timberland</string>
 	<key>louiserard</key>
@@ -29,6 +147,8 @@
 	<key>alpha</key>
 	<string>alpha</string>
 	<key>biooil</key>
+	<string>biooil</string>
+	<key>bio-oil</key>
 	<string>biooil</string>
 	<key>cerruti1881</key>
 	<string>cerruti1881</string>

@@ -55,6 +55,7 @@
 		02656B931B2BDDC800DFC51A /* Backgrounds.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02656B921B2BDDC800DFC51A /* Backgrounds.xcassets */; };
 		02662BF21B02FF1B00093D7D /* Stores.json in Resources */ = {isa = PBXBuildFile; fileRef = 02662BF11B02FF1B00093D7D /* Stores.json */; };
 		02662BF41B03004F00093D7D /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02662BF31B03004F00093D7D /* Store.swift */; };
+		026B1EB61BCF4B5C004C11FC /* Brands3.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 026B1EB51BCF4B5C004C11FC /* Brands3.xcassets */; settings = {ASSET_TAGS = (); }; };
 		0292219A1BA2651B006CBC2B /* SimulatorUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029221991BA2651B006CBC2B /* SimulatorUtility.swift */; };
 		0292219C1BA28471006CBC2B /* BOStoresDiscountNoteTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0292219B1BA28471006CBC2B /* BOStoresDiscountNoteTableCell.swift */; };
 		02997CA61BBCB406004986D5 /* libFlurry_7.2.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02997CA51BBCB406004986D5 /* libFlurry_7.2.0.a */; };
@@ -161,6 +162,7 @@
 		02656B921B2BDDC800DFC51A /* Backgrounds.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Backgrounds.xcassets; sourceTree = "<group>"; };
 		02662BF11B02FF1B00093D7D /* Stores.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Stores.json; sourceTree = "<group>"; };
 		02662BF31B03004F00093D7D /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		026B1EB51BCF4B5C004C11FC /* Brands3.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Brands3.xcassets; sourceTree = "<group>"; };
 		029221991BA2651B006CBC2B /* SimulatorUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimulatorUtility.swift; sourceTree = "<group>"; };
 		0292219B1BA28471006CBC2B /* BOStoresDiscountNoteTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BOStoresDiscountNoteTableCell.swift; sourceTree = "<group>"; };
 		02997CA31BBCB406004986D5 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
@@ -316,7 +318,6 @@
 			isa = PBXGroup;
 			children = (
 				022E155D1BC7524B00732ECA /* 021.txt */,
-				02577EB91AFC5BB700F3521B /* Brands.json */,
 				02662BF11B02FF1B00093D7D /* Stores.json */,
 				02E442031B0F5FFA0097D2E6 /* Deals.json */,
 				02E442051B0F62150097D2E6 /* NearStores.json */,
@@ -424,6 +425,7 @@
 			children = (
 				02A3B2921B1A36E900B99AAA /* BOHttpfetcher.swift */,
 				0249CCE91B5C0AB4001C84BA /* BOHttpLogin.swift */,
+				02577EB91AFC5BB700F3521B /* Brands.json */,
 				020EAFA81B61F2E8001C7974 /* BOHttpPost.swift */,
 			);
 			name = Network;
@@ -509,6 +511,7 @@
 				02ED15931B366C7000A08215 /* logos.plist */,
 				02031EF01B7C3DC300F21F96 /* Icons.Categories.xcassets */,
 				02039A831BADEA7500647FE7 /* Brands2.xcassets */,
+				026B1EB51BCF4B5C004C11FC /* Brands3.xcassets */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -598,6 +601,7 @@
 				02E442041B0F5FFA0097D2E6 /* Deals.json in Resources */,
 				02031EF11B7C3DC300F21F96 /* Icons.Categories.xcassets in Resources */,
 				02E442061B0F62150097D2E6 /* NearStores.json in Resources */,
+				026B1EB61BCF4B5C004C11FC /* Brands3.xcassets in Resources */,
 				02ED158C1B3514C300A08215 /* Cities.xcassets in Resources */,
 				02A25F2A1BC2272000D94F38 /* Images.xcassets in Resources */,
 				022E15601BC7718100732ECA /* Default-568h@2x.png in Resources */,
