@@ -130,7 +130,7 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
             let b:BrandModel = brand as! BrandModel;
             if ((dict?.valueForKey(b.bLogo)) != nil){
                 // Load available logos
-                print(" Logo Found: %@ ",b.bLogo);
+               //  print(" Logo Found: %@ ",b.bLogo);
                 let logoName = dict?.valueForKey(b.bLogo) as! String!;
                 let logo:UIImage! = UIImage(named: logoName);
                 b.bLogoImage = logo!;

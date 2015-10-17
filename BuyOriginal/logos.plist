@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>lasposa</key>
+	<string>lasposa</string>
 	<key>lcman</key>
 	<string>lcman</string>
 	<key>lcwaikiki</key>
@@ -26,6 +28,8 @@
 	<string>shiseido</string>
 	<key>stdupont</key>
 	<string>stdupont</string>
+	<key>s.t.dupont</key>
+	<string>stdupont</string>
 	<key>tedlapidus</key>
 	<string>tedlapidus</string>
 	<key>thierrymugler</key>
@@ -39,6 +43,10 @@
 	<key>yvessaintlaurent</key>
 	<string>yvessaintlaurent</string>
 	<key>DandG</key>
+	<string>DandG</string>
+	<key>d&amp;g</key>
+	<string>DandG</string>
+	<key>dandg</key>
 	<string>DandG</string>
 	<key>davidoff</key>
 	<string>davidoff</string>
@@ -152,11 +160,17 @@
 	<string>biooil</string>
 	<key>cerruti1881</key>
 	<string>cerruti1881</string>
+	<key>cerruti</key>
+	<string>cerruti1881</string>
 	<key>coccinelle</key>
 	<string>coccinelle</string>
 	<key>ermenegildozegna</key>
 	<string>ermenegildozegna</string>
+	<key>zenga</key>
+	<string>ermenegildozegna</string>
 	<key>h&amp;m</key>
+	<string>h&amp;m</string>
+	<key>handm</key>
 	<string>h&amp;m</string>
 	<key>htc</key>
 	<string>htc</string>
@@ -228,11 +242,15 @@
 	<string>pandora</string>
 	<key>novinleather</key>
 	<string>novincharm</string>
+	<key>novincharm</key>
+	<string>novincharm</string>
 	<key>mashadleather</key>
 	<string>mashadleather</string>
 	<key>dorsa</key>
 	<string>dorsa</string>
 	<key>vahid</key>
+	<string>vahidcharm</string>
+	<key>vahidcharm</key>
 	<string>vahidcharm</string>
 	<key>maybelline</key>
 	<string>maybelline</string>
@@ -240,11 +258,15 @@
 	<string>garnier</string>
 	<key>women&apos;secret</key>
 	<string>womensecret</string>
+	<key>womensecret</key>
+	<string>womensecret</string>
 	<key>firs</key>
 	<string>firs</string>
 	<key>lrc</key>
 	<string>lrc</string>
 	<key>abercrombie&amp;fitch</key>
+	<string>abercrombie</string>
+	<key>abercrombie</key>
 	<string>abercrombie</string>
 	<key>ecut</key>
 	<string>ecut</string>
@@ -261,6 +283,8 @@
 	<key>atomic</key>
 	<string>atomic</string>
 	<key>arc&apos;teryx</key>
+	<string>arcteryx</string>
+	<key>arcteryx</key>
 	<string>arcteryx</string>
 	<key>suunto</key>
 	<string>suunto</string>
@@ -283,6 +307,8 @@
 	<key>flossy</key>
 	<string>flossy</string>
 	<key>l&apos;oreal</key>
+	<string>loreal</string>
+	<key>loreal</key>
 	<string>loreal</string>
 	<key>lacoste</key>
 	<string>lacoste</string>

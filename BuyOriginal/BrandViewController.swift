@@ -187,7 +187,16 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print("You selected cell #\(indexPath.row)!")
         
-        let selectedBrand = self.brandsArray[indexPath.row] as! BrandModel
+        var selectedBrand = BrandModel();
+        
+        if is_searching==true {
+            selectedBrand = self.filteredBrands[indexPath.row] as BrandModel
+        } else {
+            selectedBrand = self.brandsArray[indexPath.row] as! BrandModel
+        }
+        
+        
+        
         
         self.brandId=selectedBrand.bId;
         
@@ -266,6 +275,7 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
             }
             else {
                 // Download missing logos
+                print("missing:"+b.bLogo);
                 
                 fetcher.fetchBrandLogo(b.bLogo, completionHandler: { (imgData) -> Void in
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in

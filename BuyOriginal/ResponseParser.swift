@@ -24,7 +24,7 @@ class ResponseParser: NSObject {
             let sNumbers = elem["sNumbers"] as? String
             let sNearestLocation = elem["sNearestLocation"] as? String
             let bLogo = elem["bLogo"] as! String
-            print("bId: \(bId)", "bName: \(bName)", "bCategory: \(bCategory)", "sNumbers: \(sNumbers)", "sNearestLocation: \(sNearestLocation)")
+        //    print("bId: \(bId)", "bName: \(bName)", "bCategory: \(bCategory)", "sNumbers: \(sNumbers)", "sNearestLocation: \(sNearestLocation)")
             let b = BrandModel(bId: bId, bName: bName, bCategory: bCategory, sNumbers: sNumbers, sNearestLocation: sNearestLocation, bLogo:bLogo);
             array+=[b]
             
@@ -43,7 +43,7 @@ class ResponseParser: NSObject {
             let bName = elem["bName"] as? String
             let cName = elem["cName"] as? String
             let bLogo = elem["bLogo"] as! String
-            print("bId: \(bId)", "bName: \(bName)", "cName: \(cName)", "bLogo: \(bLogo)")
+         //   print("bId: \(bId)", "bName: \(bName)", "cName: \(cName)", "bLogo: \(bLogo)")
             let b = BrandModel(bId: bId, bName: bName, bCategory: cName, sNumbers: "", sNearestLocation: "", bLogo:bLogo);
             brands+=[b]
         }

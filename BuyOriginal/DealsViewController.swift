@@ -252,7 +252,7 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
             }
             else {
                 // Download missing logos
-                
+                print("missing:"+s.bLogo);
                 fetcher.fetchBrandLogo(s.bLogo, completionHandler: { (imgData) -> Void in
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         if ((imgData) != nil){

@@ -94,6 +94,7 @@ class BOHttpfetcher: NSObject {
                           completionHandler:(result: NSArray)->Void) -> () {
             
             var url : String;
+           // url = "http://localhost:5000/stores/storelist/city/"+areaCode;
             url = "https://buyoriginal.herokuapp.com/stores/storelist/city/"+areaCode;
             print("url: \(url)");
             
@@ -131,6 +132,7 @@ class BOHttpfetcher: NSObject {
         completionHandler:(result: NSDictionary)->Void) -> () {
             
             var url : String;
+            // url = "http://localhost:5000/stores/storelist/storelist/city/"+areaCode;
             url = "https://buyoriginal.herokuapp.com/stores/storelist/city/"+areaCode;
             print("url: \(url)");
             
