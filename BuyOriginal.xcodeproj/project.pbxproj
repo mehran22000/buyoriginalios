@@ -56,6 +56,7 @@
 		02662BF21B02FF1B00093D7D /* Stores.json in Resources */ = {isa = PBXBuildFile; fileRef = 02662BF11B02FF1B00093D7D /* Stores.json */; };
 		02662BF41B03004F00093D7D /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02662BF31B03004F00093D7D /* Store.swift */; };
 		026B1EB61BCF4B5C004C11FC /* Brands3.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 026B1EB51BCF4B5C004C11FC /* Brands3.xcassets */; settings = {ASSET_TAGS = (); }; };
+		02900A4D1BD8432300045037 /* Brand4.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02900A4C1BD8432300045037 /* Brand4.xcassets */; settings = {ASSET_TAGS = (); }; };
 		0292219A1BA2651B006CBC2B /* SimulatorUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029221991BA2651B006CBC2B /* SimulatorUtility.swift */; };
 		0292219C1BA28471006CBC2B /* BOStoresDiscountNoteTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0292219B1BA28471006CBC2B /* BOStoresDiscountNoteTableCell.swift */; };
 		02997CA61BBCB406004986D5 /* libFlurry_7.2.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02997CA51BBCB406004986D5 /* libFlurry_7.2.0.a */; };
@@ -163,6 +164,7 @@
 		02662BF11B02FF1B00093D7D /* Stores.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Stores.json; sourceTree = "<group>"; };
 		02662BF31B03004F00093D7D /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		026B1EB51BCF4B5C004C11FC /* Brands3.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Brands3.xcassets; sourceTree = "<group>"; };
+		02900A4C1BD8432300045037 /* Brand4.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Brand4.xcassets; sourceTree = "<group>"; };
 		029221991BA2651B006CBC2B /* SimulatorUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimulatorUtility.swift; sourceTree = "<group>"; };
 		0292219B1BA28471006CBC2B /* BOStoresDiscountNoteTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BOStoresDiscountNoteTableCell.swift; sourceTree = "<group>"; };
 		02997CA31BBCB406004986D5 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
@@ -512,6 +514,7 @@
 				02031EF01B7C3DC300F21F96 /* Icons.Categories.xcassets */,
 				02039A831BADEA7500647FE7 /* Brands2.xcassets */,
 				026B1EB51BCF4B5C004C11FC /* Brands3.xcassets */,
+				02900A4C1BD8432300045037 /* Brand4.xcassets */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -594,6 +597,7 @@
 			files = (
 				02FB4DE21AF7A47900884750 /* Main.storyboard in Resources */,
 				02656B751B29E10000DFC51A /* Readme.txt in Resources */,
+				02900A4D1BD8432300045037 /* Brand4.xcassets in Resources */,
 				021DA5B81B1164810030815A /* brands.xcassets in Resources */,
 				02656B931B2BDDC800DFC51A /* Backgrounds.xcassets in Resources */,
 				02C9BD011B042CF7000C6FA6 /* Brands.json in Resources */,
