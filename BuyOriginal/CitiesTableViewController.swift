@@ -23,8 +23,8 @@ class CitiesTableViewController: UITableViewController,UISearchBarDelegate {
 
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
         
-        self.initCities();
-        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        self.cities = appDelegate.cities;
         
         switch (self.screenMode){
             case GlobalConstants.CITIES_SCREEN_MODE_SEARCH:
@@ -41,7 +41,6 @@ class CitiesTableViewController: UITableViewController,UISearchBarDelegate {
                 self.navigationItem.title="";
         }
         
-        
        // self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cityCell")
       //  self.tableView.backgroundColor = UIColor(patternImage: UIImage(named: "welcome.pink")!);
         
@@ -52,25 +51,7 @@ class CitiesTableViewController: UITableViewController,UISearchBarDelegate {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
-    func initCities() {
-        var c = CityModel(cityName: "Tehran", areaCode: "021", cityNameFa: "تهران", imageName: "tehran");
-        self.cities+=[c];
-        c = CityModel(cityName: "Isfahan", areaCode: "031", cityNameFa: "اصفهان", imageName: "isfahan");
-        self.cities+=[c];
-        c = CityModel(cityName: "Kish", areaCode: "076", cityNameFa: "کیش", imageName: "kish");
-        self.cities+=[c];
-       // c = CityModel(cityName: "Urmia", areaCode: "0443", cityNameFa: "ارومیه", imageName: "urmia");
-       // self.cities+=[c];
-        c = CityModel(cityName: "Shiraz", areaCode: "071", cityNameFa: "شیراز", imageName: "shiraz");
-        self.cities+=[c];
-        c = CityModel(cityName: "Mashhad", areaCode: "051", cityNameFa: "مشهد", imageName: "mashhad");
-        self.cities+=[c];
-        c = CityModel(cityName: "Tabriz", areaCode: "041", cityNameFa: "تبریز", imageName: "tabriz");
-        self.cities+=[c];
-        c = CityModel(cityName: "Karaj", areaCode: "026", cityNameFa: "کرج", imageName: "karaj");
-        self.cities+=[c];
-        
-    }
+    
     
     
     override func didReceiveMemoryWarning() {
@@ -140,6 +121,11 @@ class CitiesTableViewController: UITableViewController,UISearchBarDelegate {
         else {
             performSegueWithIdentifier("pushCategories", sender: nil)
         }
+        
+        // Save the selected city for getting current location
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(c.cityName, forKey: "currentCity");
+        defaults.synchronize();
     }
     
     

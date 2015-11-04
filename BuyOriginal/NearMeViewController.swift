@@ -1,9 +1,14 @@
 
 import UIKit
+import CoreLocation
+
 class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var noInternetConnectionView: UIView!
+    @IBOutlet var noResultImageView: UIImageView!
+    @IBOutlet var noResultLabel: UILabel!
+    @IBOutlet var spinner: UIActivityIndicatorView!
     
     var nearStoresArray = NSArray()
     var filteredStores = [StoreModel]()
@@ -32,6 +37,9 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
         */
         
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
+        self.noResultImageView.hidden = true
+        self.noResultLabel.hidden = true
+        self.spinner.hidesWhenStopped = true
         
         
         // Do any additional setup after loading the view.
@@ -39,12 +47,18 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
     
     
     override func viewWillAppear(animated: Bool) {
-        
+        self.filteredStores.removeAll();
+        self.nearStoresArray = NSArray();
+
         if (Utilities.isConnectedToNetwork() == false) {
+            self.spinner.stopAnimating()
             self.noInternetConnectionView.hidden = false
+            self.noResultImageView.hidden = false
+            self.noResultLabel.hidden = false
         }
         else {
             self.noInternetConnectionView.hidden = true
+            self.spinner.startAnimating()
             fetchNearLocations(1);
         }
     }
@@ -54,6 +68,28 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
     }
 
     
+    func showHideNoResult() {
+        if (is_searching==true){
+            if (self.filteredStores.count > 0){
+                self.noResultLabel.hidden = true;
+                self.noResultImageView.hidden = true;
+            }
+            else {
+                self.noResultLabel.hidden = false;
+                self.noResultImageView.hidden = false;
+            }
+        }
+        else {
+            if (self.nearStoresArray.count > 0) {
+                self.noResultLabel.hidden = true;
+                self.noResultImageView.hidden = true;
+            }
+            else {
+                self.noResultLabel.hidden = false;
+                self.noResultImageView.hidden = false;
+            }
+        }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -61,11 +97,13 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         if is_searching==true {
             return self.filteredStores.count+1
         } else {
             return self.nearStoresArray.count+1
         }
+        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -142,30 +180,46 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
     }
     
     @IBAction func sliderValueChanged(sender: UISlider) {
-        let distValue = Int(sender.value)
+        
+        var distValue = Int(sender.value)
         self.distance = sender.value;
-        fetchNearLocations(distValue);
+        
+        if ((distance > 0.2) && (distance < 1.0)){
+            distValue = 1;
+        }
+        
+        if (Utilities.isConnectedToNetwork() == false) {
+            self.spinner.stopAnimating()
+            self.noInternetConnectionView.hidden = false
+            self.noResultImageView.hidden = false
+            self.noResultLabel.hidden = false
+        }
+        else {
+            self.noInternetConnectionView.hidden = true
+            self.spinner.startAnimating()
+            fetchNearLocations(distValue);
+        }
+        
     }
     
     
     func fetchNearLocations(distance:Int){
+        self.filteredStores.removeAll();
+        self.nearStoresArray = NSArray();
+
         let fetcher = BOHttpfetcher()
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
-        var curLat="", curLon="";
-        if SimulatorUtility.isRunningSimulator{
-            curLat="35.793521";
-            curLon="51.438165";
-        }
-        else {
-            curLat = String(format:"%f",appDelegate.curLocationLat)
-            curLon = String(format:"%f",appDelegate.curLocationLong)
-        }
+        var loc:CLLocationCoordinate2D = CLLocationCoordinate2D.init();
+        loc = appDelegate.getUserLocation();
+        let curLat = String(format:"%f",loc.latitude)
+        let curLon = String(format:"%f",loc.longitude)
         
         fetcher.fetchStores ("all",distance:String(distance),lat:curLat,lon:curLon,areaCode:"",discount:false,completionHandler: {(result: NSArray) -> () in
             self.nearStoresArray = result
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.loadBrandsLogo()
+                self.showHideNoResult()
             })
         });
     }
@@ -178,6 +232,10 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
         var counter = 0;
         let fetcher = BOHttpfetcher()
         
+        if (self.nearStoresArray.count == 0) {
+            self.spinner.stopAnimating()
+            self.tableView.reloadData()
+        }
         
         for store in self.nearStoresArray {
             let s:StoreModel = store as! StoreModel;
@@ -190,6 +248,7 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
                 counter=counter+1;
                 if (counter == self.nearStoresArray.count){
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.spinner.stopAnimating()
                         self.sortStores()
                         self.tableView.reloadData()
                     })
@@ -210,6 +269,7 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
                         counter=counter+1;
                         if (counter == self.nearStoresArray.count){
                             dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                self.spinner.stopAnimating()
                                 self.sortStores()
                                 self.tableView.reloadData()
                             })

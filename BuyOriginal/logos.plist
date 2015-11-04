@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>missdefne</key>
+	<string>missdefne</string>
+	<key>rosaclara</key>
+	<string>rosaclara</string>
 	<key>saucony</key>
 	<string>saucony</string>
 	<key>sevenpoon</key>

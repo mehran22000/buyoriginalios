@@ -224,7 +224,7 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
     func getDayOfWeek(today:String)->() {
         
         let df  = NSDateFormatter()
-        df.calendar = NSCalendar(calendarIdentifier: NSPersianCalendar)!
+        df.calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierPersian)!
         df.dateStyle = NSDateFormatterStyle.MediumStyle;
         df.dateFormat = "yyyy/MM/dd"
         let stringDate = "1391/04/07"

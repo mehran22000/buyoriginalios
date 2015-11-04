@@ -135,6 +135,9 @@ class BOHttpfetcher: NSObject {
             // url = "http://localhost:5000/stores/storelist/storelist/city/"+areaCode;
             url = "https://buyoriginal.herokuapp.com/stores/storelist/city/"+areaCode;
             print("url: \(url)");
+            var dic:NSDictionary = NSDictionary();
+            let parser = ResponseParser()
+            
             
             let request : NSMutableURLRequest = NSMutableURLRequest()
             request.URL = NSURL(string: url)
@@ -160,30 +163,24 @@ class BOHttpfetcher: NSObject {
                     
                         let fileDestinationUrl = documentDirectoryURL.URLByAppendingPathComponent(areaCode+".txt")
                         let text = NSString(data:data!, encoding:NSUTF8StringEncoding);
+                        print(text);
                         do {
                             try text!.writeToURL(fileDestinationUrl, atomically: true, encoding: NSUTF8StringEncoding)
                         }
                         catch {
                             
                         }
-                        
-                    
-                        // Parse response
-                        let parser = ResponseParser()
+
                         let dic:NSDictionary = parser.parseStoreArray(jsonResult);
                         completionHandler(result: dic)
-                    
-                    } else {
-                        // couldn't load JSON, look at error
                     }
                 })
             }
             else {
-                // Reading data from the file
+                // Reading data from the file: first dynamic and second try static
                 
                 // var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
                 var jsonResult: NSArray!
-                
                 
                 let documentDirectoryURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
                 
@@ -197,24 +194,43 @@ class BOHttpfetcher: NSObject {
                         
                         try jsonResult = NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as? NSArray
                         // Parse response
-                        let parser = ResponseParser()
-                        let dic:NSDictionary = parser.parseStoreArray(jsonResult);
+                        dic = parser.parseStoreArray(jsonResult);
                         completionHandler(result: dic)
                         
                     }
-                    else {
-                        let dic:NSDictionary = NSDictionary();
-                        completionHandler(result: dic);
-                    }
                 }
                 catch {
-                    
+                    // .json file is not available, read the static brands json file available in the bundle
+                    let dic:NSDictionary = self.readLocalStoresInfo(areaCode)
+                    completionHandler(result: dic)
                 }
                 
             }
+            completionHandler(result: dic);
     }
     
     
+    
+    func readLocalStoresInfo (areaCode:String) -> NSDictionary {
+        do
+        {
+            let filePath = NSBundle.mainBundle().pathForResource(areaCode+"_static",ofType:"json")
+            if let jsonData:NSData = try NSData(contentsOfFile:filePath!, options:.DataReadingMappedIfSafe) {
+                let jsonResult: NSArray = try NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers) as! NSArray
+                let parser = ResponseParser()
+                let dic:NSDictionary = parser.parseStoreArray(jsonResult);
+                return dic
+            }
+        }
+        catch
+        {
+            let dic:NSDictionary = NSDictionary();
+            return dic
+        }
+        
+        let dic:NSDictionary = NSDictionary();
+        return dic
+    }
     
     
     func fetchBrandLogo (logo:String, completionHandler:(imgData:NSData!)->Void) -> () {

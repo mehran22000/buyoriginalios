@@ -1,5 +1,7 @@
 
 import UIKit
+import CoreLocation
+
 class DealsViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     @IBOutlet var tableView: UITableView!
@@ -11,6 +13,8 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
     var is_searching=false   // It's flag for searching
     var selectedRow=0;
     @IBOutlet var activityIndicatior: UIActivityIndicatorView?;
+    @IBOutlet var noResultImageView: UIImageView!
+    @IBOutlet var noResultLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -31,7 +35,8 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
         })
         */
         
-        // Do any additional setup after loading the view.
+        self.noResultImageView.hidden = true
+        self.noResultLabel.hidden = true
         
     }
     
@@ -40,10 +45,17 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
         
         self.activityIndicatior?.startAnimating()
         self.activityIndicatior?.hidesWhenStopped=true
+        self.noResultImageView.hidden = true
+        self.noResultLabel.hidden = true
+        
+        self.dealsStoresArray = NSArray()
+        self.filteredStores = [StoreModel]()
         
         if (Utilities.isConnectedToNetwork() == false) {
             self.noInternetConnectionView.hidden = false
             self.activityIndicatior?.stopAnimating();
+            self.noResultImageView.hidden = false
+            self.noResultLabel.hidden = false
         }
         else {
             self.noInternetConnectionView.hidden = true
@@ -194,6 +206,7 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
         let fetcher = BOHttpfetcher()
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
+        /*
         var curLat="", curLon="";
         if SimulatorUtility.isRunningSimulator{
             curLat="35.793521";
@@ -203,7 +216,12 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
             curLat = String(format:"%f",appDelegate.curLocationLat)
             curLon = String(format:"%f",appDelegate.curLocationLong)
         }
-
+        */
+        
+        var loc:CLLocationCoordinate2D = CLLocationCoordinate2D.init();
+        loc = appDelegate.getUserLocation();
+        let curLat = String(format:"%f",loc.latitude)
+        let curLon = String(format:"%f",loc.longitude)
         
         
         // Test Data
@@ -230,6 +248,8 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
         if (self.dealsStoresArray.count==0){
             self.activityIndicatior?.hidden=true;
             self.activityIndicatior?.stopAnimating()
+            self.noResultImageView.hidden = false
+            self.noResultLabel.hidden = false
             return;
         }
         
@@ -246,6 +266,8 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
                         self.sortStores()
                         self.activityIndicatior?.hidden=true;
                         self.activityIndicatior?.stopAnimating()
+                        self.noResultImageView.hidden = true
+                        self.noResultLabel.hidden = true
                         self.tableView.reloadData()
                     })
                 }
@@ -266,6 +288,10 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
                         if (counter == self.dealsStoresArray.count){
                             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                                 self.sortStores()
+                                self.activityIndicatior?.hidden=true;
+                                self.activityIndicatior?.stopAnimating()
+                                self.noResultImageView.hidden = false
+                                self.noResultLabel.hidden = false
                                 self.tableView.reloadData()
                             })
                         }

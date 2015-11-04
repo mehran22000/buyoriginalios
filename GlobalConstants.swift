@@ -42,4 +42,15 @@ struct GlobalConstants {
     static let STORES_SCREEN_MODE_SEARCH = 1;
     static let STORES_SCREEN_MODE_DISCOUNT = 2;
     
+    enum CITIES {
+        case Tehran
+        case Isfahan
+        case Kish
+        case Shiraz
+        case Mashhad
+        case Tabriz
+        case Karaj
+        case None
+    }
+    
 }

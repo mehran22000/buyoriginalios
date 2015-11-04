@@ -56,7 +56,7 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
+     
     }
 
     
@@ -367,7 +367,9 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
             if let destinationVC = segue.destinationViewController as? BrandViewController{
                 destinationVC.areaCode = self.areaCode
                 destinationVC.screenMode=self.screenMode
-                self.navigationItem.leftBarButtonItem?.title="";
+                
+             //   self.navigationItem.leftBarButtonItem?.title="";
+                
                 destinationVC.account = self.account
                 destinationVC.selectedCategoryNameFa = self.selectedCategory;
                 destinationVC.brandsArray =  self.categoryBrands[self.selectedCategory]!;

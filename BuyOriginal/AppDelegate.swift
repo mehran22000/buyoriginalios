@@ -20,7 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     var myLocations: [CLLocation] = []
     var curLocationLat: Double!
     var curLocationLong: Double!
-
+    // ToDo: Read current city from user settings
+    var cities = [CityModel]();
+    
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -43,6 +45,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         
         // Flurry
         Flurry.startSession("QGNJ37JTCSSMS9Z6D5TK");
+        Flurry.setCrashReportingEnabled(true)
+        
+        initCities();
         
         return true
     }
@@ -138,11 +143,114 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     }
     */
     
+    // ToDo: Add logic for iOS 7
+    func getUserLocation() -> CLLocationCoordinate2D {
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        var currentCityStr = defaults.objectForKey("currentCity") as? String;
+        if (currentCityStr == nil){
+            currentCityStr = "Tehran";
+        }
+        
+        // ToDo: Find iOS7 device and check the location. Till that it returans city center location
+        
+        if SimulatorUtility.isRunningSimulator{
+            return getCityCenterLocation(currentCityStr);
+        }
+        
+        if #available(iOS 8.0, *) {
+            if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse) {
+                return manager.location!.coordinate;
+            }
+            else {
+                return getCityCenterLocation(currentCityStr);
+            }
+        } else {
+            return getCityCenterLocation(currentCityStr);
+        }
+        
+    }
+    
+    
+    func getCityCenterLocation(currentCityStr:String?) -> CLLocationCoordinate2D {
+        
+        let currentCity = CityModel.getCityConstantValue(currentCityStr!);
+        
+        switch (currentCity){
+        case GlobalConstants.CITIES.Tehran:
+            return self.cities[0].centerLocation;
+        case GlobalConstants.CITIES.Isfahan:
+            return self.cities[1].centerLocation;
+        case GlobalConstants.CITIES.Kish:
+            return self.cities[2].centerLocation;
+        case GlobalConstants.CITIES.Shiraz:
+            return self.cities[3].centerLocation;
+        case GlobalConstants.CITIES.Mashhad:
+            return self.cities[4].centerLocation;
+        case GlobalConstants.CITIES.Tabriz:
+            return self.cities[5].centerLocation;
+        case GlobalConstants.CITIES.Karaj:
+            return self.cities[6].centerLocation;
+        case GlobalConstants.CITIES.None:
+            return self.cities[0].centerLocation;
+        }
+        
+    }
+    
+    
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         self.curLocationLat = locValue.latitude
         self.curLocationLong = locValue.longitude
         print("locations = \(locValue.latitude) \(locValue.longitude)")
+    }
+    
+        
+    func initCities() {
+        var loc:CLLocationCoordinate2D = CLLocationCoordinate2D.init();
+        
+        //  Tehran
+        loc.latitude = 35.760285
+        loc.longitude = 51.431558
+        var c = CityModel(cityName: "Tehran", areaCode: "021", cityNameFa: "تهران", imageName: "tehran", centerLoc: loc);
+        self.cities+=[c];
+        
+        // Isfahan
+        loc.latitude = 32.654627
+        loc.longitude = 51.667983
+        c = CityModel(cityName: "Isfahan", areaCode: "031", cityNameFa: "اصفهان", imageName: "isfahan", centerLoc: loc);
+        self.cities+=[c];
+        
+        // Kish
+        loc.latitude = 26.543289
+        loc.longitude = 53.999226
+        c = CityModel(cityName: "Kish", areaCode: "076", cityNameFa: "کیش", imageName: "kish",centerLoc: loc);
+        self.cities+=[c];
+        
+        // Shiraz
+        loc.latitude = 29.591768
+        loc.longitude = 52.583698
+        c = CityModel(cityName: "Shiraz", areaCode: "071", cityNameFa: "شیراز", imageName: "shiraz",centerLoc: loc);
+        self.cities+=[c];
+        
+        // Mashhad
+        loc.latitude = 36.260462
+        loc.longitude = 59.616755
+        c = CityModel(cityName: "Mashhad", areaCode: "051", cityNameFa: "مشهد", imageName: "mashhad",centerLoc: loc);
+        self.cities+=[c];
+        
+        // Tabriz
+        loc.latitude = 38.078940
+        loc.longitude = 46.296548
+        c = CityModel(cityName: "Tabriz", areaCode: "041", cityNameFa: "تبریز", imageName: "tabriz",centerLoc: loc);
+        self.cities+=[c];
+        
+        // Karaj
+        loc.latitude = 35.840019
+        loc.longitude = 50.939091
+        c = CityModel(cityName: "Karaj", areaCode: "026", cityNameFa: "کرج", imageName: "karaj",centerLoc: loc);
+        self.cities+=[c];
+            
     }
 }
 
