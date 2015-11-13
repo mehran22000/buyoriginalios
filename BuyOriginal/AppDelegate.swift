@@ -202,7 +202,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         self.curLocationLat = locValue.latitude
         self.curLocationLong = locValue.longitude
-        print("locations = \(locValue.latitude) \(locValue.longitude)")
+        // print("locations = \(locValue.latitude) \(locValue.longitude)")
     }
     
         
@@ -210,8 +210,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         var loc:CLLocationCoordinate2D = CLLocationCoordinate2D.init();
         
         //  Tehran
-        loc.latitude = 35.760285
-        loc.longitude = 51.431558
+        loc.latitude = 32.629198
+        loc.longitude = 51.684084
         var c = CityModel(cityName: "Tehran", areaCode: "021", cityNameFa: "تهران", imageName: "tehran", centerLoc: loc);
         self.cities+=[c];
         

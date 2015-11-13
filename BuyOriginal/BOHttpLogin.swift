@@ -18,7 +18,7 @@ class BOHttpLogin: NSObject {
         request.HTTPMethod = "POST"
         
         let bodyData = "email="+(email as String)+"&password="+(password as String);
-        print(bodyData);
+        // print(bodyData);
         request.HTTPBody = bodyData.dataUsingEncoding(NSUTF8StringEncoding);
         
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()){
@@ -51,7 +51,7 @@ class BOHttpLogin: NSObject {
                 
           let url = "https://buyoriginal.herokuapp.com/users/business/forgetpassword/"+email;
     //    let url = "http://localhost:5000/users/business/forgetpassword/"+email;
-                print("url: \(url)");
+              //  print("url: \(url)");
                 
                 let request : NSMutableURLRequest = NSMutableURLRequest()
                 request.URL = NSURL(string: url)
@@ -85,7 +85,7 @@ class BOHttpLogin: NSObject {
             
             let url = "https://buyoriginal.herokuapp.com/users/business/validateemail/"+email;
             // let url = "http://localhost:5000/users/business/validateemail/"+email;
-            print("url: \(url)");
+            // print("url: \(url)");
             
             let request : NSMutableURLRequest = NSMutableURLRequest()
             request.URL = NSURL(string: url)
@@ -119,7 +119,7 @@ class BOHttpLogin: NSObject {
             let url = "https://buyoriginal.herokuapp.com/users/business/deleteuser/"+email!+"/"+sid!;
         //    let url = "http://localhost:5000/users/business/deleteuser/"+email!+"/"+sid!;
             
-            print("url: \(url)");
+            // print("url: \(url)");
             
             let request : NSMutableURLRequest = NSMutableURLRequest()
             request.URL = NSURL(string: url)

@@ -168,7 +168,7 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
             is_searching = false
             tableView.reloadData()
         } else {
-            print(" search text %@ ",searchBar.text! as NSString)
+            // print(" search text %@ ",searchBar.text! as NSString)
             is_searching = true
             self.filteredBrands.removeAll(keepCapacity: false)
             for var index = 0; index < self.brandsArray.count; index++
@@ -185,7 +185,7 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print("You selected cell #\(indexPath.row)!")
+        // print("You selected cell #\(indexPath.row)!")
         
         var selectedBrand = BrandModel();
         
@@ -225,7 +225,7 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        print (segue.identifier)
+       // print (segue.identifier)
         
         if segue.identifier == "ShowStoresSegue"
         {

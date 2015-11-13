@@ -59,7 +59,7 @@ class BOHttpfetcher: NSObject {
         else {
                 url = "https://buyoriginal.herokuapp.com/stores/storelist/city/"+areaCode+"/"+brandId;
         }
-        print("url: \(url)");
+        // print("url: \(url)");
                         
         let request : NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)
@@ -96,7 +96,7 @@ class BOHttpfetcher: NSObject {
             var url : String;
            // url = "http://localhost:5000/stores/storelist/city/"+areaCode;
             url = "https://buyoriginal.herokuapp.com/stores/storelist/city/"+areaCode;
-            print("url: \(url)");
+            // print("url: \(url)");
             
             let request : NSMutableURLRequest = NSMutableURLRequest()
             request.URL = NSURL(string: url)
@@ -127,14 +127,13 @@ class BOHttpfetcher: NSObject {
     }
     
     
-    
     func fetchCityCategories (areaCode:String,
         completionHandler:(result: NSDictionary)->Void) -> () {
             
             var url : String;
             // url = "http://localhost:5000/stores/storelist/storelist/city/"+areaCode;
             url = "https://buyoriginal.herokuapp.com/stores/storelist/city/"+areaCode;
-            print("url: \(url)");
+            // print("url: \(url)");
             var dic:NSDictionary = NSDictionary();
             let parser = ResponseParser()
             
@@ -163,7 +162,7 @@ class BOHttpfetcher: NSObject {
                     
                         let fileDestinationUrl = documentDirectoryURL.URLByAppendingPathComponent(areaCode+".txt")
                         let text = NSString(data:data!, encoding:NSUTF8StringEncoding);
-                        print(text);
+                        // print(text);
                         do {
                             try text!.writeToURL(fileDestinationUrl, atomically: true, encoding: NSUTF8StringEncoding)
                         }
@@ -206,7 +205,7 @@ class BOHttpfetcher: NSObject {
                 }
                 
             }
-            completionHandler(result: dic);
+         //   completionHandler(result: dic);
     }
     
     

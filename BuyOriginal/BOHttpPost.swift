@@ -32,7 +32,7 @@ class BOHttpPost: NSObject {
         else {
             bodyData = "buEmail="+(account.uEmail as String)+"&buPassword="+(account.uPassword as String)+"&buCityName="+(account.sCity.cityName as String)+"&buCityNameFa="+(account.sCity.cityNameFa as String)+"&buBrandId="+(account.brand.bId as String)+"&buBrandName="+(account.brand.bName as String)+"&buBrandCategory="+(account.brand.bCategory as String)+"&buStoreName="+(account.store.sName as String)+"&buStoreAddress="+(account.store.sAddress as String)+"&buStoreHours="+(account.store.sHours as String)+"&buDistributor="+(account.store.bDistributor as String)+"&buStoreLat="+(account.store.sLat as String)+"&buStoreLon="+(account.store.sLong as String)+"&buAreaCode="+(account.sCity.areaCode as String)+"&buTel="+(account.store.sTel1 as String)+"&buBrandLogoName="+(account.brand.bLogo as String);
         }
-        print(bodyData);
+        // print(bodyData);
         request.HTTPBody = bodyData.dataUsingEncoding(NSUTF8StringEncoding);
         
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()){
@@ -81,7 +81,7 @@ class BOHttpPost: NSObject {
         
         let bodyData = "bId="+(account.store.bId as String)+"&sId="+(account.store.sId as String)+"&startDate="+(discount.startDateStr as String)+"&endDate="+(discount.endDateStr as String)+"&startDateFa="+(discount.startDateStrFa as String)+"&endDateFa="+(discount.endDateStrFa as String)+"&precentage="+(discount.precentage as String)+"&note="+(discount.note as String);
         
-        print(bodyData);
+        // print(bodyData);
         request.HTTPBody = bodyData.dataUsingEncoding(NSUTF8StringEncoding);
         
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()){
@@ -122,7 +122,7 @@ class BOHttpPost: NSObject {
     
         let bodyData = "bId="+bId+"&sId="+sId;
         
-        print(bodyData);
+        // print(bodyData);
         request.HTTPBody = bodyData.dataUsingEncoding(NSUTF8StringEncoding);
         
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()){
