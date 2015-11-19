@@ -26,6 +26,9 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
     var selectedCategoryNameFa:String="";
     var delegate: BuBrandDelegate?;
     
+    @IBOutlet var activityIndicatior: UIActivityIndicatorView?;
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -65,8 +68,15 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
     }
 
     override func viewWillAppear(animated: Bool) {
+        
+        self.activityIndicatior?.hidden=true;
+
         if ((self.screenMode == GlobalConstants.BRANDS_SCREEN_MODE_CHANGE) ||
             (self.screenMode == GlobalConstants.BRANDS_SCREEN_MODE_SIGNUP)) {
+                
+                self.activityIndicatior?.hidden=false;
+                self.activityIndicatior?.hidesWhenStopped=true;
+                self.activityIndicatior?.startAnimating();
                 
                 /*
                 DataManager.getTopAppsDataFromFileWithSuccess ("Brands",success: {(data) -> Void in
@@ -75,7 +85,6 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
                 self.brandsArray = parser.parseBrandJson(resstr)
                 self.tableView.reloadData()
                 */
-                
                 
                 let fetcher = BOHttpfetcher()
                 fetcher.fetchBrands({ (result) -> Void in
@@ -268,6 +277,7 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
                 counter=counter+1;
                 if (counter == self.brandsArray.count){
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.activityIndicatior?.stopAnimating()
                         self.tableView.reloadData()
                     })
                 }
@@ -289,6 +299,7 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
                         counter=counter+1;
                         if (counter == self.brandsArray.count){
                             dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                self.activityIndicatior?.stopAnimating()
                                 self.tableView.reloadData()
                             })
                         }

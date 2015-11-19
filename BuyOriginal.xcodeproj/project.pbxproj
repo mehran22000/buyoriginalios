@@ -60,6 +60,7 @@
 		02662BF21B02FF1B00093D7D /* 021_static.json in Resources */ = {isa = PBXBuildFile; fileRef = 02662BF11B02FF1B00093D7D /* 021_static.json */; };
 		02662BF41B03004F00093D7D /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02662BF31B03004F00093D7D /* Store.swift */; };
 		026B1EB61BCF4B5C004C11FC /* Brands3.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 026B1EB51BCF4B5C004C11FC /* Brands3.xcassets */; };
+		028154811BFA9D950008E0DB /* Brands5.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 028154801BFA9D950008E0DB /* Brands5.xcassets */; };
 		02900A4D1BD8432300045037 /* Brand4.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02900A4C1BD8432300045037 /* Brand4.xcassets */; };
 		0292219A1BA2651B006CBC2B /* SimulatorUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029221991BA2651B006CBC2B /* SimulatorUtility.swift */; };
 		0292219C1BA28471006CBC2B /* BOStoresDiscountNoteTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0292219B1BA28471006CBC2B /* BOStoresDiscountNoteTableCell.swift */; };
@@ -170,6 +171,7 @@
 		02662BF11B02FF1B00093D7D /* 021_static.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 021_static.json; sourceTree = "<group>"; };
 		02662BF31B03004F00093D7D /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		026B1EB51BCF4B5C004C11FC /* Brands3.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Brands3.xcassets; sourceTree = "<group>"; };
+		028154801BFA9D950008E0DB /* Brands5.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Brands5.xcassets; sourceTree = "<group>"; };
 		02900A4C1BD8432300045037 /* Brand4.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Brand4.xcassets; sourceTree = "<group>"; };
 		029221991BA2651B006CBC2B /* SimulatorUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimulatorUtility.swift; sourceTree = "<group>"; };
 		0292219B1BA28471006CBC2B /* BOStoresDiscountNoteTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BOStoresDiscountNoteTableCell.swift; sourceTree = "<group>"; };
@@ -525,6 +527,7 @@
 				02039A831BADEA7500647FE7 /* Brands2.xcassets */,
 				026B1EB51BCF4B5C004C11FC /* Brands3.xcassets */,
 				02900A4C1BD8432300045037 /* Brand4.xcassets */,
+				028154801BFA9D950008E0DB /* Brands5.xcassets */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -623,6 +626,7 @@
 				02FB4DE71AF7A47900884750 /* LaunchScreen.xib in Resources */,
 				02039A841BADEA7500647FE7 /* Brands2.xcassets in Resources */,
 				022F88841BE9B4FE00A09DF4 /* 041_static.json in Resources */,
+				028154811BFA9D950008E0DB /* Brands5.xcassets in Resources */,
 				02D4ADF31B0D3717006ED90F /* Icons.xcassets in Resources */,
 				022E155E1BC7524B00732ECA /* 076_static.json in Resources */,
 				02ED15941B366C7000A08215 /* logos.plist in Resources */,
