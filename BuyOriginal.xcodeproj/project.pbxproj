@@ -259,6 +259,7 @@
 				02C99C1A1B8E68AD00F8DA23 /* Protocols */,
 				022A95D31B54BF440091659B /* BussinssProfileController.swift */,
 				02EA3EED1B4E148900ECE384 /* DiscountViewController.swift */,
+				02C9BD0B1B054C3D000C6FA6 /* DealsViewController.swift */,
 			);
 			name = BusinesProfile;
 			sourceTree = "<group>";
@@ -315,7 +316,6 @@
 				02ED158F1B351E5B00A08215 /* CategoriesViewController.swift */,
 				02FB4DDE1AF7A47900884750 /* BrandViewController.swift */,
 				02C9BD091B054C09000C6FA6 /* NearMeViewController.swift */,
-				02C9BD0B1B054C3D000C6FA6 /* DealsViewController.swift */,
 				02293BD91B23D15200D77387 /* LocationViewController.swift */,
 				02ED15951B36810300A08215 /* TabBarController.swift */,
 				024056941B51A44200612263 /* LoginViewController.swift */,

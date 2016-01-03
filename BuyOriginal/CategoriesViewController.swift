@@ -73,6 +73,7 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
                 self.brandsArray = result.objectForKey("brands") as! NSArray;
                 self.categoryBrands = result.objectForKey("catBrands") as! Dictionary;
                 self.brandStores = result.objectForKey("brandStores") as! Dictionary;
+                
                 self.categoriesArray = Array(self.categoryBrands.keys);
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     self.loadBrandsLogo()
@@ -125,8 +126,8 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
         var counter = 0;
         let fetcher = BOHttpfetcher()
         
-        
         for brand in self.brandsArray {
+            
             let b:BrandModel = brand as! BrandModel;
             if ((dict?.valueForKey(b.bLogo)) != nil){
                 // Load available logos
@@ -373,6 +374,7 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
                 destinationVC.account = self.account
                 destinationVC.selectedCategoryNameFa = self.selectedCategory;
                 destinationVC.brandsArray =  self.categoryBrands[self.selectedCategory]!;
+                destinationVC.brandStores = self.brandStores;
             }
         }
         

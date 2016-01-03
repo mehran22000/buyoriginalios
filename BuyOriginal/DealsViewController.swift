@@ -59,17 +59,11 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
         }
         else {
             self.noInternetConnectionView.hidden = true
-            fetchDeals(10);
+            fetchDeals(100);
         }
     
         
     }
-    
-    
-    @IBAction func noteContinueBtnPressed () {
-  
-    }
-
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -137,7 +131,6 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
         else {
             cell.noteLabel.text="";
             cell.announcementImageView.hidden = true;
-            cell.noteContinueBtn.hidden = true;
         }
 
         

@@ -43,9 +43,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         GAI.sharedInstance().logger.logLevel = GAILogLevel.Verbose
         GAI.sharedInstance().trackerWithTrackingId("UA-64002918-1")
         
+        
         // Flurry
-        Flurry.startSession("QGNJ37JTCSSMS9Z6D5TK");
         Flurry.setCrashReportingEnabled(true)
+        Flurry.startSession("QGNJ37JTCSSMS9Z6D5TK");
         
         initCities();
         

@@ -105,8 +105,8 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
             let cell:BOStoresDiscountNoteTableCell = self.tableView.dequeueReusableCellWithIdentifier("cellDiscountNote") as! BOStoresDiscountNoteTableCell
             
             cell.noteLabel.text = store.sDiscountNote;
-            cell.noteLabel.numberOfLines=0;
-            cell.noteLabel.sizeToFit()
+            cell.noteLabel.numberOfLines=4;
+            // cell.noteLabel.sizeToFit()
             
             return cell;
         }

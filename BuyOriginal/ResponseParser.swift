@@ -263,6 +263,7 @@ class ResponseParser: NSObject {
                 discount.endDateStr=elem["dEndDate"] as? String
                 discount.startDateStrFa=elem["dStartDateFa"] as? String
                 discount.endDateStrFa=elem["dEndDateFa"] as? String
+                // ToDo: Change this to ?
                 let dPrec:Double? = elem["dPrecentage"] as! Double?;
                 if (dPrec != nil) {
                     discount.precentage = String(format:"%.0f", dPrec!);

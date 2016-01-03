@@ -15,6 +15,7 @@ class BOHttpfetcher: NSObject {
         let request : NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)
         request.HTTPMethod = "GET"
+        request.addValue(GlobalConstants.serverToken, forHTTPHeaderField: "token");
         
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse?, data: NSData?, error: NSError?) -> Void in
             var jsonResult: NSArray!
@@ -59,11 +60,12 @@ class BOHttpfetcher: NSObject {
         else {
                 url = "https://buyoriginal.herokuapp.com/stores/storelist/city/"+areaCode+"/"+brandId;
         }
-        // print("url: \(url)");
+        print("url: \(url)");
                         
         let request : NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)
         request.HTTPMethod = "GET"
+        request.addValue(GlobalConstants.serverToken, forHTTPHeaderField: "token");
         
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse?, data: NSData?, error: NSError?) -> Void in
           //  var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
@@ -101,6 +103,7 @@ class BOHttpfetcher: NSObject {
             let request : NSMutableURLRequest = NSMutableURLRequest()
             request.URL = NSURL(string: url)
             request.HTTPMethod = "GET"
+            request.addValue(GlobalConstants.serverToken, forHTTPHeaderField: "token");
             
             NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse?, data: NSData?, error: NSError?) -> Void in
                // var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
@@ -131,7 +134,7 @@ class BOHttpfetcher: NSObject {
         completionHandler:(result: NSDictionary)->Void) -> () {
             
             var url : String;
-            // url = "http://localhost:5000/stores/storelist/storelist/city/"+areaCode;
+            // url = "http://localhost:5000/services/stores/storelist/city/"+areaCode;
             url = "https://buyoriginal.herokuapp.com/stores/storelist/city/"+areaCode;
             // print("url: \(url)");
             var dic:NSDictionary = NSDictionary();
@@ -141,6 +144,7 @@ class BOHttpfetcher: NSObject {
             let request : NSMutableURLRequest = NSMutableURLRequest()
             request.URL = NSURL(string: url)
             request.HTTPMethod = "GET"
+            request.addValue(GlobalConstants.serverToken, forHTTPHeaderField: "token");
             
             if (Utilities.isConnectedToNetwork()){
                 NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse?, data: NSData?, error: NSError?) -> Void in
@@ -237,6 +241,7 @@ class BOHttpfetcher: NSObject {
         let logoUrl : String = "https://buyoriginal.herokuapp.com/images/logos/"+logo+".jpg";
     //    println("logoUrl: \(logoUrl)");
         
+        print(logoUrl);
         if let url = NSURL(string: logoUrl) {
             let imageDataFromURL = NSData(contentsOfURL: url)
             if ((imageDataFromURL) != nil){

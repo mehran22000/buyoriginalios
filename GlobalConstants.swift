@@ -53,4 +53,6 @@ struct GlobalConstants {
         case None
     }
     
+    static let serverToken = "YnV5b3JpZ2luYWxicmFuZHNieWFzbGJla2hhcg=="
+    
 }

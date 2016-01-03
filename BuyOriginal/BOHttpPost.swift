@@ -24,6 +24,7 @@ class BOHttpPost: NSObject {
         let request : NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)
         request.HTTPMethod = "POST"
+        request.addValue(GlobalConstants.serverToken, forHTTPHeaderField: "token");
     
         var bodyData = "";
         if (update == true) {
@@ -69,6 +70,7 @@ class BOHttpPost: NSObject {
         let request : NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)
         request.HTTPMethod = "POST"
+        request.addValue(GlobalConstants.serverToken, forHTTPHeaderField: "token");
         
         if (discount.note.isEmpty==true){
             discount.note = "";
@@ -119,6 +121,7 @@ class BOHttpPost: NSObject {
         let request : NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)
         request.HTTPMethod = "POST"
+        request.addValue(GlobalConstants.serverToken, forHTTPHeaderField: "token");
     
         let bodyData = "bId="+bId+"&sId="+sId;
         

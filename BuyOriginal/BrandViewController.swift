@@ -16,6 +16,7 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
     
     @IBOutlet var tableView: UITableView!
     var brandsArray = NSArray()
+    var brandStores = [String:[StoreModel]]();
     var filteredBrands = [BrandModel]()
     var brands = kDemoBrands
     var brandId="0"
@@ -25,6 +26,8 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
     var account:AccountModel!;
     var selectedCategoryNameFa:String="";
     var delegate: BuBrandDelegate?;
+    
+    var selectedBrandStoresArray = NSArray()
     
     @IBOutlet var activityIndicatior: UIActivityIndicatorView?;
     
@@ -204,11 +207,9 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
             selectedBrand = self.brandsArray[indexPath.row] as! BrandModel
         }
         
+        self.selectedBrandStoresArray = self.brandStores[selectedBrand.bName]!;
         
-        
-        
-        self.brandId=selectedBrand.bId;
-        
+    
         if ((self.account) != nil){
             self.account.brand=selectedBrand;
         }
@@ -241,6 +242,8 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
             if let destinationVC = segue.destinationViewController as? StoreViewController{
                 destinationVC.brandId = self.brandId
                 destinationVC.areaCode = self.areaCode
+                destinationVC.storesArray = self.selectedBrandStoresArray;
+                // Extrct stores for this brand from brandStores array 
             }
         }
         

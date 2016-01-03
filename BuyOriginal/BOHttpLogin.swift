@@ -16,6 +16,7 @@ class BOHttpLogin: NSObject {
         let request : NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)
         request.HTTPMethod = "POST"
+        request.addValue(GlobalConstants.serverToken, forHTTPHeaderField: "token");
         
         let bodyData = "email="+(email as String)+"&password="+(password as String);
         // print(bodyData);
@@ -56,6 +57,7 @@ class BOHttpLogin: NSObject {
                 let request : NSMutableURLRequest = NSMutableURLRequest()
                 request.URL = NSURL(string: url)
                 request.HTTPMethod = "GET"
+                request.addValue(GlobalConstants.serverToken, forHTTPHeaderField: "token");
                 
                 NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse?, data: NSData?, error: NSError?) -> Void in
                  //   var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
@@ -90,6 +92,7 @@ class BOHttpLogin: NSObject {
             let request : NSMutableURLRequest = NSMutableURLRequest()
             request.URL = NSURL(string: url)
             request.HTTPMethod = "GET"
+            request.addValue(GlobalConstants.serverToken, forHTTPHeaderField: "token");
             
             NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse?, data: NSData?, error: NSError?) -> Void in
              //   var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
@@ -124,6 +127,7 @@ class BOHttpLogin: NSObject {
             let request : NSMutableURLRequest = NSMutableURLRequest()
             request.URL = NSURL(string: url)
             request.HTTPMethod = "GET"
+            request.addValue(GlobalConstants.serverToken, forHTTPHeaderField: "token");
             
             NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse?, data: NSData?, error: NSError?) -> Void in
       //          var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
