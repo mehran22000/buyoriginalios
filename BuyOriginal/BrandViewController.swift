@@ -15,6 +15,8 @@ let kDemoBrands:String="[{\"id\":\"1\",\"name\":\"L'Oreal\",\"category\":\"آر�
 class BrandViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate{
     
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var adImgView: UIImageView!
+
     var brandsArray = NSArray()
     var brandStores = [String:[StoreModel]]();
     var filteredBrands = [BrandModel]()
@@ -29,13 +31,15 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
     
     var selectedBrandStoresArray = NSArray()
     
+    var adTimer = NSTimer();
     @IBOutlet var activityIndicatior: UIActivityIndicatorView?;
-    
+    @IBOutlet var adActivityIndicatior: UIActivityIndicatorView?;
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+
+        self.adExists();
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
         switch (self.screenMode){
@@ -65,7 +69,7 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
         
         // GA
         let tracker:GAITracker = GAI.sharedInstance().defaultTracker as GAITracker
-        tracker.set(kGAIScreenName, value:"Home Screen")
+        tracker.set(kGAIScreenName, value:"BrandViewController")
         let build = GAIDictionaryBuilder.createScreenView().build() as [NSObject : AnyObject]
         tracker.send(build)
     }
@@ -73,6 +77,7 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
     override func viewWillAppear(animated: Bool) {
         
         self.activityIndicatior?.hidden=true;
+        self.adActivityIndicatior?.hidesWhenStopped=true;
 
         if ((self.screenMode == GlobalConstants.BRANDS_SCREEN_MODE_CHANGE) ||
             (self.screenMode == GlobalConstants.BRANDS_SCREEN_MODE_SIGNUP)) {
@@ -312,6 +317,41 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
         }
     }
 
+    func adExists() {
+        
+        let cat=CategoryModel();
+        let catName = cat.getCatEnName(self.selectedCategoryNameFa);
+        
+        if (catName != nil){
+            let url = "https://buyoriginal.herokuapp.com/images/ads/ad."+areaCode+"."+catName!+".png";
+            let nsurl = NSURL(string: url);
+            let req = NSMutableURLRequest(URL: nsurl!)
+            req.HTTPMethod = "HEAD"
+            req.timeoutInterval = 0.5 // Adjust to your needs
+            print (url);
+            self.adActivityIndicatior?.startAnimating();
+            NSURLConnection.sendAsynchronousRequest(req, queue: NSOperationQueue.mainQueue()) { (response: NSURLResponse?, data: NSData?, error: NSError?) in
+                if ((response as? NSHTTPURLResponse)?.statusCode ?? -1) == 200 {
+                    print("Ad found");
+                    if let data = NSData(contentsOfURL: nsurl!) {
+                        self.adImgView.image = UIImage(data: data)
+                        self.adImgView.hidden = false;
+                        self.adTimer = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "hideAd", userInfo: nil, repeats: true);
+                    }
+                }
+                else {
+                   print("Ad not found"); 
+                }
+            }
+        }
+        else {
+            print("catName not found");
+        }
+    }
+    func hideAd() {
+        self.adImgView.hidden = true;
+        self.adActivityIndicatior?.stopAnimating();
+    }
     
     
     

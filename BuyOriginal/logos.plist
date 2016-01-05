@@ -54,6 +54,8 @@
 	<string>zarrinporcelan</string>
 	<key>zartab</key>
 	<string>zartab</string>
+	<key>zartabjewelry</key>
+	<string>zartab</string>
 	<key>zeiss</key>
 	<string>zeiss</string>
 	<key>missdefne</key>
@@ -126,8 +128,8 @@
 	<string>parmis</string>
 	<key>payot</key>
 	<string>payot</string>
-	<key>partiehmozaffarian</key>
-	<string>partiehmozaffarian</string>
+	<key>mozaffarian</key>
+	<string>mozaffarian</string>
 	<key>peak</key>
 	<string>peak</string>
 	<key>phyto</key>
@@ -147,6 +149,8 @@
 	<key>sajiran</key>
 	<string>sajiran</string>
 	<key>sameni</key>
+	<string>sameni</string>
+	<key>samenigold</key>
 	<string>sameni</string>
 	<key>sandoz</key>
 	<string>sandoz</string>

@@ -12,6 +12,7 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var noInternetConnectionView: UIView!
+    @IBOutlet var adImgView: UIImageView!
     
     var selectedCategory:String="";
     var brandsArray = NSArray()
@@ -23,17 +24,20 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
     var screenMode=1;
     var account:AccountModel!;
     var areaCode:String="";
+    var adTimer = NSTimer();
 
     @IBOutlet var activityIndicatior: UIActivityIndicatorView?;
+    @IBOutlet var adActivityIndicatior: UIActivityIndicatorView?;
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.adExists();
+        
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
-        
         
         switch (self.screenMode){
             case GlobalConstants.CATEGORIES_SCREEN_MODE_SEARCH:
@@ -56,7 +60,6 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-     
     }
 
     
@@ -65,6 +68,8 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
         
         self.activityIndicatior?.hidden=false;
         self.activityIndicatior?.hidesWhenStopped=true;
+        self.adActivityIndicatior?.hidden=false;
+        self.adActivityIndicatior?.hidesWhenStopped=true;
         self.activityIndicatior?.startAnimating();
         
         fetcher.fetchCityCategories (self.areaCode, completionHandler:{ (result: NSDictionary) -> () in
@@ -260,12 +265,13 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
         
         cell.categoryNameLabel.text = category;
         
-        
+        /*
         let cat=CategoryModel();
         let iconName = cat.getIconName(category);
         if (iconName != nil){
       //      cell.categoryImageView.image = UIImage(named:iconName! as String);
         }
+        */
         
         loadCategoriesLogo(cell,cat: category);
         
@@ -383,5 +389,33 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
     @IBAction func backPressed () {
         self.navigationController?.popViewControllerAnimated(true);
     }
-
+    
+    func adExists() {
+        
+        let url = "https://buyoriginal.herokuapp.com/images/ads/ad."+areaCode+".png";
+        let nsurl = NSURL(string: url);
+        let req = NSMutableURLRequest(URL: nsurl!)
+        req.HTTPMethod = "HEAD"
+        req.timeoutInterval = 0.5 // Adjust to your needs
+        print (url);
+        self.adActivityIndicatior?.startAnimating();
+        NSURLConnection.sendAsynchronousRequest(req, queue: NSOperationQueue.mainQueue()) { (response: NSURLResponse?, data: NSData?, error: NSError?) in
+            if ((response as? NSHTTPURLResponse)?.statusCode ?? -1) == 200 {
+                print("Ad found");
+                    if let data = NSData(contentsOfURL: nsurl!) {
+                        self.adImgView.image = UIImage(data: data)
+                        self.adImgView.hidden = false;
+                        self.adTimer = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "hideAd", userInfo: nil, repeats: true);
+                }
+            }
+            else {
+                self.hideAd();
+            }
+        }
+    }
+    func hideAd() {
+        self.adImgView.hidden = true;
+        self.adActivityIndicatior?.stopAnimating();
+    }
 }
+
