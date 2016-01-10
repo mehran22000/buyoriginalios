@@ -211,15 +211,13 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
         } else {
             selectedBrand = self.brandsArray[indexPath.row] as! BrandModel
         }
-        
-        self.selectedBrandStoresArray = self.brandStores[selectedBrand.bName]!;
-        
     
         if ((self.account) != nil){
             self.account.brand=selectedBrand;
         }
         
         if (self.screenMode==GlobalConstants.BRANDS_SCREEN_MODE_SEARCH){
+            self.selectedBrandStoresArray = self.brandStores[selectedBrand.bName]!;
             performSegueWithIdentifier("ShowStoresSegue", sender: nil);
         }
         else if (self.screenMode==GlobalConstants.BRANDS_SCREEN_MODE_SIGNUP){
@@ -340,11 +338,13 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
                     }
                 }
                 else {
-                   print("Ad not found"); 
+                   print("Ad not found");
+                   self.hideAd();
                 }
             }
         }
         else {
+            self.hideAd();
             print("catName not found");
         }
     }

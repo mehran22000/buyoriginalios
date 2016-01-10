@@ -25,6 +25,8 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
     var account:AccountModel!;
     var areaCode:String="";
     var adTimer = NSTimer();
+    var fetchComplete = false;
+    var adComplete = false;
 
     @IBOutlet var activityIndicatior: UIActivityIndicatorView?;
     @IBOutlet var adActivityIndicatior: UIActivityIndicatorView?;
@@ -71,6 +73,7 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
         self.adActivityIndicatior?.hidden=false;
         self.adActivityIndicatior?.hidesWhenStopped=true;
         self.activityIndicatior?.startAnimating();
+        self.fetchComplete = false;
         
         fetcher.fetchCityCategories (self.areaCode, completionHandler:{ (result: NSDictionary) -> () in
             
@@ -144,6 +147,8 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
                 if (counter == self.brandsArray.count){
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         self.activityIndicatior?.stopAnimating()
+                        self.fetchComplete = true;
+                        self.hideAd();
                         self.tableView.reloadData()
                     })
                 }
@@ -165,6 +170,8 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
                         if (counter == self.brandsArray.count){
                             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                                 self.activityIndicatior?.stopAnimating()
+                                self.fetchComplete = true;
+                                self.hideAd();
                                 self.tableView.reloadData()
                             })
                         }
@@ -182,64 +189,80 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
         let brandNo = catbrandsArray!.count;
         
         let brand = catbrandsArray![0] as BrandModel;
+        
         cell.logo1ImageView.image = brand.bLogoImage;
         cell.logo1ImageView.layer.borderColor = UIColor.blackColor().CGColor
         cell.logo1ImageView.layer.borderWidth = 0.5
         
         
-        if (brandNo>2){
+        cell.logo2ImageView.hidden = true;
+        cell.logo3ImageView.hidden = true;
+        cell.logo4ImageView.hidden = true;
+        cell.logo5ImageView.hidden = true;
+        cell.logo6ImageView.hidden = true;
+        cell.logo7ImageView.hidden = true;
+        cell.logo8ImageView.hidden = true;
+        
+        
+        if (brandNo>1){
             let brand = catbrandsArray![1] as BrandModel;
+            cell.logo2ImageView.hidden = false;
             cell.logo2ImageView.image = brand.bLogoImage;
             cell.logo2ImageView.layer.borderColor = UIColor.blackColor().CGColor
             cell.logo2ImageView.layer.borderWidth = 0.5
         }
         
-        if (brandNo>3){
+        if (brandNo>2){
             let brand = catbrandsArray![2] as BrandModel;
+            cell.logo3ImageView.hidden = false;
             cell.logo3ImageView.image = brand.bLogoImage;
             cell.logo3ImageView.layer.borderColor = UIColor.blackColor().CGColor
             cell.logo3ImageView.layer.borderWidth = 0.5
         }
         
-        if (brandNo>4){
+        if (brandNo>3){
             let brand = catbrandsArray![3] as BrandModel;
+            cell.logo4ImageView.hidden = false;
             cell.logo4ImageView.image = brand.bLogoImage;
             cell.logo4ImageView.layer.borderColor = UIColor.blackColor().CGColor
             cell.logo4ImageView.layer.borderWidth = 0.5
         }
         
-        if (brandNo>5){
+        if (brandNo>4){
             let brand = catbrandsArray![4] as BrandModel;
+            cell.logo5ImageView.hidden = false;
             cell.logo5ImageView.image = brand.bLogoImage;
             cell.logo5ImageView.layer.borderColor = UIColor.blackColor().CGColor
             cell.logo5ImageView.layer.borderWidth = 0.5
         }
         
-        if (brandNo>6){
+        if (brandNo>5){
             let brand = catbrandsArray![5] as BrandModel;
+            cell.logo6ImageView.hidden = false;
             cell.logo6ImageView.image = brand.bLogoImage;
             cell.logo6ImageView.layer.borderColor = UIColor.blackColor().CGColor
             cell.logo6ImageView.layer.borderWidth = 0.5
         }
         
-        if (brandNo>7){
+        if (brandNo>6){
             let brand = catbrandsArray![6] as BrandModel;
+            cell.logo7ImageView.hidden = false;
             cell.logo7ImageView.image = brand.bLogoImage;
             cell.logo7ImageView.layer.borderColor = UIColor.blackColor().CGColor
             cell.logo7ImageView.layer.borderWidth = 0.5
         }
         
-        if (brandNo>8){
+        if (brandNo>7){
             let brand = catbrandsArray![7] as BrandModel;
+            cell.logo8ImageView.hidden = false;
             cell.logo8ImageView.image = brand.bLogoImage;
             cell.logo8ImageView.layer.borderColor = UIColor.blackColor().CGColor
             cell.logo8ImageView.layer.borderWidth = 0.5
-            
         }
         
 
-        if (brandNo>9){
-            cell.brandCountLabel.text = "+" + String(brandNo - 9);
+        if (brandNo>8){
+            cell.brandCountLabel.text = "+" + String(brandNo - 8);
         }
         else {
             cell.brandCountLabel.hidden = true;
@@ -383,7 +406,6 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
                 destinationVC.brandStores = self.brandStores;
             }
         }
-        
     }
     
     @IBAction func backPressed () {
@@ -405,17 +427,26 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
                     if let data = NSData(contentsOfURL: nsurl!) {
                         self.adImgView.image = UIImage(data: data)
                         self.adImgView.hidden = false;
-                        self.adTimer = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "hideAd", userInfo: nil, repeats: true);
+                        self.adTimer = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "adTimeCompleted", userInfo: nil, repeats: true);
                 }
             }
             else {
+                self.adTimeCompleted();
                 self.hideAd();
             }
         }
     }
+    
+    func adTimeCompleted () {
+        self.adComplete = true;
+        hideAd();
+    }
+    
     func hideAd() {
-        self.adImgView.hidden = true;
-        self.adActivityIndicatior?.stopAnimating();
+        if (self.fetchComplete && self.adComplete){
+            self.adImgView.hidden = true;
+            self.adActivityIndicatior?.stopAnimating();
+        }
     }
 }
 

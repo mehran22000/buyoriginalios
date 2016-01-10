@@ -32,31 +32,31 @@ class CategoryModel: NSObject {
     func getCatEnName(cNameFa: String?) -> String?{
         
         if (cNameFa=="پوشاک ورزشی"){
-            return "sports";
+            return "sports_clothes";
         }
         else if (cNameFa=="پوشاک"){
             return "clothes";
         }
         else if (cNameFa=="آرایش و زیبایی"){
-            return "beauity";
+            return "beauty";
         }
         else if (cNameFa=="کفش"){
             return "shoes";
         }
         else if (cNameFa=="ساعت"){
-            return "watch";
+            return "watches";
         }
         else if (cNameFa=="پوشاک آقایان"){
-            return "menCloths";
+            return "men_clothes";
         }
         else if (cNameFa=="لوازم و پوشاک کودک"){
-            return "baby";
+            return "baby_clothes";
         }
         else if (cNameFa=="پوشاک بانوان"){
-            return "womenCloths";
+            return "women_clothes";
         }
         else if (cNameFa=="موبایل"){
-            return "mobile";
+            return "cellphone";
         }
         else if (cNameFa=="چرم"){
             return "leather";

@@ -14,11 +14,11 @@ class BOHttpPost: NSObject {
         
         var url: String;
         if (update == true) {
-            url = "https://buyoriginal.herokuapp.com/users/business/updateuser"
+            url = "https://buyoriginal.herokuapp.com/services/users/business/updateuser"
          //   url = "http://localhost:5000/users/business/updateuser"
         }
         else {
-            url = "https://buyoriginal.herokuapp.com/users/business/adduser"
+            url = "https://buyoriginal.herokuapp.com/services/users/business/adduser"
        //   url = "http://localhost:5000/users/business/adduser"
         }
         let request : NSMutableURLRequest = NSMutableURLRequest()
@@ -65,7 +65,7 @@ class BOHttpPost: NSObject {
     
     func addDiscount (account:AccountModel, discount:DiscountModel, completionHandler:(result:NSString)->Void) -> () {
         
-        let url: String = "https://buyoriginal.herokuapp.com/stores/adddiscount"
+        let url: String = "https://buyoriginal.herokuapp.com/services/stores/adddiscount"
         //  var url: String = "http://localhost:5000/stores/adddiscount"
         let request : NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)
@@ -116,7 +116,7 @@ class BOHttpPost: NSObject {
     
     func deleteDiscount (sId:String, bId:String, completionHandler:(result:NSString)->Void) -> () {
         
-        let url: String = "https://buyoriginal.herokuapp.com/stores/deletediscount"
+        let url: String = "https://buyoriginal.herokuapp.com/services/stores/deletediscount"
         // var url: String = "http://localhost:5000/stores/deletediscount"
         let request : NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)

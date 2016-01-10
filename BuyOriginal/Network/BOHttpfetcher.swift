@@ -11,7 +11,7 @@ import UIKit
 class BOHttpfetcher: NSObject {
     
     func fetchBrands (completionHandler:(result: NSArray)->Void) -> () {
-        let url : String = "https://buyoriginal.herokuapp.com/brands/brandlist"
+        let url : String = "https://buyoriginal.herokuapp.com/services/brands/brandlist"
         let request : NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)
         request.HTTPMethod = "GET"
@@ -50,15 +50,15 @@ class BOHttpfetcher: NSObject {
         
         var url : String;
         if (discount) {
-           url = "https://buyoriginal.herokuapp.com/stores/storelist/discounts/"+lat+"/"+lon+"/"+distance;
+           url = "https://buyoriginal.herokuapp.com/services/stores/storelist/discounts/"+lat+"/"+lon+"/"+distance;
          //  url = "http://localhost:5000/stores/storelist/discounts/"+lat+"/"+lon+"/"+distance;
         }
         else if (distance != nil){
-            url = "https://buyoriginal.herokuapp.com/stores/storelist/"+brandId+"/"+lat+"/"+lon+"/"+distance;
+            url = "https://buyoriginal.herokuapp.com/services/stores/storelist/"+brandId+"/"+lat+"/"+lon+"/"+distance;
         //    url = "http://localhost:5000/stores/storelist/"+brandId+"/"+lat+"/"+lon+"/"+distance;
         }
         else {
-                url = "https://buyoriginal.herokuapp.com/stores/storelist/city/"+areaCode+"/"+brandId;
+                url = "https://buyoriginal.herokuapp.com/services/stores/storelist/city/"+areaCode+"/"+brandId;
         }
         print("url: \(url)");
                         
@@ -97,7 +97,7 @@ class BOHttpfetcher: NSObject {
             
             var url : String;
            // url = "http://localhost:5000/stores/storelist/city/"+areaCode;
-            url = "https://buyoriginal.herokuapp.com/stores/storelist/city/"+areaCode;
+            url = "https://buyoriginal.herokuapp.com/services/stores/storelist/city/"+areaCode;
             // print("url: \(url)");
             
             let request : NSMutableURLRequest = NSMutableURLRequest()
@@ -135,7 +135,7 @@ class BOHttpfetcher: NSObject {
             
             var url : String;
             // url = "http://localhost:5000/services/stores/storelist/city/"+areaCode;
-            url = "https://buyoriginal.herokuapp.com/stores/storelist/city/"+areaCode;
+            url = "https://buyoriginal.herokuapp.com/services/stores/storelist/city/"+areaCode;
             // print("url: \(url)");
             var dic:NSDictionary = NSDictionary();
             let parser = ResponseParser()
