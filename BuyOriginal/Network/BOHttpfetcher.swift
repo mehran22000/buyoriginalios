@@ -133,13 +133,33 @@ class BOHttpfetcher: NSObject {
     func fetchCityCategories (areaCode:String,
         completionHandler:(result: NSDictionary)->Void) -> () {
             
+            var dataSent = false;
+            if (self.checkOfflineCityCategories(areaCode)){
+                self.readOfflineCityCategories(areaCode, completionHandler: { (result) -> Void in
+                    if (!dataSent){
+                        dataSent = true;
+                        completionHandler(result: result);
+                    }
+                });
+            }
+            
+            self.readRemoteCityCategories(areaCode) { (result) -> Void in
+                if (!dataSent){
+                    dataSent = true;
+                    completionHandler(result: result);
+                }
+            }
+    }
+    
+    
+    func readRemoteCityCategories (areaCode:String,
+        completionHandler:(result: NSDictionary)->Void) -> () {
+    
             var url : String;
             // url = "http://localhost:5000/services/stores/storelist/city/"+areaCode;
             url = "https://buyoriginal.herokuapp.com/services/stores/storelist/city/"+areaCode;
             // print("url: \(url)");
-            var dic:NSDictionary = NSDictionary();
             let parser = ResponseParser()
-            
             
             let request : NSMutableURLRequest = NSMutableURLRequest()
             request.URL = NSURL(string: url)
@@ -149,7 +169,7 @@ class BOHttpfetcher: NSObject {
             if (Utilities.isConnectedToNetwork()){
                 NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse?, data: NSData?, error: NSError?) -> Void in
                     
-                   // var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
+                    // var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
                     var jsonResult: NSArray!
                     if (data != nil){
                         do {
@@ -160,56 +180,78 @@ class BOHttpfetcher: NSObject {
                         }
                     }
                     if (jsonResult != nil) {
-                    
+                        
                         // Store data for Offline use
                         let documentDirectoryURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
-                    
+                        
                         let fileDestinationUrl = documentDirectoryURL.URLByAppendingPathComponent(areaCode+".txt")
                         let text = NSString(data:data!, encoding:NSUTF8StringEncoding);
                         // print(text);
                         do {
                             try text!.writeToURL(fileDestinationUrl, atomically: true, encoding: NSUTF8StringEncoding)
+                            print("local data for "+String(areaCode)+" updated");
                         }
                         catch {
                             
                         }
-
+                        
                         let dic:NSDictionary = parser.parseStoreArray(jsonResult);
                         completionHandler(result: dic)
                     }
                 })
             }
-            else {
-                // Reading data from the file: first dynamic and second try static
-                
-                // var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
-                var jsonResult: NSArray!
-                
-                let documentDirectoryURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
-                
-                let fileDestinationUrl = documentDirectoryURL.URLByAppendingPathComponent(areaCode+".txt")
-                
-                do {
-                    let mytext = try String(contentsOfURL: fileDestinationUrl, encoding: NSUTF8StringEncoding)
-                    if (mytext.characters.count>0) {
-                        
-                        let data = (mytext as NSString).dataUsingEncoding(NSUTF8StringEncoding)
-                        
-                        try jsonResult = NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as? NSArray
-                        // Parse response
-                        dic = parser.parseStoreArray(jsonResult);
-                        completionHandler(result: dic)
-                        
-                    }
-                }
-                catch {
-                    // .json file is not available, read the static brands json file available in the bundle
-                    let dic:NSDictionary = self.readLocalStoresInfo(areaCode)
+    }
+    
+    
+    func readOfflineCityCategories (areaCode:String,
+        completionHandler:(result: NSDictionary)->Void) -> () {
+    
+            var jsonResult: NSArray!
+            let parser = ResponseParser()
+            var dic:NSDictionary = NSDictionary();
+            
+            let documentDirectoryURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
+            
+            let fileDestinationUrl = documentDirectoryURL.URLByAppendingPathComponent(areaCode+".txt")
+            
+            do {
+                let mytext = try String(contentsOfURL: fileDestinationUrl, encoding: NSUTF8StringEncoding)
+                if (mytext.characters.count>0) {
+                    
+                    let data = (mytext as NSString).dataUsingEncoding(NSUTF8StringEncoding)
+                    
+                    try jsonResult = NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as? NSArray
+                    // Parse response
+                    dic = parser.parseStoreArray(jsonResult);
                     completionHandler(result: dic)
+                    
                 }
-                
             }
-         //   completionHandler(result: dic);
+            catch {
+                // .json file is not available, read the static brands json file available in the bundle
+                let dic:NSDictionary = self.readLocalStoresInfo(areaCode)
+                completionHandler(result: dic)
+            }
+    }
+    
+    
+    
+    func checkOfflineCityCategories (areaCode:String) -> Bool {
+        
+        let documentDirectoryURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
+        let fileDestinationUrl = documentDirectoryURL.URLByAppendingPathComponent(areaCode+".txt")
+        
+        do {
+            let mytext = try String(contentsOfURL: fileDestinationUrl, encoding: NSUTF8StringEncoding)
+            if (mytext.characters.count>0) {
+                return true;
+            }
+        }
+        catch {
+            return false;
+        }
+        
+        return false;
     }
     
     

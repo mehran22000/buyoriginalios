@@ -75,8 +75,10 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
         self.activityIndicatior?.startAnimating();
         self.fetchComplete = false;
         
+        print("fetching started ...");
         fetcher.fetchCityCategories (self.areaCode, completionHandler:{ (result: NSDictionary) -> () in
             
+            print("fetching ended ...");
             if (result.count>0){
                 self.brandsArray = result.objectForKey("brands") as! NSArray;
                 self.categoryBrands = result.objectForKey("catBrands") as! Dictionary;
@@ -157,26 +159,17 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
             else {
                 // Download missing logos
                 print("missing:"+b.bLogo);
-                fetcher.fetchBrandLogo(b.bLogo, completionHandler: { (imgData) -> Void in
+                b.bLogoImage = UIImage(named:"brand.default")!;
+                
+                counter=counter+1;
+                if (counter == self.brandsArray.count){
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        if ((imgData) != nil){
-                            b.bLogoImage = UIImage(data: imgData)!;
-                            //         println(" Logo Downloaded: %@ ",&b.bLogo);
-                        }
-                        else{
-                            b.bLogoImage = UIImage(named:"brand.default")!;
-                        }
-                        counter=counter+1;
-                        if (counter == self.brandsArray.count){
-                            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                                self.activityIndicatior?.stopAnimating()
-                                self.fetchComplete = true;
-                                self.hideAd();
-                                self.tableView.reloadData()
-                            })
-                        }
+                        self.activityIndicatior?.stopAnimating()
+                        self.fetchComplete = true;
+                        self.hideAd();
+                        self.tableView.reloadData()
                     })
-                })
+                }
             }
         }
     }
