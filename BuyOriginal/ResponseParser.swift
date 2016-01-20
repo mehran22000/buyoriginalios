@@ -91,6 +91,8 @@ class ResponseParser: NSObject {
         var brandStores = [String:[StoreModel]]();
        // var catCounter = 0;
         var brandCounter = 0;
+        let cat=CategoryModel();
+     
         
         for elem: AnyObject in array {
             let bId = elem["bId"] as? String
@@ -106,7 +108,14 @@ class ResponseParser: NSObject {
             let sTel1 = elem["sTel1"] as? String
             let sTel2 = elem["sTel2"] as? String
             let sDistance = elem["distance"] as? String
+            
             let sVerified = elem["sVerified"] as? String
+            
+            if (bId == "2") {
+                print("sVerified"+sVerified!);
+            }
+            
+            
             let bCategory = elem["bCategory"] as? String
             let sDiscountStartDateFa = elem["dStartDateFa"] as? String
             let sDiscountEndDateFa = elem["dEndDateFa"] as? String
@@ -115,6 +124,8 @@ class ResponseParser: NSObject {
             let sDiscountNote = elem["dNote"] as? String
             let sDiscountPercentage = elem["dPrecentage"] as? Int
             
+            let catName = cat.getCatEnName(bCategory);
+
             
             let sAreaCode = elem["sAreaCode"] as? String
             let bDistributor = elem["bDistributor"] as? String
@@ -136,7 +147,6 @@ class ResponseParser: NSObject {
             }
             
             
-            // Categories - Brands
             if ((bCategory != nil) && (categoryBrands[bCategory!] == nil)) {
                 var newCatBrands = [BrandModel]();
                 newCatBrands=[b];
@@ -173,13 +183,14 @@ class ResponseParser: NSObject {
             
             // Brands - Stores
             
-            if (brandStores[bName!] == nil) {
+            let arrayIndex = catName! + bName!
+            if (brandStores[arrayIndex] == nil) {
                 var newBrandStores = [StoreModel]();
                 newBrandStores=[s];
-                brandStores[bName!]=newBrandStores;
+                brandStores[arrayIndex]=newBrandStores;
             }
             else {
-                let exBrandStores = brandStores[bName!] as [StoreModel]?;
+                let exBrandStores = brandStores[arrayIndex] as [StoreModel]?;
                 // var newStore = true;
                 var newBrandStore =  [StoreModel]();
                 
@@ -187,19 +198,10 @@ class ResponseParser: NSObject {
                     newBrandStore+=[elem];
                 }
                 newBrandStore+=[s];
-                brandStores.updateValue(newBrandStore, forKey: bName!);
+                brandStores.updateValue(newBrandStore, forKey: arrayIndex);
                 
             }
-            
-            /*
-            for (brand, storesArray) in brandStores {
-                println("New Brand:"+brand);
-                for elem:StoreModel in storesArray {
-                    println(elem.sName);
-                }
-            }
-            */
-            
+        
         }
         
         let results:NSDictionary = ["brands":brands,"stores":stores, "catBrands":categoryBrands, "brandStores":brandStores];

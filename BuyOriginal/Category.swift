@@ -61,7 +61,7 @@ class CategoryModel: NSObject {
         else if (cNameFa=="چرم"){
             return "leather";
         }
-        else if (cNameFa=="طلاوجواهر"){
+        else if (cNameFa=="طلا و جواهر"){
             return "jewelry";
         }
         else if (cNameFa=="لباس عروس"){

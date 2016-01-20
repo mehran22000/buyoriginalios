@@ -205,19 +205,24 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
         // print("You selected cell #\(indexPath.row)!")
         
         var selectedBrand = BrandModel();
+        let cat=CategoryModel();
+        
         
         if is_searching==true {
             selectedBrand = self.filteredBrands[indexPath.row] as BrandModel
         } else {
             selectedBrand = self.brandsArray[indexPath.row] as! BrandModel
         }
-    
+        
         if ((self.account) != nil){
             self.account.brand=selectedBrand;
         }
         
+        let catName = cat.getCatEnName(selectedBrand.bCategory);
+        let arrayIndex = catName! + selectedBrand.bName;
+        
         if (self.screenMode==GlobalConstants.BRANDS_SCREEN_MODE_SEARCH){
-            self.selectedBrandStoresArray = self.brandStores[selectedBrand.bName]!;
+            self.selectedBrandStoresArray = self.brandStores[arrayIndex]!;
             performSegueWithIdentifier("ShowStoresSegue", sender: nil);
         }
         else if (self.screenMode==GlobalConstants.BRANDS_SCREEN_MODE_SIGNUP){

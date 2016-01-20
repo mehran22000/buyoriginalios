@@ -139,6 +139,9 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
             else if (store.sVerified=="YES"){
                 cell.storeImageView.image = UIImage(named: "verified");
             }
+            else {
+                cell.storeImageView.hidden = true;
+            }
         
         // cell.textLabel?.text = self.items[indexPath.row]
         

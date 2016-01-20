@@ -2,8 +2,144 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>waggon</key>
+	<string>waggon</string>
+	<key>zagrutti</key>
+	<string>zagrutti</string>
+	<key>orchestrapremaman</key>
+	<string>orchestrapremaman</string>
+	<key>panco</key>
+	<string>panco</string>
+	<key>parsheh</key>
+	<string>parsheh</string>
+	<key>penti</key>
+	<string>penti</string>
+	<key>piserro</key>
+	<string>piserro</string>
+	<key>promod</key>
+	<string>promod</string>
+	<key>puntroma</key>
+	<string>puntroma</string>
+	<key>quiksilver</key>
+	<string>quiksilver</string>
+	<key>rengin</key>
+	<string>rengin</string>
+	<key>reno</key>
+	<string>reno</string>
+	<key>rolan</key>
+	<string>rolan</string>
+	<key>samsonite</key>
+	<string>samsonite</string>
+	<key>sergentmajor</key>
+	<string>sergentmajor</string>
+	<key>shifer</key>
+	<string>shifer</string>
+	<key>superdry</key>
+	<string>superdry</string>
+	<key>swarovski</key>
+	<string>swarovski</string>
+	<key>topline</key>
+	<string>topline</string>
+	<key>triumph</key>
+	<string>triumph</string>
+	<key>tt</key>
+	<string>tt</string>
+	<key>uspoloassn</key>
+	<string>uspoloassn</string>
+	<key>hackett</key>
+	<string>hackett</string>
+	<key>happyland</key>
+	<string>happyland</string>
+	<key>holiday</key>
+	<string>holiday</string>
+	<key>jamas</key>
+	<string>jamas</string>
+	<key>jennyfer</key>
+	<string>jennyfer</string>
+	<key>joop</key>
+	<string>joop</string>
+	<key>joya</key>
+	<string>joya</string>
+	<key>joymiss</key>
+	<string>joymiss</string>
+	<key>leathercity</key>
+	<string>leathercity</string>
+	<key>lefon</key>
+	<string>lefon</string>
+	<key>lolaluna</key>
+	<string>lolaluna</string>
+	<key>luigibotto</key>
+	<string>luigibotto</string>
+	<key>maral-leather</key>
+	<string>maral-leather</string>
+	<key>maxim</key>
+	<string>maxim</string>
+	<key>mees</key>
+	<string>mees</string>
+	<key>menbur</key>
+	<string>menbur</string>
+	<key>mendoza</key>
+	<string>mendoza</string>
+	<key>misssport</key>
+	<string>misssport</string>
+	<key>mothercare</key>
+	<string>mothercare</string>
+	<key>naracamicie</key>
+	<string>naracamicie</string>
+	<key>oakley</key>
+	<string>oakley</string>
+	<key>bessini</key>
+	<string>bessini</string>
+	<key>billcee</key>
+	<string>billcee</string>
+	<key>burton</key>
+	<string>burton</string>
+	<key>carpisa</key>
+	<string>carpisa</string>
+	<key>charlesanskeith</key>
+	<string>charlesanskeith</string>
+	<key>climber</key>
+	<string>climber</string>
+	<key>colins</key>
+	<string>colins</string>
+	<key>cons</key>
+	<string>cons</string>
+	<key>cortefiel</key>
+	<string>cortefiel</string>
+	<key>dayi</key>
+	<string>dayi</string>
+	<key>defacto</key>
+	<string>defacto</string>
+	<key>delsey</key>
+	<string>delsey</string>
+	<key>derimod</key>
+	<string>derimod</string>
+	<key>desigual</key>
+	<string>desigual</string>
+	<key>forever21</key>
+	<string>forever21</string>
+	<key>fraas</key>
+	<string>fraas</string>
+	<key>furla</key>
+	<string>furla</string>
+	<key>ghoncheh</key>
+	<string>ghoncheh</string>
+	<key>gilardino</key>
+	<string>gilardino</string>
+	<key>giovanegentile</key>
+	<string>giovanegentile</string>
+	<key>greyder</key>
+	<string>greyder</string>
 	<key>accakappa</key>
 	<string>accakappa</string>
+	<key>andya</key>
+	<string>andya</string>
+	<key>bagozza</key>
+	<string>bagozza</string>
+	<key>bebe</key>
+	<string>bebe</string>
+	<key>bershka</key>
+	<string>bershka</string>
 	<key>swqrovski</key>
 	<string>swqrovski</string>
 	<key>ainhoa</key>
@@ -158,6 +294,8 @@
 	<string>sandoz</string>
 	<key>samuelandkevin</key>
 	<string>samuelandkevin</string>
+	<key>samuel&amp;kevin</key>
+	<string>samuelandkevin</string>
 	<key>savincarpet</key>
 	<string>savincarpet</string>
 	<key>seiko</key>
@@ -190,6 +328,8 @@
 	<string>wish</string>
 	<key>zeroten</key>
 	<string>zeroten</string>
+	<key>li-ning</key>
+	<string>lining</string>
 	<key>lining</key>
 	<string>lining</string>
 	<key>lotto</key>

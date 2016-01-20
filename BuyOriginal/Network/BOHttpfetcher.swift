@@ -134,13 +134,18 @@ class BOHttpfetcher: NSObject {
         completionHandler:(result: NSDictionary)->Void) -> () {
             
             var dataSent = false;
-            if (self.checkOfflineCityCategories(areaCode)){
-                self.readOfflineCityCategories(areaCode, completionHandler: { (result) -> Void in
-                    if (!dataSent){
-                        dataSent = true;
-                        completionHandler(result: result);
-                    }
-                });
+            
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)) { // 1
+                if (self.checkOfflineCityCategories(areaCode)){
+                    self.readOfflineCityCategories(areaCode, completionHandler: { (result) -> Void in
+                        if (!dataSent){
+                            dataSent = true;
+                            dispatch_async(dispatch_get_main_queue()) { // 2
+                                completionHandler(result: result); // 3
+                            }
+                        }
+                    });
+                }
             }
             
             self.readRemoteCityCategories(areaCode) { (result) -> Void in
@@ -149,6 +154,7 @@ class BOHttpfetcher: NSObject {
                     completionHandler(result: result);
                 }
             }
+    
     }
     
     

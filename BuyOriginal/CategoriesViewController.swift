@@ -76,6 +76,8 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
         self.fetchComplete = false;
         
         print("fetching started ...");
+        
+        
         fetcher.fetchCityCategories (self.areaCode, completionHandler:{ (result: NSDictionary) -> () in
             
             print("fetching ended ...");
@@ -92,8 +94,9 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
             else {
                 self.activityIndicatior?.stopAnimating();
             }
+            
         })
-        
+    
         
         if (Utilities.isConnectedToNetwork() == false) {
             self.noInternetConnectionView.hidden = false
@@ -101,7 +104,6 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
         else {
             self.noInternetConnectionView.hidden = true
         }
-        
     }
     
     
