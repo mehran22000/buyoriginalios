@@ -242,6 +242,7 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
             if ((dict?.valueForKey(s.bLogo)) != nil){
                 // Load available logos
                // println(" Logo Found: %@ ",&s.bLogo);
+                
                 let logoName = dict?.valueForKey(s.bLogo) as! String!;
                 let logo:UIImage! = UIImage(named: logoName);
                 s.bLogoImage = logo!;

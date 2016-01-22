@@ -94,8 +94,10 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
        // cell.brandCategoryLabel.text = store.bCategory
        // cell.brandNameLabel.text = store.bName
         
-        var image : UIImage = UIImage(named:store.bLogo)!
+        var image : UIImage? = UIImage(named:store.bLogo)
         cell.brandImageView.image=image;
+        cell.brandImageView.layer.cornerRadius = 8.0
+        cell.brandImageView.clipsToBounds = true
        
         if (store.sDiscountPercentage>0){
             let imageName:NSString? = discountImageName(store.sDiscountPercentage);
@@ -213,14 +215,14 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
         
         var loc:CLLocationCoordinate2D = CLLocationCoordinate2D.init();
         loc = appDelegate.getUserLocation();
-        let curLat = String(format:"%f",loc.latitude)
-        let curLon = String(format:"%f",loc.longitude)
+        var curLat = String(format:"%f",loc.latitude)
+        var curLon = String(format:"%f",loc.longitude)
         
         
         // Test Data
         // ToDo: Remove
-        // var curLat="43.667855";
-        // var curLon="-79.395564";
+        // curLat="32.654627";
+        // curLon="51.667983";
         
         fetcher.fetchStores ("all",distance:String(distance),lat:curLat,lon:curLon,areaCode:"",discount:true,completionHandler: {(result: NSArray) -> () in
             self.dealsStoresArray = result
@@ -248,11 +250,14 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
         
         for store in self.dealsStoresArray {
             let s:StoreModel = store as! StoreModel;
-            if ((dict?.valueForKey(s.bLogo)) != nil){
+            let logoName = dict?.valueForKey(s.bLogo) as! String!;
+            if (logoName != nil){
                 // Load available logos
-                // println(" Logo Found: %@ ",&s.bLogo);
-                let logo:UIImage! = UIImage(named: s.bLogo);
-                s.bLogoImage = logo!;
+                print(" Logo Found:"+logoName);
+                let logo:UIImage? = UIImage(named: logoName);
+                // if (logo){
+                s.bLogoImage = logo;
+                // }
                 counter=counter+1;
                 if (counter == self.dealsStoresArray.count){
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -283,8 +288,8 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
                                 self.sortStores()
                                 self.activityIndicatior?.hidden=true;
                                 self.activityIndicatior?.stopAnimating()
-                                self.noResultImageView.hidden = false
-                                self.noResultLabel.hidden = false
+                                self.noResultImageView.hidden = true
+                                self.noResultLabel.hidden = true
                                 self.tableView.reloadData()
                             })
                         }

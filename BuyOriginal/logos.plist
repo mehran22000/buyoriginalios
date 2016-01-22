@@ -2,6 +2,34 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>adl</key>
+	<string>adl</string>
+	<key>yakleather</key>
+	<string>yakleather</string>
+	<key>yamamay</key>
+	<string>yamamay</string>
+	<key>balizza</key>
+	<string>balizza</string>
+	<key>bugatti</key>
+	<string>bugatti</string>
+	<key>charles&amp;keith</key>
+	<string>charlesanskeith</string>
+	<key>collezione</key>
+	<string>collezione</string>
+	<key>halston</key>
+	<string>halston</string>
+	<key>mammut</key>
+	<string>mammut</string>
+	<key>maralleather</key>
+	<string>maral-leather</string>
+	<key>tallyweijl</key>
+	<string>tallyweijl</string>
+	<key>tchibo</key>
+	<string>tchibo</string>
+	<key>u.spoloassn</key>
+	<string>uspoloassn</string>
+	<key>veromoda</key>
+	<string>veromoda</string>
 	<key>waggon</key>
 	<string>waggon</string>
 	<key>zagrutti</key>
@@ -329,9 +357,9 @@
 	<key>zeroten</key>
 	<string>zeroten</string>
 	<key>li-ning</key>
-	<string>lining</string>
+	<string>li-ning</string>
 	<key>lining</key>
-	<string>lining</string>
+	<string>li-ning</string>
 	<key>lotto</key>
 	<string>lotto</string>
 	<key>lotus</key>
@@ -691,9 +719,9 @@
 	<key>pandb</key>
 	<string>pandora</string>
 	<key>novinleather</key>
-	<string>novincharm</string>
+	<string>novinleather</string>
 	<key>novincharm</key>
-	<string>novincharm</string>
+	<string>novinleather</string>
 	<key>mashadleather</key>
 	<string>mashadleather</string>
 	<key>dorsa</key>

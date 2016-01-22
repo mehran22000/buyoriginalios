@@ -83,7 +83,7 @@
                                 </label>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cellDistance" rowHeight="59" id="Ch8-iJ-C9j" customClass="BODisatnceTableViewCell" customModule="BuyOriginal" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="66" width="320" height="59"/>
+                                        <rect key="frame" x="0.0" y="130" width="320" height="59"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ch8-iJ-C9j" id="pCD-TP-neM">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="58.5"/>
@@ -118,7 +118,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellStore" rowHeight="80" id="Bwc-uX-oRg" customClass="BONearmeTableViewCell" customModule="BuyOriginal" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="125" width="320" height="80"/>
+                                        <rect key="frame" x="0.0" y="189" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bwc-uX-oRg" id="n7g-SB-w1A">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="79.5"/>
@@ -271,7 +271,7 @@
                                 </searchBar>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellDeal" rowHeight="120" id="ETf-eE-Zp5" customClass="BODealsTableViewCell" customModule="BuyOriginal" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="66" width="320" height="120"/>
+                                        <rect key="frame" x="0.0" y="130" width="320" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ETf-eE-Zp5" id="iCR-Qi-dTS">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="119.5"/>
@@ -296,7 +296,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ZOm-DQ-Wjo">
-                                                    <rect key="frame" x="232" y="30" width="50" height="50"/>
+                                                    <rect key="frame" x="235" y="30" width="45" height="45"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" id="nhB-1R-mw7">
@@ -1437,7 +1437,7 @@
                                 </searchBar>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellBrand" rowHeight="60" id="MxM-My-PQJ" customClass="BOBrandTableViewCell" customModule="BuyOriginal" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="130" width="320" height="60"/>
+                                        <rect key="frame" x="0.0" y="66" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MxM-My-PQJ" id="1PB-pN-NYV">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="59.5"/>
@@ -1548,7 +1548,7 @@
                                 </searchBar>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cellStore" rowHeight="150" id="Kvu-A7-MQB" customClass="BOStoresTableViewCell" customModule="BuyOriginal" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="66" width="320" height="150"/>
+                                        <rect key="frame" x="0.0" y="130" width="320" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kvu-A7-MQB" id="bNl-RQ-qaR">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="149.5"/>
@@ -1648,7 +1648,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellDiscountNote" rowHeight="150" id="nTh-qN-kMH" customClass="BOStoresDiscountNoteTableCell" customModule="BuyOriginal" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="216" width="320" height="150"/>
+                                        <rect key="frame" x="0.0" y="280" width="320" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nTh-qN-kMH" id="gki-IC-fLw">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="149.5"/>
@@ -1751,7 +1751,7 @@
                         </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellCity" rowHeight="111" id="Lsu-2R-Q0e" customClass="BOCityTableViewCell" customModule="BuyOriginal" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="66" width="320" height="111"/>
+                                <rect key="frame" x="0.0" y="130" width="320" height="111"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Lsu-2R-Q0e" id="qgA-0g-PvL">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="110.5"/>
@@ -1813,7 +1813,7 @@
                                 </searchBar>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellCategory" rowHeight="85" id="BnI-ot-pmF" customClass="BOCategoriesTableViewCell" customModule="BuyOriginal" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="66" width="320" height="85"/>
+                                        <rect key="frame" x="0.0" y="130" width="320" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BnI-ot-pmF" id="GFy-Cy-M3f">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="84.5"/>
@@ -2321,10 +2321,10 @@
         <image name="welcome.blue" width="720" height="1280"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wOj-2e-F9P"/>
         <segue reference="jox-BJ-M8F"/>
+        <segue reference="L6t-T9-tlG"/>
+        <segue reference="wOj-2e-F9P"/>
         <segue reference="l5r-YM-H1u"/>
-        <segue reference="Ew2-7t-ccn"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.53188751850000004" green="0.0" blue="0.0048371410560000003" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/ResponseParser.swift"
-            timestampString = "474947498.658806"
+            timestampString = "475122580.212748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "333"
-            endingLineNumber = "333"
+            startingLineNumber = "327"
+            endingLineNumber = "327"
             landmarkName = "ResponseParser"
             landmarkType = "3">
          </BreakpointContent>
@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/ResponseParser.swift"
-            timestampString = "474947498.658806"
+            timestampString = "475122580.212748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "321"
-            endingLineNumber = "321"
+            startingLineNumber = "315"
+            endingLineNumber = "315"
             landmarkName = "ResponseParser"
             landmarkType = "3">
          </BreakpointContent>
@@ -810,11 +810,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/NearMeViewController.swift"
-            timestampString = "468220355.862649"
+            timestampString = "474953833.726529"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "282"
-            endingLineNumber = "282"
+            startingLineNumber = "283"
+            endingLineNumber = "283"
             landmarkName = "NearMeViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -890,11 +890,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/NearMeViewController.swift"
-            timestampString = "468220355.862649"
+            timestampString = "474953833.726529"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "293"
-            endingLineNumber = "293"
+            startingLineNumber = "294"
+            endingLineNumber = "294"
             landmarkName = "prepareForSegue(_:sender:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -922,11 +922,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/DealsViewController.swift"
-            timestampString = "469586947.845307"
+            timestampString = "475123961.23276"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "307"
-            endingLineNumber = "307"
+            startingLineNumber = "312"
+            endingLineNumber = "312"
             landmarkName = "prepareForSegue(_:sender:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -938,11 +938,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/DealsViewController.swift"
-            timestampString = "469586947.845307"
+            timestampString = "475123961.23276"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "259"
-            endingLineNumber = "259"
+            startingLineNumber = "264"
+            endingLineNumber = "264"
             landmarkName = "loadBrandsLogo()"
             landmarkType = "5">
          </BreakpointContent>
@@ -954,11 +954,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/DealsViewController.swift"
-            timestampString = "469586947.845307"
+            timestampString = "475123961.23276"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "260"
-            endingLineNumber = "260"
+            startingLineNumber = "265"
+            endingLineNumber = "265"
             landmarkName = "loadBrandsLogo()"
             landmarkType = "5">
          </BreakpointContent>
@@ -970,11 +970,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/DealsViewController.swift"
-            timestampString = "469586947.845307"
+            timestampString = "475123961.23276"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
             landmarkName = "fetchDeals(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -986,11 +986,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/DealsViewController.swift"
-            timestampString = "469586947.845307"
+            timestampString = "475123961.23276"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "228"
-            endingLineNumber = "228"
+            startingLineNumber = "230"
+            endingLineNumber = "230"
             landmarkName = "fetchDeals(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1706,11 +1706,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/ResponseParser.swift"
-            timestampString = "474947498.658806"
+            timestampString = "475122580.212748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "230"
-            endingLineNumber = "230"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
             landmarkName = "parseLogin(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1882,11 +1882,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/DealsViewController.swift"
-            timestampString = "469586947.845307"
+            timestampString = "475123961.23276"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
             landmarkName = "tableView(_:heightForRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1898,11 +1898,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/ResponseParser.swift"
-            timestampString = "474947498.658806"
+            timestampString = "475122580.212748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "291"
-            endingLineNumber = "291"
+            startingLineNumber = "285"
+            endingLineNumber = "285"
             landmarkName = "parsePost(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1914,11 +1914,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/ResponseParser.swift"
-            timestampString = "474947498.658806"
+            timestampString = "475122580.212748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "292"
-            endingLineNumber = "292"
+            startingLineNumber = "286"
+            endingLineNumber = "286"
             landmarkName = "parsePost(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -2138,11 +2138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/ResponseParser.swift"
-            timestampString = "474947498.658806"
+            timestampString = "474950248.799708"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "171"
-            endingLineNumber = "171"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
             landmarkName = "parseStoreArray(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -2154,11 +2154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/ResponseParser.swift"
-            timestampString = "474947498.658806"
+            timestampString = "475122580.212748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "210"
-            endingLineNumber = "210"
+            startingLineNumber = "204"
+            endingLineNumber = "204"
             landmarkName = "parseStoreArray(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -2218,11 +2218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/ResponseParser.swift"
-            timestampString = "474947498.658806"
+            timestampString = "474950248.799708"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
             landmarkName = "parseStoreArray(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -2282,11 +2282,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/ResponseParser.swift"
-            timestampString = "474947498.658806"
+            timestampString = "475122580.212748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "264"
-            endingLineNumber = "264"
+            startingLineNumber = "258"
+            endingLineNumber = "258"
             landmarkName = "parseLogin(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -2330,11 +2330,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/ResponseParser.swift"
-            timestampString = "474947498.658806"
+            timestampString = "475122580.212748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "272"
-            endingLineNumber = "272"
+            startingLineNumber = "266"
+            endingLineNumber = "266"
             landmarkName = "parseLogin(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -2442,11 +2442,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/ResponseParser.swift"
-            timestampString = "474947498.658806"
+            timestampString = "475122580.212748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "295"
-            endingLineNumber = "295"
+            startingLineNumber = "289"
+            endingLineNumber = "289"
             landmarkName = "ResponseParser"
             landmarkType = "3">
          </BreakpointContent>
@@ -2458,11 +2458,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/ResponseParser.swift"
-            timestampString = "474947498.658806"
+            timestampString = "475122580.212748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "299"
-            endingLineNumber = "299"
+            startingLineNumber = "293"
+            endingLineNumber = "293"
             landmarkName = "parseServiceResult(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -2554,11 +2554,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/ResponseParser.swift"
-            timestampString = "474947498.658806"
+            timestampString = "475122580.212748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "270"
-            endingLineNumber = "270"
+            startingLineNumber = "264"
+            endingLineNumber = "264"
             landmarkName = "parseLogin(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -2570,11 +2570,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/ResponseParser.swift"
-            timestampString = "474947498.658806"
+            timestampString = "475122580.212748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "249"
-            endingLineNumber = "249"
+            startingLineNumber = "243"
+            endingLineNumber = "243"
             landmarkName = "parseLogin(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -2810,11 +2810,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/DealsViewController.swift"
-            timestampString = "469586947.845307"
+            timestampString = "475123961.23276"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
+            startingLineNumber = "207"
+            endingLineNumber = "207"
             landmarkName = "fetchDeals(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -2826,11 +2826,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/DealsViewController.swift"
-            timestampString = "469586947.845307"
+            timestampString = "475123961.23276"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "204"
-            endingLineNumber = "204"
+            startingLineNumber = "206"
+            endingLineNumber = "206"
             landmarkName = "fetchDeals(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -2842,11 +2842,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/DealsViewController.swift"
-            timestampString = "469586947.845307"
+            timestampString = "475123961.23276"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "tableView(_:cellForRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -2858,11 +2858,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/DealsViewController.swift"
-            timestampString = "469586947.845307"
+            timestampString = "475123961.23276"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "tableView(_:cellForRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -2874,11 +2874,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/DealsViewController.swift"
-            timestampString = "469586947.845307"
+            timestampString = "475123961.23276"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
             landmarkName = "tableView(_:cellForRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -3146,11 +3146,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/ResponseParser.swift"
-            timestampString = "474947498.658806"
+            timestampString = "475122580.212748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "315"
-            endingLineNumber = "315"
+            startingLineNumber = "309"
+            endingLineNumber = "309"
             landmarkName = "parseValidateEmail(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -3194,11 +3194,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/ResponseParser.swift"
-            timestampString = "474947498.658806"
+            timestampString = "474950248.799708"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
             landmarkName = "parseStoreArray(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -3226,11 +3226,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/DealsViewController.swift"
-            timestampString = "469586947.845307"
+            timestampString = "475123961.23276"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "225"
-            endingLineNumber = "225"
+            startingLineNumber = "227"
+            endingLineNumber = "227"
             landmarkName = "fetchDeals(_:)"
             landmarkType = "5">
             <Locations>
@@ -3338,11 +3338,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/ResponseParser.swift"
-            timestampString = "474947498.658806"
+            timestampString = "475122580.212748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "195"
-            endingLineNumber = "195"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
             landmarkName = "parseStoreArray(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -3802,11 +3802,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/ResponseParser.swift"
-            timestampString = "474947498.658806"
+            timestampString = "475122580.212748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "224"
-            endingLineNumber = "224"
+            startingLineNumber = "218"
+            endingLineNumber = "218"
             landmarkName = "parseLogin(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -4378,11 +4378,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/ResponseParser.swift"
-            timestampString = "474947498.658806"
+            timestampString = "474950248.799708"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
             landmarkName = "parseStoreArray(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -4394,11 +4394,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/ResponseParser.swift"
-            timestampString = "474947498.658806"
+            timestampString = "474950248.799708"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
             landmarkName = "parseStoreArray(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -4410,11 +4410,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/ResponseParser.swift"
-            timestampString = "474947498.658806"
+            timestampString = "474950248.799708"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
             landmarkName = "parseStoreArray(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -4426,11 +4426,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/ResponseParser.swift"
-            timestampString = "474947498.658806"
+            timestampString = "475122580.212748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "207"
-            endingLineNumber = "207"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
             landmarkName = "parseStoreArray(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -4442,11 +4442,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuyOriginal/ResponseParser.swift"
-            timestampString = "474947498.658806"
+            timestampString = "475122580.212748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "188"
-            endingLineNumber = "188"
+            startingLineNumber = "182"
+            endingLineNumber = "182"
             landmarkName = "parseStoreArray(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -4522,6 +4522,86 @@
             startingLineNumber = "88"
             endingLineNumber = "88"
             landmarkName = "parseStoreArray(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuyOriginal/DealsViewController.swift"
+            timestampString = "475123961.23276"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "259"
+            endingLineNumber = "259"
+            landmarkName = "loadBrandsLogo()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuyOriginal/DealsViewController.swift"
+            timestampString = "475123961.23276"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "283"
+            endingLineNumber = "283"
+            landmarkName = "loadBrandsLogo()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuyOriginal/DealsViewController.swift"
+            timestampString = "475123961.23276"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "256"
+            endingLineNumber = "256"
+            landmarkName = "loadBrandsLogo()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuyOriginal/DealsViewController.swift"
+            timestampString = "475123961.23276"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "253"
+            endingLineNumber = "253"
+            landmarkName = "loadBrandsLogo()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuyOriginal/DealsViewController.swift"
+            timestampString = "475123961.23276"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "254"
+            endingLineNumber = "254"
+            landmarkName = "loadBrandsLogo()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

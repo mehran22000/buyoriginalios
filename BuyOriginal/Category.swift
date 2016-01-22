@@ -70,8 +70,11 @@ class CategoryModel: NSObject {
         else if (cNameFa=="عطر و ادکلن"){
             return "perfume";
         }
+        else if (cNameFa=="کیف و کفش"){
+            return "shoes";
+        }
         else {
-            return nil;
+            return "";
         }
     }
 }

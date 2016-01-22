@@ -111,11 +111,6 @@ class ResponseParser: NSObject {
             
             let sVerified = elem["sVerified"] as? String
             
-            if (bId == "2") {
-                print("sVerified"+sVerified!);
-            }
-            
-            
             let bCategory = elem["bCategory"] as? String
             let sDiscountStartDateFa = elem["dStartDateFa"] as? String
             let sDiscountEndDateFa = elem["dEndDateFa"] as? String
@@ -182,7 +177,6 @@ class ResponseParser: NSObject {
             */
             
             // Brands - Stores
-            
             let arrayIndex = catName! + bName!
             if (brandStores[arrayIndex] == nil) {
                 var newBrandStores = [StoreModel]();
