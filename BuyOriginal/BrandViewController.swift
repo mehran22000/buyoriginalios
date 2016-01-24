@@ -80,6 +80,7 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
         self.adActivityIndicatior?.hidesWhenStopped=true;
 
         if ((self.screenMode == GlobalConstants.BRANDS_SCREEN_MODE_CHANGE) ||
+            (self.screenMode == GlobalConstants.BRANDS_SCREEN_MODE_SEARCH) ||
             (self.screenMode == GlobalConstants.BRANDS_SCREEN_MODE_SIGNUP)) {
                 
                 self.activityIndicatior?.hidden=false;

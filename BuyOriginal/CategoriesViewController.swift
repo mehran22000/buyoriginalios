@@ -27,7 +27,8 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
     var adTimer = NSTimer();
     var fetchComplete = false;
     var adComplete = false;
-
+    var sortedIndex:[Int]=[];
+    
     @IBOutlet var activityIndicatior: UIActivityIndicatorView?;
     @IBOutlet var adActivityIndicatior: UIActivityIndicatorView?;
     
@@ -54,18 +55,6 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
         navigationItem.leftBarButtonItem = backBtn;
         
         
-       // self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cityCell")
-      //  self.tableView.backgroundColor = UIColor(patternImage: UIImage(named: "welcome.pink")!);
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    }
-
-    
-    override func viewWillAppear(animated: Bool) {
         let fetcher = BOHttpfetcher()
         
         self.activityIndicatior?.hidden=false;
@@ -85,18 +74,22 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
                 self.brandsArray = result.objectForKey("brands") as! NSArray;
                 self.categoryBrands = result.objectForKey("catBrands") as! Dictionary;
                 self.brandStores = result.objectForKey("brandStores") as! Dictionary;
+                self.sortedIndex = result.objectForKey("sortedIndex") as! [Int];
                 
                 self.categoriesArray = Array(self.categoryBrands.keys);
+                
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    
                     self.loadBrandsLogo()
                 })
+                
             }
             else {
                 self.activityIndicatior?.stopAnimating();
             }
             
         })
-    
+        
         
         if (Utilities.isConnectedToNetwork() == false) {
             self.noInternetConnectionView.hidden = false
@@ -104,6 +97,22 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
         else {
             self.noInternetConnectionView.hidden = true
         }
+        
+        
+        
+       // self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cityCell")
+      //  self.tableView.backgroundColor = UIColor(patternImage: UIImage(named: "welcome.pink")!);
+        
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+
+    
+    override func viewWillAppear(animated: Bool) {
+       
     }
     
     
@@ -133,47 +142,37 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
     
     func loadBrandsLogo() {
         
+        var catBrandLogoConunter = [String:Int]();
         let path = NSBundle.mainBundle().pathForResource("logos", ofType:"plist")
         let dict = NSDictionary(contentsOfFile:path!)
-        var counter = 0;
-        let fetcher = BOHttpfetcher()
+        
         
         for brand in self.brandsArray {
             
             let b:BrandModel = brand as! BrandModel;
-            if ((dict?.valueForKey(b.bLogo)) != nil){
-                // Load available logos
-               //  print(" Logo Found: %@ ",b.bLogo);
-                let logoName = dict?.valueForKey(b.bLogo) as! String!;
-                let logo:UIImage! = UIImage(named: logoName);
-                b.bLogoImage = logo!;
-                counter=counter+1;
-                if (counter == self.brandsArray.count){
-                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        self.activityIndicatior?.stopAnimating()
-                        self.fetchComplete = true;
-                        self.hideAd();
-                        self.tableView.reloadData()
-                    })
-                }
-                
+            
+            if ((catBrandLogoConunter[b.bCategory] == nil)) {
+                catBrandLogoConunter[b.bCategory] = 0;
             }
-            else {
-                // Download missing logos
-                print("missing:"+b.bLogo);
-                b.bLogoImage = UIImage(named:"brand.default")!;
-                
-                counter=counter+1;
-                if (counter == self.brandsArray.count){
-                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        self.activityIndicatior?.stopAnimating()
-                        self.fetchComplete = true;
-                        self.hideAd();
-                        self.tableView.reloadData()
-                    })
+            
+            if (catBrandLogoConunter[b.bCategory] < 8){
+                if ((dict?.valueForKey(b.bLogo)) != nil){
+                    let logoName = dict?.valueForKey(b.bLogo) as! String!;
+                    let logo:UIImage! = UIImage(named: logoName);
+                    b.bLogoImage = logo!;
+                    catBrandLogoConunter[b.bCategory] = catBrandLogoConunter[b.bCategory]! + 1;
                 }
             }
         }
+        
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.activityIndicatior?.stopAnimating()
+            self.fetchComplete = true;
+            self.hideAd();
+            self.tableView.reloadData()
+        })
+        
+        
     }
     
     
@@ -276,9 +275,9 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
         
         
         if is_searching==true {
-            category = self.filteredCategorisArray[indexPath.row] as String;
+            category = self.filteredCategorisArray[self.sortedIndex[indexPath.row]] as String;
         } else {
-            category = self.categoriesArray[indexPath.row] as String;
+            category = self.categoriesArray[self.sortedIndex[indexPath.row]] as String;
         }
         
         cell.categoryNameLabel.text = category;
@@ -301,10 +300,10 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
     
         var c="";
         if is_searching==true {
-            c = self.filteredCategorisArray[indexPath.row] as String;
+            c = self.filteredCategorisArray[self.sortedIndex[indexPath.row]] as String;
             self.selectedCategory = c;
         } else {
-            c = self.categoriesArray[indexPath.row] as String;
+            c = self.categoriesArray[self.sortedIndex[indexPath.row]] as String;
             self.selectedCategory = c;
         }
         

@@ -197,13 +197,44 @@ class ResponseParser: NSObject {
             }
         
         }
+    
+        let sortedIndex = sortCategories(categoryBrands);
         
-        let results:NSDictionary = ["brands":brands,"stores":stores, "catBrands":categoryBrands, "brandStores":brandStores];
+        let results:NSDictionary = ["brands":brands,"stores":stores, "catBrands":categoryBrands, "brandStores":brandStores, "sortedIndex":sortedIndex];
         
         
         return results;
     }
     
+    
+    func sortCategories (result: [String:[BrandModel]]) -> (NSArray) {
+        
+        var sortedIndex:[Int]=[];
+        var catBrandNumber:[Int]=[];
+        
+        var allKeys = Array(result.keys);
+        for var i=0; i < result.count; i++ {
+            let key = allKeys[i] as String;
+            catBrandNumber.append(result[key]!.count);
+            sortedIndex.append(i);
+        }
+        
+        for var i=0; i<catBrandNumber.count-1; i++ {
+            for var j=i+1; j<catBrandNumber.count; j++ {
+                if catBrandNumber[i] < catBrandNumber[j] {
+                    var tempInt = catBrandNumber[i];
+                    catBrandNumber[i] = catBrandNumber[j];
+                    catBrandNumber[j] = tempInt;
+                    
+                    tempInt = sortedIndex[i];
+                    sortedIndex[i] = sortedIndex[j];
+                    sortedIndex[j] = tempInt;
+                }
+                
+            }
+        }
+        return sortedIndex;
+    }
     
 
     

@@ -253,7 +253,7 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
             let logoName = dict?.valueForKey(s.bLogo) as! String!;
             if (logoName != nil){
                 // Load available logos
-                print(" Logo Found:"+logoName);
+                // print(" Logo Found:"+logoName);
                 let logo:UIImage? = UIImage(named: logoName);
                 // if (logo){
                 s.bLogoImage = logo;

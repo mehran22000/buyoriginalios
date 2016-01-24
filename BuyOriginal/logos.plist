@@ -2,6 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>asteen</key>
+	<string>asteen</string>
+	<key>kinetix</key>
+	<string>kinetix</string>
+	<key>police</key>
+	<string>police</string>
+	<key>tagheuer</key>
+	<string>tagheuer</string>
 	<key>adl</key>
 	<string>adl</string>
 	<key>yakleather</key>

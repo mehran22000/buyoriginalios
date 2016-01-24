@@ -157,7 +157,7 @@ class BOHttpfetcher: NSObject {
     
     }
     
-    
+
     func readRemoteCityCategories (areaCode:String,
         completionHandler:(result: NSDictionary)->Void) -> () {
     
@@ -239,7 +239,6 @@ class BOHttpfetcher: NSObject {
                 completionHandler(result: dic)
             }
     }
-    
     
     
     func checkOfflineCityCategories (areaCode:String) -> Bool {

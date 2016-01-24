@@ -16,6 +16,7 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
     var is_searching=false   // It's flag for searching
     var selectedRow=0;
     var distance:Float=0.5;
+    var is_processing = false;
     
 
     override func viewDidLoad() {
@@ -143,6 +144,9 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print("You selected cell #\(indexPath.row)!")
+        if (self.is_processing){
+            return;
+        }
         self.selectedRow=indexPath.row-1;
         self.performSegueWithIdentifier("pushStoreDetails", sender: nil)
     }
@@ -204,6 +208,7 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
     
     
     func fetchNearLocations(distance:Int){
+        self.is_processing = true;
         self.filteredStores.removeAll();
         self.nearStoresArray = NSArray();
 
@@ -216,6 +221,7 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
         let curLon = String(format:"%f",loc.longitude)
         
         fetcher.fetchStores ("all",distance:String(distance),lat:curLat,lon:curLon,areaCode:"",discount:false,completionHandler: {(result: NSArray) -> () in
+            self.is_processing = false;
             self.nearStoresArray = result
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.loadBrandsLogo()

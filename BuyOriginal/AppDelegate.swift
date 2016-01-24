@@ -50,6 +50,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         
         initCities();
         
+        
+        // Check if it was crashed last launch
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        if let appStatus = defaults.stringForKey("appStatus")
+        {
+            if (appStatus == "running"){
+                print("app crashed last time it was lanuched")
+                self.clearCache();
+            }
+        }
+        
+        defaults.setObject("appStatus", forKey: "running")
+        
+        
+        
         return true
     }
 
@@ -59,12 +75,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     }
 
     func applicationDidEnterBackground(application: UIApplication) {
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject("background", forKey: "appStatus")
+        
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject("running", forKey: "appStatus")
+        
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
@@ -72,6 +96,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     }
 
     func applicationWillTerminate(application: UIApplication) {
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject("terminated", forKey: "appStatus")
+        
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         // self.saveContext()
@@ -252,6 +280,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         c = CityModel(cityName: "Karaj", areaCode: "026", cityNameFa: "کرج", imageName: "karaj",centerLoc: loc);
         self.cities+=[c];
             
+    }
+    
+    
+    func clearCache(){
+        
+        let fileManager = NSFileManager.defaultManager()
+        
+        let documentDirectoryURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
+        
+        for var i = 0; i < self.cities.count; i++
+        {
+            print("\(self.cities[i].areaCode)")
+            
+            do {
+                let fileDestinationUrl = documentDirectoryURL.URLByAppendingPathComponent(self.cities[i].areaCode+".txt")
+                try fileManager.removeItemAtURL(fileDestinationUrl)
+                
+            }
+            catch let error as NSError {
+                print("Ooops! Something went wrong: \(error)")
+            }
+        }
+    
     }
 }
 
