@@ -80,7 +80,6 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
         self.adActivityIndicatior?.hidesWhenStopped=true;
 
         if ((self.screenMode == GlobalConstants.BRANDS_SCREEN_MODE_CHANGE) ||
-            (self.screenMode == GlobalConstants.BRANDS_SCREEN_MODE_SEARCH) ||
             (self.screenMode == GlobalConstants.BRANDS_SCREEN_MODE_SIGNUP)) {
                 
                 self.activityIndicatior?.hidden=false;
@@ -104,10 +103,19 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
                     
                 })
         }
+        
+        else if (self.screenMode == GlobalConstants.BRANDS_SCREEN_MODE_SEARCH) {
+
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.loadBrandsLogo()
+            })
+            
+        }
+        
     }
     
     override func viewDidAppear(animated: Bool) {
-        self.tableView.reloadData()
+      //  self.tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -282,10 +290,10 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
             let b:BrandModel = brand as! BrandModel;
             if ((dict?.valueForKey(b.bLogo)) != nil){
                 // Load available logos
-                //    println(" Logo Found: %@ ",&b.bLogo);
+                print(" Logo Found: %@ ",b.bLogo);
                 let logoName = dict?.valueForKey(b.bLogo) as! String!;
-                let logo:UIImage! = UIImage(named: logoName);
-                b.bLogoImage = logo!;
+                let logo:UIImage? = UIImage(named: logoName);
+                b.bLogoImage = logo;
                 counter=counter+1;
                 if (counter == self.brandsArray.count){
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in

@@ -23,7 +23,7 @@ class ResponseParser: NSObject {
             let bCategory = elem["bCategory"] as? String
             let sNumbers = elem["sNumbers"] as? String
             let sNearestLocation = elem["sNearestLocation"] as? String
-            let bLogo = elem["bLogo"] as! String
+            let bLogo = elem["bLogo"] as? String
         //    print("bId: \(bId)", "bName: \(bName)", "bCategory: \(bCategory)", "sNumbers: \(sNumbers)", "sNearestLocation: \(sNearestLocation)")
             let b = BrandModel(bId: bId, bName: bName, bCategory: bCategory, sNumbers: sNumbers, sNearestLocation: sNearestLocation, bLogo:bLogo);
             array+=[b]
@@ -42,7 +42,7 @@ class ResponseParser: NSObject {
             let bId = elem["bId"] as? String
             let bName = elem["bName"] as? String
             let cName = elem["cName"] as? String
-            let bLogo = elem["bLogo"] as! String
+            let bLogo = elem["bLogo"] as? String
          //   print("bId: \(bId)", "bName: \(bName)", "cName: \(cName)", "bLogo: \(bLogo)")
             let b = BrandModel(bId: bId, bName: bName, bCategory: cName, sNumbers: "", sNearestLocation: "", bLogo:bLogo);
             brands+=[b]
@@ -291,7 +291,7 @@ class ResponseParser: NSObject {
                 discount.startDateStrFa=elem["dStartDateFa"] as? String
                 discount.endDateStrFa=elem["dEndDateFa"] as? String
                 // ToDo: Change this to ?
-                let dPrec:Double? = elem["dPrecentage"] as! Double?;
+                let dPrec:Double? = elem["dPrecentage"] as? Double;
                 if (dPrec != nil) {
                     discount.precentage = String(format:"%.0f", dPrec!);
                 }

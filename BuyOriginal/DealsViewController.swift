@@ -12,9 +12,12 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
     var brandId=0
     var is_searching=false   // It's flag for searching
     var selectedRow=0;
+    var distance:Float=0.5;
     @IBOutlet var activityIndicatior: UIActivityIndicatorView?;
     @IBOutlet var noResultImageView: UIImageView!
     @IBOutlet var noResultLabel: UILabel!
+    var is_processing = false;
+
     
     
     override func viewDidLoad() {
@@ -38,10 +41,6 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
         self.noResultImageView.hidden = true
         self.noResultLabel.hidden = true
         
-    }
-    
-    
-    override func viewWillAppear(animated: Bool) {
         
         self.activityIndicatior?.startAnimating()
         self.activityIndicatior?.hidesWhenStopped=true
@@ -59,9 +58,14 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
         }
         else {
             self.noInternetConnectionView.hidden = true
-            fetchDeals(100);
+            fetchDeals(2);
         }
+
+        
+    }
     
+    
+    override func viewWillAppear(animated: Bool) {
         
     }
     
@@ -72,48 +76,56 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if is_searching==true {
-            return self.filteredStores.count
+            return self.filteredStores.count+1
         } else {
-            return self.dealsStoresArray.count
+            return self.dealsStoresArray.count+1
         }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell:BODealsTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cellDeal") as! BODealsTableViewCell
         
-        var store = self.dealsStoresArray[indexPath.row] as! StoreModel
-        
-        if is_searching==true {
-            store = self.filteredStores[indexPath.row] as StoreModel
-        } else {
-            store = self.dealsStoresArray[indexPath.row] as! StoreModel
-        }
-        
-        cell.storeDistanceLabel.text = store.sDistance+" Km"
-       // cell.brandCategoryLabel.text = store.bCategory
-       // cell.brandNameLabel.text = store.bName
-        
-        var image : UIImage? = UIImage(named:store.bLogo)
-        cell.brandImageView.image=image;
-        cell.brandImageView.layer.cornerRadius = 8.0
-        cell.brandImageView.clipsToBounds = true
-       
-        if (store.sDiscountPercentage>0){
-            let imageName:NSString? = discountImageName(store.sDiscountPercentage);
-            if (imageName != nil){
-                image = UIImage(named:imageName! as String)!;
-                cell.dealImageView.image = image;
-            }
-        }
-        
-        if ((store.sDiscountStartDateFa != nil) && (store.sDiscountEndDateFa != nil)) {
-            cell.dateLabel.text = store.sDiscountStartDateFa + "-" + store.sDiscountEndDateFa;
+        if (indexPath.row == 0)
+        {
+            let cell:BODisatnceTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cellDistance") as! BODisatnceTableViewCell
+            cell.distanceSlider.value=self.distance;
+            return cell;
         }
         else {
-         //   let today = NSDate();
-            cell.dateLabel.text="امروز";
-        }
+            let cell:BODealsTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cellDeal") as! BODealsTableViewCell
+        
+            var store = self.dealsStoresArray[indexPath.row-1] as! StoreModel
+        
+            if is_searching==true {
+                store = self.filteredStores[indexPath.row-1] as StoreModel
+            } else {
+                store = self.dealsStoresArray[indexPath.row-1] as! StoreModel
+            }
+        
+            cell.storeDistanceLabel.text = store.sDistance+" Km"
+            // cell.brandCategoryLabel.text = store.bCategory
+            // cell.brandNameLabel.text = store.bName
+        
+            var image : UIImage? = UIImage(named:store.bLogo)
+            cell.brandImageView.image=image;
+            cell.brandImageView.layer.cornerRadius = 8.0
+            cell.brandImageView.clipsToBounds = true
+       
+            if (store.sDiscountPercentage>0){
+                let imageName:NSString? = discountImageName(store.sDiscountPercentage);
+                if (imageName != nil){
+                    image = UIImage(named:imageName! as String)!;
+                    cell.dealImageView.image = image;
+                }
+            }
+        
+            if ((store.sDiscountStartDateFa != nil) && (store.sDiscountEndDateFa != nil)) {
+                cell.dateLabel.text = store.sDiscountStartDateFa + "-" + store.sDiscountEndDateFa;
+            }
+            else {
+                //   let today = NSDate();
+                cell.dateLabel.text="امروز";
+            }
         
         /*
         let cat=CategoryModel();
@@ -124,20 +136,19 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
         }
         */
         
-        if ((store.sDiscountNote != nil) && (store.sDiscountNote != "")){
-            cell.noteLabel.numberOfLines=0;
-            cell.noteLabel.text = store.sDiscountNote;
-      //      cell.noteLabel.textAlignment = .Left;
-      //      cell.noteLabel.sizeToFit()
+            if ((store.sDiscountNote != nil) && (store.sDiscountNote != "")){
+                cell.noteLabel.numberOfLines=0;
+                cell.noteLabel.text = store.sDiscountNote;
+                //      cell.noteLabel.textAlignment = .Left;
+                //      cell.noteLabel.sizeToFit()
+            }
+            else {
+                cell.noteLabel.text="";
+                cell.announcementImageView.hidden = true;
+            }
+            
+            return cell
         }
-        else {
-            cell.noteLabel.text="";
-            cell.announcementImageView.hidden = true;
-        }
-
-        
-        return cell
-        
     }
     
     func discountImageName(discount:Int)->NSString {
@@ -152,26 +163,31 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print("You selected cell #\(indexPath.row)!")
-        self.selectedRow=indexPath.row;
+        print("You selected cell #\(indexPath.row-1)!")
+        self.selectedRow=indexPath.row-1;
         self.performSegueWithIdentifier("pushStoreDetails", sender: nil)
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-        var store:StoreModel?;
-        
-        if is_searching==true {
-            store = self.filteredStores[indexPath.row] as StoreModel
-        } else {
-            store = self.dealsStoresArray[indexPath.row] as? StoreModel
-        }
-        
-        if ((store!.sDiscountNote == nil) && (store!.sDiscountEndDateFa != nil)){
-            return 80;
+        if (indexPath.row == 0){
+            return 60;
         }
         else {
-            return 115;
+            var store:StoreModel?;
+        
+            if is_searching==true {
+                store = self.filteredStores[indexPath.row-1] as StoreModel
+            } else {
+                store = self.dealsStoresArray[indexPath.row-1] as? StoreModel
+            }
+        
+            if ((store!.sDiscountNote == nil) && (store!.sDiscountEndDateFa != nil)){
+                return 80;
+            }
+            else {
+                return 115;
+            }
         }
     }
     
@@ -198,6 +214,9 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
     }
     
     func fetchDeals(distance:Int){
+        self.is_processing = true;
+        self.tableView.scrollEnabled = false;
+
         let fetcher = BOHttpfetcher()
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
@@ -267,6 +286,8 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
                         self.noResultImageView.hidden = true
                         self.noResultLabel.hidden = true
                         self.tableView.reloadData()
+                        self.is_processing = false;
+                        self.tableView.scrollEnabled = true;
                     })
                 }
             }
@@ -291,6 +312,8 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
                                 self.noResultImageView.hidden = true
                                 self.noResultLabel.hidden = true
                                 self.tableView.reloadData()
+                                self.is_processing = false;
+                                self.tableView.scrollEnabled = true;
                             })
                         }
                     })
@@ -324,6 +347,29 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
         }
     }
 
+    @IBAction func sliderValueChanged(sender: UISlider) {
+        
+        var distValue = Int(sender.value)
+        self.distance = sender.value;
+        
+        if ((distance > 0.2) && (distance < 1.0)){
+            distValue = 1;
+        }
+        
+        if (Utilities.isConnectedToNetwork() == false) {
+            self.activityIndicatior!.stopAnimating()
+            self.noInternetConnectionView.hidden = false
+            self.noResultImageView.hidden = false
+            self.noResultLabel.hidden = false
+        }
+        else {
+            self.noInternetConnectionView.hidden = true
+            self.activityIndicatior!.startAnimating()
+            fetchDeals(distValue);
+        }
+        
+    }
+    
     
     /*
     // MARK: - Navigation
