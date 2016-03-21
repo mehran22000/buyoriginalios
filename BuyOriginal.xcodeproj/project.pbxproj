@@ -83,8 +83,14 @@
 		02CB3A751B6FD6D400561F53 /* Discount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CB3A741B6FD6D400561F53 /* Discount.swift */; };
 		02CC33CC1B7D4F2900D1E198 /* CitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CC33CB1B7D4F2900D1E198 /* CitiesTableViewController.swift */; };
 		02D4ADF31B0D3717006ED90F /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02D4ADF21B0D3717006ED90F /* Icons.xcassets */; };
+		02E314581C97AAEA008B2949 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E314571C97AAEA008B2949 /* Analytics.swift */; };
 		02E442041B0F5FFA0097D2E6 /* 071_static.json in Resources */ = {isa = PBXBuildFile; fileRef = 02E442031B0F5FFA0097D2E6 /* 071_static.json */; };
 		02E442061B0F62150097D2E6 /* 051_static.json in Resources */ = {isa = PBXBuildFile; fileRef = 02E442051B0F62150097D2E6 /* 051_static.json */; };
+		02E45AD71C7D351100B46903 /* VerificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E45AD61C7D351100B46903 /* VerificationsViewController.swift */; };
+		02E45AD91C7D352500B46903 /* VerificationsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E45AD81C7D352500B46903 /* VerificationsDetailsViewController.swift */; };
+		02E45ADB1C7D35C800B46903 /* Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E45ADA1C7D35C800B46903 /* Verification.swift */; };
+		02E45ADD1C7E67D700B46903 /* BOBrandVerificationAlertCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E45ADC1C7E67D700B46903 /* BOBrandVerificationAlertCell.swift */; };
+		02E45ADF1C7E81FE00B46903 /* BOVerificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E45ADE1C7E81FE00B46903 /* BOVerificationCell.swift */; };
 		02EA3EEA1B4E13E000ECE384 /* BOBusDisPercentageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EA3EE91B4E13E000ECE384 /* BOBusDisPercentageTableViewCell.swift */; };
 		02EA3EEC1B4E143300ECE384 /* BOBusDisDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EA3EEB1B4E143300ECE384 /* BOBusDisDateTableViewCell.swift */; };
 		02EA3EEE1B4E148900ECE384 /* DiscountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EA3EED1B4E148900ECE384 /* DiscountViewController.swift */; };
@@ -198,8 +204,14 @@
 		02CB3A741B6FD6D400561F53 /* Discount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Discount.swift; path = DataModels/Discount.swift; sourceTree = "<group>"; };
 		02CC33CB1B7D4F2900D1E198 /* CitiesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CitiesTableViewController.swift; sourceTree = "<group>"; };
 		02D4ADF21B0D3717006ED90F /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
+		02E314571C97AAEA008B2949 /* Analytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		02E442031B0F5FFA0097D2E6 /* 071_static.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 071_static.json; sourceTree = "<group>"; };
 		02E442051B0F62150097D2E6 /* 051_static.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 051_static.json; sourceTree = "<group>"; };
+		02E45AD61C7D351100B46903 /* VerificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationsViewController.swift; sourceTree = "<group>"; };
+		02E45AD81C7D352500B46903 /* VerificationsDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationsDetailsViewController.swift; sourceTree = "<group>"; };
+		02E45ADA1C7D35C800B46903 /* Verification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Verification.swift; sourceTree = "<group>"; };
+		02E45ADC1C7E67D700B46903 /* BOBrandVerificationAlertCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BOBrandVerificationAlertCell.swift; sourceTree = "<group>"; };
+		02E45ADE1C7E81FE00B46903 /* BOVerificationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BOVerificationCell.swift; sourceTree = "<group>"; };
 		02EA3EE91B4E13E000ECE384 /* BOBusDisPercentageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BOBusDisPercentageTableViewCell.swift; sourceTree = "<group>"; };
 		02EA3EEB1B4E143300ECE384 /* BOBusDisDateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BOBusDisDateTableViewCell.swift; sourceTree = "<group>"; };
 		02EA3EED1B4E148900ECE384 /* DiscountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountViewController.swift; sourceTree = "<group>"; };
@@ -247,6 +259,7 @@
 			children = (
 				02031EF31B7C427A00F21F96 /* Utilities.swift */,
 				029221991BA2651B006CBC2B /* SimulatorUtility.swift */,
+				02E314571C97AAEA008B2949 /* Analytics.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -280,6 +293,7 @@
 		024056A01B51AE7100612263 /* BusinessRegisteration */ = {
 			isa = PBXGroup;
 			children = (
+				02577EB51AFAF81700F3521B /* StoreViewController.swift */,
 				0240569A1B51A50300612263 /* LocateStoreViewController.swift */,
 				0240569C1B51A51F00612263 /* RegisterTermsViewController.swift */,
 				024056981B51A4E100612263 /* RegisterStoreViewController.swift */,
@@ -307,6 +321,8 @@
 				02CB3A721B6E860700561F53 /* BOBusDisNotesTableViewCell.swift */,
 				02031EF71B7CD1A300F21F96 /* BOCategoriesTableViewCell.swift */,
 				0292219B1BA28471006CBC2B /* BOStoresDiscountNoteTableCell.swift */,
+				02E45ADC1C7E67D700B46903 /* BOBrandVerificationAlertCell.swift */,
+				02E45ADE1C7E81FE00B46903 /* BOVerificationCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -314,9 +330,9 @@
 		02577EB71AFAF82300F3521B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				02E45AD51C7D34DF00B46903 /* Verifications */,
 				022A95DE1B571E470091659B /* BusinesProfile */,
 				024056A01B51AE7100612263 /* BusinessRegisteration */,
-				02577EB51AFAF81700F3521B /* StoreViewController.swift */,
 				02C9BD0B1B054C3D000C6FA6 /* DealsViewController.swift */,
 				02CC33CB1B7D4F2900D1E198 /* CitiesTableViewController.swift */,
 				02ED158F1B351E5B00A08215 /* CategoriesViewController.swift */,
@@ -460,6 +476,7 @@
 				0249CCEB1B5DDC6D001C84BA /* Account.swift */,
 				02CB3A741B6FD6D400561F53 /* Discount.swift */,
 				02031EF51B7C42EA00F21F96 /* Category.swift */,
+				02E45ADA1C7D35C800B46903 /* Verification.swift */,
 			);
 			name = DataModel;
 			sourceTree = "<group>";
@@ -473,6 +490,15 @@
 				02C99C1D1B8E6F5900F8DA23 /* BuCityDelegate.swift */,
 			);
 			name = Protocols;
+			sourceTree = "<group>";
+		};
+		02E45AD51C7D34DF00B46903 /* Verifications */ = {
+			isa = PBXGroup;
+			children = (
+				02E45AD61C7D351100B46903 /* VerificationsViewController.swift */,
+				02E45AD81C7D352500B46903 /* VerificationsDetailsViewController.swift */,
+			);
+			name = Verifications;
 			sourceTree = "<group>";
 		};
 		02FB4DCB1AF7A47900884750 = {
@@ -591,6 +617,11 @@
 					02FB4DD31AF7A47900884750 = {
 						CreatedOnToolsVersion = 6.2;
 						DevelopmentTeam = Q79878SPU6;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -654,6 +685,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				024056951B51A44200612263 /* LoginViewController.swift in Sources */,
+				02E45ADF1C7E81FE00B46903 /* BOVerificationCell.swift in Sources */,
 				0240569D1B51A51F00612263 /* RegisterTermsViewController.swift in Sources */,
 				02A3B2931B1A36E900B99AAA /* BOHttpfetcher.swift in Sources */,
 				02CC33CC1B7D4F2900D1E198 /* CitiesTableViewController.swift in Sources */,
@@ -665,15 +697,19 @@
 				02C9BD001B042AF6000C6FA6 /* DataManager.swift in Sources */,
 				022A95DD1B5715030091659B /* ForgetPasswordViewController.swift in Sources */,
 				02FB4DDF1AF7A47900884750 /* BrandViewController.swift in Sources */,
+				02E45ADB1C7D35C800B46903 /* Verification.swift in Sources */,
 				02293BDA1B23D15200D77387 /* LocationViewController.swift in Sources */,
 				02C99C1E1B8E6F5900F8DA23 /* BuCityDelegate.swift in Sources */,
 				02577EB61AFAF81700F3521B /* StoreViewController.swift in Sources */,
 				02C9BD0A1B054C09000C6FA6 /* NearMeViewController.swift in Sources */,
 				02C99C191B8E677C00F8DA23 /* BuPasswordDelegate.swift in Sources */,
+				02E45AD71C7D351100B46903 /* VerificationsViewController.swift in Sources */,
 				024056991B51A4E100612263 /* RegisterStoreViewController.swift in Sources */,
 				02662BF41B03004F00093D7D /* Store.swift in Sources */,
 				021DA5B31B0FD53E0030815A /* BONearmeTableViewCell.swift in Sources */,
+				02E45ADD1C7E67D700B46903 /* BOBrandVerificationAlertCell.swift in Sources */,
 				0232F57C1B016EA4009274BA /* ResponseParser.swift in Sources */,
+				02E45AD91C7D352500B46903 /* VerificationsDetailsViewController.swift in Sources */,
 				020EAFB81B6722D9001C7974 /* RegisterCinfirmationViewController.swift in Sources */,
 				024056971B51A4C400612263 /* RegisterUserIdViewController.swift in Sources */,
 				02577EB41AFAD06F00F3521B /* BOStoresTableViewCell.swift in Sources */,
@@ -686,6 +722,7 @@
 				0249CCEA1B5C0AB4001C84BA /* BOHttpLogin.swift in Sources */,
 				02ED15921B351E9000A08215 /* BOCityTableViewCell.swift in Sources */,
 				02445F911B4EB271006D5F13 /* BOBusDisActionTableViewCell.swift in Sources */,
+				02E314581C97AAEA008B2949 /* Analytics.swift in Sources */,
 				02EA3EEC1B4E143300ECE384 /* BOBusDisDateTableViewCell.swift in Sources */,
 				0292219C1BA28471006CBC2B /* BOStoresDiscountNoteTableCell.swift in Sources */,
 				02AA9A091AFD67120090A88B /* Brand.swift in Sources */,
@@ -829,7 +866,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ca.ron.buyoriginal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ebd52df5-0bc9-489c-8d4c-6ed8bf03942a";
+				PROVISIONING_PROFILE = "e1465036-74fd-4dcc-a389-6e898f6a20c8";
 				SWIFT_OBJC_BRIDGING_HEADER = Header.h;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -852,7 +889,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ca.ron.buyoriginal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "00e0c318-541c-4dab-8572-068c0e2ae00b";
+				PROVISIONING_PROFILE = "d267d735-b7b0-4747-8987-60f6c5e6396d";
 				SWIFT_OBJC_BRIDGING_HEADER = Header.h;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

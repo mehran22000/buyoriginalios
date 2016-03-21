@@ -110,6 +110,8 @@ class CitiesTableViewController: UITableViewController,UISearchBarDelegate {
             self.selectedAreaCode = c.areaCode;
         }
         
+        Analytics.saveInterest("City", _value: c.areaCode)
+        
         if (self.screenMode == GlobalConstants.CITIES_SCREEN_MODE_SIGNUP){
             self.account.sCity=c;
             self.performSegueWithIdentifier("pushAllBrands", sender: nil)

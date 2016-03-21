@@ -31,22 +31,79 @@ class LocationViewController: UIViewController,MKMapViewDelegate {
     
     
     func showLocation(lat: Double, long: Double) {
-        let latDelta:CLLocationDegrees = 0.01
-    
-        let longDelta:CLLocationDegrees = 0.01
-    
-        let theSpan:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
-        let pointLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(lat, long)
-    
-        let region:MKCoordinateRegion = MKCoordinateRegionMake(pointLocation, theSpan)
-        mapView.setRegion(region, animated: true)
-    
+        
         let pinLocation : CLLocationCoordinate2D = CLLocationCoordinate2DMake(lat, long)
-        let objectAnnotation = MKPointAnnotation()
-        objectAnnotation.coordinate = pinLocation
-        objectAnnotation.title = storeName
-        self.mapView.addAnnotation(objectAnnotation)
+        let storeAnnotation = MKPointAnnotation()
+        storeAnnotation.coordinate = pinLocation
+        storeAnnotation.title = storeName
+        self.mapView.addAnnotation(storeAnnotation)
+        
+        
+        // Display a pin for current location
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+       
+        var currentPinLocation : CLLocationCoordinate2D?;
+        if ((appDelegate.curLocationLat) != nil){
+            currentPinLocation = CLLocationCoordinate2DMake(appDelegate.curLocationLat, appDelegate.curLocationLong)
+            let currentAnnotation = MKPointAnnotation()
+        
+            currentAnnotation.coordinate = currentPinLocation!
+            currentAnnotation.title = "Current Location"
+            self.mapView.addAnnotation(currentAnnotation)
+            self.mapView.addAnnotations([storeAnnotation,currentAnnotation]);
+            self.fitMapViewToAnnotaionList([storeAnnotation,currentAnnotation])
+        }
+        else {
+            self.mapView.addAnnotations([storeAnnotation]);
+            
+            let latDelta:CLLocationDegrees = 0.01
+            let longDelta:CLLocationDegrees = 0.01
+            let theSpan:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
+            let region:MKCoordinateRegion = MKCoordinateRegionMake(pinLocation, theSpan)
+            mapView.setRegion(region, animated: true)
+        }
+        
+        
+        
+//        // Show Region
+//        var centerLocation = CLLocationCoordinate2D();
+//        if (currentPinLocation != nil){
+//            centerLocation.latitude = ((currentPinLocation?.latitude)! + pinLocation.latitude) / 2;
+//            centerLocation.longitude = ((currentPinLocation?.longitude)! + pinLocation.longitude) / 2;
+//        }
+//        else {
+//            centerLocation = pinLocation;
+//        }
+//        
+//        
+//        let region:MKCoordinateRegion = MKCoordinateRegionMake(centerLocation, theSpan)
+//        mapView.setRegion(region, animated: true)
+
+        
+        
     }
+    
+    func fitMapViewToAnnotaionList(annotations: [MKPointAnnotation]) -> Void {
+        
+        let mapEdgePadding = UIEdgeInsets(top: 30, left: 30, bottom: 30, right: 30)
+        var zoomRect:MKMapRect = MKMapRectNull
+        
+        for index in 0..<annotations.count {
+            let annotation = annotations[index]
+            let aPoint:MKMapPoint = MKMapPointForCoordinate(annotation.coordinate)
+            let rect:MKMapRect = MKMapRectMake(aPoint.x, aPoint.y, 0.1, 0.1)
+            
+            if MKMapRectIsNull(zoomRect) {
+                zoomRect = rect
+            } else {
+                zoomRect = MKMapRectUnion(zoomRect, rect)
+            }
+        }
+        
+        mapView.setVisibleMapRect(zoomRect, edgePadding: mapEdgePadding, animated: true)
+        
+    }
+    
     
     /*
     func showDirection (lat: Double, long: Double) {
@@ -99,6 +156,8 @@ class LocationViewController: UIViewController,MKMapViewDelegate {
         
         self.mapView.setRegion(region, animated: true)
         
+        
+        
     }
     
     func mapView(mapView: MKMapView, rendererForOverlay
@@ -110,6 +169,43 @@ class LocationViewController: UIViewController,MKMapViewDelegate {
             return renderer
     }
 
+    
+    
+    
+    
+    @objc func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        if (annotation is MKUserLocation) {
+            //if annotation is not an MKPointAnnotation (eg. MKUserLocation),
+            //return nil so map draws default view for it (eg. blue dot)...
+            return nil
+        }
+        
+        let reuseId = "test"
+        
+        var anView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
+        if anView == nil {
+            anView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            
+            if (annotation.title! == "Current Location"){
+                anView!.image = UIImage(named:"pin.user")
+            }
+            else {
+                anView!.image = UIImage(named:"pin.destination")
+            }
+            anView!.canShowCallout = true
+        }
+        else {
+            //we are re-using a view, update its annotation reference...
+            anView!.annotation = annotation
+        }
+        
+        return anView
+    }
+    
+    
+    
+    
+    
     /*
     // MARK: - Navigation
 

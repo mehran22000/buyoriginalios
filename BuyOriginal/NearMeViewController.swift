@@ -313,6 +313,10 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
                 } else {
                     store = self.nearStoresArray[self.selectedRow] as! StoreModel
                 }
+                
+                Analytics.saveInterest("NearMe_Brand_Store", _value: store.bId+"_"+store.sId);
+                Analytics.saveInterest("NearMe_Brand", _value: store.bId);
+                
                 destinationVC.storesArray=[store];
             }
         }

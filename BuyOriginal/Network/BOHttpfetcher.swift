@@ -157,6 +157,10 @@ class BOHttpfetcher: NSObject {
     
     }
     
+    
+    
+    
+    
 
     func readRemoteCityCategories (areaCode:String,
         completionHandler:(result: NSDictionary)->Void) -> () {
@@ -285,11 +289,64 @@ class BOHttpfetcher: NSObject {
     
     func fetchBrandLogo (logo:String, completionHandler:(imgData:NSData!)->Void) -> () {
         
-        let logoUrl : String = "https://buyoriginal.herokuapp.com/images/logos/"+logo+".jpg";
+        let logoUrl : String = "https://buyoriginal.herokuapp.com/images/logos/"+logo+".png";
     //    println("logoUrl: \(logoUrl)");
         
         print(logoUrl);
         if let url = NSURL(string: logoUrl) {
+            let imageDataFromURL = NSData(contentsOfURL: url)
+            if ((imageDataFromURL) != nil){
+                completionHandler(imgData: imageDataFromURL!);
+            }
+            else {
+                completionHandler(imgData: nil);
+            }
+        }
+    }
+    
+    
+    func fetchBrandVerification (bId:String, completionHandler:(result:NSArray)->Void) -> () {
+        
+        let url = "https://buyoriginal.herokuapp.com/services/brands/v1/verification/"+bId;
+        // let url = "http://localhost:5000/services/brands/v1/verification/"+bId;
+        // println("yrl: \(logoUrl)");
+        print(url);
+        
+        let request : NSMutableURLRequest = NSMutableURLRequest()
+        request.URL = NSURL(string: url)
+        request.HTTPMethod = "GET"
+        request.addValue(GlobalConstants.serverToken, forHTTPHeaderField: "token");
+        
+        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse?, data: NSData?, error: NSError?) -> Void in
+            //  var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
+            var jsonResult: NSArray!
+            if (data != nil){
+                do {
+                    try jsonResult = NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as? NSArray
+                }
+                catch {
+                    
+                }
+            }
+            if (jsonResult != nil) {
+                
+                let parser = ResponseParser()
+                let verificationArray = parser.parseBrandVerificationArray(jsonResult);
+                completionHandler(result: verificationArray)
+                // process jsonResult
+            } else {
+                // couldn't load JSON, look at error
+            }
+        })
+    }
+    
+    func fetchVerificationImage (imageName:String, completionHandler:(imgData:NSData!)->Void) -> () {
+        
+        let imageUrl : String = "https://buyoriginal.herokuapp.com/images/verifications/"+imageName;
+        //    println("logoUrl: \(logoUrl)");
+        
+        print(imageUrl);
+        if let url = NSURL(string: imageUrl) {
             let imageDataFromURL = NSData(contentsOfURL: url)
             if ((imageDataFromURL) != nil){
                 completionHandler(imgData: imageDataFromURL!);

@@ -166,6 +166,8 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
         print("You selected cell #\(indexPath.row-1)!")
         self.selectedRow=indexPath.row-1;
         self.performSegueWithIdentifier("pushStoreDetails", sender: nil)
+        
+        
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -341,6 +343,10 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
                 } else {
                     store = self.dealsStoresArray[self.selectedRow] as! StoreModel
                 }
+                
+                Analytics.saveInterest("Deal", _value: store.bId);
+                Analytics.saveInterest("Deal_Brand_Store", _value: store.bId+"_"+store.sId);
+                
                 destinationVC.storesArray=[store];
                 destinationVC.screenMode = GlobalConstants.STORES_SCREEN_MODE_DISCOUNT;
             }

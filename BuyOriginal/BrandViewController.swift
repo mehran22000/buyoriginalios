@@ -216,12 +216,14 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
         var selectedBrand = BrandModel();
         let cat=CategoryModel();
         
-        
         if is_searching==true {
             selectedBrand = self.filteredBrands[indexPath.row] as BrandModel
         } else {
             selectedBrand = self.brandsArray[indexPath.row] as! BrandModel
         }
+        
+        Analytics.saveInterest("Brand", _value: selectedBrand.bId)
+        
         
         if ((self.account) != nil){
             self.account.brand=selectedBrand;
@@ -232,6 +234,7 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
         
         if (self.screenMode==GlobalConstants.BRANDS_SCREEN_MODE_SEARCH){
             self.selectedBrandStoresArray = self.brandStores[arrayIndex]!;
+            self.brandId = selectedBrand.bId;
             performSegueWithIdentifier("ShowStoresSegue", sender: nil);
         }
         else if (self.screenMode==GlobalConstants.BRANDS_SCREEN_MODE_SIGNUP){
@@ -290,7 +293,7 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
             let b:BrandModel = brand as! BrandModel;
             if ((dict?.valueForKey(b.bLogo)) != nil){
                 // Load available logos
-                print(" Logo Found: %@ ",b.bLogo);
+                // print(" Logo Found: %@ ",b.bLogo);
                 let logoName = dict?.valueForKey(b.bLogo) as! String!;
                 let logo:UIImage? = UIImage(named: logoName);
                 b.bLogoImage = logo;

@@ -13,10 +13,13 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
     @IBOutlet var tableView: UITableView!
     var storesArray = NSArray()
     var filteredStores = [StoreModel]()
+    var verificationArray = NSArray()
     var brandId="0"
     var areaCode = ""
     var is_searching=false   // It's flag for searching
     var screenMode = 0;
+    var verification = false;
+    
     @IBOutlet var activityIndicatior: UIActivityIndicatorView?;
     
     let kDemoStores:String="[{\"brandId\":\"1\",\"name\":\"آریاپخش نقش جهان\",\"phoneNumber\":\"۳۶۳۰۴۹۲۷\",\"address\":\"اصفهان خیابان چهارباغ بالا\"}]"
@@ -34,19 +37,24 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
         
         let fetcher = BOHttpfetcher()
         self.activityIndicatior?.hidden = true;
+        self.verification = false;
         if (storesArray.count==0){
             self.activityIndicatior?.hidden = false;
             self.activityIndicatior?.startAnimating()
             self.activityIndicatior?.hidesWhenStopped=true
             fetcher.fetchStores (self.brandId,distance: nil,lat: nil,lon: nil,areaCode:self.areaCode, discount:false, completionHandler: {(result: NSArray) -> () in
                 self.storesArray = result
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    self.activityIndicatior?.stopAnimating()
-                    self.tableView.reloadData()
-                })
+                self.fetchVerifications();
+                // Next, fetch verifications
+                
             });
         }
-        
+        else {
+            self.activityIndicatior?.hidden = false;
+            self.activityIndicatior?.startAnimating()
+            self.activityIndicatior?.hidesWhenStopped=true
+            self.fetchVerifications();
+        }
         /*
         
         DataManager.getTopAppsDataFromFileWithSuccess ("Stores",success: {(data) -> Void in
@@ -63,6 +71,23 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
         
     }
 
+    
+    func fetchVerifications()-> () {
+        
+        let fetcher = BOHttpfetcher();
+        fetcher.fetchBrandVerification(self.brandId, completionHandler: { (result: NSArray) -> Void in
+            if (result.count > 0 ){
+                self.verificationArray = result;
+                self.verification = true;
+            }
+            
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.activityIndicatior?.stopAnimating()
+                self.tableView.reloadData()
+            })
+        })
+    }
+    
     
     override func viewDidAppear(animated: Bool) {
         self.tableView.reloadData()
@@ -89,11 +114,17 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
             }
         }
         
-        if is_searching==true {
-            return self.filteredStores.count
-        } else {
-            return self.storesArray.count
+        var rows = self.storesArray.count;
+        
+        if (is_searching==true) {
+            rows =  self.filteredStores.count
         }
+        
+        if (self.verification){
+            rows = rows + 1;
+        }
+        
+        return rows;
         
     }
     
@@ -111,14 +142,25 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
             return cell;
         }
         else {
-            var store = self.storesArray[indexPath.row] as! StoreModel
             
+            var storeIndex = indexPath.row;
+            if (self.verification){
+                storeIndex = storeIndex-1;
+            }
+            
+            // Verification Header Cell if Available
+            if ((self.verification) && (indexPath.row == 0)){
+                let cell:BOBrandVerificationAlertCell = self.tableView.dequeueReusableCellWithIdentifier("cellVerification") as! BOBrandVerificationAlertCell
+                return cell;
+            }
+            
+            var store = self.storesArray[storeIndex] as! StoreModel
             let cell:BOStoresTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cellStore") as! BOStoresTableViewCell
             
             if is_searching==true {
-                store = self.filteredStores[indexPath.row] as StoreModel
+                store = self.filteredStores[storeIndex] as StoreModel
             } else {
-                store = self.storesArray[indexPath.row] as! StoreModel
+                store = self.storesArray[storeIndex] as! StoreModel
             }
 
             cell.storeNameLabel.text = store.sName;
@@ -152,14 +194,19 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print("You selected cell #\(indexPath.row)!")
+        
+        if ((self.verification) && indexPath.row == 0){
+            self.performSegueWithIdentifier("segueVerificationList", sender: nil)
+        }
+        
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-        if ((self.screenMode == GlobalConstants.STORES_SCREEN_MODE_DISCOUNT) && (indexPath.row == 2)){
-            return 150;
+        if ((self.verification) && (indexPath.row == 0)) {
+            return 35;
         }
-        else{
+        else {
             return 150;
         }
     }
@@ -195,6 +242,14 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
                     destinationVC.long = (selectedStore.sLong as NSString).doubleValue
                     destinationVC.storeName = selectedStore.sName
             }
+            Analytics.saveInterest("Brand_Store", _value: selectedStore.bId+"_"+selectedStore.sId);
+        }
+        
+        if segue.identifier == "segueVerificationList"
+        {
+            if let destinationVC = segue.destinationViewController as? VerificationsViewController{
+                destinationVC.verificationArray = self.verificationArray;
+            }
         }
     }
     
@@ -204,7 +259,12 @@ class StoreViewController: UIViewController,UITableViewDelegate, UITableViewData
         let cellIndexPath = self.tableView.indexPathForRowAtPoint(pointInTable)
         
         if (cellIndexPath != nil) {
-            let row = cellIndexPath?.row
+            var row = cellIndexPath?.row
+            
+            if (self.verification){
+                row = row!-1;
+            }
+            
             return self.storesArray[row!] as! StoreModel;
         }
         return nil

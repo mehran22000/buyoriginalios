@@ -155,6 +155,53 @@ class BOHttpPost: NSObject {
     }
     
     
+    func postInterests (completionHandler:(result:NSString)->Void) -> () {
+        
+        let url: String = "https://buyoriginal.herokuapp.com/services/users/v1/interests"
+        // let url: String = "http://localhost:5000/services/users/v1/interests"
+        let request : NSMutableURLRequest = NSMutableURLRequest()
+        request.URL = NSURL(string: url)
+        request.HTTPMethod = "POST"
+        request.addValue(GlobalConstants.serverToken, forHTTPHeaderField: "token");
+        
+        let defaults = NSUserDefaults.standardUserDefaults();
+        let array = defaults.objectForKey("userInterestsArray") as? [NSDictionary] ?? [NSDictionary]()
+        
+        do {
+            let data = try NSJSONSerialization.dataWithJSONObject(array, options:[])
+            let str = String(data: data, encoding: NSUTF8StringEncoding)
+            let bodyData = "interests="+str!;
+            print("bodyData \(bodyData)");
+            request.HTTPBody = bodyData.dataUsingEncoding(NSUTF8StringEncoding);
+        } catch {
+            
+        }
+        
+        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()){
+            
+            response, data, error in
+            
+            var jsonResult: NSArray!
+            var postResult = "";
+            
+            if (data != nil){
+                do {
+                    try jsonResult = NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as! NSArray
+                }
+                catch {
+                    
+                }
+                
+            }
+            if (jsonResult != nil) {
+                
+                let parser = ResponseParser()
+                postResult = parser.parsePost(jsonResult) as String;
+            }
+            
+            completionHandler(result: postResult);
+        }
+    }
     
     
 }

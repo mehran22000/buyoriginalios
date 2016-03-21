@@ -312,7 +312,7 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
             self.account.sCity=c;
         }
         */
-        
+        Analytics.saveInterest("Category", _value: c)
         performSegueWithIdentifier("pushBrands", sender: nil)
     }
     

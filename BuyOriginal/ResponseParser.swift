@@ -34,6 +34,33 @@ class ResponseParser: NSObject {
     }
     
     
+    func parseBrandVerificationArray(array: NSArray) -> [VerificationModel] {
+        
+        var verificationArray = [VerificationModel]()
+        
+        for elem: AnyObject in array {
+            
+            let bId = elem["bId"] as? String
+            let vId = elem["vId"] as? String
+            let shortDesc = elem["shortDesc"] as? String
+            let longDesc = elem["longDesc"] as? String
+            let smallImage = elem["smallImage"] as? String
+            let largeImage = elem["largeImage"] as? String
+            let title = elem["title"] as? String
+            let v = VerificationModel(bId: bId, vId: vId, shortDesc: shortDesc, longDesc: longDesc, smallImage:smallImage,largeImage:largeImage, title:title );
+            verificationArray+=[v]
+            
+        }
+        
+        return verificationArray;
+    }
+    
+    
+    
+    
+    
+    
+    
     func parseBrandArray(array:NSArray) -> [BrandModel] {
         
         var brands = [BrandModel]()
