@@ -222,7 +222,9 @@ class BussinessProfileController: UITableViewController, BuPasswordDelegate, BuP
         httpLogin.deleteUserAccount(email,sid:sid) { (result) -> Void in
             print("Delete user profile completed");
             if (result == "success"){
-                self.dismissViewControllerAnimated(false, completion: nil);
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.dismissViewControllerAnimated(false, completion: nil);
+                })
             }
             else {
                 let alert = UIAlertView(title: "", message: "خطادر حذف شناسه کاربری شما. دوباره تلاش کنید",
