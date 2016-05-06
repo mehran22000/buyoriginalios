@@ -12,7 +12,7 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
     var brandId=0
     var is_searching=false   // It's flag for searching
     var selectedRow=0;
-    var distance:Float=0.5;
+    var distance:Float=2.5;
     @IBOutlet var activityIndicatior: UIActivityIndicatorView?;
     @IBOutlet var noResultImageView: UIImageView!
     @IBOutlet var noResultLabel: UILabel!

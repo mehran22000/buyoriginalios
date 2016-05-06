@@ -51,11 +51,11 @@ class BOHttpfetcher: NSObject {
         var url : String;
         if (discount) {
            url = "https://buyoriginal.herokuapp.com/services/stores/storelist/discounts/"+lat+"/"+lon+"/"+distance;
-         //  url = "http://localhost:5000/stores/storelist/discounts/"+lat+"/"+lon+"/"+distance;
+           // url = "http://localhost:5000/stores/storelist/discounts/"+lat+"/"+lon+"/"+distance;
         }
         else if (distance != nil){
             url = "https://buyoriginal.herokuapp.com/services/stores/storelist/"+brandId+"/"+lat+"/"+lon+"/"+distance;
-        //    url = "http://localhost:5000/stores/storelist/"+brandId+"/"+lat+"/"+lon+"/"+distance;
+           // url = "http://localhost:5000/stores/storelist/"+brandId+"/"+lat+"/"+lon+"/"+distance;
         }
         else {
                 url = "https://buyoriginal.herokuapp.com/services/stores/storelist/city/"+areaCode+"/"+brandId;

@@ -51,7 +51,9 @@ class LocationViewController: UIViewController,MKMapViewDelegate {
             currentAnnotation.title = "Current Location"
             self.mapView.addAnnotation(currentAnnotation)
             self.mapView.addAnnotations([storeAnnotation,currentAnnotation]);
+            
             self.fitMapViewToAnnotaionList([storeAnnotation,currentAnnotation])
+        
         }
         else {
             self.mapView.addAnnotations([storeAnnotation]);
@@ -85,7 +87,7 @@ class LocationViewController: UIViewController,MKMapViewDelegate {
     
     func fitMapViewToAnnotaionList(annotations: [MKPointAnnotation]) -> Void {
         
-        let mapEdgePadding = UIEdgeInsets(top: 30, left: 30, bottom: 30, right: 30)
+        let mapEdgePadding = UIEdgeInsets(top: 40, left: 40, bottom: 40, right: 40)
         var zoomRect:MKMapRect = MKMapRectNull
         
         for index in 0..<annotations.count {
@@ -101,6 +103,7 @@ class LocationViewController: UIViewController,MKMapViewDelegate {
         }
         
         mapView.setVisibleMapRect(zoomRect, edgePadding: mapEdgePadding, animated: true)
+        
         
     }
     

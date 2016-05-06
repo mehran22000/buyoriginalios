@@ -15,7 +15,7 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
     var brandId=0
     var is_searching=false   // It's flag for searching
     var selectedRow=0;
-    var distance:Float=0.5;
+    var distance:Float=2.5;
     var is_processing = false;
     
 

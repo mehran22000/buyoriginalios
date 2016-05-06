@@ -18,20 +18,24 @@ class VerificationsDetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.loadImage()
         
         self.descriptionLabel.text = self.verification.longDesc;
         self.descriptionLabel.sizeToFit();
         self.descriptionLabel.numberOfLines = 0;
+        self.activityIndicatior?.startAnimating()
         
         self.activityIndicatior?.hidden = false;
-        self.activityIndicatior?.startAnimating()
         self.activityIndicatior?.hidesWhenStopped=true
         
       
         // Do any additional setup after loading the view.
     }
 
+    
+    override func viewDidAppear(animated: Bool) {
+        self.loadImage()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

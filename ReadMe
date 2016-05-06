@@ -1,0 +1,7 @@
+-- Run MongoDB Locall
+Run the following comand on the terminal
+>> mongod
+Run Robomongo application to connect to the database
+
+-- Swift Coding Standard
+https://github.com/raywenderlich/swift-style-guide

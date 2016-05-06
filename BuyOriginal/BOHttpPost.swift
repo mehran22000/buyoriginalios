@@ -33,7 +33,8 @@ class BOHttpPost: NSObject {
         else {
             bodyData = "buEmail="+(account.uEmail as String)+"&buPassword="+(account.uPassword as String)+"&buCityName="+(account.sCity.cityName as String)+"&buCityNameFa="+(account.sCity.cityNameFa as String)+"&buBrandId="+(account.brand.bId as String)+"&buBrandName="+(account.brand.bName as String)+"&buBrandCategory="+(account.brand.bCategory as String)+"&buStoreName="+(account.store.sName as String)+"&buStoreAddress="+(account.store.sAddress as String)+"&buStoreHours="+(account.store.sHours as String)+"&buDistributor="+(account.store.bDistributor as String)+"&buStoreLat="+(account.store.sLat as String)+"&buStoreLon="+(account.store.sLong as String)+"&buAreaCode="+(account.sCity.areaCode as String)+"&buTel="+(account.store.sTel1 as String)+"&buBrandLogoName="+(account.brand.bLogo as String);
         }
-        // print(bodyData);
+        
+        print(bodyData);
         request.HTTPBody = bodyData.dataUsingEncoding(NSUTF8StringEncoding);
         
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()){
@@ -83,7 +84,7 @@ class BOHttpPost: NSObject {
         
         let bodyData = "bId="+(account.store.bId as String)+"&sId="+(account.store.sId as String)+"&startDate="+(discount.startDateStr as String)+"&endDate="+(discount.endDateStr as String)+"&startDateFa="+(discount.startDateStrFa as String)+"&endDateFa="+(discount.endDateStrFa as String)+"&precentage="+(discount.precentage as String)+"&note="+(discount.note as String);
         
-        // print(bodyData);
+        print(bodyData);
         request.HTTPBody = bodyData.dataUsingEncoding(NSUTF8StringEncoding);
         
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()){
@@ -125,7 +126,7 @@ class BOHttpPost: NSObject {
     
         let bodyData = "bId="+bId+"&sId="+sId;
         
-        // print(bodyData);
+        print(bodyData);
         request.HTTPBody = bodyData.dataUsingEncoding(NSUTF8StringEncoding);
         
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()){
@@ -201,6 +202,56 @@ class BOHttpPost: NSObject {
             
             completionHandler(result: postResult);
         }
+    }
+    
+    
+    
+    func registerDevice (completionHandler:(result:NSString)->Void) -> () {
+        
+        let url: String = "https://buyoriginal.herokuapp.com/services/users/v1/register"
+        // let url: String = "http://localhost:5000/services/users/v1/register"
+        let request : NSMutableURLRequest = NSMutableURLRequest()
+        request.URL = NSURL(string: url)
+        request.HTTPMethod = "POST"
+        request.addValue(GlobalConstants.serverToken, forHTTPHeaderField: "token");
+        
+        let defaults = NSUserDefaults.standardUserDefaults();
+        let deviceToken = defaults.objectForKey("deviceToken") as? NSString
+        let currentCity = defaults.objectForKey("currentCity") as? NSString
+       
+        if ((deviceToken != nil) && (currentCity != nil )){
+            let bodyData = "device="+(deviceToken as! String)+"&city="+(currentCity as! String);
+            print(bodyData);
+            request.HTTPBody = bodyData.dataUsingEncoding(NSUTF8StringEncoding);
+            
+            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()){
+                
+                response, data, error in
+                
+                var jsonResult: NSArray!
+                var postResult = "";
+                
+                if (data != nil){
+                    do {
+                        try jsonResult = NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as! NSArray
+                    }
+                    catch {
+                        
+                    }
+                    
+                }
+                if (jsonResult != nil) {
+                    
+                    let parser = ResponseParser()
+                    postResult = parser.parsePost(jsonResult) as String;
+                }
+                
+                completionHandler(result: postResult);
+            }
+            
+        }
+        
+        
     }
     
     

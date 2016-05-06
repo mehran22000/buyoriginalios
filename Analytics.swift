@@ -69,4 +69,14 @@ public class Analytics {
         
     }
     
+    class func registeDevice()
+    {
+        let httpPost = BOHttpPost();
+        httpPost.registerDevice({ (result) -> Void in
+            if (result == "success"){
+                print("registering device was successful");
+            }
+        });
+    }
+    
 }

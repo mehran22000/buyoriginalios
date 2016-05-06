@@ -15,6 +15,7 @@ class BOVerificationCell: UITableViewCell {
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var continueLable: UIButton!
     @IBOutlet var title: UILabel!
+    @IBOutlet var spinner: UIActivityIndicatorView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

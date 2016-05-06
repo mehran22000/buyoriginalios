@@ -84,6 +84,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         print("Got token data! \(deviceToken)")
         self.deviceToken = deviceToken.description;
+        
+        let defaults = NSUserDefaults.standardUserDefaults();
+        defaults.setValue(self.deviceToken, forKey: "deviceToken");
+        defaults.synchronize();
+        
+        Analytics.registeDevice();
+        
+    }
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        print("appDelegate.didReceiveRemoteNotification");
     }
     
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
@@ -252,6 +263,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         self.curLocationLat = locValue.latitude
         self.curLocationLong = locValue.longitude
+        
         // print("locations = \(locValue.latitude) \(locValue.longitude)")
     }
     

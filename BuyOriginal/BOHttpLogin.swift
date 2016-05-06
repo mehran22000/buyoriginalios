@@ -19,7 +19,7 @@ class BOHttpLogin: NSObject {
         request.addValue(GlobalConstants.serverToken, forHTTPHeaderField: "token");
         
         let bodyData = "email="+(email as String)+"&password="+(password as String);
-        // print(bodyData);
+        print(bodyData);
         request.HTTPBody = bodyData.dataUsingEncoding(NSUTF8StringEncoding);
         
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()){

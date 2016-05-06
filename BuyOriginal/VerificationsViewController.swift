@@ -20,11 +20,15 @@ class VerificationsViewController: UIViewController,UITableViewDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
+        self.activityIndicatior?.hidesWhenStopped = true;
         // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(animated: Bool) {
-        loadVerificationImages();
+        
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.loadVerificationImages();
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,14 +51,25 @@ class VerificationsViewController: UIViewController,UITableViewDelegate, UITable
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+        print("tableView.cellForRowAtIndexPath");
         let verification = self.verificationArray[indexPath.row] as! VerificationModel
             
         let cell:BOVerificationCell = self.tableView.dequeueReusableCellWithIdentifier("verificationCell") as! BOVerificationCell
         
-        
-        cell.descriptionImageView.image=verification.smallImage;
+        cell.spinner.hidesWhenStopped = true;
         cell.descriptionLabel.text = verification.shortDesc;
         cell.title.text = verification.title;
+        
+        if ((verification.smallImage) != nil){
+            cell.descriptionImageView.image=verification.smallImage;
+            cell.spinner.stopAnimating();
+        }
+        else {
+            cell.spinner.startAnimating();
+        }
+        
+        
+        
         /*
         if ((verification.largeImage != "") || (verification.largeImage != nil)){
             cell.continueLable.hidden = false;
@@ -77,7 +92,7 @@ class VerificationsViewController: UIViewController,UITableViewDelegate, UITable
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 100;
+        return 120;
     }
     
     
@@ -88,22 +103,30 @@ class VerificationsViewController: UIViewController,UITableViewDelegate, UITable
         
         for verification in self.verificationArray {
             let v:VerificationModel = verification as! VerificationModel;
-                fetcher.fetchVerificationImage(v.smallImageName, completionHandler: { (imgData) -> Void in
-                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        if ((imgData) != nil){
-                            v.smallImage = UIImage(data: imgData)!;
-                        }
-                        counter=counter+1;
-                        if (counter == self.verificationArray.count){
-                            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            if ((v.smallImage) == nil){
+                
+                let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+                dispatch_async(dispatch_get_global_queue(priority, 0)) {
+                    // do some task
+                    fetcher.fetchVerificationImage(v.smallImageName, completionHandler: { (imgData) -> Void in
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            print("loadVerificationImage");
+                            if ((imgData) != nil){
+                                v.smallImage = UIImage(data: imgData)!;
+                                 self.tableView.reloadData()
+                            }
+                            
+                            counter=counter+1;
+                            if (counter == self.verificationArray.count){
                                 self.activityIndicatior?.stopAnimating()
-                                self.tableView.reloadData()
-                            })
+                                
                         }
                     })
                 })
-            }
+            }}
+        }
     }
+    
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

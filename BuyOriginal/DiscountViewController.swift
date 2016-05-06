@@ -263,6 +263,7 @@ class DiscountViewController: UITableViewController, UIAlertViewDelegate {
         alert.addButtonWithTitle("بله")
         alert.addButtonWithTitle("خیر")
         alert.tag = 3
+        alert.delegate = self;
         alert.show()
         
     }
