@@ -49,6 +49,45 @@ public class Analytics {
         
     }
     
+    class func buildAnalyticsObj(_key:String!, _value: String!, _unique: Bool) -> [NSDictionary]?
+    {
+        // create date sring
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components([.Day , .Month , .Year], fromDate: NSDate())
+        let year = String(components.year)
+        let month = String(components.month)
+        let day = String(components.day);
+        
+        // get user location information
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        var lat = "";
+        var lon = "";
+        if (appDelegate.curLocationLat != nil){
+            lat = String(format:"%f",appDelegate.curLocationLat)
+            lon = String(format:"%f",appDelegate.curLocationLong)
+        }
+        
+        // get device token
+        let deviceToken = appDelegate.deviceToken;
+        let jsonDic = ["key":_key,"value":_value,"year":year,"month":month, "day":day,"lat":lat,"long":lon,"device":deviceToken];
+        
+        var array = [NSDictionary]();
+        array.append(jsonDic);
+        
+        let defaults = NSUserDefaults.standardUserDefaults();
+        let prevValue = defaults.objectForKey(_key) as? String;
+        
+        if (_unique == true) {
+            defaults.setObject(_value, forKey: _key)
+            if (prevValue == _value){
+                return nil;
+            }
+        }
+    
+        return array;
+    }
+    
     
     class func postInterest()
     {
@@ -77,6 +116,20 @@ public class Analytics {
                 print("registering device was successful");
             }
         });
+    }
+    
+    class func postAnalytics(_key:String!, _value: String!, _unique: Bool)
+    {
+        let msg = buildAnalyticsObj(_key, _value: _value, _unique: _unique) as [NSDictionary]?;
+        if ((msg) != nil){
+            let httpPost = BOHttpPost();
+        
+            httpPost.postAnalytics(msg!, completionHandler: { (result) -> Void in
+                if (result == "success"){
+                    print("postAnalytics success");
+                }
+            });
+        }
     }
     
 }

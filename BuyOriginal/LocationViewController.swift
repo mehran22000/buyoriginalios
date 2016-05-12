@@ -43,10 +43,19 @@ class LocationViewController: UIViewController,MKMapViewDelegate {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
        
         var currentPinLocation : CLLocationCoordinate2D?;
+        
+        //TODO: Remove
+        // if (appDelegate.curLocationLat == nil) {
+        //    appDelegate.curLocationLat=35.790493;
+        //    appDelegate.curLocationLong=51.435261;
+        // }
+        
+        appDelegate.alertLocationRequired(self);
         if ((appDelegate.curLocationLat) != nil){
+            
             currentPinLocation = CLLocationCoordinate2DMake(appDelegate.curLocationLat, appDelegate.curLocationLong)
             let currentAnnotation = MKPointAnnotation()
-        
+            
             currentAnnotation.coordinate = currentPinLocation!
             currentAnnotation.title = "Current Location"
             self.mapView.addAnnotation(currentAnnotation)

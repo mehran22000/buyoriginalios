@@ -38,24 +38,24 @@ class LocateStoreViewController: UIViewController, MKMapViewDelegate {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
         // ToDo: Remove
-        
+        /*
         if (appDelegate.curLocationLat == nil) {
             appDelegate.curLocationLat=35.790493;
             appDelegate.curLocationLong=51.435261;
         }
-        
+        */
         // var curLat = String(format:"%f",appDelegate.curLocationLat)
         // var curLon = String(format:"%f",appDelegate.curLocationLong)
         
-        let location = CLLocationCoordinate2DMake(appDelegate.curLocationLat, appDelegate.curLocationLong)
-        // Drop a pin
+        appDelegate.alertLocationRequired(self);
+        let location:CLLocationCoordinate2D = appDelegate.getUserLocation();
+        
         self.annotation = MKPointAnnotation();
         self.annotation.coordinate = location
         self.annotation.title = "فروشگاه من"
         mapView.addAnnotation(self.annotation)
         self.zoomIn();
-
-        // Do any additional setup after loading the view.
+        
     }
     
 
@@ -126,14 +126,12 @@ class LocateStoreViewController: UIViewController, MKMapViewDelegate {
     }
     
     
-    @IBAction func updatePinLocation() {
-    
-    }
-    
     func zoomIn() {
         
+        var location:CLLocationCoordinate2D;
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let location = CLLocationCoordinate2DMake(appDelegate.curLocationLat, appDelegate.curLocationLong)
+        location = appDelegate.getUserLocation();
+        
         let region = MKCoordinateRegionMakeWithDistance(
             location, 2000, 2000)
         

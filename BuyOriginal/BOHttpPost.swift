@@ -14,11 +14,11 @@ class BOHttpPost: NSObject {
         
         var url: String;
         if (update == true) {
-            url = "https://buyoriginal.herokuapp.com/services/users/business/updateuser"
+            url = "https://buyoriginal.herokuapp.com/services/v1/users/business/updateuser"
          //   url = "http://localhost:5000/users/business/updateuser"
         }
         else {
-            url = "https://buyoriginal.herokuapp.com/services/users/business/adduser"
+            url = "https://buyoriginal.herokuapp.com/services/v1/users/business/adduser"
        //   url = "http://localhost:5000/users/business/adduser"
         }
         let request : NSMutableURLRequest = NSMutableURLRequest()
@@ -66,7 +66,7 @@ class BOHttpPost: NSObject {
     
     func addDiscount (account:AccountModel, discount:DiscountModel, completionHandler:(result:NSString)->Void) -> () {
         
-        let url: String = "https://buyoriginal.herokuapp.com/services/stores/adddiscount"
+        let url: String = "https://buyoriginal.herokuapp.com/services/v1/stores/adddiscount"
         //  var url: String = "http://localhost:5000/stores/adddiscount"
         let request : NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)
@@ -84,7 +84,7 @@ class BOHttpPost: NSObject {
         
         let bodyData = "bId="+(account.store.bId as String)+"&sId="+(account.store.sId as String)+"&startDate="+(discount.startDateStr as String)+"&endDate="+(discount.endDateStr as String)+"&startDateFa="+(discount.startDateStrFa as String)+"&endDateFa="+(discount.endDateStrFa as String)+"&precentage="+(discount.precentage as String)+"&note="+(discount.note as String);
         
-        print(bodyData);
+        // print(bodyData);
         request.HTTPBody = bodyData.dataUsingEncoding(NSUTF8StringEncoding);
         
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()){
@@ -117,7 +117,7 @@ class BOHttpPost: NSObject {
     
     func deleteDiscount (sId:String, bId:String, completionHandler:(result:NSString)->Void) -> () {
         
-        let url: String = "https://buyoriginal.herokuapp.com/services/stores/deletediscount"
+        let url: String = "https://buyoriginal.herokuapp.com/services/v1/stores/deletediscount"
         // var url: String = "http://localhost:5000/stores/deletediscount"
         let request : NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)
@@ -158,8 +158,8 @@ class BOHttpPost: NSObject {
     
     func postInterests (completionHandler:(result:NSString)->Void) -> () {
         
-        let url: String = "https://buyoriginal.herokuapp.com/services/users/v1/interests"
-        // let url: String = "http://localhost:5000/services/users/v1/interests"
+        let url: String = "https://buyoriginal.herokuapp.com/services/v1/users/interests"
+        // let url: String = "http://localhost:5000/services/v1/users/interests"
         let request : NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)
         request.HTTPMethod = "POST"
@@ -204,12 +204,61 @@ class BOHttpPost: NSObject {
         }
     }
     
+    func postAnalytics (msg:[NSDictionary],completionHandler:(result:NSString)->Void) -> () {
+        
+         let url: String = "https://buyoriginal.herokuapp.com/services/v1/users/analytics"
+        //let url: String = "http://192.168.2.12:5000/services/v1/users/analytics"
+        let request : NSMutableURLRequest = NSMutableURLRequest()
+        request.URL = NSURL(string: url)
+        request.HTTPMethod = "POST"
+        request.addValue(GlobalConstants.serverToken, forHTTPHeaderField: "token");
+        
+        do {
+            let data = try NSJSONSerialization.dataWithJSONObject(msg, options:[])
+            let str = String(data: data, encoding: NSUTF8StringEncoding)
+            let bodyData = "analytics="+str!;
+            print("bodyData \(bodyData)");
+            request.HTTPBody = bodyData.dataUsingEncoding(NSUTF8StringEncoding);
+        } catch {
+            
+        }
+        
+        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()){
+            
+            response, data, error in
+            
+            var jsonResult: NSArray!
+            var postResult = "";
+            
+            if (data != nil){
+                do {
+                    try jsonResult = NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as! NSArray
+                }
+                catch {
+                    
+                }
+                
+            }
+            if (jsonResult != nil) {
+                
+                let parser = ResponseParser()
+                postResult = parser.parsePost(jsonResult) as String;
+            }
+            
+            completionHandler(result: postResult);
+        }
+    }
+    
+    
+    
+    
+    
     
     
     func registerDevice (completionHandler:(result:NSString)->Void) -> () {
         
-        let url: String = "https://buyoriginal.herokuapp.com/services/users/v1/register"
-        // let url: String = "http://localhost:5000/services/users/v1/register"
+        let url: String = "https://buyoriginal.herokuapp.com/services/v1/users/register"
+        // let url: String = "http://localhost:5000/services/v1/users/register"
         let request : NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)
         request.HTTPMethod = "POST"

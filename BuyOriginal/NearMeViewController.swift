@@ -60,6 +60,11 @@ class NearMeViewController: UIViewController,UITableViewDelegate, UITableViewDat
             fetchNearLocations(1);
         }
         
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.alertLocationRequired(self);
+        
+        
     }
     
     

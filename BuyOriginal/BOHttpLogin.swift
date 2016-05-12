@@ -11,7 +11,7 @@ import UIKit
 class BOHttpLogin: NSObject {
     
     func login (email: NSString, password:NSString, completionHandler:(result:AccountModel?)->Void) -> () {
-        let url: String = "https://buyoriginal.herokuapp.com/services/users/business/login"
+        let url: String = "https://buyoriginal.herokuapp.com/services/v1/users/business/login"
         // var url: String = "http://localhost:5000/users/business/login"
         let request : NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)
@@ -50,7 +50,7 @@ class BOHttpLogin: NSObject {
     func recoverPassword (email:String,
             completionHandler:(result: String)->Void) -> () {
                 
-          let url = "https://buyoriginal.herokuapp.com/services/users/business/forgetpassword/"+email;
+          let url = "https://buyoriginal.herokuapp.com/services/v1/users/business/forgetpassword/"+email;
     //    let url = "http://localhost:5000/users/business/forgetpassword/"+email;
               //  print("url: \(url)");
                 
@@ -85,7 +85,7 @@ class BOHttpLogin: NSObject {
     func duplicateEmail (email:String,
         completionHandler:(result: String)->Void) -> () {
             
-            let url = "https://buyoriginal.herokuapp.com/services/users/business/validateemail/"+email;
+            let url = "https://buyoriginal.herokuapp.com/services/v1/users/business/validateemail/"+email;
             // let url = "http://localhost:5000/users/business/validateemail/"+email;
             // print("url: \(url)");
             
@@ -119,7 +119,7 @@ class BOHttpLogin: NSObject {
     func deleteUserAccount (email:String?,sid:String?,
         completionHandler:(result: String)->Void) -> () {
             
-            let url = "https://buyoriginal.herokuapp.com/services/users/business/deleteuser/"+email!+"/"+sid!;
+            let url = "https://buyoriginal.herokuapp.com/services/v1/users/business/deleteuser/"+email!+"/"+sid!;
         //    let url = "http://localhost:5000/users/business/deleteuser/"+email!+"/"+sid!;
             
             // print("url: \(url)");

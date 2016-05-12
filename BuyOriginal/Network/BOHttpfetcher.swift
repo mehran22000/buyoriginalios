@@ -11,7 +11,7 @@ import UIKit
 class BOHttpfetcher: NSObject {
     
     func fetchBrands (completionHandler:(result: NSArray)->Void) -> () {
-        let url : String = "https://buyoriginal.herokuapp.com/services/brands/brandlist"
+        let url : String = "https://buyoriginal.herokuapp.com/services/v1/brands/brandlist"
         let request : NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)
         request.HTTPMethod = "GET"
@@ -50,15 +50,15 @@ class BOHttpfetcher: NSObject {
         
         var url : String;
         if (discount) {
-           url = "https://buyoriginal.herokuapp.com/services/stores/storelist/discounts/"+lat+"/"+lon+"/"+distance;
-           // url = "http://localhost:5000/stores/storelist/discounts/"+lat+"/"+lon+"/"+distance;
+           url = "https://buyoriginal.herokuapp.com/services/v1/stores/storelist/discounts/"+lat+"/"+lon+"/"+distance;
+           // url = "http://localhost:5000/stores/services/v1/storelist/discounts/"+lat+"/"+lon+"/"+distance;
         }
         else if (distance != nil){
-            url = "https://buyoriginal.herokuapp.com/services/stores/storelist/"+brandId+"/"+lat+"/"+lon+"/"+distance;
-           // url = "http://localhost:5000/stores/storelist/"+brandId+"/"+lat+"/"+lon+"/"+distance;
+            url = "https://buyoriginal.herokuapp.com/services/v1/stores/storelist/"+brandId+"/"+lat+"/"+lon+"/"+distance;
+           // url = "http://localhost:5000/services/v1/stores/storelist/"+brandId+"/"+lat+"/"+lon+"/"+distance;
         }
         else {
-                url = "https://buyoriginal.herokuapp.com/services/stores/storelist/city/"+areaCode+"/"+brandId;
+                url = "https://buyoriginal.herokuapp.com/services/v1/stores/storelist/city/"+areaCode+"/"+brandId;
         }
         print("url: \(url)");
                         
@@ -96,8 +96,8 @@ class BOHttpfetcher: NSObject {
                           completionHandler:(result: NSArray)->Void) -> () {
             
             var url : String;
-           // url = "http://localhost:5000/stores/storelist/city/"+areaCode;
-            url = "https://buyoriginal.herokuapp.com/services/stores/storelist/city/"+areaCode;
+           // url = "http://localhost:5000/services/v1/stores/storelist/city/"+areaCode;
+            url = "https://buyoriginal.herokuapp.com/services/v1/stores/storelist/city/"+areaCode;
             // print("url: \(url)");
             
             let request : NSMutableURLRequest = NSMutableURLRequest()
@@ -166,8 +166,8 @@ class BOHttpfetcher: NSObject {
         completionHandler:(result: NSDictionary)->Void) -> () {
     
             var url : String;
-            // url = "http://localhost:5000/services/stores/storelist/city/"+areaCode;
-            url = "https://buyoriginal.herokuapp.com/services/stores/storelist/city/"+areaCode;
+            // url = "http://localhost:5000/services/v1/stores/storelist/city/"+areaCode;
+            url = "https://buyoriginal.herokuapp.com/services/v1/stores/storelist/city/"+areaCode;
             // print("url: \(url)");
             let parser = ResponseParser()
             
@@ -307,8 +307,8 @@ class BOHttpfetcher: NSObject {
     
     func fetchBrandVerification (bId:String, completionHandler:(result:NSArray)->Void) -> () {
         
-        let url = "https://buyoriginal.herokuapp.com/services/brands/v1/verification/"+bId;
-        // let url = "http://localhost:5000/services/brands/v1/verification/"+bId;
+        let url = "https://buyoriginal.herokuapp.com/services/v1/brands/verification/"+bId;
+        // let url = "http://localhost:5000/services/v1/brands/verification/"+bId;
         // println("yrl: \(logoUrl)");
         print(url);
         

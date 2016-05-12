@@ -110,7 +110,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setObject("background", forKey: "appStatus")
-        
+    
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
@@ -120,6 +120,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setObject("running", forKey: "appStatus")
+        
+        Analytics.postInterest();
         
     }
 
@@ -221,9 +223,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         
         if #available(iOS 8.0, *) {
             if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse) {
+                // ToDo
+                Analytics.postAnalytics("locationPermission", _value:"true", _unique: true);
                 return manager.location!.coordinate;
             }
             else {
+                // TODO
+                Analytics.postAnalytics("locationPermission", _value:"false", _unique: true);
                 return getCityCenterLocation(currentCityStr);
             }
         } else {
@@ -266,6 +272,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         
         // print("locations = \(locValue.latitude) \(locValue.longitude)")
     }
+    
+    func alertLocationRequired(vc: UIViewController) {
+        if (self.curLocationLat == nil) {
+            if #available(iOS 8.0, *) {
+                let alertController = UIAlertController(title: "فعال سازی مکان یابی", message:
+                    "لطفا جهت استفاده از این سرویس، مکان یابی را برای اصل بخر از طریق قسمت تنظیمان ایفون فعال نمایید.\n Settings -> اصل بخر -> Location -> While Using the App", preferredStyle:UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "بستن", style: UIAlertActionStyle.Default,handler: nil))
+                vc.presentViewController(alertController, animated: true, completion: nil)
+            } else {
+                // Fallback on earlier versions
+            }
+        }
+    }
+    
     
         
     func initCities() {
@@ -314,7 +334,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         self.cities+=[c];
             
     }
-    
     
     func clearCache(){
         

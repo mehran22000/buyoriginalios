@@ -60,6 +60,10 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
             self.noInternetConnectionView.hidden = true
             fetchDeals(2);
         }
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.alertLocationRequired(self);
+        
 
         
     }
@@ -233,11 +237,10 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
             curLon = String(format:"%f",appDelegate.curLocationLong)
         }
         */
-        
         var loc:CLLocationCoordinate2D = CLLocationCoordinate2D.init();
         loc = appDelegate.getUserLocation();
-        var curLat = String(format:"%f",loc.latitude)
-        var curLon = String(format:"%f",loc.longitude)
+        let curLat = String(format:"%f",loc.latitude)
+        let curLon = String(format:"%f",loc.longitude)
         
         
         // Test Data
@@ -266,6 +269,7 @@ class DealsViewController: UIViewController,UITableViewDelegate, UITableViewData
             self.activityIndicatior?.stopAnimating()
             self.noResultImageView.hidden = false
             self.noResultLabel.hidden = false
+            self.tableView.reloadData()
             return;
         }
         
