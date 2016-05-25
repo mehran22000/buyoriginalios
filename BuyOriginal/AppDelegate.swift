@@ -65,7 +65,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         defaults.setObject("appStatus", forKey: "running")
         
         // Enable Push Notifications
-        
         if #available(iOS 8.0, *) {
             let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
             UIApplication.sharedApplication().registerUserNotificationSettings(settings)
@@ -74,7 +73,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             // Fallback on earlier versions
         }
         
+        // Check the app version
+        checkUpateRequired();
+        
+        // Send users' interests
         Analytics.postInterest();
+        
+    
+    
+        
+        
         
         return true
     }
@@ -223,12 +231,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         
         if #available(iOS 8.0, *) {
             if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse) {
-                // ToDo
                 Analytics.postAnalytics("locationPermission", _value:"true", _unique: true);
                 return manager.location!.coordinate;
             }
             else {
-                // TODO
                 Analytics.postAnalytics("locationPermission", _value:"false", _unique: true);
                 return getCityCenterLocation(currentCityStr);
             }
@@ -354,7 +360,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                 print("Ooops! Something went wrong: \(error)")
             }
         }
+    }
     
+    func checkUpateRequired () {
+        let fetcher = BOHttpfetcher()
+        fetcher.checkUpdatesAvailable({ (uptoDate, currentVersion, mandatoryUpdate) in
+            if (!uptoDate){
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                })
+            }
+        })
     }
 }
 

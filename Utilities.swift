@@ -29,6 +29,44 @@ public class Utilities {
         
         let isReachable = flags.contains(.Reachable)
         let needsConnection = flags.contains(.ConnectionRequired)
-        return (isReachable && !needsConnection)        }
+        return (isReachable && !needsConnection)
+    }
+    
+    class func url(type:GlobalConstants.SERVICE_TYPE) -> String {
+        
+        var urlStr = "";
+        
+        switch GlobalConstants.ENV {
+        case GlobalConstants.ENV_TYPE.DEV:
+            urlStr = GlobalConstants.BASE_URL_DEV
+        case GlobalConstants.ENV_TYPE.LOCAL:
+            urlStr = GlobalConstants.BASE_URL_LOCAL
+        default:
+            urlStr = GlobalConstants.BASE_URL_PROD
+        }
+        
+        switch type {
+        case GlobalConstants.SERVICE_TYPE.UPDATE_AVAILABLE:
+            urlStr = urlStr + GlobalConstants.RELETIVE_URL_UPDATE_AVAILABLE
+        }
+        
+        
+        return urlStr;
+    }
+    
+    class func serverToken() -> String {
+        
+        switch GlobalConstants.ENV {
+        case GlobalConstants.ENV_TYPE.DEV:
+            return GlobalConstants.serverToken_DEV
+        case GlobalConstants.ENV_TYPE.LOCAL:
+            return GlobalConstants.serverToken_DEV
+        default:
+            return GlobalConstants.serverToken_PROD
+        }
+    
+    }
+    
+    
     
 }

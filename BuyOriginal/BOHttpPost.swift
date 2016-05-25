@@ -24,7 +24,7 @@ class BOHttpPost: NSObject {
         let request : NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)
         request.HTTPMethod = "POST"
-        request.addValue(GlobalConstants.serverToken, forHTTPHeaderField: "token");
+        request.addValue(Utilities.serverToken(), forHTTPHeaderField: "token");
     
         var bodyData = "";
         if (update == true) {
@@ -71,7 +71,7 @@ class BOHttpPost: NSObject {
         let request : NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)
         request.HTTPMethod = "POST"
-        request.addValue(GlobalConstants.serverToken, forHTTPHeaderField: "token");
+        request.addValue(Utilities.serverToken(), forHTTPHeaderField: "token");
         
         if (discount.note.isEmpty==true){
             discount.note = "";
@@ -122,7 +122,7 @@ class BOHttpPost: NSObject {
         let request : NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)
         request.HTTPMethod = "POST"
-        request.addValue(GlobalConstants.serverToken, forHTTPHeaderField: "token");
+        request.addValue(Utilities.serverToken(), forHTTPHeaderField: "token");
     
         let bodyData = "bId="+bId+"&sId="+sId;
         
@@ -163,7 +163,7 @@ class BOHttpPost: NSObject {
         let request : NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)
         request.HTTPMethod = "POST"
-        request.addValue(GlobalConstants.serverToken, forHTTPHeaderField: "token");
+        request.addValue(Utilities.serverToken(), forHTTPHeaderField: "token");
         
         let defaults = NSUserDefaults.standardUserDefaults();
         let array = defaults.objectForKey("userInterestsArray") as? [NSDictionary] ?? [NSDictionary]()
@@ -211,7 +211,7 @@ class BOHttpPost: NSObject {
         let request : NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)
         request.HTTPMethod = "POST"
-        request.addValue(GlobalConstants.serverToken, forHTTPHeaderField: "token");
+        request.addValue(Utilities.serverToken(), forHTTPHeaderField: "token");
         
         do {
             let data = try NSJSONSerialization.dataWithJSONObject(msg, options:[])
@@ -262,7 +262,7 @@ class BOHttpPost: NSObject {
         let request : NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)
         request.HTTPMethod = "POST"
-        request.addValue(GlobalConstants.serverToken, forHTTPHeaderField: "token");
+        request.addValue(Utilities.serverToken(), forHTTPHeaderField: "token");
         
         let defaults = NSUserDefaults.standardUserDefaults();
         let deviceToken = defaults.objectForKey("deviceToken") as? NSString

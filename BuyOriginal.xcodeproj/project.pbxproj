@@ -17,6 +17,9 @@
 		021DA5B31B0FD53E0030815A /* BONearmeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021DA5B21B0FD53E0030815A /* BONearmeTableViewCell.swift */; };
 		021DA5B51B0FD5B00030815A /* BODealsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021DA5B41B0FD5B00030815A /* BODealsTableViewCell.swift */; };
 		021DA5B81B1164810030815A /* brands.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 021DA5B71B1164810030815A /* brands.xcassets */; };
+		021DE2EB1CF517C000624D1F /* CheckUpdatesAvailableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 021DE2EA1CF517C000624D1F /* CheckUpdatesAvailableView.xib */; };
+		021DE2EE1CF51B5200624D1F /* CheckUpdatesAvailableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021DE2ED1CF51B5200624D1F /* CheckUpdatesAvailableVC.swift */; };
+		021DE2F71CF556F300624D1F /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021DE2F61CF556F300624D1F /* AppInfo.swift */; };
 		02293BDA1B23D15200D77387 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02293BD91B23D15200D77387 /* LocationViewController.swift */; };
 		02293BDC1B249B8700D77387 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02293BDB1B249B8700D77387 /* MapKit.framework */; };
 		02293BDE1B249B9A00D77387 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02293BDD1B249B9A00D77387 /* CoreLocation.framework */; };
@@ -118,6 +121,9 @@
 		021DA5B21B0FD53E0030815A /* BONearmeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BONearmeTableViewCell.swift; sourceTree = "<group>"; };
 		021DA5B41B0FD5B00030815A /* BODealsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BODealsTableViewCell.swift; sourceTree = "<group>"; };
 		021DA5B71B1164810030815A /* brands.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = brands.xcassets; sourceTree = "<group>"; };
+		021DE2EA1CF517C000624D1F /* CheckUpdatesAvailableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CheckUpdatesAvailableView.xib; path = BuyOriginal/Utilities/CheckUpdatesAvailable/CheckUpdatesAvailableView.xib; sourceTree = "<group>"; };
+		021DE2ED1CF51B5200624D1F /* CheckUpdatesAvailableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckUpdatesAvailableVC.swift; path = BuyOriginal/Utilities/CheckUpdatesAvailable/CheckUpdatesAvailableVC.swift; sourceTree = "<group>"; };
+		021DE2F61CF556F300624D1F /* AppInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppInfo.swift; path = DataModels/AppInfo.swift; sourceTree = "<group>"; };
 		02293BD91B23D15200D77387 /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		02293BDB1B249B8700D77387 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		02293BDD1B249B9A00D77387 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -259,6 +265,7 @@
 		02031EF21B7C425000F21F96 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				021DE2EC1CF51B2700624D1F /* CheckUpdates */,
 				02031EF31B7C427A00F21F96 /* Utilities.swift */,
 				029221991BA2651B006CBC2B /* SimulatorUtility.swift */,
 				02E314571C97AAEA008B2949 /* Analytics.swift */,
@@ -272,6 +279,23 @@
 				02CB3A701B6E70AE00561F53 /* NSDate+Persian.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		021DE2EC1CF51B2700624D1F /* CheckUpdates */ = {
+			isa = PBXGroup;
+			children = (
+				021DE2EA1CF517C000624D1F /* CheckUpdatesAvailableView.xib */,
+				021DE2ED1CF51B5200624D1F /* CheckUpdatesAvailableVC.swift */,
+			);
+			name = CheckUpdates;
+			sourceTree = "<group>";
+		};
+		021DE2F31CF51E9100624D1F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				024056921B51A1F000612263 /* GlobalConstants.swift */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		022A95DE1B571E470091659B /* BusinesProfile */ = {
@@ -479,6 +503,7 @@
 				02CB3A741B6FD6D400561F53 /* Discount.swift */,
 				02031EF51B7C42EA00F21F96 /* Category.swift */,
 				02E45ADA1C7D35C800B46903 /* Verification.swift */,
+				021DE2F61CF556F300624D1F /* AppInfo.swift */,
 			);
 			name = DataModel;
 			sourceTree = "<group>";
@@ -507,9 +532,9 @@
 			isa = PBXGroup;
 			children = (
 				023D25841CA3235500F825C4 /* ReadMe */,
+				021DE2F31CF51E9100624D1F /* Resources */,
 				02997CA21BBCB3F6004986D5 /* Flurry */,
 				02031EF21B7C425000F21F96 /* Utilities */,
-				024056921B51A1F000612263 /* GlobalConstants.swift */,
 				02656B8F1B29E69800DFC51A /* Header.h */,
 				02FB4DD61AF7A47900884750 /* BuyOriginal */,
 				02656B8E1B29E24700DFC51A /* Libraries */,
@@ -677,6 +702,7 @@
 				02D4ADF31B0D3717006ED90F /* Icons.xcassets in Resources */,
 				022E155E1BC7524B00732ECA /* 076_static.json in Resources */,
 				02ED15941B366C7000A08215 /* logos.plist in Resources */,
+				021DE2EB1CF517C000624D1F /* CheckUpdatesAvailableView.xib in Resources */,
 				02662BF21B02FF1B00093D7D /* 021_static.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -721,6 +747,7 @@
 				0240569B1B51A50300612263 /* LocateStoreViewController.swift in Sources */,
 				022A95D21B54BE8C0091659B /* BusProfileInputCell.swift in Sources */,
 				022A95D41B54BF440091659B /* BussinssProfileController.swift in Sources */,
+				021DE2F71CF556F300624D1F /* AppInfo.swift in Sources */,
 				02CB3A731B6E860700561F53 /* BOBusDisNotesTableViewCell.swift in Sources */,
 				02C9BD0C1B054C3D000C6FA6 /* DealsViewController.swift in Sources */,
 				0249CCEA1B5C0AB4001C84BA /* BOHttpLogin.swift in Sources */,
@@ -731,6 +758,7 @@
 				0292219C1BA28471006CBC2B /* BOStoresDiscountNoteTableCell.swift in Sources */,
 				02AA9A091AFD67120090A88B /* Brand.swift in Sources */,
 				02ED15901B351E5B00A08215 /* CategoriesViewController.swift in Sources */,
+				021DE2EE1CF51B5200624D1F /* CheckUpdatesAvailableVC.swift in Sources */,
 				02EA3EEA1B4E13E000ECE384 /* BOBusDisPercentageTableViewCell.swift in Sources */,
 				029CD9B71B976CC2007F3A21 /* BuBrandDelegate.swift in Sources */,
 				0292219A1BA2651B006CBC2B /* SimulatorUtility.swift in Sources */,

@@ -15,7 +15,7 @@ class BOHttpfetcher: NSObject {
         let request : NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)
         request.HTTPMethod = "GET"
-        request.addValue(GlobalConstants.serverToken, forHTTPHeaderField: "token");
+        request.addValue(Utilities.serverToken(), forHTTPHeaderField: "token");
         
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse?, data: NSData?, error: NSError?) -> Void in
             var jsonResult: NSArray!
@@ -65,7 +65,7 @@ class BOHttpfetcher: NSObject {
         let request : NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)
         request.HTTPMethod = "GET"
-        request.addValue(GlobalConstants.serverToken, forHTTPHeaderField: "token");
+        request.addValue(Utilities.serverToken(), forHTTPHeaderField: "token");
         
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse?, data: NSData?, error: NSError?) -> Void in
           //  var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
@@ -103,7 +103,7 @@ class BOHttpfetcher: NSObject {
             let request : NSMutableURLRequest = NSMutableURLRequest()
             request.URL = NSURL(string: url)
             request.HTTPMethod = "GET"
-            request.addValue(GlobalConstants.serverToken, forHTTPHeaderField: "token");
+            request.addValue(Utilities.serverToken(), forHTTPHeaderField: "token");
             
             NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse?, data: NSData?, error: NSError?) -> Void in
                // var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
@@ -174,7 +174,7 @@ class BOHttpfetcher: NSObject {
             let request : NSMutableURLRequest = NSMutableURLRequest()
             request.URL = NSURL(string: url)
             request.HTTPMethod = "GET"
-            request.addValue(GlobalConstants.serverToken, forHTTPHeaderField: "token");
+            request.addValue(Utilities.serverToken(), forHTTPHeaderField: "token");
             
             if (Utilities.isConnectedToNetwork()){
                 NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse?, data: NSData?, error: NSError?) -> Void in
@@ -315,7 +315,7 @@ class BOHttpfetcher: NSObject {
         let request : NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)
         request.HTTPMethod = "GET"
-        request.addValue(GlobalConstants.serverToken, forHTTPHeaderField: "token");
+        request.addValue(Utilities.serverToken(), forHTTPHeaderField: "token");
         
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse?, data: NSData?, error: NSError?) -> Void in
             //  var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
@@ -357,5 +357,58 @@ class BOHttpfetcher: NSObject {
         }
     }
     
+    
+    func checkUpdatesAvailable (completionHandler:(uptoDate: Bool, currentVersion:String, mandatoryUpdate:Bool )->Void) -> () {
+        let url = Utilities.url(GlobalConstants.SERVICE_TYPE.UPDATE_AVAILABLE)
+        
+        print(url);
+        
+        let request : NSMutableURLRequest = NSMutableURLRequest()
+        request.URL = NSURL(string: url)
+        request.HTTPMethod = "GET"
+        request.addValue(Utilities.serverToken(), forHTTPHeaderField: "token");
+        
+        let version = NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"] as! String
+        
+        if (Utilities.isConnectedToNetwork()){
+        
+            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse?, data: NSData?, error: NSError?) -> Void in
+                var jsonResult: NSDictionary!
+                if (data != nil){
+                    do {
+                        try jsonResult = NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as? NSDictionary
+                    }
+                    catch {
+                    
+                    }
+                }
+                if (jsonResult != nil) {
+                
+                    let parser = ResponseParser()
+                    let appInfo = parser.parseAppInfo(jsonResult);
+                
+                    if (version != appInfo?.currentVersion) {
+                        if (version < appInfo?.lastValidVersion) {
+                            completionHandler(uptoDate: false,currentVersion: (appInfo?.currentVersion)!,mandatoryUpdate: true);
+                        }
+                        else {
+                            completionHandler(uptoDate: false,currentVersion: (appInfo?.currentVersion)!,mandatoryUpdate: false);
+                        }
+                    }
+                    else {
+                        completionHandler(uptoDate: true,currentVersion: (appInfo?.currentVersion)!,mandatoryUpdate: false);
+                    }
+                    
+                
+                } else {
+                    completionHandler(uptoDate: true,currentVersion: version,mandatoryUpdate: false);
+                    // couldn't load JSON, look at error
+                }
+            })
+        }
+        else {
+            completionHandler(uptoDate: true,currentVersion: version,mandatoryUpdate: false);
+        }
+    }
 }
 

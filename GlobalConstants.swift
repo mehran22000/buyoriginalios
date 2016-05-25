@@ -53,6 +53,29 @@ struct GlobalConstants {
         case None
     }
     
-    static let serverToken = "YnV5b3JpZ2luYWxicmFuZHNieWFzbGJla2hhcg=="
+    
+    // Security Token
+    static let serverToken_PROD = "YnV5b3JpZ2luYWxicmFuZHNieWFzbGJla2hhcg=="
+    static let serverToken_DEV = "YnV5b3JpZ2luYWxicmFuZHNieWFzbGJla2hhcg=="
+    
+    // Network URL
+    
+    enum ENV_TYPE {
+        case PROD
+        case DEV
+        case LOCAL
+    }
+    static let ENV = ENV_TYPE.LOCAL
+    
+    enum SERVICE_TYPE {
+        case UPDATE_AVAILABLE
+    }
+    
+    
+    static let BASE_URL_PROD = "https://buyoriginal.herokuapp.com/services/v1/"
+    static let BASE_URL_DEV = "https://buyoriginal.herokuapp.com/services/v1/dev/"
+    static let BASE_URL_LOCAL = "http://localhost:5000/services/v1/dev/"
+    
+    static let RELETIVE_URL_UPDATE_AVAILABLE = "appInfo/version/iOS"
     
 }
