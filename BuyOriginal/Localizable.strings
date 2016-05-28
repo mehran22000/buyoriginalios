@@ -1,0 +1,9 @@
+/* 
+  Strings.strings
+  BuyOriginal
+
+  Created by mehran najafi on 2016-05-27.
+  Copyright © 2016 MandM. All rights reserved.
+*/
+
+"update_required" = "نسخه جدید (%@) موجود می باشد. لطفا جهت استفاده از تمامی امکانات، اپ را بروزرسانی نمایید.";

@@ -65,7 +65,7 @@ struct GlobalConstants {
         case DEV
         case LOCAL
     }
-    static let ENV = ENV_TYPE.LOCAL
+    static let ENV = ENV_TYPE.PROD
     
     enum SERVICE_TYPE {
         case UPDATE_AVAILABLE
@@ -77,5 +77,12 @@ struct GlobalConstants {
     static let BASE_URL_LOCAL = "http://localhost:5000/services/v1/dev/"
     
     static let RELETIVE_URL_UPDATE_AVAILABLE = "appInfo/version/iOS"
+    
+    
+    static let ASLBEKHAR_STORE_ID = 1001305181 //Change this one to your ID
+    
+    static let iOS7AppStoreURLFormat = "itms-apps://itunes.apple.com/app/id%d";
+    static let iOSAppStoreURLFormat = "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%d"
+
     
 }

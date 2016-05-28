@@ -17,9 +17,10 @@
 		021DA5B31B0FD53E0030815A /* BONearmeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021DA5B21B0FD53E0030815A /* BONearmeTableViewCell.swift */; };
 		021DA5B51B0FD5B00030815A /* BODealsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021DA5B41B0FD5B00030815A /* BODealsTableViewCell.swift */; };
 		021DA5B81B1164810030815A /* brands.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 021DA5B71B1164810030815A /* brands.xcassets */; };
-		021DE2EB1CF517C000624D1F /* CheckUpdatesAvailableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 021DE2EA1CF517C000624D1F /* CheckUpdatesAvailableView.xib */; };
-		021DE2EE1CF51B5200624D1F /* CheckUpdatesAvailableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021DE2ED1CF51B5200624D1F /* CheckUpdatesAvailableVC.swift */; };
 		021DE2F71CF556F300624D1F /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021DE2F61CF556F300624D1F /* AppInfo.swift */; };
+		021DE30C1CF7FF1400624D1F /* AppUpdateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021DE30A1CF7FF1400624D1F /* AppUpdateVC.swift */; };
+		021DE30D1CF7FF1400624D1F /* AppUpdateVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 021DE30B1CF7FF1400624D1F /* AppUpdateVC.xib */; };
+		021DE30E1CF89E2B00624D1F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 02FB4DD81AF7A47900884750 /* Info.plist */; };
 		02293BDA1B23D15200D77387 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02293BD91B23D15200D77387 /* LocationViewController.swift */; };
 		02293BDC1B249B8700D77387 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02293BDB1B249B8700D77387 /* MapKit.framework */; };
 		02293BDE1B249B9A00D77387 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02293BDD1B249B9A00D77387 /* CoreLocation.framework */; };
@@ -76,6 +77,7 @@
 		02A25F2A1BC2272000D94F38 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02FB4DE31AF7A47900884750 /* Images.xcassets */; };
 		02A3B2931B1A36E900B99AAA /* BOHttpfetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A3B2921B1A36E900B99AAA /* BOHttpfetcher.swift */; };
 		02AA9A091AFD67120090A88B /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AA9A081AFD67120090A88B /* Brand.swift */; };
+		02AEE38A1CF8CD530010E7F7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 02AEE3891CF8CD530010E7F7 /* Localizable.strings */; };
 		02C99C191B8E677C00F8DA23 /* BuPasswordDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C99C181B8E677C00F8DA23 /* BuPasswordDelegate.swift */; };
 		02C99C1C1B8E6DC300F8DA23 /* BuPhoneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C99C1B1B8E6DC300F8DA23 /* BuPhoneDelegate.swift */; };
 		02C99C1E1B8E6F5900F8DA23 /* BuCityDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C99C1D1B8E6F5900F8DA23 /* BuCityDelegate.swift */; };
@@ -103,7 +105,7 @@
 		02ED15921B351E9000A08215 /* BOCityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02ED15911B351E9000A08215 /* BOCityTableViewCell.swift */; };
 		02ED15941B366C7000A08215 /* logos.plist in Resources */ = {isa = PBXBuildFile; fileRef = 02ED15931B366C7000A08215 /* logos.plist */; };
 		02ED15961B36810300A08215 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02ED15951B36810300A08215 /* TabBarController.swift */; };
-		02FB4DDA1AF7A47900884750 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FB4DD91AF7A47900884750 /* AppDelegate.swift */; };
+		02ED82A01CF8A02800F27858 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FB4DD91AF7A47900884750 /* AppDelegate.swift */; };
 		02FB4DDD1AF7A47900884750 /* BuyOriginal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 02FB4DDB1AF7A47900884750 /* BuyOriginal.xcdatamodeld */; };
 		02FB4DDF1AF7A47900884750 /* BrandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FB4DDE1AF7A47900884750 /* BrandViewController.swift */; };
 		02FB4DE21AF7A47900884750 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02FB4DE01AF7A47900884750 /* Main.storyboard */; };
@@ -121,9 +123,9 @@
 		021DA5B21B0FD53E0030815A /* BONearmeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BONearmeTableViewCell.swift; sourceTree = "<group>"; };
 		021DA5B41B0FD5B00030815A /* BODealsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BODealsTableViewCell.swift; sourceTree = "<group>"; };
 		021DA5B71B1164810030815A /* brands.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = brands.xcassets; sourceTree = "<group>"; };
-		021DE2EA1CF517C000624D1F /* CheckUpdatesAvailableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CheckUpdatesAvailableView.xib; path = BuyOriginal/Utilities/CheckUpdatesAvailable/CheckUpdatesAvailableView.xib; sourceTree = "<group>"; };
-		021DE2ED1CF51B5200624D1F /* CheckUpdatesAvailableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckUpdatesAvailableVC.swift; path = BuyOriginal/Utilities/CheckUpdatesAvailable/CheckUpdatesAvailableVC.swift; sourceTree = "<group>"; };
 		021DE2F61CF556F300624D1F /* AppInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppInfo.swift; path = DataModels/AppInfo.swift; sourceTree = "<group>"; };
+		021DE30A1CF7FF1400624D1F /* AppUpdateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUpdateVC.swift; sourceTree = "<group>"; };
+		021DE30B1CF7FF1400624D1F /* AppUpdateVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppUpdateVC.xib; sourceTree = "<group>"; };
 		02293BD91B23D15200D77387 /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		02293BDB1B249B8700D77387 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		02293BDD1B249B9A00D77387 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -201,6 +203,7 @@
 		029CD9B61B976CC2007F3A21 /* BuBrandDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuBrandDelegate.swift; sourceTree = "<group>"; };
 		02A3B2921B1A36E900B99AAA /* BOHttpfetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BOHttpfetcher.swift; path = Network/BOHttpfetcher.swift; sourceTree = "<group>"; };
 		02AA9A081AFD67120090A88B /* Brand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Brand.swift; path = DataModels/Brand.swift; sourceTree = "<group>"; };
+		02AEE3891CF8CD530010E7F7 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = BuyOriginal/Localizable.strings; sourceTree = "<group>"; };
 		02C99C181B8E677C00F8DA23 /* BuPasswordDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuPasswordDelegate.swift; sourceTree = "<group>"; };
 		02C99C1B1B8E6DC300F8DA23 /* BuPhoneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuPhoneDelegate.swift; sourceTree = "<group>"; };
 		02C99C1D1B8E6F5900F8DA23 /* BuCityDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuCityDelegate.swift; sourceTree = "<group>"; };
@@ -284,8 +287,8 @@
 		021DE2EC1CF51B2700624D1F /* CheckUpdates */ = {
 			isa = PBXGroup;
 			children = (
-				021DE2EA1CF517C000624D1F /* CheckUpdatesAvailableView.xib */,
-				021DE2ED1CF51B5200624D1F /* CheckUpdatesAvailableVC.swift */,
+				021DE30A1CF7FF1400624D1F /* AppUpdateVC.swift */,
+				021DE30B1CF7FF1400624D1F /* AppUpdateVC.xib */,
 			);
 			name = CheckUpdates;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				024056921B51A1F000612263 /* GlobalConstants.swift */,
+				02AEE3891CF8CD530010E7F7 /* Localizable.strings */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -692,17 +696,19 @@
 				026B1EB61BCF4B5C004C11FC /* Brands3.xcassets in Resources */,
 				027AFA501C48A4A30077E12C /* Brands6.xcassets in Resources */,
 				02ED158C1B3514C300A08215 /* Cities.xcassets in Resources */,
+				021DE30E1CF89E2B00624D1F /* Info.plist in Resources */,
 				024513CB1C4F293A0090BF4A /* Brands7.xcassets in Resources */,
+				021DE30D1CF7FF1400624D1F /* AppUpdateVC.xib in Resources */,
 				02A25F2A1BC2272000D94F38 /* Images.xcassets in Resources */,
 				022E15601BC7718100732ECA /* Default-568h@2x.png in Resources */,
 				02FB4DE71AF7A47900884750 /* LaunchScreen.xib in Resources */,
 				02039A841BADEA7500647FE7 /* Brands2.xcassets in Resources */,
+				02AEE38A1CF8CD530010E7F7 /* Localizable.strings in Resources */,
 				022F88841BE9B4FE00A09DF4 /* 041_static.json in Resources */,
 				028154811BFA9D950008E0DB /* Brands5.xcassets in Resources */,
 				02D4ADF31B0D3717006ED90F /* Icons.xcassets in Resources */,
 				022E155E1BC7524B00732ECA /* 076_static.json in Resources */,
 				02ED15941B366C7000A08215 /* logos.plist in Resources */,
-				021DE2EB1CF517C000624D1F /* CheckUpdatesAvailableView.xib in Resources */,
 				02662BF21B02FF1B00093D7D /* 021_static.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -736,7 +742,9 @@
 				02E45AD71C7D351100B46903 /* VerificationsViewController.swift in Sources */,
 				024056991B51A4E100612263 /* RegisterStoreViewController.swift in Sources */,
 				02662BF41B03004F00093D7D /* Store.swift in Sources */,
+				02ED82A01CF8A02800F27858 /* AppDelegate.swift in Sources */,
 				021DA5B31B0FD53E0030815A /* BONearmeTableViewCell.swift in Sources */,
+				021DE30C1CF7FF1400624D1F /* AppUpdateVC.swift in Sources */,
 				02E45ADD1C7E67D700B46903 /* BOBrandVerificationAlertCell.swift in Sources */,
 				0232F57C1B016EA4009274BA /* ResponseParser.swift in Sources */,
 				02E45AD91C7D352500B46903 /* VerificationsDetailsViewController.swift in Sources */,
@@ -758,7 +766,6 @@
 				0292219C1BA28471006CBC2B /* BOStoresDiscountNoteTableCell.swift in Sources */,
 				02AA9A091AFD67120090A88B /* Brand.swift in Sources */,
 				02ED15901B351E5B00A08215 /* CategoriesViewController.swift in Sources */,
-				021DE2EE1CF51B5200624D1F /* CheckUpdatesAvailableVC.swift in Sources */,
 				02EA3EEA1B4E13E000ECE384 /* BOBusDisPercentageTableViewCell.swift in Sources */,
 				029CD9B71B976CC2007F3A21 /* BuBrandDelegate.swift in Sources */,
 				0292219A1BA2651B006CBC2B /* SimulatorUtility.swift in Sources */,
@@ -772,7 +779,6 @@
 				020EAFA91B61F2E8001C7974 /* BOHttpPost.swift in Sources */,
 				0264E0C61B3A4A610075F95C /* City.swift in Sources */,
 				02ED15961B36810300A08215 /* TabBarController.swift in Sources */,
-				02FB4DDA1AF7A47900884750 /* AppDelegate.swift in Sources */,
 				02FB4DDD1AF7A47900884750 /* BuyOriginal.xcdatamodeld in Sources */,
 				02C99C1C1B8E6DC300F8DA23 /* BuPhoneDelegate.swift in Sources */,
 				022A95CE1B5472040091659B /* RegisterBusinessPhoneController.swift in Sources */,

@@ -41,6 +41,7 @@ class CitiesTableViewController: UITableViewController,UISearchBarDelegate {
                 self.navigationItem.title="";
         }
         
+                
        // self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cityCell")
       //  self.tableView.backgroundColor = UIColor(patternImage: UIImage(named: "welcome.pink")!);
         
@@ -52,6 +53,9 @@ class CitiesTableViewController: UITableViewController,UISearchBarDelegate {
     }
 
     
+    override func viewDidAppear(animated: Bool) {
+     
+    }
     
     
     override func didReceiveMemoryWarning() {

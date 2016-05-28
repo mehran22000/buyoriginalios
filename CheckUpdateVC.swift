@@ -1,14 +1,14 @@
 //
-//  CheckUpdatesAvailableVC.swift
+//  CheckUpdateVC.swift
 //  BuyOriginal
 //
-//  Created by mehran najafi on 2016-05-24.
+//  Created by mehran najafi on 2016-05-26.
 //  Copyright © 2016 MandM. All rights reserved.
 //
 
 import UIKit
 
-class CheckUpdatesAvailableVC: UIViewController {
+class CheckUpdateVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

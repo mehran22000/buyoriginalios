@@ -362,11 +362,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         }
     }
     
+    
     func checkUpateRequired () {
         let fetcher = BOHttpfetcher()
         fetcher.checkUpdatesAvailable({ (uptoDate, currentVersion, mandatoryUpdate) in
             if (!uptoDate){
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    let vc = AppUpdateVC(nibName: "AppUpdateVC", bundle: nil);
+                    vc.newVesion = currentVersion;
+                    vc.mandatoryUpdate = mandatoryUpdate;
+                    let rootVC = self.window?.rootViewController;
+                    
+                    rootVC!.presentViewController(vc, animated: false, completion: nil)
                 })
             }
         })

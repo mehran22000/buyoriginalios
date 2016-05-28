@@ -62,8 +62,10 @@ class ResponseParser: NSObject {
         var appInfo:AppInfoModel?
         let currentVersion = dic["current"] as? String
         let lastValidVersion = dic["minSupport"] as? String
-        appInfo = AppInfoModel(_currentVersion: currentVersion,_lastValidVersion:lastValidVersion);
-            
+        if (((currentVersion) != nil) && ((lastValidVersion) != nil)){
+            appInfo = AppInfoModel(_currentVersion: currentVersion,_lastValidVersion:lastValidVersion);
+        }
+        
         
         return appInfo;
     }

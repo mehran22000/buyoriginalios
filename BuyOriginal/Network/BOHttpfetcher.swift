@@ -386,9 +386,12 @@ class BOHttpfetcher: NSObject {
                 
                     let parser = ResponseParser()
                     let appInfo = parser.parseAppInfo(jsonResult);
-                
-                    if (version != appInfo?.currentVersion) {
-                        if (version < appInfo?.lastValidVersion) {
+                    
+                    if (appInfo == nil) {
+                        completionHandler(uptoDate: true,currentVersion: version,mandatoryUpdate: false);
+                    }
+                    else if (version != appInfo?.currentVersion) {
+                         if (version < appInfo?.lastValidVersion) {
                             completionHandler(uptoDate: false,currentVersion: (appInfo?.currentVersion)!,mandatoryUpdate: true);
                         }
                         else {
