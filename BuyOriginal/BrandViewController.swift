@@ -16,7 +16,9 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var adImgView: UIImageView!
+    @IBOutlet var imgViewAdvBanner: UIImageView!
 
+    
     var brandsArray = NSArray()
     var brandStores = [String:[StoreModel]]();
     var filteredBrands = [BrandModel]()
@@ -28,6 +30,7 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
     var account:AccountModel!;
     var selectedCategoryNameFa:String="";
     var delegate: BuBrandDelegate?;
+    var bCategoryId:String?;
     
     var selectedBrandStoresArray = NSArray()
     
@@ -40,6 +43,7 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
         // Do any additional setup after loading the view, typically from a nib.
 
         self.adExists();
+        self.displayAdvBanner();
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
         switch (self.screenMode){
@@ -146,7 +150,7 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
         } else {
             brand = self.brandsArray[indexPath.row] as! BrandModel
         }
-        
+    
         
         switch (self.screenMode){
         case GlobalConstants.BRANDS_SCREEN_MODE_SEARCH:
@@ -293,7 +297,7 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
             let b:BrandModel = brand as! BrandModel;
             if ((dict?.valueForKey(b.bLogo)) != nil){
                 // Load available logos
-                // print(" Logo Found: %@ ",b.bLogo);
+                print(" Logo Found: %@ ",b.bLogo);
                 let logoName = dict?.valueForKey(b.bLogo) as! String!;
                 let logo:UIImage? = UIImage(named: logoName);
                 b.bLogoImage = logo;
@@ -371,6 +375,22 @@ class BrandViewController: UIViewController,UITableViewDelegate, UITableViewData
     }
     
     
+    func displayAdvBanner() {
+        
+        if ((self.bCategoryId) != nil){
+            let adName = "ad."+areaCode+".cat"+bCategoryId!+".png";
+            BOAdvFetcher.advExists(adName, type: GlobalConstants.ADV_TYPE.BANNER) { (data) in
+                if ((data) != nil){
+                    self.imgViewAdvBanner.image = UIImage(data: data!)
+                    self.imgViewAdvBanner.hidden = false;
+                }
+                else {
+                    self.imgViewAdvBanner.hidden = true;
+                }
+            }
+        }
+    }
+
     
 }
 

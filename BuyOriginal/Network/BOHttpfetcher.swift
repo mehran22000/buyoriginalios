@@ -50,7 +50,7 @@ class BOHttpfetcher: NSObject {
         
         var url : String;
         if (discount) {
-           url = "https://buyoriginal.herokuapp.com/services/v1/stores/storelist/discounts/"+lat+"/"+lon+"/"+distance;
+           url = "https://buyoriginal.herokuapp.com/services/v1/dev/stores/storelist/discounts/"+lat+"/"+lon+"/"+distance;
            // url = "http://localhost:5000/stores/services/v1/storelist/discounts/"+lat+"/"+lon+"/"+distance;
         }
         else if (distance != nil){

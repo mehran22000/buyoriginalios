@@ -13,13 +13,14 @@ class BrandModel: NSObject{
     var bId: String!
     var bName: String!
     var bCategory: String!
+    var bCategoryId: String!
     var sNumbers: String!
     var sNearestLocation: String!
     var bLogo: String!
     var bLogoImage: UIImage!
         
     override var description: String {
-        return "bId: \(bId), bName: \(bName), bCategory: \(bCategory), sNumbers: \(sNumbers), sNearestLocation: \(sNearestLocation), bLogo: \(bLogo) \n"
+        return "bId: \(bId), bName: \(bName), bCategory: \(bCategory), bCategoryId: \(bCategoryId), sNumbers: \(sNumbers), sNearestLocation: \(sNearestLocation), bLogo: \(bLogo) \n"
     }
     
     override init() {
@@ -27,10 +28,11 @@ class BrandModel: NSObject{
     }
     
     
-    init(bId: String?, bName: String?, bCategory: String?, sNumbers: String?, sNearestLocation: String?, bLogo: String?) {
+    init(bId: String?, bName: String?, bCategory: String?, bCategoryId: String?, sNumbers: String?, sNearestLocation: String?, bLogo: String?) {
         self.bId = bId ?? ""
         self.bName = bName ?? ""
         self.bCategory = bCategory ?? ""
+        self.bCategoryId = bCategoryId ?? ""
         self.sNumbers = sNumbers ?? ""
         self.sNearestLocation = sNearestLocation ?? ""
         self.bLogo = bLogo ?? ""

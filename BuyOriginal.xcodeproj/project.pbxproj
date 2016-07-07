@@ -69,6 +69,8 @@
 		026B1EB61BCF4B5C004C11FC /* Brands3.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 026B1EB51BCF4B5C004C11FC /* Brands3.xcassets */; };
 		027AFA501C48A4A30077E12C /* Brands6.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 027AFA4F1C48A4A30077E12C /* Brands6.xcassets */; };
 		028154811BFA9D950008E0DB /* Brands5.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 028154801BFA9D950008E0DB /* Brands5.xcassets */; };
+		0286786E1D23594B00856038 /* BOAdvFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0286786D1D23594B00856038 /* BOAdvFetcher.swift */; };
+		028678701D235D2400856038 /* BOUrlGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0286786F1D235D2400856038 /* BOUrlGenerator.swift */; };
 		02900A4D1BD8432300045037 /* Brand4.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02900A4C1BD8432300045037 /* Brand4.xcassets */; };
 		0292219A1BA2651B006CBC2B /* SimulatorUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029221991BA2651B006CBC2B /* SimulatorUtility.swift */; };
 		0292219C1BA28471006CBC2B /* BOStoresDiscountNoteTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0292219B1BA28471006CBC2B /* BOStoresDiscountNoteTableCell.swift */; };
@@ -194,6 +196,8 @@
 		026B1EB51BCF4B5C004C11FC /* Brands3.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Brands3.xcassets; sourceTree = "<group>"; };
 		027AFA4F1C48A4A30077E12C /* Brands6.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Brands6.xcassets; sourceTree = "<group>"; };
 		028154801BFA9D950008E0DB /* Brands5.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Brands5.xcassets; sourceTree = "<group>"; };
+		0286786D1D23594B00856038 /* BOAdvFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BOAdvFetcher.swift; path = BuyOriginal/Advertisements/BOAdvFetcher.swift; sourceTree = "<group>"; };
+		0286786F1D235D2400856038 /* BOUrlGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BOUrlGenerator.swift; sourceTree = "<group>"; };
 		02900A4C1BD8432300045037 /* Brand4.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Brand4.xcassets; sourceTree = "<group>"; };
 		029221991BA2651B006CBC2B /* SimulatorUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimulatorUtility.swift; sourceTree = "<group>"; };
 		0292219B1BA28471006CBC2B /* BOStoresDiscountNoteTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BOStoresDiscountNoteTableCell.swift; sourceTree = "<group>"; };
@@ -477,6 +481,14 @@
 			name = Libraries;
 			sourceTree = "<group>";
 		};
+		0286786C1D2358E400856038 /* Advertisements */ = {
+			isa = PBXGroup;
+			children = (
+				0286786D1D23594B00856038 /* BOAdvFetcher.swift */,
+			);
+			name = Advertisements;
+			sourceTree = "<group>";
+		};
 		02997CA21BBCB3F6004986D5 /* Flurry */ = {
 			isa = PBXGroup;
 			children = (
@@ -493,6 +505,7 @@
 				02A3B2921B1A36E900B99AAA /* BOHttpfetcher.swift */,
 				0249CCE91B5C0AB4001C84BA /* BOHttpLogin.swift */,
 				020EAFA81B61F2E8001C7974 /* BOHttpPost.swift */,
+				0286786F1D235D2400856038 /* BOUrlGenerator.swift */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -535,6 +548,7 @@
 		02FB4DCB1AF7A47900884750 = {
 			isa = PBXGroup;
 			children = (
+				0286786C1D2358E400856038 /* Advertisements */,
 				023D25841CA3235500F825C4 /* ReadMe */,
 				021DE2F31CF51E9100624D1F /* Resources */,
 				02997CA21BBCB3F6004986D5 /* Flurry */,
@@ -746,6 +760,7 @@
 				021DA5B31B0FD53E0030815A /* BONearmeTableViewCell.swift in Sources */,
 				021DE30C1CF7FF1400624D1F /* AppUpdateVC.swift in Sources */,
 				02E45ADD1C7E67D700B46903 /* BOBrandVerificationAlertCell.swift in Sources */,
+				028678701D235D2400856038 /* BOUrlGenerator.swift in Sources */,
 				0232F57C1B016EA4009274BA /* ResponseParser.swift in Sources */,
 				02E45AD91C7D352500B46903 /* VerificationsDetailsViewController.swift in Sources */,
 				020EAFB81B6722D9001C7974 /* RegisterCinfirmationViewController.swift in Sources */,
@@ -770,6 +785,7 @@
 				029CD9B71B976CC2007F3A21 /* BuBrandDelegate.swift in Sources */,
 				0292219A1BA2651B006CBC2B /* SimulatorUtility.swift in Sources */,
 				02031EF41B7C427A00F21F96 /* Utilities.swift in Sources */,
+				0286786E1D23594B00856038 /* BOAdvFetcher.swift in Sources */,
 				022A95D01B54BD740091659B /* BusProfileReadOnlyCell.swift in Sources */,
 				02CB3A751B6FD6D400561F53 /* Discount.swift in Sources */,
 				02EA3EEE1B4E148900ECE384 /* DiscountViewController.swift in Sources */,

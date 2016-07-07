@@ -12,7 +12,7 @@ class ResponseParser: NSObject {
     override init() {
     }
     
-    
+    /*
     func parseBrandJson(json: NSString?) -> [BrandModel] {
         
         var array = [BrandModel]()
@@ -32,7 +32,7 @@ class ResponseParser: NSObject {
         
         return array;
     }
-    
+    */
     
     func parseBrandVerificationArray(array: NSArray) -> [VerificationModel] {
         
@@ -84,7 +84,7 @@ class ResponseParser: NSObject {
             let cName = elem["cName"] as? String
             let bLogo = elem["bLogo"] as? String
          //   print("bId: \(bId)", "bName: \(bName)", "cName: \(cName)", "bLogo: \(bLogo)")
-            let b = BrandModel(bId: bId, bName: bName, bCategory: cName, sNumbers: "", sNearestLocation: "", bLogo:bLogo);
+            let b = BrandModel(bId: bId, bName: bName, bCategory: cName, bCategoryId: "", sNumbers: "", sNearestLocation: "", bLogo:bLogo);
             brands+=[b]
         }
         return brands;
@@ -160,15 +160,15 @@ class ResponseParser: NSObject {
             let sDiscountPercentage = elem["dPrecentage"] as? Int
             
             let catName = cat.getCatEnName(bCategory);
-
+            let bCategoryId = elem["bCategoryId"] as? String;
             
             let sAreaCode = elem["sAreaCode"] as? String
             let bDistributor = elem["bDistributor"] as? String
             
-            let s = StoreModel(bId: bId, bName: bName, sId:sId, sName:sName, sAddress: sAddress, sTel1:sTel1, sTel2:sTel2, sDistance: sDistance, bCategory:bCategory, bLogo:bLogo, sLat:sLat, sLong:sLong, sVerified:sVerified, sAreaCode:sAreaCode,sHours:sHours, bDistributor:bDistributor, sDiscountStartDateFa:sDiscountStartDateFa, sDiscountStartDate:sDiscountStartDate,sDiscountEndDateFa:sDiscountEndDateFa,sDiscountEndDate:sDiscountEndDate,sDiscountNote:sDiscountNote,sDiscountPercentage:sDiscountPercentage);
+            let s = StoreModel(bId: bId, bName: bName, sId:sId, sName:sName, sAddress: sAddress, sTel1:sTel1, sTel2:sTel2, sDistance: sDistance, bCategory:bCategory, bCategoryId:bCategoryId, bLogo:bLogo, sLat:sLat, sLong:sLong, sVerified:sVerified, sAreaCode:sAreaCode,sHours:sHours, bDistributor:bDistributor, sDiscountStartDateFa:sDiscountStartDateFa, sDiscountStartDate:sDiscountStartDate,sDiscountEndDateFa:sDiscountEndDateFa,sDiscountEndDate:sDiscountEndDate,sDiscountNote:sDiscountNote,sDiscountPercentage:sDiscountPercentage);
             stores+=[s]
             
-            let b = BrandModel(bId: bId, bName: bName, bCategory: bCategory, sNumbers: "", sNearestLocation: "", bLogo: bLogo)
+            let b = BrandModel(bId: bId, bName: bName, bCategory: bCategory, bCategoryId:bCategoryId, sNumbers: "", sNearestLocation: "", bLogo: bLogo)
             
             var newBrand = true;
             for elem:BrandModel in brands{

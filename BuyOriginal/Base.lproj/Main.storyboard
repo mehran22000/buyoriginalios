@@ -1472,7 +1472,7 @@
                                 </searchBar>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellBrand" rowHeight="60" id="MxM-My-PQJ" customClass="BOBrandTableViewCell" customModule="BuyOriginal" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="66" width="320" height="60"/>
+                                        <rect key="frame" x="0.0" y="130" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MxM-My-PQJ" id="1PB-pN-NYV">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="59.5"/>
@@ -1523,6 +1523,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="color" red="0.0" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="BBX-BU-24b" userLabel="Img View - Ad Banner ">
+                                <rect key="frame" x="0.0" y="460" width="320" height="60"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="w8e-qh-Rui">
                                 <rect key="frame" x="0.0" y="63" width="320" height="457"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1541,7 +1545,8 @@
                     <connections>
                         <outlet property="activityIndicatior" destination="oO6-TC-bJ7" id="w1r-V6-gSa"/>
                         <outlet property="adActivityIndicatior" destination="Svk-Ig-j1b" id="glC-aP-LJA"/>
-                        <outlet property="adImgView" destination="w8e-qh-Rui" id="3MK-ro-fHD"/>
+                        <outlet property="adImgView" destination="w8e-qh-Rui" id="ic1-8b-TyC"/>
+                        <outlet property="imgViewAdvBanner" destination="BBX-BU-24b" id="hgC-Ni-Qfk"/>
                         <outlet property="searchDisplayController" destination="gZv-kc-EYy" id="WRG-wS-1fb"/>
                         <outlet property="tableView" destination="7PS-xE-lqT" id="Ssd-m3-kkV"/>
                         <segue destination="YGF-kM-Gti" kind="push" identifier="ShowStoresSegue" id="Ew2-7t-ccn"/>
@@ -1937,7 +1942,7 @@
                         </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellCity" rowHeight="111" id="Lsu-2R-Q0e" customClass="BOCityTableViewCell" customModule="BuyOriginal" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="130" width="320" height="111"/>
+                                <rect key="frame" x="0.0" y="66" width="320" height="111"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Lsu-2R-Q0e" id="qgA-0g-PvL">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="110.5"/>
@@ -2090,7 +2095,11 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.80000001192092896" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="1d7-1X-pCn">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="UB0-lt-A2P" userLabel="Img View - Ad Banner ">
+                                <rect key="frame" x="0.0" y="460" width="320" height="60"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="1d7-1X-pCn" userLabel="Img VIew - Ad Full ">
                                 <rect key="frame" x="0.0" y="63" width="320" height="457"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2112,7 +2121,8 @@
                     <connections>
                         <outlet property="activityIndicatior" destination="qBh-2N-j3r" id="deb-Yw-sfg"/>
                         <outlet property="adActivityIndicatior" destination="e0c-fR-Xff" id="4mJ-3f-hwu"/>
-                        <outlet property="adImgView" destination="1d7-1X-pCn" id="FhW-TJ-kbo"/>
+                        <outlet property="adImgView" destination="1d7-1X-pCn" id="F1E-YU-2Kk"/>
+                        <outlet property="imgViewAdvBanner" destination="UB0-lt-A2P" id="PR6-mW-E2B"/>
                         <outlet property="noInternetConnectionView" destination="ixa-6D-lVC" id="PZx-Kc-Bqd"/>
                         <outlet property="tableView" destination="lpk-Bb-x2x" id="vzC-3p-bOq"/>
                         <segue destination="4xN-d6-qrz" kind="push" identifier="pushBrands" id="l5r-YM-H1u"/>
@@ -2507,10 +2517,10 @@
         <image name="welcome.blue" width="720" height="1280"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jox-BJ-M8F"/>
-        <segue reference="wOj-2e-F9P"/>
-        <segue reference="l5r-YM-H1u"/>
         <segue reference="Ew2-7t-ccn"/>
+        <segue reference="l5r-YM-H1u"/>
+        <segue reference="wOj-2e-F9P"/>
+        <segue reference="jox-BJ-M8F"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.53188751850000004" green="0.0" blue="0.0048371410560000003" alpha="1" colorSpace="calibratedRGB"/>
 </document>

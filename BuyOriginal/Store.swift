@@ -18,6 +18,7 @@ class StoreModel: NSObject{
     var sTel2: String!
     var sDistance: String!
     var bCategory: String!
+    var bCategoryId: String!
     var bLogo: String!
     var sLat: String!
     var sLong: String!
@@ -35,7 +36,7 @@ class StoreModel: NSObject{
     
     
     override var description: String {
-        return "bId: \(bId), bName: \(bName),sId: \(sId), sName: \(sName), sAddress: \(sAddress), sTel1: \(sTel1), sTel2: \(sTel2), sDistance: \(sDistance), bCategory: \(bCategory), bLogo: \(bLogo), sLat: \(sLat), sLong: \(sLong),sVerified: \(sVerified), bDistributor: \(bDistributor), sDiscountStartDateFa: \(sDiscountStartDateFa),sDiscountStartDate: \(sDiscountStartDate), sDiscountEndDateFa: \(sDiscountEndDateFa), sDiscountEndDate: \(sDiscountEndDate), sDiscountNote: \(sDiscountNote), sDiscountPrecentage: \(sDiscountPercentage) \n"
+        return "bId: \(bId), bName: \(bName),sId: \(sId), sName: \(sName), sAddress: \(sAddress), sTel1: \(sTel1), sTel2: \(sTel2), sDistance: \(sDistance), bCategory: \(bCategory), bCategoryId: \(bCategoryId),bLogo: \(bLogo), sLat: \(sLat), sLong: \(sLong),sVerified: \(sVerified), bDistributor: \(bDistributor), sDiscountStartDateFa: \(sDiscountStartDateFa),sDiscountStartDate: \(sDiscountStartDate), sDiscountEndDateFa: \(sDiscountEndDateFa), sDiscountEndDate: \(sDiscountEndDate), sDiscountNote: \(sDiscountNote), sDiscountPrecentage: \(sDiscountPercentage) \n"
     }
     
     override init() {
@@ -55,7 +56,7 @@ class StoreModel: NSObject{
         }
     }
     
-    init(bId: String?, bName: String?, sId: String?, sName: String?, sAddress: String?, sTel1: String?, sTel2: String?, sDistance: String?, bCategory: String?, bLogo: String?, sLat: String?, sLong: String?, sVerified: String?, sAreaCode:String?, sHours:String?, bDistributor:String?, sDiscountStartDateFa: String!, sDiscountStartDate: String!, sDiscountEndDateFa: String!, sDiscountEndDate: String!,sDiscountNote: String!, sDiscountPercentage: Int!) {
+    init(bId: String?, bName: String?, sId: String?, sName: String?, sAddress: String?, sTel1: String?, sTel2: String?, sDistance: String?, bCategory: String?, bCategoryId: String?, bLogo: String?, sLat: String?, sLong: String?, sVerified: String?, sAreaCode:String?, sHours:String?, bDistributor:String?, sDiscountStartDateFa: String!, sDiscountStartDate: String!, sDiscountEndDateFa: String!, sDiscountEndDate: String!,sDiscountNote: String!, sDiscountPercentage: Int!) {
         self.bId = bId ?? ""
         self.bName = bName ?? ""
         self.sId = sId ?? ""
@@ -65,6 +66,7 @@ class StoreModel: NSObject{
         self.sTel2 = sTel2 ?? ""
         self.sDistance = sDistance ?? ""
         self.bCategory = bCategory ?? ""
+        self.bCategoryId = bCategoryId ?? ""
         self.bLogo = bLogo ?? ""
         self.sLat = sLat ?? ""
         self.sLong = sLong ?? ""

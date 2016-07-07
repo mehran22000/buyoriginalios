@@ -69,9 +69,17 @@ struct GlobalConstants {
     
     enum SERVICE_TYPE {
         case UPDATE_AVAILABLE
+        case ADV_FULLSCREEN
+        case ADV_BANNER
     }
     
     
+    enum ADV_TYPE {
+        case FULL_SCREEN
+        case BANNER
+    }
+    
+    static let BASE_URL_ADVERTISEMENT = "https://buyoriginal.herokuapp.com/"
     static let BASE_URL_PROD = "https://buyoriginal.herokuapp.com/services/v1/"
     static let BASE_URL_DEV = "https://buyoriginal.herokuapp.com/services/v1/dev/"
     static let BASE_URL_LOCAL = "http://localhost:5000/services/v1/dev/"
@@ -83,6 +91,9 @@ struct GlobalConstants {
     
     static let iOS7AppStoreURLFormat = "itms-apps://itunes.apple.com/app/id%d";
     static let iOSAppStoreURLFormat = "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%d"
+    
+    static let RELETIVE_URL_ADV_FULL = "images/ads/fullpage/"
+    static let RELETIVE_URL_ADV_BANNER = "images/ads/banner/"
 
     
 }

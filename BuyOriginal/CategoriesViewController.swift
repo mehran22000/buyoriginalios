@@ -13,6 +13,8 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
     @IBOutlet var tableView: UITableView!
     @IBOutlet var noInternetConnectionView: UIView!
     @IBOutlet var adImgView: UIImageView!
+    @IBOutlet var imgViewAdvBanner: UIImageView!
+    
     
     var selectedCategory:String="";
     var brandsArray = NSArray()
@@ -112,7 +114,7 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
 
     
     override func viewWillAppear(animated: Bool) {
-       
+        displayAdvBanner();
     }
     
     
@@ -398,6 +400,8 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
                 destinationVC.selectedCategoryNameFa = self.selectedCategory;
                 destinationVC.brandsArray =  self.categoryBrands[self.selectedCategory]!;
                 destinationVC.brandStores = self.brandStores;
+                let firstBrand = destinationVC.brandsArray[0] as! BrandModel;
+                destinationVC.bCategoryId = firstBrand.bCategoryId;
             }
         }
     }
@@ -442,5 +446,25 @@ class CategoriesViewController: UIViewController,UITableViewDelegate, UITableVie
             self.adActivityIndicatior?.stopAnimating();
         }
     }
+    
+    
+    
+    func displayAdvBanner() {
+        
+        let adName = "ad."+areaCode+".png";
+        BOAdvFetcher.advExists(adName, type: GlobalConstants.ADV_TYPE.BANNER) { (data) in
+            if ((data) != nil){
+                self.imgViewAdvBanner.image = UIImage(data: data!)
+                self.imgViewAdvBanner.hidden = false;
+            }
+            else {
+                self.imgViewAdvBanner.hidden = true;
+            }
+        }
+    }
+    
+    
+    
+    
 }
 

@@ -46,8 +46,12 @@ public class Utilities {
         }
         
         switch type {
-        case GlobalConstants.SERVICE_TYPE.UPDATE_AVAILABLE:
-            urlStr = urlStr + GlobalConstants.RELETIVE_URL_UPDATE_AVAILABLE
+            case GlobalConstants.SERVICE_TYPE.UPDATE_AVAILABLE:
+                urlStr = urlStr + GlobalConstants.RELETIVE_URL_UPDATE_AVAILABLE
+            case GlobalConstants.SERVICE_TYPE.ADV_FULLSCREEN:
+                urlStr = GlobalConstants.BASE_URL_ADVERTISEMENT + GlobalConstants.RELETIVE_URL_ADV_FULL
+            case GlobalConstants.SERVICE_TYPE.ADV_BANNER:
+                urlStr = GlobalConstants.BASE_URL_ADVERTISEMENT + GlobalConstants.RELETIVE_URL_ADV_BANNER
         }
         
         
