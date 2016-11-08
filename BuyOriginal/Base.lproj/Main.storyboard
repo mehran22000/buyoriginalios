@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="f9V-ZF-9C6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="f9V-ZF-9C6">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -83,7 +83,7 @@
                                 </label>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cellDistance" rowHeight="59" id="Ch8-iJ-C9j" customClass="BODisatnceTableViewCell" customModule="BuyOriginal" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="66" width="320" height="59"/>
+                                        <rect key="frame" x="0.0" y="130" width="320" height="59"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ch8-iJ-C9j" id="pCD-TP-neM">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="58.5"/>
@@ -118,7 +118,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellStore" rowHeight="80" id="Bwc-uX-oRg" customClass="BONearmeTableViewCell" customModule="BuyOriginal" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="125" width="320" height="80"/>
+                                        <rect key="frame" x="0.0" y="189" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bwc-uX-oRg" id="n7g-SB-w1A">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="79.5"/>
@@ -249,6 +249,151 @@
             </objects>
             <point key="canvasLocation" x="285" y="1185"/>
         </scene>
+        <!--اصل یا تقلبی-->
+        <scene sceneID="fuA-68-nkg">
+            <objects>
+                <navigationController title="اصل یا تقلبی" id="dcp-0H-axk" userLabel="اصل یا تقلبی" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="اصل و تقلبی" image="Gurantee" id="NZV-WK-jm1"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="y3N-Y8-mar">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Srb-b6-KGs" kind="relationship" relationship="rootViewController" id="BAc-vm-uJD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Al-3I-Ffj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="275" y="2002"/>
+        </scene>
+        <!--Brands List-->
+        <scene sceneID="XNQ-oo-nlA">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KaG-yE-4Zr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController title="Brands List" id="Srb-b6-KGs" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YnJ-D9-QdW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" id="A9i-Fj-c0T">
+                                <rect key="frame" x="0.0" y="65" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <view contentMode="scaleToFill" id="1fQ-7o-gT3">
+                                <rect key="frame" x="0.0" y="457" width="320" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Clx-Rj-Xhm">
+                                        <rect key="frame" x="0.0" y="-9" width="320" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Your Observation" backgroundImage="Purple">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="e8g-jY-Qkv" kind="push" id="cXd-SJ-zYh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="25" sectionHeaderHeight="28" sectionFooterHeight="28" id="2K1-6k-2Bc">
+                                <rect key="frame" x="0.0" y="109" width="320" height="459"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellBrand" rowHeight="60" id="5Tr-Pc-bDB" customClass="BOBrandTableViewCell" customModule="BuyOriginal" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5Tr-Pc-bDB" id="5Co-bf-9eP">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="oSb-TT-l3j">
+                                                    <rect key="frame" x="11" y="5" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="نام برند" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="G1C-9n-bJ9">
+                                                    <rect key="frame" x="69" y="1" width="214" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="گروه" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="f1b-SW-Sgz">
+                                                    <rect key="frame" x="183" y="30" width="100" height="25"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="brandImageView" destination="oSb-TT-l3j" id="rgi-I6-sxD"/>
+                                            <outlet property="brandNameLabel" destination="G1C-9n-bJ9" id="De9-to-gd3"/>
+                                            <outlet property="categoryOrStoreNoLabel" destination="f1b-SW-Sgz" id="fnF-OF-Xs7"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ESf-4g-fbm"/>
+                    <connections>
+                        <segue destination="1nM-9i-mL1" kind="push" id="ZK5-ha-zNh"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="890" y="2006"/>
+        </scene>
+        <!--Categories List-->
+        <scene sceneID="FZa-uv-xwJ">
+            <objects>
+                <tableViewController title="Categories List" id="1nM-9i-mL1" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="mfC-7Q-qou">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="B0S-OR-aL5">
+                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="B0S-OR-aL5" id="ZuQ-CW-K8B">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="1nM-9i-mL1" id="n1B-71-Die"/>
+                            <outlet property="delegate" destination="1nM-9i-mL1" id="DPw-Ub-rmp"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Gxv-wP-KLy"/>
+                    <connections>
+                        <segue destination="xyS-Rb-vYw" kind="push" id="AKJ-0O-41U"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MUZ-XG-O8k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1395" y="2006"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Rzb-2R-a4U">
+            <objects>
+                <viewController id="e8g-jY-Qkv" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="b4s-4c-szW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="mqs-Xa-sWV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oea-Gc-67L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1395" y="2754"/>
+        </scene>
         <!--تخفیف ها-->
         <scene sceneID="ks2-nC-sSo">
             <objects>
@@ -271,7 +416,7 @@
                                 </searchBar>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cellDistance" rowHeight="59" id="Ww9-Fa-QWR" customClass="BODisatnceTableViewCell" customModule="BuyOriginal" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="66" width="320" height="59"/>
+                                        <rect key="frame" x="0.0" y="130" width="320" height="59"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ww9-Fa-QWR" id="dwC-9I-zIr">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="58.5"/>
@@ -306,7 +451,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellDeal" rowHeight="120" id="ETf-eE-Zp5" customClass="BODealsTableViewCell" customModule="BuyOriginal" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="125" width="320" height="120"/>
+                                        <rect key="frame" x="0.0" y="189" width="320" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ETf-eE-Zp5" id="iCR-Qi-dTS">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="119.5"/>
@@ -441,7 +586,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cellAddress" rowHeight="70" id="mOl-s0-gOe" customClass="BusProfileInputCell" customModule="BuyOriginal" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="22" width="320" height="70"/>
+                                <rect key="frame" x="0.0" y="66" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mOl-s0-gOe" id="gpb-U0-cak">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="69.5"/>
@@ -455,7 +600,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" id="vo5-SO-Hqi">
-                                            <rect key="frame" x="16.99999640070482" y="36" width="260" height="30"/>
+                                            <rect key="frame" x="17" y="36" width="260" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
@@ -471,7 +616,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cellDistributor" rowHeight="70" id="qbV-Zq-DOZ" customClass="BusProfileInputCell" customModule="BuyOriginal" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="320" height="70"/>
+                                <rect key="frame" x="0.0" y="136" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qbV-Zq-DOZ" id="Piu-I7-4R6">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="69.5"/>
@@ -485,7 +630,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" id="9nT-Si-1Wz">
-                                            <rect key="frame" x="16.000001394044354" y="36" width="260" height="30"/>
+                                            <rect key="frame" x="16" y="36" width="260" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
@@ -498,7 +643,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cellAction" rowHeight="114" id="CwN-Tm-Zyw" customClass="BOBusDisActionTableViewCell" customModule="BuyOriginal" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="162" width="320" height="114"/>
+                                <rect key="frame" x="0.0" y="206" width="320" height="114"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CwN-Tm-Zyw" id="gnV-PL-Rkk">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="113.5"/>
@@ -538,7 +683,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellBrand" rowHeight="60" id="xAn-2o-iUX" customClass="BOBrandTableViewCell" customModule="BuyOriginal" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="276" width="320" height="60"/>
+                                <rect key="frame" x="0.0" y="320" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xAn-2o-iUX" id="9BY-aG-kWm">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="59.5"/>
@@ -579,7 +724,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellCity" rowHeight="60" id="KM8-J8-HCl" customClass="BusProfileReadOnlyCell" customModule="BuyOriginal" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="336" width="320" height="60"/>
+                                <rect key="frame" x="0.0" y="380" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KM8-J8-HCl" id="uUd-1z-4xM">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="59.5"/>
@@ -607,7 +752,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cellHours" rowHeight="75" id="2Ml-qL-lGv" customClass="BusProfileInputCell" customModule="BuyOriginal" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="396" width="320" height="75"/>
+                                <rect key="frame" x="0.0" y="440" width="320" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2Ml-qL-lGv" id="dhS-8W-NLr">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="74.5"/>
@@ -634,7 +779,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellEmail" rowHeight="60" id="mMw-Is-B3z" customClass="BusProfileReadOnlyCell" customModule="BuyOriginal" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="471" width="320" height="60"/>
+                                <rect key="frame" x="0.0" y="515" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mMw-Is-B3z" id="Q3g-1o-gDA">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
@@ -662,7 +807,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellPassword" rowHeight="60" id="3RS-si-YwK" customClass="BusProfileReadOnlyCell" customModule="BuyOriginal" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="531" width="320" height="60"/>
+                                <rect key="frame" x="0.0" y="575" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3RS-si-YwK" id="2Z8-vd-D4Z">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="59.5"/>
@@ -690,7 +835,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellPhone" rowHeight="60" id="9w2-Uo-ZNl" customClass="BusProfileReadOnlyCell" customModule="BuyOriginal" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="591" width="320" height="60"/>
+                                <rect key="frame" x="0.0" y="635" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9w2-Uo-ZNl" id="65O-t2-2QU">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="59.5"/>
@@ -889,7 +1034,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cellBrand" rowHeight="60" id="lUU-5x-siB" customClass="BOBrandTableViewCell" customModule="BuyOriginal" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="86" width="320" height="60"/>
+                                <rect key="frame" x="0.0" y="66" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lUU-5x-siB" id="DaO-oM-lRv">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
@@ -930,7 +1075,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cellStartDate" rowHeight="85" id="dMd-aG-ZMt" customClass="BOBusDisDateTableViewCell" customModule="BuyOriginal" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="146" width="320" height="85"/>
+                                <rect key="frame" x="0.0" y="126" width="320" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dMd-aG-ZMt" id="yMr-Pd-bBP">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="84.5"/>
@@ -991,7 +1136,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cellEndDate" rowHeight="85" id="nop-1C-xyn" customClass="BOBusDisDateTableViewCell" customModule="BuyOriginal" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="231" width="320" height="85"/>
+                                <rect key="frame" x="0.0" y="211" width="320" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nop-1C-xyn" id="7pu-K4-UIC">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="84.5"/>
@@ -1052,7 +1197,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cellAction" rowHeight="60" id="3Ta-Kf-r9i" customClass="BOBusDisActionTableViewCell" customModule="BuyOriginal" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="316" width="320" height="60"/>
+                                <rect key="frame" x="0.0" y="296" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Ta-Kf-r9i" id="bzN-PQ-U6b">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
@@ -1092,7 +1237,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cellNote" rowHeight="85" id="s03-Ct-BjJ" customClass="BOBusDisNotesTableViewCell" customModule="BuyOriginal" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="376" width="320" height="85"/>
+                                <rect key="frame" x="0.0" y="356" width="320" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="s03-Ct-BjJ" id="s3M-vn-BdH">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="84.5"/>
@@ -1118,7 +1263,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cellPrecentage" rowHeight="85" id="MR2-9X-jo4" customClass="BOBusDisPercentageTableViewCell" customModule="BuyOriginal" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="461" width="320" height="85"/>
+                                <rect key="frame" x="0.0" y="441" width="320" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MR2-9X-jo4" id="709-dq-7Fu">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="84.5"/>
@@ -1588,7 +1733,7 @@
                                 </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cellVerification" rowHeight="35" id="kDX-A0-47N" customClass="BOBrandVerificationAlertCell" customModule="BuyOriginal" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="66" width="320" height="35"/>
+                                        <rect key="frame" x="0.0" y="130" width="320" height="35"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kDX-A0-47N" id="sKh-xJ-cD2">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="34.5"/>
@@ -1615,7 +1760,7 @@
                                         <color key="backgroundColor" red="0.98632317624638066" green="0.17085930959451862" blue="0.18719350022465467" alpha="0.25" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cellStore" rowHeight="150" id="Kvu-A7-MQB" customClass="BOStoresTableViewCell" customModule="BuyOriginal" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="101" width="320" height="150"/>
+                                        <rect key="frame" x="0.0" y="165" width="320" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kvu-A7-MQB" id="bNl-RQ-qaR">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="149.5"/>
@@ -1715,7 +1860,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellDiscountNote" rowHeight="150" id="nTh-qN-kMH" customClass="BOStoresDiscountNoteTableCell" customModule="BuyOriginal" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="251" width="320" height="150"/>
+                                        <rect key="frame" x="0.0" y="315" width="320" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nTh-qN-kMH" id="gki-IC-fLw">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="149.5"/>
@@ -1785,7 +1930,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="verificationCell" rowHeight="120" id="uIT-v1-d71" customClass="BOVerificationCell" customModule="BuyOriginal" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="120"/>
+                                        <rect key="frame" x="0.0" y="92" width="320" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uIT-v1-d71" id="vuZ-NJ-GX2">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="119.5"/>
@@ -1942,7 +2087,7 @@
                         </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellCity" rowHeight="111" id="Lsu-2R-Q0e" customClass="BOCityTableViewCell" customModule="BuyOriginal" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="66" width="320" height="111"/>
+                                <rect key="frame" x="0.0" y="130" width="320" height="111"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Lsu-2R-Q0e" id="qgA-0g-PvL">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="110.5"/>
@@ -2146,6 +2291,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <segue destination="dcp-0H-axk" kind="relationship" relationship="viewControllers" id="xFe-Pi-pzm"/>
                         <segue destination="vTt-Wa-BVk" kind="relationship" relationship="viewControllers" id="9KS-ge-itr"/>
                         <segue destination="vx3-b6-VLH" kind="relationship" relationship="viewControllers" id="7PW-Ob-DB4"/>
                         <segue destination="t8d-ob-BxJ" kind="relationship" relationship="viewControllers" id="s5h-BO-H5D"/>
@@ -2154,7 +2300,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EhA-SB-lN1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-441" y="863"/>
+            <point key="canvasLocation" x="-475" y="865"/>
         </scene>
         <!--۴- فروشگاه-->
         <scene sceneID="Lhx-xZ-Ca7">
@@ -2289,14 +2435,14 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell1" rowHeight="155" id="iNc-SJ-VIF">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="155"/>
+                                        <rect key="frame" x="0.0" y="66" width="320" height="155"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iNc-SJ-VIF" id="Be0-ag-fab">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="154.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="l91-1L-bus">
-                                                    <rect key="frame" x="12.000001399913275" y="3" width="291" height="150"/>
+                                                    <rect key="frame" x="12" y="3" width="291" height="150"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <string key="text">۱.خدمات و محتوای این وبسایت به جز در مواردی خاص به صورت کامل رایگان بوده و در دسترس همه عموم قرار دارد. بنابراین درصورت عدم دسترسی به این وبسایت به هر دلیلی یا قطع خدمات و مسدود شدن محتوای وبسایت، ما هیچ گونه مسئولیتی را قبول نخواهیم کرد.</string>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
@@ -2308,14 +2454,14 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell2" rowHeight="130" id="Sy7-8k-jrr">
-                                        <rect key="frame" x="0.0" y="177" width="320" height="130"/>
+                                        <rect key="frame" x="0.0" y="221" width="320" height="130"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Sy7-8k-jrr" id="6dB-AU-vP8">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="129.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="M8V-dD-ZWO">
-                                                    <rect key="frame" x="1.0000002382225635" y="0.0" width="304" height="120"/>
+                                                    <rect key="frame" x="1" y="0.0" width="304" height="120"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <string key="text">۲.اگرچه محتوای این اپلیکیشن بسیار قابل اعتماد است، با این حال، ما ضمانت نمی‌کنیم که این وبسایت و محتوای آن، بدون اشکال و خطا باشد. بنابراین در استفاده از محتوای آن هیچ گونه مسئولیتی در هیچ موردی را قبول نخواهیم کرد. </string>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
@@ -2326,14 +2472,14 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell3" rowHeight="75" id="4Bi-S7-BWe">
-                                        <rect key="frame" x="0.0" y="307" width="320" height="75"/>
+                                        <rect key="frame" x="0.0" y="351" width="320" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Bi-S7-BWe" id="Tkx-uU-5nf">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="74.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="۳.تمامی حقوق مادی و معنوی این وبسایت و محتوای آن از جمله حقوق کپی رایت نزد ما محفوظ است. " textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iGr-QH-o0F">
-                                                    <rect key="frame" x="14.999999190298178" y="6" width="294" height="61"/>
+                                                    <rect key="frame" x="15" y="6" width="294" height="61"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -2343,14 +2489,14 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell4" rowHeight="75" id="pmi-4v-N48">
-                                        <rect key="frame" x="0.0" y="382" width="320" height="75"/>
+                                        <rect key="frame" x="0.0" y="426" width="320" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pmi-4v-N48" id="WA6-RP-zvc">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="74.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="۴.شرکت ثبت شده متعلق به کاربر ثبت کننده می باشد. در غیر اینصورت بلافاصله از اپلیکشین حذف می شود." textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6dw-yb-DUR">
-                                                    <rect key="frame" x="7.999999423576277" y="4" width="301" height="68"/>
+                                                    <rect key="frame" x="8" y="4" width="301" height="68"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -2396,7 +2542,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell1" rowHeight="55" id="NhA-xt-EeF">
-                                <rect key="frame" x="0.0" y="22" width="320" height="55"/>
+                                <rect key="frame" x="0.0" y="66" width="320" height="55"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NhA-xt-EeF" id="ISO-mz-d9z">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="54.5"/>
@@ -2407,7 +2553,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="فروشگاه خود را در قسمت جستجو پیدا کنید" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OCK-P2-6iv">
-                                            <rect key="frame" x="-1.9999978930602711" y="5" width="272" height="44"/>
+                                            <rect key="frame" x="-2" y="5" width="272" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -2417,7 +2563,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell2" rowHeight="55" id="Agn-BE-XWN">
-                                <rect key="frame" x="0.0" y="77" width="320" height="55"/>
+                                <rect key="frame" x="0.0" y="121" width="320" height="55"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Agn-BE-XWN" id="zwc-GU-NI4">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="54.5"/>
@@ -2438,7 +2584,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell3" rowHeight="150" id="Nhz-dz-ljx">
-                                <rect key="frame" x="0.0" y="132" width="320" height="150"/>
+                                <rect key="frame" x="0.0" y="176" width="320" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nhz-dz-ljx" id="YQo-jm-sWk">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="149.5"/>
@@ -2449,7 +2595,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jXu-f3-jbt">
-                                            <rect key="frame" x="13.999998072365086" y="5" width="254" height="136"/>
+                                            <rect key="frame" x="14" y="5" width="254" height="136"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                             <string key="text">ثبت شرکت و مدیریت حراج ها کاملا رایگان می باشد. در ۲۴ ساعت آینده با ایمیل شما تماس حاصل می شود تا سایر خدمات این اپلیکیشن به شما معرفی شود. این سرویس ها فروشگاه و حراج ها ی شما را بیشتر در معرض دید و استفاده کاربران می نماید.</string>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
@@ -2460,7 +2606,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell4" rowHeight="53" id="iek-sU-fTh">
-                                <rect key="frame" x="0.0" y="282" width="320" height="53"/>
+                                <rect key="frame" x="0.0" y="326" width="320" height="53"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iek-sU-fTh" id="Ulm-lP-VIp">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="52.5"/>
@@ -2497,6 +2643,8 @@
     </scenes>
     <resources>
         <image name="GPS" width="128" height="128"/>
+        <image name="Gurantee" width="48" height="48"/>
+        <image name="Purple" width="218" height="104"/>
         <image name="Sadness" width="64" height="64"/>
         <image name="Store" width="64" height="64"/>
         <image name="announcement" width="64" height="64"/>
@@ -2517,10 +2665,11 @@
         <image name="welcome.blue" width="720" height="1280"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ew2-7t-ccn"/>
-        <segue reference="l5r-YM-H1u"/>
         <segue reference="wOj-2e-F9P"/>
+        <segue reference="AKJ-0O-41U"/>
         <segue reference="jox-BJ-M8F"/>
+        <segue reference="l5r-YM-H1u"/>
+        <segue reference="Ew2-7t-ccn"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.53188751850000004" green="0.0" blue="0.0048371410560000003" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -80,7 +80,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         Analytics.postInterest();
         
     
-    
+        // Test
+        let image:UIImage? = UIImage(named: "Clothes");
+        BOPhotoUploader.upload(image!, uploadName: "test3.png", paramDic: ["key1":"value1"]);
         
         
         

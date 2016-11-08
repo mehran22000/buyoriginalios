@@ -102,6 +102,7 @@
 		02EA3EEA1B4E13E000ECE384 /* BOBusDisPercentageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EA3EE91B4E13E000ECE384 /* BOBusDisPercentageTableViewCell.swift */; };
 		02EA3EEC1B4E143300ECE384 /* BOBusDisDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EA3EEB1B4E143300ECE384 /* BOBusDisDateTableViewCell.swift */; };
 		02EA3EEE1B4E148900ECE384 /* DiscountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EA3EED1B4E148900ECE384 /* DiscountViewController.swift */; };
+		02EBFFC31DA34D9D00F36904 /* BOPhotoUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EBFFC21DA34D9D00F36904 /* BOPhotoUploader.swift */; };
 		02ED158C1B3514C300A08215 /* Cities.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02ED158B1B3514C300A08215 /* Cities.xcassets */; };
 		02ED15901B351E5B00A08215 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02ED158F1B351E5B00A08215 /* CategoriesViewController.swift */; };
 		02ED15921B351E9000A08215 /* BOCityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02ED15911B351E9000A08215 /* BOCityTableViewCell.swift */; };
@@ -230,6 +231,7 @@
 		02EA3EE91B4E13E000ECE384 /* BOBusDisPercentageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BOBusDisPercentageTableViewCell.swift; sourceTree = "<group>"; };
 		02EA3EEB1B4E143300ECE384 /* BOBusDisDateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BOBusDisDateTableViewCell.swift; sourceTree = "<group>"; };
 		02EA3EED1B4E148900ECE384 /* DiscountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountViewController.swift; sourceTree = "<group>"; };
+		02EBFFC21DA34D9D00F36904 /* BOPhotoUploader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BOPhotoUploader.swift; sourceTree = "<group>"; };
 		02ED158B1B3514C300A08215 /* Cities.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Cities.xcassets; sourceTree = "<group>"; };
 		02ED158F1B351E5B00A08215 /* CategoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		02ED15911B351E9000A08215 /* BOCityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BOCityTableViewCell.swift; sourceTree = "<group>"; };
@@ -506,6 +508,7 @@
 				0249CCE91B5C0AB4001C84BA /* BOHttpLogin.swift */,
 				020EAFA81B61F2E8001C7974 /* BOHttpPost.swift */,
 				0286786F1D235D2400856038 /* BOUrlGenerator.swift */,
+				02EBFFC21DA34D9D00F36904 /* BOPhotoUploader.swift */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -796,6 +799,7 @@
 				0264E0C61B3A4A610075F95C /* City.swift in Sources */,
 				02ED15961B36810300A08215 /* TabBarController.swift in Sources */,
 				02FB4DDD1AF7A47900884750 /* BuyOriginal.xcdatamodeld in Sources */,
+				02EBFFC31DA34D9D00F36904 /* BOPhotoUploader.swift in Sources */,
 				02C99C1C1B8E6DC300F8DA23 /* BuPhoneDelegate.swift in Sources */,
 				022A95CE1B5472040091659B /* RegisterBusinessPhoneController.swift in Sources */,
 			);
